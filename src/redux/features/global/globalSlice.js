@@ -4,6 +4,9 @@ const initialState = {
   group: 0,
   homeTab: "inPlay",
   addBank: false,
+  showRegister: false,
+  showLogin: false,
+  showForgotPassword: false,
 };
 
 const stateSlice = createSlice({
@@ -19,9 +22,25 @@ const stateSlice = createSlice({
     setAddBank: (state, action) => {
       state.addBank = action.payload;
     },
+    setShowRegister: (state, action) => {
+      state.showRegister = action.payload;
+    },
+    setShowLogin: (state, action) => {
+      state.showLogin = action.payload;
+    },
+    setShowForgotPassword: (state, action) => {
+      state.showForgotPassword = action.payload;
+    },
   },
 });
 
-export const { setGroup, setHomeTab, setAddBank } = stateSlice.actions;
+export const {
+  setGroup,
+  setHomeTab,
+  setAddBank,
+  setShowRegister,
+  setShowLogin,
+  setShowForgotPassword,
+} = stateSlice.actions;
 
 export default stateSlice.reducer;

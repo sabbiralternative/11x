@@ -1,8 +1,63 @@
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import useLogo from "../../../hooks/useLogo";
+import { useLoginMutation } from "../../../redux/features/auth/authApi";
+import { Settings } from "../../../api";
+import { setUser } from "../../../redux/features/auth/authSlice";
+import toast from "react-hot-toast";
+
+import Login from "../../modals/Login/Login";
+import { setShowLogin } from "../../../redux/features/global/globalSlice";
+import Register from "../../modals/Register/Register";
+import ForgotPassword from "../../modals/ForgotPassword/ForgotPassword";
 
 const Header = () => {
+  const { token } = useSelector((state) => state.auth);
+  const { showLogin, showRegister, showForgotPassword } = useSelector(
+    (state) => state.global
+  );
+  const navigate = useNavigate();
+  const { logo } = useLogo();
+  const dispatch = useDispatch();
+  const [handleLogin] = useLoginMutation();
+
+  const loginWithDemo = async () => {
+    const loginData = {
+      username: "demo",
+      password: "",
+      b2c: Settings.b2c,
+    };
+    const result = await handleLogin(loginData).unwrap();
+
+    if (result.success) {
+      const token = result?.result?.token;
+      const bonusToken = result?.result?.bonusToken;
+      const user = result?.result?.loginName;
+      const game = result?.result?.buttonValue?.game;
+      const modal = {
+        banner: result?.result?.banner,
+        bannerTitle: result?.result?.bannerTitle,
+      };
+
+      dispatch(setUser({ user, token }));
+      localStorage.setItem("buttonValue", JSON.stringify(game));
+      localStorage.setItem("token", token);
+      localStorage.setItem("modal", JSON.stringify(modal));
+      localStorage.setItem("bonusToken", bonusToken);
+      if (token && user) {
+        navigate("/");
+        toast.success("Login successful");
+      }
+    } else {
+      toast.error(result?.error);
+    }
+  };
+
   return (
     <div>
+      {showLogin && <Login />}
+      {showRegister && <Register />}
+      {showForgotPassword && <ForgotPassword />}
       <header
         id="header"
         className="header fixed-top d-flex align-items-center"
@@ -10,118 +65,58 @@ const Header = () => {
         <div className="container-fluid d-flex align-items-center">
           <div className="d-flex align-items-center justify-content-between">
             <Link to="/" className="logo d-flex align-items-center">
-              <img
-                alt=""
-                className="img-fluid"
-                src="/src/assets/images/logo.png"
-              />
+              <img alt="" className="img-fluid" src={logo} />
             </Link>
             <i className="bi bi-list-nested toggle-sidebar-btn ng-star-inserted" />
           </div>
 
-          <nav className="header-nav ms-auto ng-star-inserted">
-            <ul className="d-flex align-items-center">
-              <li className="nav-item balance_li">
-                <a href="javascript:void(0);" className="nav-link">
-                  <i className="bi bi-bank" /> Balance
-                  <b>0</b>
-                </a>
-              </li>
-              <li className="nav-item expo_li">
-                <a className="nav-link">
-                  <i className="bi bi-bar-chart" />
-                  expo. <b>0</b>
-                </a>
-              </li>
-            </ul>
+          <nav className="header-nav ms-auto">
+            {token ? (
+              <nav className="header-nav ms-auto ng-star-inserted">
+                <ul className="d-flex align-items-center">
+                  <li className="nav-item balance_li">
+                    <a href="javascript:void(0);" className="nav-link">
+                      <i className="bi bi-bank" /> Balance
+                      <b>0</b>
+                    </a>
+                  </li>
+                  <li className="nav-item expo_li">
+                    <a className="nav-link">
+                      <i className="bi bi-bar-chart" />
+                      expo. <b>0</b>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            ) : (
+              <ul className="d-flex align-items-center">
+                {/* Demo Link */}
+                <li
+                  onClick={loginWithDemo}
+                  className="nav-item expo_bal loginbtn"
+                >
+                  <a className="nav-link">
+                    <i className="bi bi-box-arrow-in-right" />
+                    <span>Demo</span>
+                  </a>
+                </li>
+                {/* Login Link */}
+                <li
+                  onClick={() => dispatch(setShowLogin(true))}
+                  className="nav-item expo_bal signupbtn"
+                >
+                  <a id="loginbutton" className="nav-link">
+                    <i className="bi bi-box-arrow-in-right" />
+                    <span>Login</span>
+                  </a>
+                </li>
+              </ul>
+            )}
           </nav>
         </div>
       </header>
 
-      {/* <a
-            href="javascript:void(0);"
-            className="casino_chip ng-star-inserted"
-          >
-            <img src="/src/assets/images/casino-chip.png" />
-          </a> */}
-
-      <div
-        tabIndex={-1}
-        role="dialog"
-        aria-labelledby="dialog-login-name"
-        className="modal fade login-popup"
-      >
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-body">
-              <button
-                type="button"
-                aria-label="Close"
-                className="close pull-right"
-              >
-                <span aria-hidden="true">×</span>
-              </button>
-              <div>
-                <div className="ng-star-inserted">
-                  <div className="modal-body">
-                    <form
-                      noValidate
-                      className="login-form ng-untouched ng-pristine ng-invalid"
-                    >
-                      <div className="form-group">
-                        <label
-                          htmlFor="exampleInputEmail1"
-                          className="text-uppercase"
-                        >
-                          Username
-                        </label>
-                        <input
-                          type="text"
-                          placeholder="Username"
-                          className="form-control ng-untouched ng-pristine ng-invalid"
-                        />
-                      </div>
-                      <div className="form-group">
-                        <label
-                          htmlFor="exampleInputPassword1"
-                          className="text-uppercase"
-                        >
-                          Password
-                        </label>
-                        <input
-                          type="password"
-                          placeholder="Password"
-                          className="form-control ng-untouched ng-pristine ng-invalid"
-                        />
-                      </div>
-                      <div className="form-check">
-                        <label className="form-check-label">
-                          <input type="checkbox" className="form-check-input" />
-                          <span>Remember Me?</span>
-                        </label>
-                      </div>
-
-                      <button type="submit" className="btn btn-login">
-                        Log In
-                      </button>
-                    </form>
-                    <div className="copy-text">
-                      Powered by
-                      <a href="javascript:void(0)">11xplay</a>
-                      <p className="ng-star-inserted">
-                        <a href="mailto:11xplayofficiall@gmail.com">
-                          11xplayofficiall@gmail.com
-                        </a>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
+      {/* Force change password */}
       <div
         tabIndex={-1}
         role="dialog"
@@ -229,7 +224,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-
+      {/* Modal */}
       <div
         tabIndex={-1}
         role="dialog"
