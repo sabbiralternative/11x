@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import PrivateRoute from "./PrivateRoute";
 import Home from "../pages/Home/Home";
-import Dashboard from "../pages/Dashboard/Dashboard";
+import LoggedInHome from "../pages/LoggedInHome/LoggedInHome";
 
 export const router = createBrowserRouter(
   [
@@ -16,7 +16,7 @@ export const router = createBrowserRouter(
       children: [
         {
           index: true,
-          element: <Dashboard />,
+          element: <LoggedInHome />,
         },
         // {
         //   path: "/event-details/:eventTypeId/:eventId",
