@@ -12,8 +12,8 @@ export const useBalance = () => {
     queryFn: async () => {
       const res = await AxiosSecure.post(API.balance);
       if (res?.data?.success === false && token) {
-        localStorage.clear();
-        navigate("/login");
+        // localStorage.clear();
+        // navigate("/login");
       } else if (res?.data?.success && token) {
         const data = res.data?.result;
         return data;

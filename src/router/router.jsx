@@ -3,6 +3,7 @@ import App from "../App";
 import PrivateRoute from "./PrivateRoute";
 import Home from "../pages/Home/Home";
 import LoggedInHome from "../pages/LoggedInHome/LoggedInHome";
+import EventDetails from "../pages/EventDetails/EventDetails";
 
 export const router = createBrowserRouter(
   [
@@ -18,10 +19,10 @@ export const router = createBrowserRouter(
           index: true,
           element: <LoggedInHome />,
         },
-        // {
-        //   path: "/event-details/:eventTypeId/:eventId",
-        //   element: <EventDetails />,
-        // },
+        {
+          path: "/event-details/:eventTypeId/:eventId",
+          element: <EventDetails />,
+        },
         // {
         //   path: "/casino",
         //   element: <Casino />,

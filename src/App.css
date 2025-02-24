@@ -2312,3 +2312,41 @@ section[_ngcontent-vam-c50] {
     padding: 0 5px;
   }
 }
+
+/*! loader */
+
+.place-bet-content.black-bg-theme .full-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 9;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  background: #00000050;
+}
+
+.spinner {
+  background: #fff;
+  width: 40px;
+  height: 40px;
+  margin: 20px auto;
+  border-left: 5px solid #0000001a;
+  border-right: 5px solid #0000001a;
+  border-color: #0000001a red;
+  border-style: solid;
+  border-width: 5px 4px;
+  animation: spinner 2s linear infinite forwards;
+  border-radius: 50%;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(1turn);
+  }
+}

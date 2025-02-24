@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../../../redux/features/auth/authSlice";
 
 const Sidebar = () => {
@@ -18,10 +18,10 @@ const Sidebar = () => {
           <img className="mobile-logo" src="/src/assets/images/logo.png" />
 
           <li className="nav-item">
-            <a href="dashboard.html" className="nav-link final-link">
+            <Link to="/" className="nav-link final-link">
               <img src="/src/assets/images/menu-home.png" />
               <span>home</span>
-            </a>
+            </Link>
           </li>
           <li className="nav-item ng-star-inserted">
             <a
