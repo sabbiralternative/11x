@@ -12,12 +12,11 @@ import ForgotPassword from "../../modals/ForgotPassword/ForgotPassword";
 import useBalance from "../../../hooks/balance";
 import ForceChangePassword from "../../modals/ForceChangePassword/ForceChangePassword";
 
-const Header = () => {
+const Header = ({ setIsOpenSidebar }) => {
   const { data } = useBalance();
   const { token } = useSelector((state) => state.auth);
-  const { showLogin, showRegister, showForgotPassword,forceChangePassword } = useSelector(
-    (state) => state.global
-  );
+  const { showLogin, showRegister, showForgotPassword, forceChangePassword } =
+    useSelector((state) => state.global);
   const navigate = useNavigate();
   const { logo } = useLogo();
   const dispatch = useDispatch();
@@ -70,7 +69,10 @@ const Header = () => {
             <Link to="/" className="logo d-flex align-items-center">
               <img alt="" className="img-fluid" src={logo} />
             </Link>
-            <i className="bi bi-list-nested toggle-sidebar-btn ng-star-inserted" />
+            <i
+              onClick={() => setIsOpenSidebar((prev) => !prev)}
+              className="bi bi-list-nested toggle-sidebar-btn ng-star-inserted"
+            />
           </div>
 
           <nav className="header-nav ms-auto">

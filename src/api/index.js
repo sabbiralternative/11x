@@ -51,6 +51,7 @@ export const API = {
   singleDiamondRules: "",
   mac88All: "",
   forgotPassword: "",
+  banner: "",
 };
 
 export const Settings = {

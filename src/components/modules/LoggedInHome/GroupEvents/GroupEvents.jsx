@@ -132,6 +132,7 @@ const GroupEvents = () => {
                                       data[keyA].sort - data[keyB].sort
                                   )
                                   .map((key, index) => {
+                                    if (!data?.[key]?.visible) return;
                                     return (
                                       <div
                                         onClick={() => navigateGameList(key)}

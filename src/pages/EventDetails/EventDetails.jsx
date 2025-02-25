@@ -96,6 +96,22 @@ const EventDetails = () => {
                 </div>
 
                 <div className="sr-widget-1" />
+                {data?.score?.tracker && (
+                  <div
+                    style={{
+                      width: "100%",
+                      height: "125px",
+                      overflow: "hidden",
+                    }}
+                  >
+                    {" "}
+                    <iframe
+                      className="premium-iframe"
+                      src={data?.score?.tracker}
+                    ></iframe>
+                  </div>
+                )}
+
                 <div>
                   <MatchOddsBookmaker data={data?.result} />
 

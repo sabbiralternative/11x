@@ -1,77 +1,16 @@
 import Header from "../../components/shared/Header/Header";
+import Notification from "../../components/shared/Notification/Notification";
+import Banner from "./Banner";
 
 const Home = () => {
   return (
     <div className="fullpage">
       <div>
         <Header />
-        <div>
-          <div className="commentary">
-            <img src="/src/assets/images/commentary.png" />
-            <marquee>
-              New Version Available With International Casino Please Contact
-              Your Upline
-            </marquee>
-          </div>{" "}
-        </div>
+        <Notification />
         <main id="main" className="main">
           <div>
-            <div
-              id="bannerMain"
-              data-bs-ride="carousel"
-              className="carousel slide"
-            >
-              <div className="carousel-inner">
-                <div className="carousel-item">
-                  <img
-                    src="/src/assets/images/banner1.png"
-                    className="img-fluid"
-                  />
-                </div>
-                <div className="carousel-item active">
-                  <img
-                    src="/src/assets/images/banner2.png"
-                    className="img-fluid"
-                  />
-                </div>
-                <div className="carousel-item">
-                  <img
-                    src="/src/assets/images/banner3.png"
-                    className="img-fluid"
-                  />
-                </div>
-                <div className="carousel-item">
-                  <img
-                    src="/src/assets/images/banner4.png"
-                    className="img-fluid"
-                  />
-                </div>
-              </div>
-              <button
-                type="button"
-                data-bs-target="#bannerMain"
-                data-bs-slide="prev"
-                className="carousel-control-prev"
-              >
-                <span
-                  aria-hidden="true"
-                  className="carousel-control-prev-icon"
-                />
-                <span className="visually-hidden">Previous</span>
-              </button>
-              <button
-                type="button"
-                data-bs-target="#bannerMain"
-                data-bs-slide="next"
-                className="carousel-control-next"
-              >
-                <span
-                  aria-hidden="true"
-                  className="carousel-control-next-icon"
-                />
-                <span className="visually-hidden">Next</span>
-              </button>
-            </div>
+            <Banner />
             <section className="sportsSection">
               <div className="container">
                 <h2 className="titlehome">IN OUR EXCHANGE...</h2>

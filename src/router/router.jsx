@@ -8,6 +8,8 @@ import Casino from "../pages/Casino/Casino";
 import IntCasino from "../pages/IntCasino/IntCasino";
 import EditStake from "../pages/EditStake/EditStake";
 import Profile from "../pages/Profile/Profile";
+import CasinoIFrame from "../pages/CasinoIFrame/CasinoIFrame";
+import SportsBook from "../pages/SportsBook/SportsBook";
 
 export const router = createBrowserRouter(
   [
@@ -31,6 +33,7 @@ export const router = createBrowserRouter(
           path: "/casino",
           element: <Casino />,
         },
+
         {
           path: "/int-casino",
           element: <IntCasino />,
@@ -108,6 +111,14 @@ export const router = createBrowserRouter(
     {
       path: "/home",
       element: <Home />,
+    },
+    {
+      path: "/casino/:name/:gameId",
+      element: <CasinoIFrame />,
+    },
+    {
+      path: "/sports-book",
+      element: <SportsBook />,
     },
   ],
   {

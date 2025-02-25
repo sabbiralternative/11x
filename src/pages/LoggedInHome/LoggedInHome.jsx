@@ -1,9 +1,11 @@
+import { useSelector } from "react-redux";
 import CasinoProvider from "../../components/modules/LoggedInHome/CasinoProvider";
 import ExtraTab from "../../components/modules/LoggedInHome/ExtraTab";
 import GroupEvents from "../../components/modules/LoggedInHome/GroupEvents/GroupEvents";
 import Tab from "../../components/modules/LoggedInHome/Tab";
 
 const LoggedInHome = () => {
+  const { group } = useSelector((state) => state.global);
   return (
     <main id="main" className="main">
       <div className="ng-star-inserted">
@@ -19,7 +21,7 @@ const LoggedInHome = () => {
                 >
                   <ExtraTab />
                   <GroupEvents />
-                  <CasinoProvider />
+                  {group === 0 && <CasinoProvider />}
                 </div>
               </div>
             </div>
