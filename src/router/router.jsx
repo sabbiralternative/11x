@@ -4,6 +4,8 @@ import PrivateRoute from "./PrivateRoute";
 import Home from "../pages/Home/Home";
 import LoggedInHome from "../pages/LoggedInHome/LoggedInHome";
 import EventDetails from "../pages/EventDetails/EventDetails";
+import Casino from "../pages/Casino/Casino";
+import IntCasino from "../pages/IntCasino/IntCasino";
 
 export const router = createBrowserRouter(
   [
@@ -22,6 +24,14 @@ export const router = createBrowserRouter(
         {
           path: "/event-details/:eventTypeId/:eventId",
           element: <EventDetails />,
+        },
+        {
+          path: "/casino",
+          element: <Casino />,
+        },
+        {
+          path: "/int-casino",
+          element: <IntCasino />,
         },
         // {
         //   path: "/casino",
