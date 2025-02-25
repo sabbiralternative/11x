@@ -7,6 +7,7 @@ const initialState = {
   showRegister: false,
   showLogin: false,
   showForgotPassword: false,
+  forceChangePassword: false,
 };
 
 const stateSlice = createSlice({
@@ -31,6 +32,9 @@ const stateSlice = createSlice({
     setShowForgotPassword: (state, action) => {
       state.showForgotPassword = action.payload;
     },
+    setForceChangePassword: (state, action) => {
+      state.forceChangePassword = action.payload;
+    },
   },
 });
 
@@ -41,6 +45,7 @@ export const {
   setShowRegister,
   setShowLogin,
   setShowForgotPassword,
+  setForceChangePassword,
 } = stateSlice.actions;
 
 export default stateSlice.reducer;

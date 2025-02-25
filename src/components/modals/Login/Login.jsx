@@ -8,6 +8,7 @@ import toast from "react-hot-toast";
 import { useRef } from "react";
 import useCloseModalClickOutside from "../../../hooks/closeModal";
 import {
+  setForceChangePassword,
   setShowForgotPassword,
   setShowLogin,
   setShowRegister,
@@ -44,9 +45,11 @@ const Login = () => {
       localStorage.setItem("token", token);
       localStorage.setItem("bonusToken", bonusToken);
       if (data?.result?.changePassword) {
-        navigate("/change-password");
+        closeLoginModal();
+        dispatch(setForceChangePassword(true));
       } else {
         closeLoginModal();
+        navigate("/");
         toast.success("Login successful");
       }
     } else {

@@ -5,15 +5,17 @@ import { useLoginMutation } from "../../../redux/features/auth/authApi";
 import { Settings } from "../../../api";
 import { setUser } from "../../../redux/features/auth/authSlice";
 import toast from "react-hot-toast";
-
 import Login from "../../modals/Login/Login";
 import { setShowLogin } from "../../../redux/features/global/globalSlice";
 import Register from "../../modals/Register/Register";
 import ForgotPassword from "../../modals/ForgotPassword/ForgotPassword";
+import useBalance from "../../../hooks/balance";
+import ForceChangePassword from "../../modals/ForceChangePassword/ForceChangePassword";
 
 const Header = () => {
+  const { data } = useBalance();
   const { token } = useSelector((state) => state.auth);
-  const { showLogin, showRegister, showForgotPassword } = useSelector(
+  const { showLogin, showRegister, showForgotPassword,forceChangePassword } = useSelector(
     (state) => state.global
   );
   const navigate = useNavigate();
@@ -58,6 +60,7 @@ const Header = () => {
       {showLogin && <Login />}
       {showRegister && <Register />}
       {showForgotPassword && <ForgotPassword />}
+      {forceChangePassword && <ForceChangePassword />}
       <header
         id="header"
         className="header fixed-top d-flex align-items-center"
@@ -77,13 +80,13 @@ const Header = () => {
                   <li className="nav-item balance_li">
                     <a href="javascript:void(0);" className="nav-link">
                       <i className="bi bi-bank" /> Balance
-                      <b>0</b>
+                      <b>{data?.availBalance}</b>
                     </a>
                   </li>
                   <li className="nav-item expo_li">
                     <a className="nav-link">
                       <i className="bi bi-bar-chart" />
-                      expo. <b>0</b>
+                      expo. <b>{data?.deductedExposure}</b>
                     </a>
                   </li>
                 </ul>
@@ -115,150 +118,6 @@ const Header = () => {
           </nav>
         </div>
       </header>
-
-      {/* Force change password */}
-      <div
-        tabIndex={-1}
-        role="dialog"
-        aria-labelledby
-        className="modal fade force-change-password-popup"
-      >
-        <div className="modal-dialog bookModal">
-          <div className="modal-content modal-content-centered">
-            <div className="modal-header">
-              <h5 className="modal-title">Force Change Password</h5>
-              <button
-                type="button"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-                className="close"
-              >
-                <span aria-hidden="true">×</span>
-              </button>
-            </div>
-            <div className="modal-body p-0">
-              <div>
-                <section className="section accounts">
-                  <div className="row">
-                    <div className="col-xl-12">
-                      <h2 className="userscreen-title">Change Password</h2>
-                      <div className="card stakesettingui">
-                        <div className="card-body">
-                          <form
-                            noValidate
-                            className="cp_form p-3 ng-untouched ng-pristine ng-invalid"
-                          >
-                            <div className="row mb-lg-3 mt-lg-2 align-items-center">
-                              <label
-                                htmlFor="currentPassword"
-                                className="col-md-3 col-lg-3 col-form-label text-lg-end"
-                              >
-                                Current Password :
-                              </label>
-                              <div className="col-md-9 col-lg-9">
-                                <input
-                                  type="password"
-                                  id="currentPassword"
-                                  className="form-control ng-untouched ng-pristine ng-invalid"
-                                />
-                              </div>
-                            </div>
-                            <div className="row mb-lg-3 mt-lg-2 align-items-center">
-                              <label
-                                htmlFor="newPassword"
-                                className="col-md-3 col-lg-3 col-form-label text-lg-end"
-                              >
-                                New Password :
-                              </label>
-                              <div className="col-md-9 col-lg-9">
-                                <input
-                                  type="password"
-                                  id="newPassword"
-                                  className="form-control ng-untouched ng-pristine ng-invalid"
-                                />
-                              </div>
-                            </div>
-                            <div className="row mb-lg-3 mt-lg-2 align-items-center">
-                              <label
-                                htmlFor="renewPassword"
-                                className="col-md-3 col-lg-3 col-form-label text-lg-end"
-                              >
-                                Re-enter New Password :
-                              </label>
-                              <div className="col-md-9 col-lg-9">
-                                <input
-                                  type="password"
-                                  id="renewPassword"
-                                  className="form-control ng-untouched ng-pristine ng-invalid"
-                                />
-                              </div>
-                            </div>
-                            <div className="feedback">
-                              <p className="small m-0">
-                                <i>
-                                  <b>Note:</b> The New Password field must be at
-                                  least 6 characters
-                                </i>
-                              </p>
-                              <p className="small m-0">
-                                <i>
-                                  <b>Note:</b> The New Password must contain at
-                                  least: 1 uppercase letter, 1 lowercase letter,
-                                  1 number
-                                </i>
-                              </p>
-                            </div>
-                            <div className="row mt-1">
-                              <button type="submit" className="btn btn-thmemes">
-                                Change Password
-                              </button>
-                            </div>
-                          </form>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* Modal */}
-      <div
-        tabIndex={-1}
-        role="dialog"
-        aria-labelledby
-        className="modal fade force-change-password-popup"
-      >
-        <div className="modal-dialog bookModal app_version">
-          <div className="modal-content modal-content-padding-custom">
-            <div className="modal-body p-0">
-              <button
-                type="button"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-                className="close"
-                style={{
-                  position: "absolute",
-                  right: "13px",
-                  top: "1px",
-                  color: "#fff",
-                  fontSize: "21px",
-                }}
-              >
-                <span aria-hidden="true">×</span>
-              </button>
-              <a target="_blank" href="dashboard.html">
-                <img
-                  src="/src/assets/images/poster-login-popup.webp"
-                  style={{ width: "100%" }}
-                />
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   );
 };

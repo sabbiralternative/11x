@@ -6,6 +6,8 @@ import LoggedInHome from "../pages/LoggedInHome/LoggedInHome";
 import EventDetails from "../pages/EventDetails/EventDetails";
 import Casino from "../pages/Casino/Casino";
 import IntCasino from "../pages/IntCasino/IntCasino";
+import EditStake from "../pages/EditStake/EditStake";
+import Profile from "../pages/Profile/Profile";
 
 export const router = createBrowserRouter(
   [
@@ -32,6 +34,14 @@ export const router = createBrowserRouter(
         {
           path: "/int-casino",
           element: <IntCasino />,
+        },
+        {
+          path: "/edit-stake",
+          element: <EditStake />,
+        },
+        {
+          path: "/profile",
+          element: <Profile />,
         },
         // {
         //   path: "/casino",
