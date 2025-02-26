@@ -9,7 +9,7 @@ const LoggedInHome = () => {
   return (
     <main id="main" className="main">
       <div className="ng-star-inserted">
-        <section className="section listing_page">
+        <div className="">
           <div className="main_navigation_menu">
             <div className="tab-container">
               <Tab />
@@ -26,7 +26,7 @@ const LoggedInHome = () => {
               </div>
             </div>
           </div>
-        </section>
+        </div>
       </div>
     </main>
   );

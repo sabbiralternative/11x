@@ -3048,6 +3048,7 @@ padding: 0 10px;*/
   background: var(--theme-secondary-color) !important;
   color: #fff;
   border-radius: 0;
+  height: 100%;
   border: none;
 }
 .place-bet .bet-odds .input-group input {

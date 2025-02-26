@@ -35,7 +35,7 @@ const EditStake = () => {
   return (
     <main id="main" className="main">
       <div className="ng-star-inserted">
-        <section className="section accounts">
+        <div className="section accounts">
           <div className="row">
             <div className="col-xl-12">
               <h2 className="userscreen-title">Stake Setting</h2>
@@ -74,7 +74,7 @@ const EditStake = () => {
               </form>
             </div>
           </div>
-        </section>
+        </div>
       </div>
     </main>
   );

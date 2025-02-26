@@ -35,7 +35,7 @@ const Profile = () => {
   return (
     <main id="main" className="main">
       <div className="ng-star-inserted">
-        <section className="section profile">
+        <div className="section profile">
           <div className="card">
             <div className="card-body p-3">
               <div className="row">
@@ -220,7 +220,7 @@ const Profile = () => {
               </div>
             </div>
           </div>
-        </section>
+        </div>
       </div>
     </main>
   );

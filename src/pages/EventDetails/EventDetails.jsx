@@ -96,7 +96,7 @@ const EventDetails = () => {
   return (
     <main id="main" className="main">
       <div>
-        <section className="section listing_page">
+        <div>
           <div className="row">
             <div className="col-md-12 col-lg-8 detail-center-column">
               <div className="middle-page-content details-page">
@@ -157,7 +157,7 @@ const EventDetails = () => {
             </div>
             <RightSidebar hasVideo={data?.score?.hasVideo} />
           </div>
-        </section>
+        </div>
       </div>
     </main>
   );

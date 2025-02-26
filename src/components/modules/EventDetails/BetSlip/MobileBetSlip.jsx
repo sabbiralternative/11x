@@ -234,12 +234,14 @@ const MobileBetSlip = () => {
                   <tr>
                     <td colSpan={4} className="mmac_btns">
                       <button
+                        type="button"
                         onClick={() => dispatch(setStake(100))}
                         className="clear-both btn btn-secondary m-l-5 m-b-5 min-stake"
                       >
                         min
                       </button>
                       <button
+                        type="button"
                         onClick={() =>
                           dispatch(
                             setStake(
@@ -256,6 +258,7 @@ const MobileBetSlip = () => {
                         Edit Stake
                       </button> */}
                       <button
+                        type="button"
                         onClick={() => {
                           dispatch(setStake(null));
                         }}
