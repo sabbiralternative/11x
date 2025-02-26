@@ -4,7 +4,7 @@ import DesktopBetSlip from "./BetSlip/DesktopBetSlip";
 import { useAccessTokenMutation } from "../../../redux/features/casino/casino.api";
 import { useParams } from "react-router-dom";
 
-const RightSidebar = () => {
+const RightSidebar = ({ hasVideo }) => {
   const { eventTypeId, eventId } = useParams();
   const [showIFrame, setShowIFrame] = useState(false);
   const [getIFrame, { data: IFrame }] = useAccessTokenMutation();
@@ -25,21 +25,25 @@ const RightSidebar = () => {
       className="col-md-12 col-lg-4 detail-right-column d-none d-lg-block"
     >
       <div className="card mb-1 ng-star-inserted">
-        <div
-          onClick={() => setShowIFrame((prev) => !prev)}
-          className="card-header game-heading"
-        >
-          <span className="card-header-title"> Live Stream </span>
-          <span className="float-right">
-            <a
-              aria-controls="collapseBasic"
-              className="icon-livestream"
-              aria-expanded="false"
-            >
-              <img src={img.tv} alt="" />
-            </a>
-          </span>
-        </div>
+        {hasVideo && (
+          <div
+            style={{ cursor: "pointer" }}
+            onClick={() => setShowIFrame((prev) => !prev)}
+            className="card-header game-heading"
+          >
+            <span className="card-header-title"> Live Stream </span>
+            <span className="float-right">
+              <a
+                aria-controls="collapseBasic"
+                className="icon-livestream"
+                aria-expanded="false"
+              >
+                <img src={img.tv} alt="" />
+              </a>
+            </span>
+          </div>
+        )}
+
         <div className="card-body p-0 ng-star-inserted">
           <div id="collapseBasic" aria-hidden="true" className="collapse show">
             {showIFrame && IFrame?.result?.url && (

@@ -155,7 +155,7 @@ const EventDetails = () => {
                 </div>
               </div>
             </div>
-            <RightSidebar />
+            <RightSidebar hasVideo={data?.score?.hasVideo} />
           </div>
         </section>
       </div>
