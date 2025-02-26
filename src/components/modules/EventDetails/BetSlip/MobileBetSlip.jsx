@@ -130,8 +130,6 @@ const MobileBetSlip = () => {
     }
   }, [setBetDelay, betDelay]);
 
-  console.log(placeBetValues);
-
   return (
     <div className="col-lg-12 col-md-12 col-12 px-0 d-lg-none ng-star-inserted">
       <div>
@@ -292,9 +290,7 @@ const MobileBetSlip = () => {
               </div>
             </form>
           </div>
-          {/**/}
         </div>
-        {/**/}
       </div>
     </div>
   );

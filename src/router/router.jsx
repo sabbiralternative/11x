@@ -10,6 +10,7 @@ import EditStake from "../pages/EditStake/EditStake";
 import Profile from "../pages/Profile/Profile";
 import CasinoIFrame from "../pages/CasinoIFrame/CasinoIFrame";
 import SportsBook from "../pages/SportsBook/SportsBook";
+import UnSettledBets from "../pages/UnSettledBets/UnSettledBets";
 
 export const router = createBrowserRouter(
   [
@@ -46,10 +47,10 @@ export const router = createBrowserRouter(
           path: "/profile",
           element: <Profile />,
         },
-        // {
-        //   path: "/casino",
-        //   element: <Casino />,
-        // },
+        {
+          path: "/unsettled-bets",
+          element: <UnSettledBets />,
+        },
         // {
         //   path: "/change-password",
         //   element: <ChangePassword />,

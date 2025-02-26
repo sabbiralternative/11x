@@ -10,6 +10,7 @@ import {
 import { Settings } from "../../../api";
 import { handleCashOutPlaceBet } from "../../../utils/handleCashoutPlaceBet";
 import MobileBetSlip from "./BetSlip/MobileBetSlip";
+import { setShowLogin } from "../../../redux/features/global/globalSlice";
 
 const MatchOddsBookmaker = ({ data }) => {
   const filterMatchOddsBookmaker = data?.filter(
@@ -101,7 +102,8 @@ const MatchOddsBookmaker = ({ data }) => {
 
       dispatch(setPlaceBetValues(betData));
     } else {
-      navigate("/login");
+      navigate("/home");
+      dispatch(setShowLogin(true));
     }
   };
 
@@ -199,7 +201,7 @@ const MatchOddsBookmaker = ({ data }) => {
       setTeamProfit([]);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [eventId]);
+  }, [eventId, data]);
 
   let pnlBySelection;
   if (exposure?.pnlBySelection) {
@@ -215,6 +217,7 @@ const MatchOddsBookmaker = ({ data }) => {
             (profit) =>
               profit?.gameId === games?.id && profit?.isOnePositiveExposure
           );
+
           return (
             <div key={games?.id} className="market_section">
               <p>
@@ -289,8 +292,47 @@ const MatchOddsBookmaker = ({ data }) => {
                           key={runner?.id}
                           className="row mx-0 align-items-center"
                         >
-                          <div className="col-md-5 col-7 px-0">
+                          <div
+                            style={{
+                              display: "flex",
+                              justifyContent: "space-between",
+                            }}
+                            className="col-md-5 col-7 px-0"
+                          >
                             <span className="marketevent">{runner?.name}</span>
+
+                            <div
+                              style={{
+                                marginRight: "3px",
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "4px",
+                              }}
+                            >
+                              {pnl && (
+                                <span
+                                  style={{ position: "static", float: "none" }}
+                                  className={`mrkt-volume  ng-star-inserted ${
+                                    pnl?.pnl > 0 ? "green" : "red"
+                                  }`}
+                                >
+                                  {pnl?.pnl}
+                                </span>
+                              )}
+
+                              {stake && runnerId && predictOddValues && (
+                                <span
+                                  style={{ position: "static", float: "none" }}
+                                  className={`mrkt-volume ${
+                                    predictOddValues?.exposure > 0
+                                      ? "text-green"
+                                      : "text-red"
+                                  } ng-star-inserted`}
+                                >
+                                  &nbsp;({predictOddValues?.exposure})
+                                </span>
+                              )}
+                            </div>
                           </div>
                           <div className="col-md-7 col-5 px-0">
                             <div className="btn-group">
