@@ -68,7 +68,7 @@ const ForgotPassword = () => {
     const result = await handleForgotPassword(forgotPasswordData).unwrap();
     if (result.success) {
       toast.success(result?.message);
-      navigate("/login");
+      navigate("/");
     } else {
       toast.error(result?.error?.loginName?.[0]?.description);
     }

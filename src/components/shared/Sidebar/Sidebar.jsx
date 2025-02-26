@@ -1,14 +1,20 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../../../redux/features/auth/authSlice";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Rules from "../../modals/Rules/Rules";
+import useCloseModalClickOutside from "../../../hooks/closeModal";
 
-const Sidebar = () => {
+const Sidebar = ({ setIsOpenSidebar }) => {
+  const sidebarRef = useRef();
   const { user } = useSelector((state) => state.auth);
   const [showRules, setShowRules] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  useCloseModalClickOutside(sidebarRef, () => {
+    setIsOpenSidebar(false);
+  });
 
   /* Handle logout */
   const handleLogout = () => {
@@ -19,17 +25,20 @@ const Sidebar = () => {
     <>
       {showRules && <Rules setShowRules={setShowRules} />}
       <div className="ng-star-inserted">
-        <aside id="sidebar" className="sidebar">
+        <aside ref={sidebarRef} id="sidebar" className="sidebar">
           <ul id="sidebar-nav" className="sidebar-nav">
             <img className="mobile-logo" src="/src/assets/images/logo.png" />
 
-            <li className="nav-item">
+            <li onClick={() => setIsOpenSidebar(false)} className="nav-item">
               <Link to="/" className="nav-link final-link">
                 <img src="/src/assets/images/menu-home.png" />
                 <span>home</span>
               </Link>
             </li>
-            <li className="nav-item ng-star-inserted">
+            <li
+              onClick={() => setIsOpenSidebar(false)}
+              className="nav-item ng-star-inserted"
+            >
               <Link
                 to="/multi-market"
                 className="nav-link multi-market final-link"
@@ -39,7 +48,10 @@ const Sidebar = () => {
               </Link>
             </li>
 
-            <li className="nav-item ng-star-inserted">
+            <li
+              onClick={() => setIsOpenSidebar(false)}
+              className="nav-item ng-star-inserted"
+            >
               <Link to="/profit-loss" className="nav-link final-link">
                 <img
                   src="/src/assets/images/profitloss.svg"
@@ -49,7 +61,10 @@ const Sidebar = () => {
               </Link>
             </li>
 
-            <li className="nav-item ng-star-inserted">
+            <li
+              onClick={() => setIsOpenSidebar(false)}
+              className="nav-item ng-star-inserted"
+            >
               <Link
                 to="/account-statement"
                 className="nav-link final-link nmm-active"
@@ -62,27 +77,42 @@ const Sidebar = () => {
               </Link>
             </li>
 
-            <li className="nav-item ng-star-inserted">
+            <li
+              onClick={() => setIsOpenSidebar(false)}
+              className="nav-item ng-star-inserted"
+            >
               <Link to="/unsettled-bets" className="nav-link final-link">
                 <img src="/src/assets/images/bets.svg" className="img-fluid" />
                 <span>unsettled bets</span>
               </Link>
             </li>
 
-            <li onClick={() => setShowRules(true)} className="nav-item">
+            <li
+              onClick={() => {
+                setShowRules(true);
+                setIsOpenSidebar(false);
+              }}
+              className="nav-item"
+            >
               <Link className="nav-link final-link">
                 <img src="/src/assets/images/terms.svg" className="img-fluid" />
                 <span>rules</span>
               </Link>
             </li>
-            <li className="nav-item ng-star-inserted">
+            <li
+              onClick={() => setIsOpenSidebar(false)}
+              className="nav-item ng-star-inserted"
+            >
               <Link to="/edit-stake" className="nav-link final-link">
                 <img src="/src/assets/images/edit.svg" className="img-fluid" />
                 <span>edit stake</span>
               </Link>
             </li>
 
-            <li className="nav-item ng-star-inserted">
+            <li
+              onClick={() => setIsOpenSidebar(false)}
+              className="nav-item ng-star-inserted"
+            >
               <Link to="/profile" className="nav-link final-link">
                 <img
                   src="/src/assets/images/profile_image.png"

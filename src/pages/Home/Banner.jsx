@@ -8,10 +8,11 @@ const Banner = () => {
   console.log(data);
   return (
     <Swiper
-      autoplay={{
-        delay: 5000,
-        disableOnInteraction: false,
-      }}
+      //   autoplay={{
+      //     delay: 5000,
+      //     disableOnInteraction: false,
+      //   }}
+      slidesPerView={2}
       pagination={{
         clickable: true,
       }}
@@ -22,13 +23,9 @@ const Banner = () => {
         <div className="carousel-inner">
           {data?.banner?.map((image, i) => {
             return (
-              <SwiperSlide style={{ width: "100%", height: "600px" }} key={i}>
+              <SwiperSlide key={i}>
                 <div className="carousel-item active">
-                  <img
-                    style={{ width: "100%", height: "100%" }}
-                    src={image}
-                    className="img-fluid"
-                  />
+                  <img src={image} className="img-fluid" />
                 </div>
               </SwiperSlide>
             );

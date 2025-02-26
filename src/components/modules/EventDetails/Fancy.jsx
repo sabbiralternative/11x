@@ -8,6 +8,7 @@ import {
   setRunnerId,
 } from "../../../redux/features/events/eventSlice";
 import { Status } from "../../../const";
+import MobileBetSlip from "./BetSlip/MobileBetSlip";
 
 const Fancy = ({ data }) => {
   const fancyData = data?.filter(
@@ -22,6 +23,7 @@ const Fancy = ({ data }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { token } = useSelector((state) => state.auth);
+  const { runnerId } = useSelector((state) => state.event);
   const { data: exposure } = useExposure(eventId);
   const [getLadder] = useGetLadderMutation();
 
@@ -46,10 +48,6 @@ const Fancy = ({ data }) => {
         selectionId = games?.id;
         runnerId = games?.id;
         eventTypeId = games?.eventTypeId;
-        const pnl = pnlBySelection?.find((p) => p?.RunnerId === games?.id);
-        if (pnl) {
-          updatedPnl.push(pnl?.pnl);
-        }
       } else if (games?.btype && games?.btype !== "FANCY") {
         selectionId = runner?.id;
         runnerId = games.runners.map((runner) => runner.id);
@@ -238,6 +236,7 @@ const Fancy = ({ data }) => {
                               </div>
                             </div>
                           </div>
+                          {game?.id === runnerId && <MobileBetSlip />}
                         </div>
                       );
                     })}

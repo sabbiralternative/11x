@@ -28,16 +28,19 @@ export const homeTab = [
     id: "staticTab-5",
     name: "Casino",
     imageSrc: "/src/assets/images/menu-99999.png",
+    to: "/casino",
   },
   {
     id: "staticTab-6",
     name: "Int Casino",
     imageSrc: "/src/assets/images/menu-99998.png",
+    to: "/int-casino",
   },
   {
     id: "staticTab-7",
     name: "Sports book",
     imageSrc: "/src/assets/images/menu-99991.png",
+    to: "/sports-book",
   },
   {
     id: "staticTab-8",

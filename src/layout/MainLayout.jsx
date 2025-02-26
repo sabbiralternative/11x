@@ -28,7 +28,7 @@ const MainLayout = () => {
     >
       <Header setIsOpenSidebar={setIsOpenSidebar} />
       <Notification />
-      <Sidebar />
+      <Sidebar setIsOpenSidebar={setIsOpenSidebar} />
       <Outlet />
       <MobileFooter />
     </div>

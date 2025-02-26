@@ -1,9 +1,15 @@
-import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useGroupQuery } from "../../../../redux/features/events/events";
 import { useEffect, useState } from "react";
 
 const GroupEvents = () => {
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
+  let tab = 0;
+  if (params.get("tab")) {
+    tab = parseInt(params.get("tab"));
+  }
+
   const eventName = {
     4: "Cricket",
     2: "Tennis",
@@ -11,9 +17,8 @@ const GroupEvents = () => {
   };
   const navigate = useNavigate();
   const [categories, setCategories] = useState([]);
-  const { group } = useSelector((state) => state.global);
   const { data } = useGroupQuery(
-    { sportsType: group },
+    { sportsType: tab },
     {
       pollingInterval: 1000,
     }
@@ -125,7 +130,7 @@ const GroupEvents = () => {
                           <div className="ng-star-inserted">
                             {data &&
                             Object.values(data).length > 0 &&
-                            (group || group === 0)
+                            (tab || tab === 0)
                               ? Object.keys(filteredData)
                                   .sort(
                                     (keyA, keyB) =>

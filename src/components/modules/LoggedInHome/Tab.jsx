@@ -1,35 +1,50 @@
-import { useDispatch, useSelector } from "react-redux";
 import { homeTab } from "../../../static/group";
-import { setGroup } from "../../../redux/features/global/globalSlice";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Tab = () => {
-  const { group } = useSelector((state) => state.global);
-  const dispatch = useDispatch();
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
+  let tab = 0;
+  if (params.get("tab")) {
+    tab = parseInt(params.get("tab"));
+  }
+
+  const navigate = useNavigate();
+
   const handleActiveTab = (tab) => {
     if (tab?.id === 0 || tab?.id === 1 || tab?.id === 4 || tab?.id === 2) {
-      dispatch(setGroup(tab?.id));
+      navigate(`/?tab=${tab?.id}`);
+    }
+    if (tab?.to) {
+      navigate(tab?.to);
     }
   };
   return (
     <ul role="tablist" className="nav nav-pills" aria-label="Tabs">
-      {homeTab?.map((tab) => {
+      {homeTab?.map((t) => {
         return (
           <li
-            onClick={() => handleActiveTab(tab)}
-            key={tab?.id}
+            onClick={() => handleActiveTab(t)}
+            key={t?.id}
             className={`active nav-item ng-star-inserted`}
           >
             <a
               role="tab"
-              className={`nav-link ${group === tab?.id ? "active" : ""}`}
+              className={`nav-link ${
+                tab == t?.id
+                  ? "active"
+                  : location.pathname === t.to
+                  ? "active"
+                  : ""
+              }`}
               aria-controls
               aria-selected="true"
               id
             >
               <span />
-              <img className="img-fluid ng-star-inserted" src={tab.imageSrc} />
+              <img className="img-fluid ng-star-inserted" src={t.imageSrc} />
               <span className="ml-2 ng-star-inserted" id="staticTab-0">
-                {tab?.name}
+                {t?.name}
               </span>
             </a>
           </li>

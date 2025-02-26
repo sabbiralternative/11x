@@ -131,6 +131,7 @@ const MobileBetSlip = () => {
   }, [setBetDelay, betDelay]);
 
   console.log(placeBetValues);
+
   return (
     <div className="col-lg-12 col-md-12 col-12 px-0 d-lg-none ng-star-inserted">
       <div>
@@ -141,7 +142,7 @@ const MobileBetSlip = () => {
         >
           <div id="goto-8.888104010-52877485" />
           <div className="table-responsive palce-tab-content">
-            {!loading && (
+            {loading && (
               <div className="full-overlay ng-star-inserted">
                 <div className="spinner"></div>
               </div>
@@ -268,7 +269,10 @@ const MobileBetSlip = () => {
               </table>
               <div className="col-md-12 px-0 d-flex justify-content-between">
                 <button
-                  onClick={() => dispatch(setPlaceBetValues(null))}
+                  onClick={() => {
+                    dispatch(setPlaceBetValues(null));
+                    dispatch(setRunnerId(null));
+                  }}
                   type="button"
                   className="btn btn-sm btn-danger"
                 >
