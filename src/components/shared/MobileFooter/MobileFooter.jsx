@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 
 const MobileFooter = () => {
   const location = useLocation();
+
   return (
     <div>
       <nav className="footer_mobilemenu">
@@ -13,7 +14,7 @@ const MobileFooter = () => {
           <img src="/src/assets/images/multi.svg" className="img-fluid" />
           <span>Multi</span>
         </Link>
-        <Link to="/home" className="ng-star-inserted">
+        <Link to="/?tab=0" className="ng-star-inserted">
           <img src="/src/assets/images/place.svg" className="img-fluid" />
           <span>Home</span>
         </Link>

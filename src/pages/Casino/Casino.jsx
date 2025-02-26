@@ -99,7 +99,7 @@ const Casino = () => {
                                   <span className="list-sport-title">
                                     <img
                                       className="img-fluid game-icon-img"
-                                      src="/src/assets/img/tabs-menu/menu-99999.png"
+                                      src="/src/assets/images/menu-99999.png"
                                     />
                                     &nbsp; Casino
                                   </span>

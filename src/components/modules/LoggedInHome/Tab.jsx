@@ -12,8 +12,8 @@ const Tab = () => {
   const navigate = useNavigate();
 
   const handleActiveTab = (tab) => {
-    if (tab?.id === 0 || tab?.id === 1 || tab?.id === 4 || tab?.id === 2) {
-      navigate(`/?tab=${tab?.id}`);
+    if (tab?.group || tab?.group === 0) {
+      navigate(`/?tab=${tab?.group}`);
     }
     if (tab?.to) {
       navigate(tab?.to);
@@ -31,7 +31,7 @@ const Tab = () => {
             <a
               role="tab"
               className={`nav-link ${
-                tab == t?.id
+                tab == t?.group
                   ? "active"
                   : location.pathname === t.to
                   ? "active"

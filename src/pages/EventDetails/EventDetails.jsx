@@ -8,8 +8,10 @@ import MatchOddsBookmaker from "../../components/modules/EventDetails/MatchOddsB
 import Fancy from "../../components/modules/EventDetails/Fancy";
 import img from "../../assets/img";
 import { useAccessTokenMutation } from "../../redux/features/casino/casino.api";
+import CurrentBets from "../../components/modals/CurrentBets/CurrentBets";
 
 const EventDetails = () => {
+  const [showCurrentBets, setShowCurrentBets] = useState(false);
   const [showIFrame, setShowIFrame] = useState(false);
   const [getIFrame, { data: IFrame }] = useAccessTokenMutation();
   const { eventTypeId, eventId } = useParams();
@@ -94,72 +96,82 @@ const EventDetails = () => {
     return hasDecimal ? parseFloat(value?.toFixed(2)) : value;
   };
   return (
-    <main id="main" className="main">
-      <div>
+    <>
+      {showCurrentBets && (
+        <CurrentBets setShowCurrentBets={setShowCurrentBets} />
+      )}
+      <main id="main" className="main">
         <div>
-          <div className="row">
-            <div className="col-md-12 col-lg-8 detail-center-column">
-              <div className="middle-page-content details-page">
-                <div className="card-header game-heading">
-                  <span className="card-header-title">
-                    {data?.result?.[0]?.eventName}
-                  </span>
+          <div>
+            <div className="row">
+              <div className="col-md-12 col-lg-8 detail-center-column">
+                <div className="middle-page-content details-page">
+                  <div className="card-header game-heading">
+                    <span className="card-header-title">
+                      {data?.result?.[0]?.eventName}
+                    </span>
 
-                  <span className="date-time ng-star-inserted">
-                    ({data?.result?.[0]?.openDate})
-                  </span>
-                  <a className="best_link d-lg-none ng-star-inserted">Bets</a>
-                  {data?.score?.hasVideo && (
+                    <span className="date-time ng-star-inserted">
+                      ({data?.result?.[0]?.openDate})
+                    </span>
                     <a
-                      onClick={() => setShowIFrame((prev) => !prev)}
-                      aria-controls="collapseBasic"
-                      role="button"
-                      className="Television_mobile ng-star-inserted"
-                      aria-expanded="true"
+                      onClick={() => setShowCurrentBets(true)}
+                      className="best_link d-lg-none ng-star-inserted"
                     >
-                      <img src={img.tv} alt="" />
+                      Bets
                     </a>
+                    {data?.score?.hasVideo && (
+                      <a
+                        onClick={() => setShowIFrame((prev) => !prev)}
+                        aria-controls="collapseBasic"
+                        role="button"
+                        className="Television_mobile ng-star-inserted"
+                        aria-expanded="true"
+                      >
+                        <img src={img.tv} alt="" />
+                      </a>
+                    )}
+                  </div>
+
+                  <div className="sr-widget-1" />
+                  {data?.score?.tracker && (
+                    <div
+                      style={{
+                        width: "100%",
+                        height: "125px",
+                        overflow: "hidden",
+                      }}
+                    >
+                      {" "}
+                      <iframe
+                        className="premium-iframe"
+                        src={data?.score?.tracker}
+                      ></iframe>
+                    </div>
                   )}
-                </div>
+                  {showIFrame && IFrame?.result?.url && (
+                    <div className="embed-responsive embed-responsive-16by9 ng-star-inserted">
+                      <iframe
+                        id="tvStr"
+                        className="embed-responsive-item w-100"
+                        src={IFrame?.result?.url}
+                      ></iframe>
+                    </div>
+                  )}
 
-                <div className="sr-widget-1" />
-                {data?.score?.tracker && (
-                  <div
-                    style={{
-                      width: "100%",
-                      height: "125px",
-                      overflow: "hidden",
-                    }}
-                  >
-                    {" "}
-                    <iframe
-                      className="premium-iframe"
-                      src={data?.score?.tracker}
-                    ></iframe>
+                  <div>
+                    <MatchOddsBookmaker data={data?.result} />
+
+                    <Fancy data={data?.result} />
                   </div>
-                )}
-                {showIFrame && IFrame?.result?.url && (
-                  <div className="embed-responsive embed-responsive-16by9 ng-star-inserted">
-                    <iframe
-                      id="tvStr"
-                      className="embed-responsive-item w-100"
-                      src={IFrame?.result?.url}
-                    ></iframe>
-                  </div>
-                )}
-
-                <div>
-                  <MatchOddsBookmaker data={data?.result} />
-
-                  <Fancy data={data?.result} />
                 </div>
               </div>
+              <RightSidebar hasVideo={data?.score?.hasVideo} />
             </div>
-            <RightSidebar hasVideo={data?.score?.hasVideo} />
           </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </>
   );
 };
 

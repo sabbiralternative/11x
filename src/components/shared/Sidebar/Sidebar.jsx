@@ -4,8 +4,10 @@ import { logout } from "../../../redux/features/auth/authSlice";
 import { useRef, useState } from "react";
 import Rules from "../../modals/Rules/Rules";
 import useCloseModalClickOutside from "../../../hooks/closeModal";
+import useLogo from "../../../hooks/useLogo";
 
 const Sidebar = ({ setIsOpenSidebar }) => {
+  const { logo } = useLogo();
   const sidebarRef = useRef();
   const { user } = useSelector((state) => state.auth);
   const [showRules, setShowRules] = useState(false);
@@ -27,7 +29,7 @@ const Sidebar = ({ setIsOpenSidebar }) => {
       <div className="ng-star-inserted">
         <aside ref={sidebarRef} id="sidebar" className="sidebar">
           <ul id="sidebar-nav" className="sidebar-nav">
-            <img className="mobile-logo" src="/src/assets/images/logo.png" />
+            <img className="mobile-logo" src={logo} />
 
             <li onClick={() => setIsOpenSidebar(false)} className="nav-item">
               <Link to="/" className="nav-link final-link">

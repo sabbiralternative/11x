@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useExposure } from "../../../hooks/exposure";
 import { useGetLadderMutation } from "../../../redux/features/events/events";
 import {
@@ -10,6 +10,7 @@ import {
 import { Status } from "../../../const";
 import MobileBetSlip from "./BetSlip/MobileBetSlip";
 import { setShowLogin } from "../../../redux/features/global/globalSlice";
+import Ladder from "../../modals/Ladder/Ladder";
 
 const Fancy = ({ data }) => {
   const fancyData = data?.filter(
@@ -21,7 +22,7 @@ const Fancy = ({ data }) => {
 
   const [ladderData, setLadderData] = useState([]);
   const { eventId } = useParams();
-  const navigate = useNavigate();
+
   const dispatch = useDispatch();
   const { token } = useSelector((state) => state.auth);
   const { runnerId } = useSelector((state) => state.event);
@@ -123,6 +124,9 @@ const Fancy = ({ data }) => {
   };
   return (
     <>
+      {ladderData?.length > 0 && (
+        <Ladder ladderData={ladderData} setLadderData={setLadderData} />
+      )}
       {fancyData?.length > 0 && (
         <div className="newtab_collect tab-container">
           <div className="tab-content">
@@ -164,14 +168,31 @@ const Fancy = ({ data }) => {
                             <div className="row mx-0 align-items-center tablist-content">
                               <div className="col-md-6 col-6 px-0">
                                 <div className="name_of_fancy">
-                                  <a className="add-pin">
-                                    <i className="bi bi-star" />
-                                  </a>
+                                  {pnl?.pnl && (
+                                    <a
+                                      onClick={() =>
+                                        handleGetLadder(pnl?.MarketId)
+                                      }
+                                      className="add-pin"
+                                    >
+                                      <i className="bi bi-star" />
+                                    </a>
+                                  )}
 
                                   <span className="marketevent">
                                     {game?.name}
+                                    {pnl && (
+                                      <b
+                                        className={` d-block ${
+                                          pnl?.pnl > 0 ? "green" : "red"
+                                        }`}
+                                      >
+                                        {pnl?.pnl}
+                                      </b>
+                                    )}
                                   </span>
                                 </div>
+
                                 <span className="min-max-fancy">
                                   Min: 100 Max: {game?.maxLiabilityPerBet}
                                 </span>
