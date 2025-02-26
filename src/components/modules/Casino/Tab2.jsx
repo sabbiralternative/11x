@@ -1,4 +1,4 @@
-import images from "../../../assets/images";
+import img from "../../../assets/img";
 
 const Tab2 = ({ categories, setSelectedSubCategory, selectedSubCategory }) => {
   return (
@@ -24,7 +24,7 @@ const Tab2 = ({ categories, setSelectedSubCategory, selectedSubCategory }) => {
             tabIndex={0}
             id="childTab-0-0"
           >
-            <img className="img-fluid" src={images.all} />
+            <img className="img-fluid" src={img.all} />
             all{" "}
           </span>
         </a>

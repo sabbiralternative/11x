@@ -1,13 +1,17 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useGetEventDetailsQuery } from "../../redux/features/events/events";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { setPredictOdd } from "../../redux/features/events/eventSlice";
 import RightSidebar from "../../components/modules/EventDetails/RightSidebar";
 import MatchOddsBookmaker from "../../components/modules/EventDetails/MatchOddsBookmaker";
 import Fancy from "../../components/modules/EventDetails/Fancy";
+import img from "../../assets/img";
+import { useAccessTokenMutation } from "../../redux/features/casino/casino.api";
 
 const EventDetails = () => {
+  const [showIFrame, setShowIFrame] = useState(false);
+  const [getIFrame, { data: IFrame }] = useAccessTokenMutation();
   const { eventTypeId, eventId } = useParams();
   const dispatch = useDispatch();
   const { placeBetValues, price, stake } = useSelector((state) => state.event);
@@ -73,6 +77,17 @@ const EventDetails = () => {
     }
   }, [price, stake, placeBetValues, dispatch]);
 
+  useEffect(() => {
+    if (showIFrame) {
+      const payload = {
+        eventTypeId,
+        eventId,
+        type: "video",
+      };
+      getIFrame(payload);
+    }
+  }, [eventId, eventTypeId, getIFrame, showIFrame]);
+
   /* Format number */
   const formatNumber = (value) => {
     const hasDecimal = value % 1 !== 0;
@@ -90,9 +105,21 @@ const EventDetails = () => {
                     {data?.result?.[0]?.eventName}
                   </span>
 
-                  <span className="date-time">
+                  <span className="date-time ng-star-inserted">
                     ({data?.result?.[0]?.openDate})
                   </span>
+                  <a className="best_link d-lg-none ng-star-inserted">Bets</a>
+                  {data?.score?.hasVideo && (
+                    <a
+                      onClick={() => setShowIFrame((prev) => !prev)}
+                      aria-controls="collapseBasic"
+                      role="button"
+                      className="Television_mobile ng-star-inserted"
+                      aria-expanded="true"
+                    >
+                      <img src={img.tv} alt="" />
+                    </a>
+                  )}
                 </div>
 
                 <div className="sr-widget-1" />
@@ -108,6 +135,15 @@ const EventDetails = () => {
                     <iframe
                       className="premium-iframe"
                       src={data?.score?.tracker}
+                    ></iframe>
+                  </div>
+                )}
+                {showIFrame && IFrame?.result?.url && (
+                  <div className="embed-responsive embed-responsive-16by9 ng-star-inserted">
+                    <iframe
+                      id="tvStr"
+                      className="embed-responsive-item w-100"
+                      src={IFrame?.result?.url}
                     ></iframe>
                   </div>
                 )}

@@ -130,7 +130,6 @@ const DesktopBetSlip = () => {
     }
   }, [setBetDelay, betDelay]);
 
-  console.log(placeBetValues);
   return (
     <div className="card mb-1 place-bet">
       <div className="card-header">
