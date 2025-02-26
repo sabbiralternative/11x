@@ -5,7 +5,7 @@ import "swiper/css";
 
 const Banner = () => {
   const { data } = useBannerImage();
-  console.log(data);
+
   return (
     <Swiper
       //   autoplay={{

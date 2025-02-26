@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useLogo from "../../../hooks/useLogo";
 import { useLoginMutation } from "../../../redux/features/auth/authApi";
 import { Settings } from "../../../api";
@@ -13,6 +13,7 @@ import useBalance from "../../../hooks/balance";
 import ForceChangePassword from "../../modals/ForceChangePassword/ForceChangePassword";
 
 const Header = ({ setIsOpenSidebar }) => {
+  const location = useLocation();
   const { data } = useBalance();
   const { token } = useSelector((state) => state.auth);
   const { showLogin, showRegister, showForgotPassword, forceChangePassword } =
@@ -66,13 +67,18 @@ const Header = ({ setIsOpenSidebar }) => {
       >
         <div className="container-fluid d-flex align-items-center">
           <div className="d-flex align-items-center justify-content-between">
-            <Link to="/" className="logo d-flex align-items-center">
+            <Link
+              to={token ? "/" : "/home"}
+              className="logo d-flex align-items-center"
+            >
               <img alt="" className="img-fluid" src={logo} />
             </Link>
-            <i
-              onClick={() => setIsOpenSidebar((prev) => !prev)}
-              className="bi bi-list-nested toggle-sidebar-btn ng-star-inserted"
-            />
+            {location.pathname !== "/home" && (
+              <i
+                onClick={() => setIsOpenSidebar((prev) => !prev)}
+                className="bi bi-list-nested toggle-sidebar-btn ng-star-inserted"
+              />
+            )}
           </div>
 
           <nav className="header-nav ms-auto">
@@ -80,7 +86,7 @@ const Header = ({ setIsOpenSidebar }) => {
               <nav className="header-nav ms-auto ng-star-inserted">
                 <ul className="d-flex align-items-center">
                   <li className="nav-item balance_li">
-                    <a href="javascript:void(0);" className="nav-link">
+                    <a className="nav-link">
                       <i className="bi bi-bank" /> Balance
                       <b>{data?.availBalance}</b>
                     </a>

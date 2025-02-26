@@ -219,7 +219,7 @@ const MatchOddsBookmaker = ({ data }) => {
             <div key={games?.id} className="market_section">
               <p>
                 <span className="mrkname">
-                  <a href="javascript:void(0);" className="add-pin">
+                  <a className="add-pin">
                     <i className="bi bi-star" />
                   </a>
                   {games?.name?.toUpperCase()}
@@ -248,7 +248,7 @@ const MatchOddsBookmaker = ({ data }) => {
                 </span>
                 <span className="min-max">
                   Min: 100 | Max: {games?.maxLiabilityPerBet}
-                  <a href="javascript:void(0)" className="ms-2 game-rules-icon">
+                  <a className="ms-2 game-rules-icon">
                     <span>
                       <i className="bi bi-info-circle-fill" />
                     </span>

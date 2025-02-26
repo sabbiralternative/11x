@@ -1,11 +1,13 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import useBalance from "../../hooks/balance";
 import { useNavigate } from "react-router-dom";
 import { useChangePasswordMutation } from "../../redux/features/auth/authApi";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import { setShowLogin } from "../../redux/features/global/globalSlice";
 
 const Profile = () => {
+  const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
   const { data } = useBalance();
 
@@ -23,7 +25,8 @@ const Profile = () => {
     if (data.success) {
       toast.success(data?.result?.message);
       localStorage.clear();
-      navigate("/login");
+      navigate("/home");
+      dispatch(setShowLogin(true));
     } else {
       toast.error(data?.error?.errorMessage);
     }

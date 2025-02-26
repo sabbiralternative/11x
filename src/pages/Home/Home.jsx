@@ -1,17 +1,24 @@
+import { Settings } from "../../api";
 import Header from "../../components/shared/Header/Header";
 import Notification from "../../components/shared/Notification/Notification";
+import useLogo from "../../hooks/useLogo";
 import Banner from "./Banner";
 
 const Home = () => {
+  const { logo } = useLogo();
+
   return (
-    <div className="fullpage">
+    <div className={`fullpage`}>
       <div>
         <Header />
         <Notification />
         <main id="main" className="main">
           <div>
             <Banner />
-            <section className="sportsSection">
+            <section
+              className="sportsSection"
+              style={{ backgroundColor: "#0b0d2a" }}
+            >
               <div className="container">
                 <h2 className="titlehome">IN OUR EXCHANGE...</h2>
                 <div className="row">
@@ -593,18 +600,15 @@ const Home = () => {
                   <div className="col-lg-3">
                     <div className="footer__logo">
                       <a href="https://11xplay.com/home">
-                        <img
-                          alt=""
-                          className="img-fluid"
-                          src="/src/assets/images/logo.png"
-                        />
+                        <img alt="" className="img-fluid" src={logo} />
                       </a>
                       <hr />
                       <p>
                         © 2024 All rights reserved.
                         <a href="https://11xplay.com/">
-                          11xplay most trusted and secure exchange site in the
-                          world.
+                          {" "}
+                          {Settings.siteTitle} most trusted and secure exchange
+                          site in the world.
                         </a>
                       </p>
                       <img
@@ -632,22 +636,22 @@ const Home = () => {
                     <div className="footer__nav">
                       <ul>
                         <li tabIndex={0}>
-                          <a href="javascript:void(0)">Cricket</a>
+                          <a>Cricket</a>
                         </li>
                         <li tabIndex={0}>
-                          <a href="javascript:void(0)">Football</a>
+                          <a>Football</a>
                         </li>
                         <li tabIndex={0}>
-                          <a href="javascript:void(0)">Tennis</a>
+                          <a>Tennis</a>
                         </li>
                         <li tabIndex={0}>
-                          <a href="javascript:void(0)">Int Casino</a>
+                          <a>Int Casino</a>
                         </li>
                         <li tabIndex={0}>
-                          <a href="javascript:void(0)">Horse Racing</a>
+                          <a>Horse Racing</a>
                         </li>
                         <li tabIndex={0}>
-                          <a href="javascript:void(0)">Greyhound Racing</a>
+                          <a>Greyhound Racing</a>
                         </li>
                       </ul>
                     </div>
@@ -675,13 +679,13 @@ const Home = () => {
                   </div>
                   <div className="col-lg-12">
                     <p className="bottom-links">
-                      <a href="javascript:void(0);">Privacy Policy</a>
-                      <a href="javascript:void(0);">Disconnection Policy</a>
-                      <a href="javascript:void(0);">Responsible Gambling</a>
-                      <a href="javascript:void(0);">Rules &amp; Regulations</a>
-                      <a href="javascript:void(0);">Exclusion Policy</a>
-                      <a href="javascript:void(0);">Restricted Territories</a>
-                      <a href="javascript:void(0);">Terms And Conditions</a>
+                      <a>Privacy Policy</a>
+                      <a>Disconnection Policy</a>
+                      <a>Responsible Gambling</a>
+                      <a>Rules &amp; Regulations</a>
+                      <a>Exclusion Policy</a>
+                      <a>Restricted Territories</a>
+                      <a>Terms And Conditions</a>
                     </p>
                   </div>
                 </div>
@@ -695,7 +699,7 @@ const Home = () => {
               <img src="/src/assets/images/in-play.svg" className="img-fluid" />
               <span>in-play</span>
             </a>
-            <a href="javascript:void(0)">
+            <a>
               <img src="/src/assets/images/multi.svg" className="img-fluid" />
               <span>Multi</span>
             </a>

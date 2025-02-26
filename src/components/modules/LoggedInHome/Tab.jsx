@@ -37,9 +37,6 @@ const Tab = () => {
                   ? "active"
                   : ""
               }`}
-              aria-controls
-              aria-selected="true"
-              id
             >
               <span />
               <img className="img-fluid ng-star-inserted" src={t.imageSrc} />

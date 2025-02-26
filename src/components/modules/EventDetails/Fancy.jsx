@@ -9,6 +9,7 @@ import {
 } from "../../../redux/features/events/eventSlice";
 import { Status } from "../../../const";
 import MobileBetSlip from "./BetSlip/MobileBetSlip";
+import { setShowLogin } from "../../../redux/features/global/globalSlice";
 
 const Fancy = ({ data }) => {
   const fancyData = data?.filter(
@@ -103,7 +104,7 @@ const Fancy = ({ data }) => {
 
       dispatch(setPlaceBetValues(betData));
     } else {
-      navigate("/login");
+      dispatch(setShowLogin(true));
     }
   };
 
@@ -131,7 +132,6 @@ const Fancy = ({ data }) => {
                   <span className="mrkname">FANCY</span>
                   <span className="min-max">
                     <a
-                      href="javascript:void(0)"
                       className="ms-2 game-rules-icon"
                       style={{ background: "none !important" }}
                     >

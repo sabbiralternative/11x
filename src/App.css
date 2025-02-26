@@ -1739,83 +1739,83 @@ body.swal2-toast-shown .swal2-container.swal2-bottom-right {
   left: auto;
 }
 
-.modal-content-padding-custom[_ngcontent-vam-c54] {
+.modal-content-padding-custom {
   margin-top: 30%;
 }
 
-.ab_rae_btns[_ngcontent-vam-c54] {
+.ab_rae_btns {
   text-align: center;
   padding: 5px 0;
   border-top: 1px solid;
   border-bottom: 1px solid;
 }
 
-.ab_rae_btns[_ngcontent-vam-c54] button[_ngcontent-vam-c54] {
+.ab_rae_btns button {
   width: 70%;
   display: block;
 }
 
-.ab_btns[_ngcontent-vam-c54] {
+.ab_btns {
   border: 1px solid var(--theme-color);
   padding: 2px;
   font-size: 11px;
 }
 
-.ab_btns[_ngcontent-vam-c54],
-.ab_btns[_ngcontent-vam-c54] span[_ngcontent-vam-c54] {
+.ab_btns,
+.ab_btns span {
   color: var(--theme-color);
 }
 
-.rae_btns[_ngcontent-vam-c54] {
+.rae_btns {
   background: var(--theme-color);
 }
 
-a.casino_chip[_ngcontent-vam-c54] {
+a.casino_chip {
   position: fixed;
   left: 4%;
   bottom: 11%;
   z-index: 9;
 }
 
-a.casino_chip[_ngcontent-vam-c54] img[_ngcontent-vam-c54] {
+a.casino_chip img {
   width: 50px;
   animation: simple-scale 1s linear 1s infinite alternate;
 }
 
-.balance-information[_ngcontent-vam-c54] {
+.balance-information {
   margin: 10px 0;
 }
 
-.balance-row[_ngcontent-vam-c54] {
+.balance-row {
   display: flex;
   justify-content: left;
   padding: 0 10px;
   font-size: 13px;
 }
 
-.balance-text-left[_ngcontent-vam-c54] {
+.balance-text-left {
   width: 50%;
   color: #000;
   font-weight: 500;
 }
 
-.balance-price[_ngcontent-vam-c54] {
+.balance-price {
   margin-left: 10px;
   width: 50%;
   color: #000;
   font-weight: 600;
 }
 
-li.ab_rae_btns[_ngcontent-vam-c54] {
+li.ab_rae_btns {
   text-align: center;
   padding: 5px 0;
 }
 
-li.ab_rae_btns[_ngcontent-vam-c54] button[_ngcontent-vam-c54] {
+li.ab_rae_btns button {
   width: 80%;
 }
 
-.ab_btns[_ngcontent-vam-c54] {
+.ab_btns {
   border: 1px solid var(--theme-primary-color);
   background: none;
   text-transform: uppercase;
@@ -1826,11 +1826,11 @@ li.ab_rae_btns[_ngcontent-vam-c54] button[_ngcontent-vam-c54] {
   margin: 0 auto;
 }
 
-.ab_btns[_ngcontent-vam-c54] span[_ngcontent-vam-c54] {
+.ab_btns span {
   margin-left: 15px;
 }
 
-.rae_btns[_ngcontent-vam-c54] {
+.rae_btns {
   background: var(--theme-primary-color);
   text-transform: uppercase;
   border-radius: 100px;
@@ -1841,20 +1841,20 @@ li.ab_rae_btns[_ngcontent-vam-c54] button[_ngcontent-vam-c54] {
   border: none;
 }
 
-.deposit-withdraw-sidebar-title[_ngcontent-vam-c54] img[_ngcontent-vam-c54] {
+.deposit-withdraw-sidebar-title img {
   width: 7.5%;
   margin-right: 7px;
   line-height: 0;
 }
 
-a.whatsapp_link[_ngcontent-vam-c54] {
+a.whatsapp_link {
   position: fixed;
   right: 4%;
   bottom: 10%;
   z-index: 99;
 }
 
-a.whatsapp_link[_ngcontent-vam-c54] img[_ngcontent-vam-c54] {
+a.whatsapp_link img {
   width: 75px;
   animation: simple-scale 1s linear 1s infinite alternate;
 }
@@ -1865,20 +1865,20 @@ a.whatsapp_link[_ngcontent-vam-c54] img[_ngcontent-vam-c54] {
   }
 }
 
-.fp[_ngcontent-vam-c37] {
+.fp {
   color: #fff;
   font-size: 13px;
 }
 
-.whatsapp_ids_section[_ngcontent-vam-c37] {
+.whatsapp_ids_section {
   text-align: center;
 }
 
-.whatsapp_ids_section[_ngcontent-vam-c37] img[_ngcontent-vam-c37] {
+.whatsapp_ids_section img {
   color: #fff;
 }
 
-.whatsapp_link[_ngcontent-vam-c37] {
+.whatsapp_link {
   text-transform: uppercase;
   font-size: 90%;
   width: 55%;
@@ -1889,7 +1889,7 @@ a.whatsapp_link[_ngcontent-vam-c54] img[_ngcontent-vam-c54] {
   color: #fff;
 }
 
-.btn-close[_ngcontent-vam-c37] {
+.btn-close {
   position: absolute;
   right: 15px;
   opacity: 1;
@@ -1897,12 +1897,12 @@ a.whatsapp_link[_ngcontent-vam-c54] img[_ngcontent-vam-c54] {
   font-size: 25px;
 }
 
-section[_ngcontent-vam-c50] {
+section {
   padding: 50px;
   background: #0b0d2a;
 }
 
-.titlehome[_ngcontent-vam-c50] {
+.titlehome {
   text-transform: uppercase;
   margin-bottom: 20px;
   color: #fff;
@@ -1912,11 +1912,11 @@ section[_ngcontent-vam-c50] {
   font-weight: 800;
 }
 
-.ss_div[_ngcontent-vam-c50] {
+.ss_div {
   position: relative;
 }
 
-.home-animated[_ngcontent-vam-c50] {
+.home-animated {
   font-weight: 700;
   letter-spacing: 1px;
   position: absolute;
@@ -1947,11 +1947,11 @@ section[_ngcontent-vam-c50] {
   }
 }
 
-.home-animated[_ngcontent-vam-c50] span[_ngcontent-vam-c50] {
+.home-animated span {
   border-radisu: 10px;
 }
 
-.home-animated[_ngcontent-vam-c50] span[_ngcontent-vam-c50]:first-child {
+.home-animated span:first-child {
   position: absolute;
   top: 0;
   right: 0;
@@ -1972,7 +1972,7 @@ section[_ngcontent-vam-c50] {
   }
 }
 
-.home-animated[_ngcontent-vam-c50] span[_ngcontent-vam-c50]:nth-child(2) {
+.home-animated span:nth-child(2) {
   position: absolute;
   top: 0;
   right: 0;
@@ -1993,7 +1993,7 @@ section[_ngcontent-vam-c50] {
   }
 }
 
-.home-animated[_ngcontent-vam-c50] span[_ngcontent-vam-c50]:nth-child(3) {
+.home-animated span:nth-child(3) {
   position: absolute;
   bottom: 0;
   right: 0;
@@ -2013,7 +2013,7 @@ section[_ngcontent-vam-c50] {
   }
 }
 
-.home-animated[_ngcontent-vam-c50] span[_ngcontent-vam-c50]:nth-child(4) {
+.home-animated span:nth-child(4) {
   position: absolute;
   top: 0;
   left: 0;
@@ -2034,13 +2034,13 @@ section[_ngcontent-vam-c50] {
   }
 }
 
-.casino_marketing[_ngcontent-vam-c50],
-.marketing[_ngcontent-vam-c50] {
+.casino_marketing,
+.marketing {
   background: #000;
 }
 
-.casino_marketing[_ngcontent-vam-c50] h2[_ngcontent-vam-c50],
-.marketing[_ngcontent-vam-c50] h2[_ngcontent-vam-c50] {
+.casino_marketing h2,
+.marketing h2 {
   -webkit-text-fill-color: #0000;
   -webkit-background: linear-gradient(90deg, #fdbb2d, #22c1c3);
   background: linear-gradient(90deg, #fdbb2d, #22c1c3);
@@ -2051,30 +2051,26 @@ section[_ngcontent-vam-c50] {
   letter-spacing: 2px;
 }
 
-.casino_marketing[_ngcontent-vam-c50] p[_ngcontent-vam-c50],
-.marketing[_ngcontent-vam-c50] p[_ngcontent-vam-c50] {
+.casino_marketing p,
+.marketing p {
   color: #fff;
   font-size: 20px;
 }
 
-.thumbnail__item__pic[_ngcontent-vam-c50] {
+.thumbnail__item__pic {
   margin-bottom: 10px;
   border-radius: 15px;
 }
 
-.casino[_ngcontent-vam-c50]
-  .row[_ngcontent-vam-c50]
-  .col-6[_ngcontent-vam-c50] {
+.casino .row .col-6 {
   padding: 0 6px;
 }
 
-.thumbnail__item__pic[_ngcontent-vam-c50] img[_ngcontent-vam-c50] {
+.thumbnail__item__pic img {
   border-radius: 15px;
 }
 
-.all-providers[_ngcontent-vam-c50]
-  .col-6[_ngcontent-vam-c50]
-  img[_ngcontent-vam-c50] {
+.all-providers .col-6 img {
   border: 1px solid #fff;
   width: 100%;
   object-fit: contain;
@@ -2082,23 +2078,23 @@ section[_ngcontent-vam-c50] {
   margin-bottom: 16px;
 }
 
-.footer_home[_ngcontent-vam-c50] {
+.footer_home {
   background: #fff;
   padding: 40px 0 10px;
   position: relative;
 }
 
-.footer_home[_ngcontent-vam-c50] p[_ngcontent-vam-c50] {
+.footer_home p {
   margin-bottom: 0;
 }
 
-.footer_home[_ngcontent-vam-c50] p[_ngcontent-vam-c50] a[_ngcontent-vam-c50] {
+.footer_home p a {
   color: #1a315d;
   font-weight: 700;
   font-size: 14px;
 }
 
-.footer_home[_ngcontent-vam-c50] h2[_ngcontent-vam-c50] {
+.footer_home h2 {
   position: relative;
   font-size: 22px;
   font-weight: 800;
@@ -2106,7 +2102,7 @@ section[_ngcontent-vam-c50] {
   text-transform: uppercase;
 }
 
-.footer_home[_ngcontent-vam-c50] h2[_ngcontent-vam-c50]:after {
+.footer_home h2:after {
   content: "";
   background: #ddd;
   height: 1px;
@@ -2116,19 +2112,16 @@ section[_ngcontent-vam-c50] {
   bottom: -8px;
 }
 
-.footer__nav[_ngcontent-vam-c50] ul[_ngcontent-vam-c50] {
+.footer__nav ul {
   display: inline-block;
   margin-top: 10px;
 }
 
-.footer__nav[_ngcontent-vam-c50] ul[_ngcontent-vam-c50] li[_ngcontent-vam-c50] {
+.footer__nav ul li {
   list-style: none;
 }
 
-.footer__nav[_ngcontent-vam-c50]
-  ul[_ngcontent-vam-c50]
-  li[_ngcontent-vam-c50]
-  a[_ngcontent-vam-c50] {
+.footer__nav ul li a {
   font-size: 14px;
   color: #707070;
   display: block;
@@ -2136,58 +2129,51 @@ section[_ngcontent-vam-c50] {
   margin-bottom: 10px;
 }
 
-.footer__nav[_ngcontent-vam-c50]
-  ul[_ngcontent-vam-c50]
-  li[_ngcontent-vam-c50]
-  a[_ngcontent-vam-c50]:hover {
+.footer__nav ul li a:hover {
   color: #1a315d;
   text-decoration: underline;
 }
 
-.footer__copyright__text[_ngcontent-vam-c50] {
+.footer__copyright__text {
   color: #000;
   margin-bottom: 0;
   text-align: right;
 }
 
-.securitylogo[_ngcontent-vam-c50] {
+.securitylogo {
   margin-top: 20px;
 }
 
-.securitylogo[_ngcontent-vam-c50] img[_ngcontent-vam-c50] {
+.securitylogo img {
   height: 40px;
 }
 
-.footer__copyright__text[_ngcontent-vam-c50] a[_ngcontent-vam-c50] {
+.footer__copyright__text a {
   color: #e53637;
 }
 
-.bottom-links[_ngcontent-vam-c50] {
+.bottom-links {
   text-align: center;
   border-top: 1px solid #ddd;
 }
 
-.footer_home[_ngcontent-vam-c50] img[_ngcontent-vam-c50] {
+.footer_home img {
   cursor: pointer;
 }
 
-.footer_home[_ngcontent-vam-c50]
-  .bottom-links[_ngcontent-vam-c50]
-  a[_ngcontent-vam-c50] {
+.footer_home .bottom-links a {
   margin: 0 5px;
   position: relative;
   font-size: 12px;
   font-weight: 500;
 }
 
-.footer_home[_ngcontent-vam-c50]
-  .bottom-links[_ngcontent-vam-c50]
-  a[_ngcontent-vam-c50]:hover {
+.footer_home .bottom-links a:hover {
   color: #167abf;
   text-decoration: underline;
 }
 
-.bottom-links[_ngcontent-vam-c50] a[_ngcontent-vam-c50]:after {
+.bottom-links a:after {
   content: "";
   background: #167abf;
   position: absolute;
@@ -2197,65 +2183,65 @@ section[_ngcontent-vam-c50] {
   height: 100%;
 }
 
-.bottom-links[_ngcontent-vam-c50] a[_ngcontent-vam-c50]:last-child:after {
+.bottom-links a:last-child:after {
   display: none;
 }
 
-.footer__logo[_ngcontent-vam-c50] img[_ngcontent-vam-c50] {
+.footer__logo img {
   width: 200px;
 }
 
-.footer__nav[_ngcontent-vam-c50] ul[_ngcontent-vam-c50] {
+.footer__nav ul {
   padding: 0;
 }
 
 @media (max-width: 991px) {
-  .footer_home[_ngcontent-vam-c50] h2[_ngcontent-vam-c50]:after {
+  .footer_home h2:after {
     margin: 0 auto;
     left: 0;
     right: 0;
   }
 
-  .footer_home[_ngcontent-vam-c50] h2[_ngcontent-vam-c50] {
+  .footer_home h2 {
     text-align: center;
   }
 
-  .footer__logo[_ngcontent-vam-c50] img[_ngcontent-vam-c50] {
+  .footer__logo img {
     width: 150px;
     display: block;
     margin: 0 auto;
   }
 
-  .footer__logo[_ngcontent-vam-c50] p[_ngcontent-vam-c50],
-  .footer__nav[_ngcontent-vam-c50] ul[_ngcontent-vam-c50] {
+  .footer__logo p,
+  .footer__nav ul {
     text-align: center;
   }
 
-  .footer__nav[_ngcontent-vam-c50] ul[_ngcontent-vam-c50] {
+  .footer__nav ul {
     margin: 0 auto;
     padding: 0;
   }
 
-  .footer__nav[_ngcontent-vam-c50] {
+  .footer__nav {
     text-align: center;
   }
 
-  section[_ngcontent-vam-c50] {
+  section {
     padding: 20px 0;
   }
 
-  .casino_marketing[_ngcontent-vam-c50] h2[_ngcontent-vam-c50],
-  .marketing[_ngcontent-vam-c50] h2[_ngcontent-vam-c50] {
+  .casino_marketing h2,
+  .marketing h2 {
     font-size: 30px;
     text-align: center;
   }
 
-  .casino_marketing[_ngcontent-vam-c50] p[_ngcontent-vam-c50],
-  .marketing[_ngcontent-vam-c50] p[_ngcontent-vam-c50] {
+  .casino_marketing p,
+  .marketing p {
     text-align: center;
   }
 
-  .home-animated[_ngcontent-vam-c50] {
+  .home-animated {
     padding: 3px 12px;
     letter-spacing: 0;
     font-size: 10px;
@@ -2263,52 +2249,42 @@ section[_ngcontent-vam-c50] {
     left: 10px;
   }
 
-  .securitylogo[_ngcontent-vam-c50],
-  .titlehome[_ngcontent-vam-c50] {
+  .securitylogo,
+  .titlehome {
     text-align: center;
   }
 
-  .securitylogo[_ngcontent-vam-c50]
-    p.mt-3[_ngcontent-vam-c50]
-    img[_ngcontent-vam-c50] {
+  .securitylogo p.mt-3 img {
     text-align: center;
     display: block;
     margin: 0 auto;
   }
 
-  .all-providers[_ngcontent-vam-c50]
-    .col-6[_ngcontent-vam-c50]
-    img[_ngcontent-vam-c50],
-  .ss_div[_ngcontent-vam-c50],
-  .thumbnail__item__pic[_ngcontent-vam-c50] {
+  .all-providers .col-6 img,
+  .ss_div,
+  .thumbnail__item__pic {
     margin-bottom: 5px;
   }
 
-  .bottom-links[_ngcontent-vam-c50] {
+  .bottom-links {
     margin-top: 10px;
   }
 
-  .all-providers[_ngcontent-vam-c50] .row[_ngcontent-vam-c50],
-  .casino[_ngcontent-vam-c50] .row[_ngcontent-vam-c50],
-  .sportsSection[_ngcontent-vam-c50] .row[_ngcontent-vam-c50] {
+  .all-providers .row,
+  .casino .row,
+  .sportsSection .row {
     margin: 0;
   }
 
-  .all-providers[_ngcontent-vam-c50]
-    .row[_ngcontent-vam-c50]
-    .col-6[_ngcontent-vam-c50],
-  .casino[_ngcontent-vam-c50]
-    .row[_ngcontent-vam-c50]
-    .col-6[_ngcontent-vam-c50],
-  .sportsSection[_ngcontent-vam-c50]
-    .row[_ngcontent-vam-c50]
-    .col-6[_ngcontent-vam-c50] {
+  .all-providers .row .col-6,
+  .casino .row .col-6,
+  .sportsSection .row .col-6 {
     padding: 0 3px;
   }
 
-  .all-providers[_ngcontent-vam-c50] .container[_ngcontent-vam-c50],
-  .casino[_ngcontent-vam-c50] .container[_ngcontent-vam-c50],
-  .sportsSection[_ngcontent-vam-c50] .container[_ngcontent-vam-c50] {
+  .all-providers .container,
+  .casino .container,
+  .sportsSection .container {
     padding: 0 5px;
   }
 }

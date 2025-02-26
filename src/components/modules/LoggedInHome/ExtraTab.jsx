@@ -415,7 +415,7 @@ const ExtraTab = () => {
               />
             </div>
             <div className="col-6 px-1 position-relative">
-              <a href="javascript:void(0)">
+              <a >
                 <img
                   src="/src/assets/images/fungames-730_280.gif"
                   className="img-fluid"
@@ -423,7 +423,7 @@ const ExtraTab = () => {
               </a>
             </div>
             <div className="col-6 px-1 position-relative">
-              <a href="javascript:void(0)">
+              <a >
                 <img
                   src="/src/assets/images/wingogames-730-280.gif"
                   className="img-fluid"

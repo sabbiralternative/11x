@@ -2,6 +2,7 @@ import {
   setPlaceBetValues,
   setRunnerId,
 } from "../redux/features/events/eventSlice";
+import { setShowLogin } from "../redux/features/global/globalSlice";
 
 /* handle place bet */
 export const handleCashOutPlaceBet = (
@@ -67,6 +68,7 @@ export const handleCashOutPlaceBet = (
       dispatch(setRunnerId(team?.runner?.id));
     }
   } else {
-    navigate("/login");
+    navigate("/home");
+    dispatch(setShowLogin(true));
   }
 };
