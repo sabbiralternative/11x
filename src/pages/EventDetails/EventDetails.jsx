@@ -9,6 +9,7 @@ import Fancy from "../../components/modules/EventDetails/Fancy";
 import img from "../../assets/img";
 import { useAccessTokenMutation } from "../../redux/features/casino/casino.api";
 import CurrentBets from "../../components/modals/CurrentBets/CurrentBets";
+import ScoreCard from "../../components/modules/EventDetails/ScoreCard";
 
 const EventDetails = () => {
   const [showCurrentBets, setShowCurrentBets] = useState(false);
@@ -160,6 +161,10 @@ const EventDetails = () => {
                   )}
 
                   <div>
+                    {data?.result?.[0]?.score2?.length !== 0 &&
+                      !Array.isArray(data?.result?.[0]?.score2) && (
+                        <ScoreCard score2={data?.result?.[0]?.score2} />
+                      )}
                     <MatchOddsBookmaker data={data?.result} />
 
                     <Fancy data={data?.result} />
