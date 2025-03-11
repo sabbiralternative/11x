@@ -114,7 +114,8 @@
       "singleDiamondRules": "https://api7.live/api/exchange/diamond/rules",
       "mac88All": "https://cache7.live/api/exchange/diamond/mac88",
       "forgotPassword": "https://api7.live/api/exchange/diamond/forgotPassword",
-      "banner": "https://api7.live/api/exchange/diamond/banner"
+      "banner": "https://api7.live/api/exchange/diamond/banner",
+      "utr": "https://b2c.bet/deposit/utr"
     }
   },
   "success": true

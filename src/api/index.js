@@ -52,6 +52,7 @@ export const API = {
   mac88All: "",
   forgotPassword: "",
   banner: "",
+  utr: "",
 };
 
 export const Settings = {
