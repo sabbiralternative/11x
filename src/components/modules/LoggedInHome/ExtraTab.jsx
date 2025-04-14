@@ -27,7 +27,7 @@ const ExtraTab = () => {
               <a>
                 <img
                   className="img-fluid"
-                  src="/src/assets/images/ak47_teenpatti.png"
+                  src="/images/ak47_teenpatti.png"
                 />
               </a>
             </div>
@@ -35,7 +35,7 @@ const ExtraTab = () => {
               <a>
                 <img
                   className="img-fluid"
-                  src="/src/assets/images/lucky_5.png"
+                  src="/images/lucky_5.png"
                 />
               </a>
             </div>
@@ -43,7 +43,7 @@ const ExtraTab = () => {
               <a>
                 <img
                   className="img-fluid"
-                  src="/src/assets/images/lucky_15.png"
+                  src="/images/lucky_15.png"
                 />
               </a>
             </div>
@@ -51,7 +51,7 @@ const ExtraTab = () => {
               <a>
                 <img
                   className="img-fluid"
-                  src="/src/assets/images/andarbahar.png"
+                  src="/images/andarbahar.png"
                 />
               </a>
             </div>
@@ -59,7 +59,7 @@ const ExtraTab = () => {
               <a>
                 <img
                   className="img-fluid"
-                  src="/src/assets/images/dragontiger.png"
+                  src="/images/dragontiger.png"
                 />
               </a>
             </div>
@@ -67,7 +67,7 @@ const ExtraTab = () => {
               <a>
                 <img
                   className="img-fluid"
-                  src="/src/assets/images/dragontigerlion.png"
+                  src="/images/dragontigerlion.png"
                 />
               </a>
             </div>
@@ -75,7 +75,7 @@ const ExtraTab = () => {
               <a>
                 <img
                   className="img-fluid"
-                  src="/src/assets/images/dragontigeroneday.png"
+                  src="/images/dragontigeroneday.png"
                 />
               </a>
             </div>
@@ -83,20 +83,20 @@ const ExtraTab = () => {
               <a>
                 <img
                   className="img-fluid"
-                  src="/src/assets/images/baccarat.png"
+                  src="/images/baccarat.png"
                 />
               </a>
             </div>
             <div className="col-3 px-1 mb-1 d-block ng-star-inserted">
               <a>
-                <img className="img-fluid" src="/src/assets/images/sicbo.png" />
+                <img className="img-fluid" src="/images/sicbo.png" />
               </a>
             </div>
             <div className="col-3 px-1 mb-1 d-block ng-star-inserted">
               <a>
                 <img
                   className="img-fluid"
-                  src="/src/assets/images/roulette.png"
+                  src="/images/roulette.png"
                 />
               </a>
             </div>
@@ -104,7 +104,7 @@ const ExtraTab = () => {
               <a>
                 <img
                   className="img-fluid"
-                  src="/src/assets/images/20-20poker.png"
+                  src="/images/20-20poker.png"
                 />
               </a>
             </div>
@@ -112,7 +112,7 @@ const ExtraTab = () => {
               <a>
                 <img
                   className="img-fluid"
-                  src="/src/assets/images/pokeroneday.png"
+                  src="/images/pokeroneday.png"
                 />
               </a>
             </div>
@@ -120,7 +120,7 @@ const ExtraTab = () => {
               <a>
                 <img
                   className="img-fluid"
-                  src="/src/assets/images/lucky7.png"
+                  src="/images/lucky7.png"
                 />
               </a>
             </div>
@@ -128,7 +128,7 @@ const ExtraTab = () => {
               <a>
                 <img
                   className="img-fluid"
-                  src="/src/assets/images/onedayteenpatti.png"
+                  src="/images/onedayteenpatti.png"
                 />
               </a>
             </div>
@@ -136,7 +136,7 @@ const ExtraTab = () => {
               <a>
                 <img
                   className="img-fluid"
-                  src="/src/assets/images/testteenpatti.png"
+                  src="/images/testteenpatti.png"
                 />
               </a>
             </div>
@@ -144,7 +144,7 @@ const ExtraTab = () => {
               <a>
                 <img
                   className="img-fluid"
-                  src="/src/assets/images/muflisteenpatti.png"
+                  src="/images/muflisteenpatti.png"
                 />
               </a>
             </div>
@@ -152,7 +152,7 @@ const ExtraTab = () => {
               <a>
                 <img
                   className="img-fluid"
-                  src="/src/assets/images/teenpatti2020.png"
+                  src="/images/teenpatti2020.png"
                 />
               </a>
             </div>
@@ -160,7 +160,7 @@ const ExtraTab = () => {
               <a>
                 <img
                   className="img-fluid"
-                  src="/src/assets/images/2cardteenpatti.png"
+                  src="/images/2cardteenpatti.png"
                 />
               </a>
             </div>
@@ -168,28 +168,20 @@ const ExtraTab = () => {
               <a>
                 <img
                   className="img-fluid"
-                  src="/src/assets/images/32cards.png"
+                  src="/images/32cards.png"
                 />
               </a>
             </div>
             <div className="col-3 px-1 mb-1 d-none ng-star-inserted">
               <a>
-                <img className="img-fluid" src="/src/assets/images/aaa.png" />
+                <img className="img-fluid" src="/images/aaa.png" />
               </a>
             </div>
             <div className="col-3 px-1 mb-1 d-none ng-star-inserted">
               <a>
                 <img
                   className="img-fluid"
-                  src="/src/assets/images/3cardjudgement.png"
-                />
-              </a>
-            </div>
-            <div className="col-3 px-1 mb-1 d-none ng-star-inserted">
-              <a>
-                <img
-                  className="img-fluid"
-                  src="/src/assets/images/queenrace.png"
+                  src="/images/3cardjudgement.png"
                 />
               </a>
             </div>
@@ -197,7 +189,7 @@ const ExtraTab = () => {
               <a>
                 <img
                   className="img-fluid"
-                  src="/src/assets/images/race2020.png"
+                  src="/images/queenrace.png"
                 />
               </a>
             </div>
@@ -205,20 +197,7 @@ const ExtraTab = () => {
               <a>
                 <img
                   className="img-fluid"
-                  src="/src/assets/images/worlimatka.png"
-                />
-              </a>
-            </div>
-            <div className="col-3 px-1 mb-1 d-none ng-star-inserted">
-              <a>
-                <img className="img-fluid" src="/src/assets/images/trio.png" />
-              </a>
-            </div>
-            <div className="col-3 px-1 mb-1 d-none ng-star-inserted">
-              <a>
-                <img
-                  className="img-fluid"
-                  src="/src/assets/images/bollywoodcasino.png"
+                  src="/images/race2020.png"
                 />
               </a>
             </div>
@@ -226,7 +205,20 @@ const ExtraTab = () => {
               <a>
                 <img
                   className="img-fluid"
-                  src="/src/assets/images/duskadum.png"
+                  src="/images/worlimatka.png"
+                />
+              </a>
+            </div>
+            <div className="col-3 px-1 mb-1 d-none ng-star-inserted">
+              <a>
+                <img className="img-fluid" src="/images/trio.png" />
+              </a>
+            </div>
+            <div className="col-3 px-1 mb-1 d-none ng-star-inserted">
+              <a>
+                <img
+                  className="img-fluid"
+                  src="/images/bollywoodcasino.png"
                 />
               </a>
             </div>
@@ -234,7 +226,7 @@ const ExtraTab = () => {
               <a>
                 <img
                   className="img-fluid"
-                  src="/src/assets/images/1-card-20-20.png"
+                  src="/images/duskadum.png"
                 />
               </a>
             </div>
@@ -242,7 +234,7 @@ const ExtraTab = () => {
               <a>
                 <img
                   className="img-fluid"
-                  src="/src/assets/images/one-card-one-day.png"
+                  src="/images/1-card-20-20.png"
                 />
               </a>
             </div>
@@ -250,7 +242,7 @@ const ExtraTab = () => {
               <a>
                 <img
                   className="img-fluid"
-                  src="/src/assets/images/note-number.png"
+                  src="/images/one-card-one-day.png"
                 />
               </a>
             </div>
@@ -258,7 +250,7 @@ const ExtraTab = () => {
               <a>
                 <img
                   className="img-fluid"
-                  src="/src/assets/images/raceto2nd.png"
+                  src="/images/note-number.png"
                 />
               </a>
             </div>
@@ -266,7 +258,7 @@ const ExtraTab = () => {
               <a>
                 <img
                   className="img-fluid"
-                  src="/src/assets/images/lottery.png"
+                  src="/images/raceto2nd.png"
                 />
               </a>
             </div>
@@ -274,7 +266,7 @@ const ExtraTab = () => {
               <a>
                 <img
                   className="img-fluid"
-                  src="/src/assets/images/superover.png"
+                  src="/images/lottery.png"
                 />
               </a>
             </div>
@@ -282,7 +274,7 @@ const ExtraTab = () => {
               <a>
                 <img
                   className="img-fluid"
-                  src="/src/assets/images/fivecricket.png"
+                  src="/images/superover.png"
                 />
               </a>
             </div>
@@ -290,7 +282,7 @@ const ExtraTab = () => {
               <a>
                 <img
                   className="img-fluid"
-                  src="/src/assets/images/casinowar.png"
+                  src="/images/fivecricket.png"
                 />
               </a>
             </div>
@@ -298,7 +290,7 @@ const ExtraTab = () => {
               <a>
                 <img
                   className="img-fluid"
-                  src="/src/assets/images/29baccarat.png"
+                  src="/images/casinowar.png"
                 />
               </a>
             </div>
@@ -306,7 +298,7 @@ const ExtraTab = () => {
               <a>
                 <img
                   className="img-fluid"
-                  src="/src/assets/images/6playerpoker.png"
+                  src="/images/29baccarat.png"
                 />
               </a>
             </div>
@@ -314,7 +306,7 @@ const ExtraTab = () => {
               <a>
                 <img
                   className="img-fluid"
-                  src="/src/assets/images/raceto17.png"
+                  src="/images/6playerpoker.png"
                 />
               </a>
             </div>
@@ -322,7 +314,7 @@ const ExtraTab = () => {
               <a>
                 <img
                   className="img-fluid"
-                  src="/src/assets/images/cricket2020.png"
+                  src="/images/raceto17.png"
                 />
               </a>
             </div>
@@ -330,7 +322,7 @@ const ExtraTab = () => {
               <a>
                 <img
                   className="img-fluid"
-                  src="/src/assets/images/openteenpatti.png"
+                  src="/images/cricket2020.png"
                 />
               </a>
             </div>
@@ -338,7 +330,7 @@ const ExtraTab = () => {
               <a>
                 <img
                   className="img-fluid"
-                  src="/src/assets/images/centrecard1day.png"
+                  src="/images/openteenpatti.png"
                 />
               </a>
             </div>
@@ -346,7 +338,7 @@ const ExtraTab = () => {
               <a>
                 <img
                   className="img-fluid"
-                  src="/src/assets/images/highlow.png"
+                  src="/images/centrecard1day.png"
                 />
               </a>
             </div>
@@ -354,7 +346,7 @@ const ExtraTab = () => {
               <a>
                 <img
                   className="img-fluid"
-                  src="/src/assets/images/baccaratoneday.png"
+                  src="/images/highlow.png"
                 />
               </a>
             </div>
@@ -362,7 +354,7 @@ const ExtraTab = () => {
               <a>
                 <img
                   className="img-fluid"
-                  src="/src/assets/images/10-10-cricket.png"
+                  src="/images/baccaratoneday.png"
                 />
               </a>
             </div>
@@ -370,7 +362,7 @@ const ExtraTab = () => {
               <a>
                 <img
                   className="img-fluid"
-                  src="/src/assets/images/dragon-tiger-2.png"
+                  src="/images/10-10-cricket.png"
                 />
               </a>
             </div>
@@ -378,7 +370,7 @@ const ExtraTab = () => {
               <a>
                 <img
                   className="img-fluid"
-                  src="/src/assets/images/teen-patti2-20-20.png"
+                  src="/images/dragon-tiger-2.png"
                 />
               </a>
             </div>
@@ -386,7 +378,15 @@ const ExtraTab = () => {
               <a>
                 <img
                   className="img-fluid"
-                  src="/src/assets/images/instant-2-card-teenpatti.png"
+                  src="/images/teen-patti2-20-20.png"
+                />
+              </a>
+            </div>
+            <div className="col-3 px-1 mb-1 d-none ng-star-inserted">
+              <a>
+                <img
+                  className="img-fluid"
+                  src="/images/instant-2-card-teenpatti.png"
                 />
               </a>
             </div>
@@ -404,20 +404,20 @@ const ExtraTab = () => {
           <div className="row mx-0 d-flex d-md-none">
             <div className="col-6 px-1 mb-1 position-relative">
               <img
-                src="/src/assets/images/aviator-730-280.gif"
+                src="/images/aviator-730-280.gif"
                 className="img-fluid"
               />
             </div>
             <div className="col-6 px-1 mb-1 position-relative">
               <img
-                src="/src/assets/images/evoplay-730-280.gif"
+                src="/images/evoplay-730-280.gif"
                 className="img-fluid"
               />
             </div>
             <div className="col-6 px-1 position-relative">
               <a >
                 <img
-                  src="/src/assets/images/fungames-730_280.gif"
+                  src="/images/fungames-730_280.gif"
                   className="img-fluid"
                 />
               </a>
@@ -425,7 +425,7 @@ const ExtraTab = () => {
             <div className="col-6 px-1 position-relative">
               <a >
                 <img
-                  src="/src/assets/images/wingogames-730-280.gif"
+                  src="/images/wingogames-730-280.gif"
                   className="img-fluid"
                 />
               </a>
@@ -445,7 +445,7 @@ const ExtraTab = () => {
                   >
                     <span className="list-sport-title">
                       <img
-                        src="/src/assets/images/menu-horse.png"
+                        src="/images/menu-horse.png"
                         className="img-fluid game-icon-img"
                       />
                       Next Horse Racing
@@ -460,7 +460,7 @@ const ExtraTab = () => {
                         href="https://11xplay.com/game-detail/33938341/1.238202914"
                         className="chip ng-star-inserted"
                       >
-                        <img alt="Horse" src="/src/assets/images/au.png" />
+                        <img alt="Horse" src="/images/au.png" />
                         <div className="race_detail">
                           <span
                             className="race_time"
@@ -475,7 +475,7 @@ const ExtraTab = () => {
                         href="https://11xplay.com/game-detail/33935746/1.238156485"
                         className="chip ng-star-inserted"
                       >
-                        <img alt="Horse" src="/src/assets/images/au.png" />
+                        <img alt="Horse" src="/images/au.png" />
                         <div className="race_detail">
                           <span
                             className="race_time"
@@ -490,7 +490,7 @@ const ExtraTab = () => {
                         href="https://11xplay.com/game-detail/33938356/1.238203064"
                         className="chip ng-star-inserted"
                       >
-                        <img alt="Horse" src="/src/assets/images/au.png" />
+                        <img alt="Horse" src="/images/au.png" />
                         <div className="race_detail">
                           <span
                             className="race_time"
@@ -505,7 +505,7 @@ const ExtraTab = () => {
                         href="https://11xplay.com/game-detail/33935746/1.238156493"
                         className="chip ng-star-inserted"
                       >
-                        <img alt="Horse" src="/src/assets/images/au.png" />
+                        <img alt="Horse" src="/images/au.png" />
                         <div className="race_detail">
                           <span
                             className="race_time"
@@ -520,7 +520,7 @@ const ExtraTab = () => {
                         href="https://11xplay.com/game-detail/33938341/1.238202917"
                         className="chip ng-star-inserted"
                       >
-                        <img alt="Horse" src="/src/assets/images/au.png" />
+                        <img alt="Horse" src="/images/au.png" />
                         <div className="race_detail">
                           <span
                             className="race_time"
@@ -535,7 +535,7 @@ const ExtraTab = () => {
                         href="https://11xplay.com/game-detail/33938304/1.238202058"
                         className="chip ng-star-inserted"
                       >
-                        <img alt="Horse" src="/src/assets/images/au.png" />
+                        <img alt="Horse" src="/images/au.png" />
                         <div className="race_detail">
                           <span
                             className="race_time"
@@ -565,7 +565,7 @@ const ExtraTab = () => {
                   >
                     <span className="list-sport-title">
                       <img
-                        src="/src/assets/images/menu-greyhound.png"
+                        src="/images/menu-greyhound.png"
                         className="img-fluid game-icon-img"
                       />
                       Next Greyhound Racing
@@ -577,7 +577,7 @@ const ExtraTab = () => {
                         href="https://11xplay.com/game-detail/33938380/1.238203399"
                         className="chip ng-star-inserted"
                       >
-                        <img alt="Greyhound" src="/src/assets/images/au.png" />
+                        <img alt="Greyhound" src="/images/au.png" />
                         <div className="race_detail">
                           <span
                             className="race_time"
@@ -592,7 +592,7 @@ const ExtraTab = () => {
                         href="https://11xplay.com/game-detail/33938333/1.238202515"
                         className="chip ng-star-inserted"
                       >
-                        <img alt="Greyhound" src="/src/assets/images/au.png" />
+                        <img alt="Greyhound" src="/images/au.png" />
                         <div className="race_detail">
                           <span
                             className="race_time"
@@ -607,7 +607,7 @@ const ExtraTab = () => {
                         href="https://11xplay.com/game-detail/33938380/1.238203404"
                         className="chip ng-star-inserted"
                       >
-                        <img alt="Greyhound" src="/src/assets/images/au.png" />
+                        <img alt="Greyhound" src="/images/au.png" />
                         <div className="race_detail">
                           <span
                             className="race_time"
@@ -622,7 +622,7 @@ const ExtraTab = () => {
                         href="https://11xplay.com/game-detail/33938333/1.238202520"
                         className="chip ng-star-inserted"
                       >
-                        <img alt="Greyhound" src="/src/assets/images/au.png" />
+                        <img alt="Greyhound" src="/images/au.png" />
                         <div className="race_detail">
                           <span
                             className="race_time"
@@ -637,7 +637,7 @@ const ExtraTab = () => {
                         href="https://11xplay.com/game-detail/33938380/1.238203409"
                         className="chip ng-star-inserted"
                       >
-                        <img alt="Greyhound" src="/src/assets/images/au.png" />
+                        <img alt="Greyhound" src="/images/au.png" />
                         <div className="race_detail">
                           <span
                             className="race_time"
@@ -652,7 +652,7 @@ const ExtraTab = () => {
                         href="https://11xplay.com/game-detail/33938333/1.238202525"
                         className="chip ng-star-inserted"
                       >
-                        <img alt="Greyhound" src="/src/assets/images/au.png" />
+                        <img alt="Greyhound" src="/images/au.png" />
                         <div className="race_detail">
                           <span
                             className="race_time"

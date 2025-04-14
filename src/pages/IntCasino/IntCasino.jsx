@@ -122,7 +122,7 @@ const IntCasino = () => {
                                   <span className="list-sport-title">
                                     <img
                                       className="img-fluid game-icon-img"
-                                      src="/src/assets/images/menu-99998.png"
+                                      src="/images/menu-99998.png"
                                     />
                                     &nbsp; Int Casino
                                   </span>

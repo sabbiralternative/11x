@@ -33,7 +33,7 @@ const Sidebar = ({ setIsOpenSidebar }) => {
 
             <li onClick={() => setIsOpenSidebar(false)} className="nav-item">
               <Link to="/" className="nav-link final-link">
-                <img src="/src/assets/images/menu-home.png" />
+                <img src="/images/menu-home.png" />
                 <span>home</span>
               </Link>
             </li>
@@ -45,7 +45,7 @@ const Sidebar = ({ setIsOpenSidebar }) => {
                 to="/multi-market"
                 className="nav-link multi-market final-link"
               >
-                <img src="/src/assets/images/menu-market.png" />
+                <img src="/images/menu-market.png" />
                 <span>Multi Market</span>
               </Link>
             </li>
@@ -55,10 +55,7 @@ const Sidebar = ({ setIsOpenSidebar }) => {
               className="nav-item ng-star-inserted"
             >
               <Link to="/profit-loss" className="nav-link final-link">
-                <img
-                  src="/src/assets/images/profitloss.svg"
-                  className="img-fluid"
-                />
+                <img src="/images/profitloss.svg" className="img-fluid" />
                 <span>profit &amp; loss</span>
               </Link>
             </li>
@@ -71,10 +68,7 @@ const Sidebar = ({ setIsOpenSidebar }) => {
                 to="/account-statement"
                 className="nav-link final-link nmm-active"
               >
-                <img
-                  src="/src/assets/images/statement.svg"
-                  className="img-fluid"
-                />
+                <img src="/images/statement.svg" className="img-fluid" />
                 <span>Account statement</span>
               </Link>
             </li>
@@ -84,7 +78,7 @@ const Sidebar = ({ setIsOpenSidebar }) => {
               className="nav-item ng-star-inserted"
             >
               <Link to="/unsettled-bets" className="nav-link final-link">
-                <img src="/src/assets/images/bets.svg" className="img-fluid" />
+                <img src="/images/bets.svg" className="img-fluid" />
                 <span>unsettled bets</span>
               </Link>
             </li>
@@ -97,7 +91,7 @@ const Sidebar = ({ setIsOpenSidebar }) => {
               className="nav-item"
             >
               <Link className="nav-link final-link">
-                <img src="/src/assets/images/terms.svg" className="img-fluid" />
+                <img src="/images/terms.svg" className="img-fluid" />
                 <span>rules</span>
               </Link>
             </li>
@@ -106,7 +100,7 @@ const Sidebar = ({ setIsOpenSidebar }) => {
               className="nav-item ng-star-inserted"
             >
               <Link to="/edit-stake" className="nav-link final-link">
-                <img src="/src/assets/images/edit.svg" className="img-fluid" />
+                <img src="/images/edit.svg" className="img-fluid" />
                 <span>edit stake</span>
               </Link>
             </li>
@@ -116,10 +110,7 @@ const Sidebar = ({ setIsOpenSidebar }) => {
               className="nav-item ng-star-inserted"
             >
               <Link to="/profile" className="nav-link final-link">
-                <img
-                  src="/src/assets/images/profile_image.png"
-                  className="img-fluid"
-                />
+                <img src="/images/profile_image.png" className="img-fluid" />
                 <span>Profile ({user})</span>
               </Link>
             </li>
@@ -129,10 +120,7 @@ const Sidebar = ({ setIsOpenSidebar }) => {
               className="nav-item nav-highlight ng-star-inserted"
             >
               <Link className="nav-link final-link">
-                <img
-                  src="/src/assets/images/logout.svg"
-                  className="img-fluid"
-                />
+                <img src="/images/logout.svg" className="img-fluid" />
                 <span>Logout</span>
               </Link>
             </li>

@@ -75,7 +75,7 @@ const GroupEvents = () => {
                               <span className="list-sport-title">
                                 <img
                                   className="img-fluid game-icon-img"
-                                  src={`/src/assets/images/menu-${category}.png`}
+                                  src={`/images/menu-${category}.png`}
                                 />
                                 &nbsp; {eventName[category]}
                               </span>
@@ -198,7 +198,7 @@ const GroupEvents = () => {
                                                   {data?.[key]?.isTv === 1 ? (
                                                     <span className="icon_game ng-star-inserted">
                                                       <img
-                                                        src="/src/assets/images/tv.svg"
+                                                        src="/images/tv.svg"
                                                         className="img-fluid"
                                                       />
                                                     </span>

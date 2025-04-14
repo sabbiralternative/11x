@@ -70,7 +70,7 @@ const Notification = () => {
   return (
     <div>
       <div className="commentary">
-        <img src="/src/assets/images/commentary.png" />
+        <img src="/images/commentary.png" />
         {showNotification && filteredNotification?.length > 0 && (
           <div>
             <Marquee>

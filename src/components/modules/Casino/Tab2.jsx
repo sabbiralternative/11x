@@ -55,7 +55,7 @@ const Tab2 = ({ categories, setSelectedSubCategory, selectedSubCategory }) => {
               >
                 <img
                   className="img-fluid"
-                  src={`/src/assets/icon/${category
+                  src={`/icon/${category
                     ?.split(" ")
                     .join("")
                     .toLowerCase()}.svg`}
