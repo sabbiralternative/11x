@@ -1,4 +1,5 @@
 import { Settings } from "../../api";
+import img from "../../assets/img";
 import Header from "../../components/shared/Header/Header";
 import Notification from "../../components/shared/Notification/Notification";
 import useLogo from "../../hooks/useLogo";
@@ -24,10 +25,7 @@ const Home = () => {
                 <div className="row">
                   <div className="col-md-4 col-6" tabIndex={0}>
                     <div className="ss_div">
-                      <img
-                        className="img-fluid"
-                        src="/src/assets/images/4.webp"
-                      />
+                      <img className="img-fluid" src={img.four} />
                       <span className="home-animated">
                         <span />
                         <span />
@@ -38,10 +36,7 @@ const Home = () => {
                   </div>
                   <div className="col-md-4 col-6" tabIndex={0}>
                     <div className="ss_div">
-                      <img
-                        className="img-fluid"
-                        src="/src/assets/images/1.webp"
-                      />
+                      <img className="img-fluid" src={img.one} />
                       <span className="home-animated">
                         <span />
                         <span />
@@ -52,10 +47,7 @@ const Home = () => {
                   </div>
                   <div className="col-md-4 col-6" tabIndex={0}>
                     <div className="ss_div">
-                      <img
-                        className="img-fluid"
-                        src="/src/assets/images/2.webp"
-                      />
+                      <img className="img-fluid" src={img.two} />
                       <span className="home-animated">
                         <span />
                         <span />
@@ -66,10 +58,7 @@ const Home = () => {
                   </div>
                   <div className="col-md-4 col-6" tabIndex={0}>
                     <div className="ss_div">
-                      <img
-                        className="img-fluid"
-                        src="/src/assets/images/99998.webp"
-                      />
+                      <img className="img-fluid" src={img.intCasino} />
                       <span className="home-animated">
                         <span />
                         <span />
@@ -80,10 +69,7 @@ const Home = () => {
                   </div>
                   <div className="col-md-4 col-6" tabIndex={0}>
                     <div className="ss_div">
-                      <img
-                        className="img-fluid"
-                        src="/src/assets/images/7.webp"
-                      />
+                      <img className="img-fluid" src={img.seven} />
                       <span className="home-animated">
                         <span />
                         <span />
@@ -94,10 +80,7 @@ const Home = () => {
                   </div>
                   <div className="col-md-4 col-6" tabIndex={0}>
                     <div className="ss_div">
-                      <img
-                        className="img-fluid"
-                        src="/src/assets/images/4339.webp"
-                      />
+                      <img className="img-fluid" src={img.greyhound} />
                       <span className="home-animated">
                         <span />
                         <span />
@@ -121,10 +104,7 @@ const Home = () => {
                     </p>
                   </div>
                   <div className="col-md-6">
-                    <img
-                      src="/src/assets/images/casino-pic.png"
-                      className="img-fluid"
-                    />
+                    <img src="/images/casino-pic.png" className="img-fluid" />
                   </div>
                 </div>
               </div>
@@ -135,9 +115,19 @@ const Home = () => {
                 <div className="row">
                   <div className="col-lg-2 col-6">
                     <div className="thumbnail__item__pic">
+                      <img className="img-fluid" src="/images/rummy.webp" />
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-6">
+                    <div className="thumbnail__item__pic">
+                      <img className="img-fluid" src="/images/2020tp2.webp" />
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-6">
+                    <div className="thumbnail__item__pic">
                       <img
                         className="img-fluid"
-                        src="/src/assets/images/rummy.webp"
+                        src="/images/andarbahar.webp"
                       />
                     </div>
                   </div>
@@ -145,7 +135,7 @@ const Home = () => {
                     <div className="thumbnail__item__pic">
                       <img
                         className="img-fluid"
-                        src="/src/assets/images/2020tp2.webp"
+                        src="/images/dragontiger.webp"
                       />
                     </div>
                   </div>
@@ -153,7 +143,7 @@ const Home = () => {
                     <div className="thumbnail__item__pic">
                       <img
                         className="img-fluid"
-                        src="/src/assets/images/andarbahar.webp"
+                        src="/images/dragontigerlion.webp"
                       />
                     </div>
                   </div>
@@ -161,7 +151,25 @@ const Home = () => {
                     <div className="thumbnail__item__pic">
                       <img
                         className="img-fluid"
-                        src="/src/assets/images/dragontiger.webp"
+                        src="/images/dragontigeroneday.webp"
+                      />
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-6">
+                    <div className="thumbnail__item__pic">
+                      <img className="img-fluid" src="/images/dt2.webp" />
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-6">
+                    <div className="thumbnail__item__pic">
+                      <img className="img-fluid" src="/images/baccarat.webp" />
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-6">
+                    <div className="thumbnail__item__pic">
+                      <img
+                        className="img-fluid"
+                        src="/images/29baccarat.webp"
                       />
                     </div>
                   </div>
@@ -169,7 +177,43 @@ const Home = () => {
                     <div className="thumbnail__item__pic">
                       <img
                         className="img-fluid"
-                        src="/src/assets/images/dragontigerlion.webp"
+                        src="/images/baccaratoneday.webp"
+                      />
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-6">
+                    <div className="thumbnail__item__pic">
+                      <img className="img-fluid" src="/images/sicbo.webp" />
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-6">
+                    <div className="thumbnail__item__pic">
+                      <img className="img-fluid" src="/images/roulette.webp" />
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-6">
+                    <div className="thumbnail__item__pic">
+                      <img
+                        className="img-fluid"
+                        src="/images/20-20poker.webp"
+                      />
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-6">
+                    <div className="thumbnail__item__pic">
+                      <img className="img-fluid" src="/images/poker.webp" />
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-6">
+                    <div className="thumbnail__item__pic">
+                      <img className="img-fluid" src="/images/lucky7.webp" />
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-6">
+                    <div className="thumbnail__item__pic">
+                      <img
+                        className="img-fluid"
+                        src="/images/onedayteenpatti.webp"
                       />
                     </div>
                   </div>
@@ -177,7 +221,7 @@ const Home = () => {
                     <div className="thumbnail__item__pic">
                       <img
                         className="img-fluid"
-                        src="/src/assets/images/dragontigeroneday.webp"
+                        src="/images/teenpattitest.webp"
                       />
                     </div>
                   </div>
@@ -185,7 +229,7 @@ const Home = () => {
                     <div className="thumbnail__item__pic">
                       <img
                         className="img-fluid"
-                        src="/src/assets/images/dt2.webp"
+                        src="/images/2cardsteenpatti.webp"
                       />
                     </div>
                   </div>
@@ -193,7 +237,7 @@ const Home = () => {
                     <div className="thumbnail__item__pic">
                       <img
                         className="img-fluid"
-                        src="/src/assets/images/baccarat.webp"
+                        src="/images/muflisteenpattioneday.webp"
                       />
                     </div>
                   </div>
@@ -201,7 +245,7 @@ const Home = () => {
                     <div className="thumbnail__item__pic">
                       <img
                         className="img-fluid"
-                        src="/src/assets/images/29baccarat.webp"
+                        src="/images/2020teenpatti.webp"
                       />
                     </div>
                   </div>
@@ -209,7 +253,7 @@ const Home = () => {
                     <div className="thumbnail__item__pic">
                       <img
                         className="img-fluid"
-                        src="/src/assets/images/baccaratoneday.webp"
+                        src="/images/2cardonedayteenpatti.webp"
                       />
                     </div>
                   </div>
@@ -217,7 +261,20 @@ const Home = () => {
                     <div className="thumbnail__item__pic">
                       <img
                         className="img-fluid"
-                        src="/src/assets/images/sicbo.webp"
+                        src="/images/openteenpatti.webp"
+                      />
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-6">
+                    <div className="thumbnail__item__pic">
+                      <img className="img-fluid" src="/images/32cards.webp" />
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-6">
+                    <div className="thumbnail__item__pic">
+                      <img
+                        className="img-fluid"
+                        src="/images/amarakbaranthony.webp"
                       />
                     </div>
                   </div>
@@ -225,7 +282,61 @@ const Home = () => {
                     <div className="thumbnail__item__pic">
                       <img
                         className="img-fluid"
-                        src="/src/assets/images/roulette.webp"
+                        src="/images/3cardjudgement.webp"
+                      />
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-6">
+                    <div className="thumbnail__item__pic">
+                      <img className="img-fluid" src="/images/queenrace.webp" />
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-6">
+                    <div className="thumbnail__item__pic">
+                      <img className="img-fluid" src="/images/race20.webp" />
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-6">
+                    <div className="thumbnail__item__pic">
+                      <img className="img-fluid" src="/images/casinowar.webp" />
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-6">
+                    <div className="thumbnail__item__pic">
+                      <img
+                        className="img-fluid"
+                        src="/images/worlimatka.webp"
+                      />
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-6">
+                    <div className="thumbnail__item__pic">
+                      <img className="img-fluid" src="/images/trap.webp" />
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-6">
+                    <div className="thumbnail__item__pic">
+                      <img className="img-fluid" src="/images/trio.webp" />
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-6">
+                    <div className="thumbnail__item__pic">
+                      <img
+                        className="img-fluid"
+                        src="/images/bollywoodcasino.webp"
+                      />
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-6">
+                    <div className="thumbnail__item__pic">
+                      <img className="img-fluid" src="/images/10kadum.webp" />
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-6">
+                    <div className="thumbnail__item__pic">
+                      <img
+                        className="img-fluid"
+                        src="/images/1-card-20-20.webp"
                       />
                     </div>
                   </div>
@@ -233,7 +344,46 @@ const Home = () => {
                     <div className="thumbnail__item__pic">
                       <img
                         className="img-fluid"
-                        src="/src/assets/images/20-20poker.webp"
+                        src="/images/one-card-one-day.webp"
+                      />
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-6">
+                    <div className="thumbnail__item__pic">
+                      <img className="img-fluid" src="/images/race17.webp" />
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-6">
+                    <div className="thumbnail__item__pic">
+                      <img
+                        className="img-fluid"
+                        src="/images/note-umber.webp"
+                      />
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-6">
+                    <div className="thumbnail__item__pic">
+                      <img className="img-fluid" src="/images/raceto2nd.webp" />
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-6">
+                    <div className="thumbnail__item__pic">
+                      <img
+                        className="img-fluid"
+                        src="/images/centercardoneday.webp"
+                      />
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-6">
+                    <div className="thumbnail__item__pic">
+                      <img className="img-fluid" src="/images/lottery.webp" />
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-6">
+                    <div className="thumbnail__item__pic">
+                      <img
+                        className="img-fluid"
+                        src="/images/superoveroneday.webp"
                       />
                     </div>
                   </div>
@@ -241,7 +391,7 @@ const Home = () => {
                     <div className="thumbnail__item__pic">
                       <img
                         className="img-fluid"
-                        src="/src/assets/images/poker.webp"
+                        src="/images/fivecricket.webp"
                       />
                     </div>
                   </div>
@@ -249,255 +399,25 @@ const Home = () => {
                     <div className="thumbnail__item__pic">
                       <img
                         className="img-fluid"
-                        src="/src/assets/images/lucky7.webp"
+                        src="/images/cricket2020.webp"
                       />
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-6">
+                    <div className="thumbnail__item__pic">
+                      <img className="img-fluid" src="/images/high_low.webp" />
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-6">
+                    <div className="thumbnail__item__pic">
+                      <img className="img-fluid" src="/images/6pp.webp" />
                     </div>
                   </div>
                   <div className="col-lg-2 col-6">
                     <div className="thumbnail__item__pic">
                       <img
                         className="img-fluid"
-                        src="/src/assets/images/onedayteenpatti.webp"
-                      />
-                    </div>
-                  </div>
-                  <div className="col-lg-2 col-6">
-                    <div className="thumbnail__item__pic">
-                      <img
-                        className="img-fluid"
-                        src="/src/assets/images/teenpattitest.webp"
-                      />
-                    </div>
-                  </div>
-                  <div className="col-lg-2 col-6">
-                    <div className="thumbnail__item__pic">
-                      <img
-                        className="img-fluid"
-                        src="/src/assets/images/2cardsteenpatti.webp"
-                      />
-                    </div>
-                  </div>
-                  <div className="col-lg-2 col-6">
-                    <div className="thumbnail__item__pic">
-                      <img
-                        className="img-fluid"
-                        src="/src/assets/images/muflisteenpattioneday.webp"
-                      />
-                    </div>
-                  </div>
-                  <div className="col-lg-2 col-6">
-                    <div className="thumbnail__item__pic">
-                      <img
-                        className="img-fluid"
-                        src="/src/assets/images/2020teenpatti.webp"
-                      />
-                    </div>
-                  </div>
-                  <div className="col-lg-2 col-6">
-                    <div className="thumbnail__item__pic">
-                      <img
-                        className="img-fluid"
-                        src="/src/assets/images/2cardonedayteenpatti.webp"
-                      />
-                    </div>
-                  </div>
-                  <div className="col-lg-2 col-6">
-                    <div className="thumbnail__item__pic">
-                      <img
-                        className="img-fluid"
-                        src="/src/assets/images/openteenpatti.webp"
-                      />
-                    </div>
-                  </div>
-                  <div className="col-lg-2 col-6">
-                    <div className="thumbnail__item__pic">
-                      <img
-                        className="img-fluid"
-                        src="/src/assets/images/32cards.webp"
-                      />
-                    </div>
-                  </div>
-                  <div className="col-lg-2 col-6">
-                    <div className="thumbnail__item__pic">
-                      <img
-                        className="img-fluid"
-                        src="/src/assets/images/amarakbaranthony.webp"
-                      />
-                    </div>
-                  </div>
-                  <div className="col-lg-2 col-6">
-                    <div className="thumbnail__item__pic">
-                      <img
-                        className="img-fluid"
-                        src="/src/assets/images/3cardjudgement.webp"
-                      />
-                    </div>
-                  </div>
-                  <div className="col-lg-2 col-6">
-                    <div className="thumbnail__item__pic">
-                      <img
-                        className="img-fluid"
-                        src="/src/assets/images/queenrace.webp"
-                      />
-                    </div>
-                  </div>
-                  <div className="col-lg-2 col-6">
-                    <div className="thumbnail__item__pic">
-                      <img
-                        className="img-fluid"
-                        src="/src/assets/images/race20.webp"
-                      />
-                    </div>
-                  </div>
-                  <div className="col-lg-2 col-6">
-                    <div className="thumbnail__item__pic">
-                      <img
-                        className="img-fluid"
-                        src="/src/assets/images/casinowar.webp"
-                      />
-                    </div>
-                  </div>
-                  <div className="col-lg-2 col-6">
-                    <div className="thumbnail__item__pic">
-                      <img
-                        className="img-fluid"
-                        src="/src/assets/images/worlimatka.webp"
-                      />
-                    </div>
-                  </div>
-                  <div className="col-lg-2 col-6">
-                    <div className="thumbnail__item__pic">
-                      <img
-                        className="img-fluid"
-                        src="/src/assets/images/trap.webp"
-                      />
-                    </div>
-                  </div>
-                  <div className="col-lg-2 col-6">
-                    <div className="thumbnail__item__pic">
-                      <img
-                        className="img-fluid"
-                        src="/src/assets/images/trio.webp"
-                      />
-                    </div>
-                  </div>
-                  <div className="col-lg-2 col-6">
-                    <div className="thumbnail__item__pic">
-                      <img
-                        className="img-fluid"
-                        src="/src/assets/images/bollywoodcasino.webp"
-                      />
-                    </div>
-                  </div>
-                  <div className="col-lg-2 col-6">
-                    <div className="thumbnail__item__pic">
-                      <img
-                        className="img-fluid"
-                        src="/src/assets/images/10kadum.webp"
-                      />
-                    </div>
-                  </div>
-                  <div className="col-lg-2 col-6">
-                    <div className="thumbnail__item__pic">
-                      <img
-                        className="img-fluid"
-                        src="/src/assets/images/1-card-20-20.webp"
-                      />
-                    </div>
-                  </div>
-                  <div className="col-lg-2 col-6">
-                    <div className="thumbnail__item__pic">
-                      <img
-                        className="img-fluid"
-                        src="/src/assets/images/one-card-one-day.webp"
-                      />
-                    </div>
-                  </div>
-                  <div className="col-lg-2 col-6">
-                    <div className="thumbnail__item__pic">
-                      <img
-                        className="img-fluid"
-                        src="/src/assets/images/race17.webp"
-                      />
-                    </div>
-                  </div>
-                  <div className="col-lg-2 col-6">
-                    <div className="thumbnail__item__pic">
-                      <img
-                        className="img-fluid"
-                        src="/src/assets/images/note-umber.webp"
-                      />
-                    </div>
-                  </div>
-                  <div className="col-lg-2 col-6">
-                    <div className="thumbnail__item__pic">
-                      <img
-                        className="img-fluid"
-                        src="/src/assets/images/raceto2nd.webp"
-                      />
-                    </div>
-                  </div>
-                  <div className="col-lg-2 col-6">
-                    <div className="thumbnail__item__pic">
-                      <img
-                        className="img-fluid"
-                        src="/src/assets/images/centercardoneday.webp"
-                      />
-                    </div>
-                  </div>
-                  <div className="col-lg-2 col-6">
-                    <div className="thumbnail__item__pic">
-                      <img
-                        className="img-fluid"
-                        src="/src/assets/images/lottery.webp"
-                      />
-                    </div>
-                  </div>
-                  <div className="col-lg-2 col-6">
-                    <div className="thumbnail__item__pic">
-                      <img
-                        className="img-fluid"
-                        src="/src/assets/images/superoveroneday.webp"
-                      />
-                    </div>
-                  </div>
-                  <div className="col-lg-2 col-6">
-                    <div className="thumbnail__item__pic">
-                      <img
-                        className="img-fluid"
-                        src="/src/assets/images/fivecricket.webp"
-                      />
-                    </div>
-                  </div>
-                  <div className="col-lg-2 col-6">
-                    <div className="thumbnail__item__pic">
-                      <img
-                        className="img-fluid"
-                        src="/src/assets/images/cricket2020.webp"
-                      />
-                    </div>
-                  </div>
-                  <div className="col-lg-2 col-6">
-                    <div className="thumbnail__item__pic">
-                      <img
-                        className="img-fluid"
-                        src="/src/assets/images/high_low.webp"
-                      />
-                    </div>
-                  </div>
-                  <div className="col-lg-2 col-6">
-                    <div className="thumbnail__item__pic">
-                      <img
-                        className="img-fluid"
-                        src="/src/assets/images/6pp.webp"
-                      />
-                    </div>
-                  </div>
-                  <div className="col-lg-2 col-6">
-                    <div className="thumbnail__item__pic">
-                      <img
-                        className="img-fluid"
-                        src="/src/assets/images/10-10-cricket.webp"
+                        src="/images/10-10-cricket.webp"
                       />
                     </div>
                   </div>
@@ -508,10 +428,7 @@ const Home = () => {
               <div className="container">
                 <div className="row align-items-center">
                   <div className="col-md-6">
-                    <img
-                      src="/src/assets/images/casino-pic.png"
-                      className="img-fluid"
-                    />
+                    <img src="/images/casino-pic.png" className="img-fluid" />
                   </div>
                   <div className="col-md-5">
                     <h2>Best to others?</h2>
@@ -532,64 +449,37 @@ const Home = () => {
                 <h2 className="titlehome">Game Providers</h2>
                 <div className="row align-items-center">
                   <div className="col-lg-2 col-6">
+                    <img src="/images/mac88.webp" className="img-fluid" />
+                  </div>
+                  <div className="col-lg-2 col-6">
                     <img
-                      src="/src/assets/images/mac88.webp"
+                      src="/images/mac88virtualgame.webp"
                       className="img-fluid"
                     />
                   </div>
                   <div className="col-lg-2 col-6">
-                    <img
-                      src="/src/assets/images/mac88virtualgame.webp"
-                      className="img-fluid"
-                    />
+                    <img src="/images/aesexy.webp" className="img-fluid" />
                   </div>
                   <div className="col-lg-2 col-6">
-                    <img
-                      src="/src/assets/images/aesexy.webp"
-                      className="img-fluid"
-                    />
+                    <img src="/images/betgames.webp" className="img-fluid" />
                   </div>
                   <div className="col-lg-2 col-6">
-                    <img
-                      src="/src/assets/images/betgames.webp"
-                      className="img-fluid"
-                    />
+                    <img src="/images/bombaylive.webp" className="img-fluid" />
                   </div>
                   <div className="col-lg-2 col-6">
-                    <img
-                      src="/src/assets/images/bombaylive.webp"
-                      className="img-fluid"
-                    />
+                    <img src="/images/evolution.webp" className="img-fluid" />
                   </div>
                   <div className="col-lg-2 col-6">
-                    <img
-                      src="/src/assets/images/evolution.webp"
-                      className="img-fluid"
-                    />
+                    <img src="/images/ezugi.webp" className="img-fluid" />
                   </div>
                   <div className="col-lg-2 col-6">
-                    <img
-                      src="/src/assets/images/ezugi.webp"
-                      className="img-fluid"
-                    />
+                    <img src="/images/gamzix.webp" className="img-fluid" />
                   </div>
                   <div className="col-lg-2 col-6">
-                    <img
-                      src="/src/assets/images/gamzix.webp"
-                      className="img-fluid"
-                    />
+                    <img src="/images/jili.webp" className="img-fluid" />
                   </div>
                   <div className="col-lg-2 col-6">
-                    <img
-                      src="/src/assets/images/jili.webp"
-                      className="img-fluid"
-                    />
-                  </div>
-                  <div className="col-lg-2 col-6">
-                    <img
-                      src="/src/assets/images/spribe.webp"
-                      className="img-fluid"
-                    />
+                    <img src="/images/spribe.webp" className="img-fluid" />
                   </div>
                 </div>
               </div>
@@ -612,7 +502,7 @@ const Home = () => {
                         </a>
                       </p>
                       <img
-                        src="/src/assets/images/socialicon.png"
+                        src="/images/socialicon.png"
                         className="img-fluid mt-2"
                         style={{ width: "150px" }}
                       />
@@ -621,12 +511,12 @@ const Home = () => {
                   <div className="col-lg-4">
                     <h2>Payment Partners</h2>
                     <img
-                      src="/src/assets/images/payment.png"
+                      src="/images/payment.png"
                       className="img-fluid"
                       style={{ width: "300px" }}
                     />
                     <img
-                      src="/src/assets/images/payment2.png"
+                      src="/images/payment2.png"
                       className="img-fluid"
                       style={{ width: "300px" }}
                     />
@@ -659,18 +549,15 @@ const Home = () => {
                   <div className="col-lg-3">
                     <h2>Security &amp; Game Integrity</h2>
                     <div className="securitylogo">
+                      <img src="/images/18.png" className="img-fluid" />
                       <img
-                        src="/src/assets/images/18.png"
-                        className="img-fluid"
-                      />
-                      <img
-                        src="/src/assets/images/responsible-play.png"
+                        src="/images/responsible-play.png"
                         className="img-fluid"
                       />
                       <p className="mt-3">
                         Powered by
                         <img
-                          src="/src/assets/images/betfair.png"
+                          src="/images/betfair.png"
                           className="img-fluid d-block"
                           style={{ height: "20px" }}
                         />
@@ -696,31 +583,25 @@ const Home = () => {
         <div>
           <nav className="footer_mobilemenu">
             <a href="dashboard.html">
-              <img src="/src/assets/images/in-play.svg" className="img-fluid" />
+              <img src="/images/in-play.svg" className="img-fluid" />
               <span>in-play</span>
             </a>
             <a>
-              <img src="/src/assets/images/multi.svg" className="img-fluid" />
+              <img src="/images/multi.svg" className="img-fluid" />
               <span>Multi</span>
             </a>
 
             <a href="home.html" className="active">
-              <img src="/src/assets/images/place.svg" className="img-fluid" />
+              <img src="/images/place.svg" className="img-fluid" />
               <span>Home</span>
             </a>
 
             <a href="sportbook1.html">
-              <img
-                src="/src/assets/images/icon-casino.svg"
-                className="img-fluid"
-              />
+              <img src="/images/icon-casino.svg" className="img-fluid" />
               <span>Casino</span>
             </a>
             <a href="sportbooklive.html">
-              <img
-                src="/src/assets/images/icon-casino.svg"
-                className="img-fluid"
-              />
+              <img src="/images/icon-casino.svg" className="img-fluid" />
               <span>ICasino</span>
             </a>
           </nav>
