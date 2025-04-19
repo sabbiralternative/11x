@@ -54,7 +54,7 @@ const Sidebar = ({ setIsOpenSidebar }) => {
               onClick={() => setIsOpenSidebar(false)}
               className="nav-item ng-star-inserted"
             >
-              <Link to="/profit-loss" className="nav-link final-link">
+              <Link to="/betting-profit-loss" className="nav-link final-link">
                 <img src="/images/profitloss.svg" className="img-fluid" />
                 <span>profit &amp; loss</span>
               </Link>

@@ -11,6 +11,8 @@ import Profile from "../pages/Profile/Profile";
 import CasinoIFrame from "../pages/CasinoIFrame/CasinoIFrame";
 import SportsBook from "../pages/SportsBook/SportsBook";
 import UnSettledBets from "../pages/UnSettledBets/UnSettledBets";
+import BettingProfitLoss from "../pages/BettingProfitLoss/BettingProfitLoss";
+import SingleProfitLoss from "../pages/SingleProfitLoss/SingleProfitLoss";
 
 export const router = createBrowserRouter(
   [
@@ -50,6 +52,14 @@ export const router = createBrowserRouter(
         {
           path: "/unsettled-bets",
           element: <UnSettledBets />,
+        },
+        {
+          path: "/betting-profit-loss",
+          element: <BettingProfitLoss />,
+        },
+        {
+          path: "/betting-profit-loss/:marketId",
+          element: <SingleProfitLoss />,
         },
         // {
         //   path: "/change-password",
