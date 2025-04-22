@@ -4,10 +4,10 @@ import { API } from "../api";
 
 export const useWhatsApp = () => {
   return useQuery({
-    queryKey: ["balance"],
+    queryKey: ["whatsapp"],
     queryFn: async () => {
       const { data } = await AxiosSecure.post(API.whatsapp);
-      return data;
+      return data?.result;
     },
   });
 };

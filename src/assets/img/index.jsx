@@ -12,8 +12,10 @@ import two from "../images/2.webp";
 import intCasino from "../images/99998.webp";
 import seven from "../images/7.webp";
 import greyhound from "../images/4339.webp";
+import telegram from "../icon/telegram.png";
 
 export default {
+  telegram,
   greyhound,
   seven,
   intCasino,
