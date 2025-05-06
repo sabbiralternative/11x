@@ -13,8 +13,10 @@ import intCasino from "../images/99998.webp";
 import seven from "../images/7.webp";
 import greyhound from "../images/4339.webp";
 import telegram from "../icon/telegram.png";
+import instagram from "../icon/instagram.png";
 
 export default {
+  instagram,
   telegram,
   greyhound,
   seven,
