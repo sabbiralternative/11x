@@ -13,6 +13,14 @@ import SportsBook from "../pages/SportsBook/SportsBook";
 import UnSettledBets from "../pages/UnSettledBets/UnSettledBets";
 import BettingProfitLoss from "../pages/BettingProfitLoss/BettingProfitLoss";
 import SingleProfitLoss from "../pages/SingleProfitLoss/SingleProfitLoss";
+import HorseRacing from "../pages/HorseRacing/HorseRacing";
+import GreyhoundRacing from "../pages/GreyhoundRacing/GreyhoundRacing";
+import DepositWithdrawReport from "../pages/DepositWithdrawReport/DepositWithdrawReport";
+import MyBankDetails from "../pages/MyBankDetails/MyBankDetails";
+import BonusStatement from "../pages/BonusStatement/BonusStatement";
+import ReferralStatement from "../pages/ReferralStatement/ReferralStatement";
+import Deposit from "../pages/Deposit/Deposit";
+import Withdraw from "../pages/Withdraw/Withdraw";
 
 export const router = createBrowserRouter(
   [
@@ -61,64 +69,41 @@ export const router = createBrowserRouter(
           path: "/betting-profit-loss/:marketId",
           element: <SingleProfitLoss />,
         },
-        // {
-        //   path: "/change-password",
-        //   element: <ChangePassword />,
-        // },
-        // {
-        //   path: "/change-btn-value",
-        //   element: <ChangeButtonValue />,
-        // },
-        // {
-        //   path: "/account-statement",
-        //   element: <AccountStatement />,
-        // },
-        // {
-        //   path: "/unsettled-bets",
-        //   element: <UnSettledBets />,
-        // },
-        // {
-        //   path: "/rules",
-        //   element: <Rules />,
-        // },
-        // {
-        //   path: "/other",
-        //   element: <Other />,
-        // },
+        {
+          path: "/horse-racing",
+          element: <HorseRacing />,
+        },
+        {
+          path: "/greyhound-racing",
+          element: <GreyhoundRacing />,
+        },
+        {
+          path: "/deposit-withdraw-report",
+          element: <DepositWithdrawReport />,
+        },
+        {
+          path: "/my-bank-details",
+          element: <MyBankDetails />,
+        },
+        {
+          path: "/bonus-statement",
+          element: <BonusStatement />,
+        },
+        {
+          path: "/referral-statement",
+          element: <ReferralStatement />,
+        },
+        {
+          path: "/deposit",
+          element: <Deposit />,
+        },
+        {
+          path: "/withdraw",
+          element: <Withdraw />,
+        },
       ],
     },
-    // {
-    //   path: "/login",
-    //   element: <Login />,
-    // },
-    // {
-    //   path: "/register",
-    //   element: <Register />,
-    // },
-    // {
-    //   path: "/change-password-login",
-    //   element: <ChangePasswordLogin />,
-    // },
-    // {
-    //   path: "/forgot-password",
-    //   element: <ForgotPassword />,
-    // },
-    // {
-    //   path: "/casino/:name/:gameId",
-    //   element: <CasinoIFrame />,
-    // },
-    // {
-    //   path: "/deposit",
-    //   element: <Deposit />,
-    // },
-    // {
-    //   path: "/withdraw",
-    //   element: <Withdraw />,
-    // },
-    // {
-    //   path: "/sports-book",
-    //   element: <SportsBook />,
-    // },
+
     {
       path: "/home",
       element: <Home />,

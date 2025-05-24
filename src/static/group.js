@@ -38,10 +38,12 @@ export const homeTab = [
   {
     name: "Horse Racing",
     imageSrc: "/images/menu-7.png",
+    to: "/horse-racing",
   },
   {
     name: "Greyhound Racing",
     imageSrc: "/images/menu-4339.png",
+    to: "/greyhound-racing",
   },
   {
     name: "Binary",

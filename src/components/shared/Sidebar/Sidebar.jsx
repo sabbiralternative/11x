@@ -5,8 +5,14 @@ import { useRef, useState } from "react";
 import Rules from "../../modals/Rules/Rules";
 import useCloseModalClickOutside from "../../../hooks/closeModal";
 import useLogo from "../../../hooks/useLogo";
+import { Settings } from "../../../api";
+import Referral from "../../modals/Referral/Referral";
+import useWhatsApp from "../../../hooks/whatsapp";
+import img from "../../../assets/img";
 
 const Sidebar = ({ setIsOpenSidebar }) => {
+  const { data: socialLink } = useWhatsApp();
+  const [showReferral, setShowReferral] = useState(false);
   const { logo } = useLogo();
   const sidebarRef = useRef();
   const { user } = useSelector((state) => state.auth);
@@ -23,9 +29,17 @@ const Sidebar = ({ setIsOpenSidebar }) => {
     dispatch(logout());
     navigate("/home");
   };
+
+  const navigateWhatsApp = (link) => {
+    window.open(link, "_blank");
+  };
+
   return (
     <>
       {showRules && <Rules setShowRules={setShowRules} />}
+      <div className="a23_css">
+        {showReferral && <Referral setShowReferral={setShowReferral} />}
+      </div>
       <div className="ng-star-inserted">
         <aside ref={sidebarRef} id="sidebar" className="sidebar">
           <ul id="sidebar-nav" className="sidebar-nav">
@@ -37,16 +51,25 @@ const Sidebar = ({ setIsOpenSidebar }) => {
                 <span>home</span>
               </Link>
             </li>
-            <li
-              onClick={() => setIsOpenSidebar(false)}
-              className="nav-item ng-star-inserted"
-            >
+            <li onClick={() => setIsOpenSidebar(false)} className="nav-item">
+              <Link to="/deposit" className="nav-link final-link">
+                <img src={img.profileWallet} />
+                <span>deposit</span>
+              </Link>
+            </li>
+            <li onClick={() => setIsOpenSidebar(false)} className="nav-item">
+              <Link to="/withdraw" className="nav-link final-link">
+                <img src={img.profileWallet} />
+                <span>withdraw</span>
+              </Link>
+            </li>
+            <li onClick={() => setIsOpenSidebar(false)} className="nav-item">
               <Link
-                to="/multi-market"
-                className="nav-link multi-market final-link"
+                to="/deposit-withdraw-report"
+                className="nav-link final-link"
               >
-                <img src="/images/menu-market.png" />
-                <span>Multi Market</span>
+                <img src={img.profileWallet} />
+                <span>Deposit Withdraw Report</span>
               </Link>
             </li>
 
@@ -55,7 +78,7 @@ const Sidebar = ({ setIsOpenSidebar }) => {
               className="nav-item ng-star-inserted"
             >
               <Link to="/betting-profit-loss" className="nav-link final-link">
-                <img src="/images/profitloss.svg" className="img-fluid" />
+                <img src={img.bettingProfitLoss} className="img-fluid" />
                 <span>profit &amp; loss</span>
               </Link>
             </li>
@@ -64,12 +87,41 @@ const Sidebar = ({ setIsOpenSidebar }) => {
               onClick={() => setIsOpenSidebar(false)}
               className="nav-item ng-star-inserted"
             >
-              <Link
-                to="/account-statement"
-                className="nav-link final-link nmm-active"
+              <Link to="/my-bank-details" className="nav-link final-link">
+                <img src={img.bettingProfitLoss} className="img-fluid" />
+                <span>My Bank Details</span>
+              </Link>
+            </li>
+            <li
+              onClick={() => setIsOpenSidebar(false)}
+              className="nav-item ng-star-inserted"
+            >
+              <Link to="/bonus-statement" className="nav-link final-link">
+                <img src={img.bettingProfitLoss} className="img-fluid" />
+                <span>Bonus Statement</span>
+              </Link>
+            </li>
+            {Settings.referral && (
+              <li
+                onClick={() => {
+                  setIsOpenSidebar(false);
+                  setShowReferral(true);
+                }}
+                className="nav-item ng-star-inserted"
               >
-                <img src="/images/statement.svg" className="img-fluid" />
-                <span>Account statement</span>
+                <Link to="/bonus-statement" className="nav-link final-link">
+                  <img src={img.bettingProfitLoss} className="img-fluid" />
+                  <span>Referral</span>
+                </Link>
+              </li>
+            )}
+            <li
+              onClick={() => setIsOpenSidebar(false)}
+              className="nav-item ng-star-inserted"
+            >
+              <Link to="/referral-statement" className="nav-link final-link">
+                <img src={img.bettingProfitLoss} className="img-fluid" />
+                <span>Referral Statement</span>
               </Link>
             </li>
 
@@ -114,6 +166,34 @@ const Sidebar = ({ setIsOpenSidebar }) => {
                 <span>Profile ({user})</span>
               </Link>
             </li>
+            {socialLink?.whatsapplink && (
+              <li
+                onClick={() => {
+                  navigateWhatsApp(socialLink?.whatsapplink);
+                  setIsOpenSidebar(false);
+                }}
+                className="nav-item ng-star-inserted"
+              >
+                <a className="nav-link final-link">
+                  <img src={img.whatsapp} className="img-fluid" />
+                  <span>All Support </span>
+                </a>
+              </li>
+            )}
+            {socialLink?.branchWhatsapplink && (
+              <li
+                onClick={() => {
+                  navigateWhatsApp(socialLink?.branchWhatsapplink);
+                  setIsOpenSidebar(false);
+                }}
+                className="nav-item ng-star-inserted"
+              >
+                <a className="nav-link final-link">
+                  <img src={img.whatsapp} className="img-fluid" />
+                  <span>Deposit Support </span>
+                </a>
+              </li>
+            )}
 
             <li
               onClick={handleLogout}

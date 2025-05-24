@@ -10,6 +10,7 @@ import img from "../../assets/img";
 import { useAccessTokenMutation } from "../../redux/features/casino/casino.api";
 import CurrentBets from "../../components/modals/CurrentBets/CurrentBets";
 import ScoreCard from "../../components/modules/EventDetails/ScoreCard";
+import HorseGreyhoundEventDetails from "../../components/modules/EventDetails/HorseGreyhoundEventDetails";
 
 const EventDetails = () => {
   const [showCurrentBets, setShowCurrentBets] = useState(false);
@@ -168,6 +169,9 @@ const EventDetails = () => {
                     <MatchOddsBookmaker data={data?.result} />
 
                     <Fancy data={data?.result} />
+                    {eventTypeId == 7 || eventTypeId == 4339 ? (
+                      <HorseGreyhoundEventDetails data={data} />
+                    ) : null}
                   </div>
                 </div>
               </div>
