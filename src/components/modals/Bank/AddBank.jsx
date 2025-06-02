@@ -40,7 +40,7 @@ const AddBank = ({ refetchBankData }) => {
       return toast.error("Bank account number did not matched!");
     }
 
-    if (mobile && !bankDetails.otp) {
+    if (mobile && !bankDetails.otp && Settings.otp) {
       return toast.error("Please enter otp to add new account");
     }
 
