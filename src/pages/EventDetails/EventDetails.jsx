@@ -11,6 +11,7 @@ import { useAccessTokenMutation } from "../../redux/features/casino/casino.api";
 import CurrentBets from "../../components/modals/CurrentBets/CurrentBets";
 import ScoreCard from "../../components/modules/EventDetails/ScoreCard";
 import HorseGreyhoundEventDetails from "../../components/modules/EventDetails/HorseGreyhoundEventDetails";
+import SportsBook from "./SportsBook/SportsBook";
 
 const EventDetails = () => {
   const [showCurrentBets, setShowCurrentBets] = useState(false);
@@ -97,6 +98,7 @@ const EventDetails = () => {
     const hasDecimal = value % 1 !== 0;
     return hasDecimal ? parseFloat(value?.toFixed(2)) : value;
   };
+
   return (
     <>
       {showCurrentBets && (
@@ -172,6 +174,9 @@ const EventDetails = () => {
                     {eventTypeId == 7 || eventTypeId == 4339 ? (
                       <HorseGreyhoundEventDetails data={data} />
                     ) : null}
+                    {data && data?.sportsbook?.Result && (
+                      <SportsBook sportsBook={data?.sportsbook?.Result} />
+                    )}
                   </div>
                 </div>
               </div>
