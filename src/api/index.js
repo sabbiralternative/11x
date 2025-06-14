@@ -53,6 +53,7 @@ export const API = {
   forgotPassword: "",
   banner: "",
   utr: "",
+  otpless: "",
 };
 
 export const Settings = {
@@ -80,4 +81,5 @@ export const Settings = {
   aura: "",
   referral: "",
   b2c: "",
+  otpWhatsapp: "",
 };

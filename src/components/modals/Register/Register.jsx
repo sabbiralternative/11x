@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { API } from "../../../api";
+import { API, Settings } from "../../../api";
 import { setUser } from "../../../redux/features/auth/authSlice";
 import toast from "react-hot-toast";
 import { useRef, useState } from "react";
@@ -12,6 +12,7 @@ import {
   setShowLogin,
   setShowRegister,
 } from "../../../redux/features/global/globalSlice";
+import getOtpOnWhatsapp from "../../../utils/getOtpOnWhatsapp";
 
 const Register = () => {
   const registerRef = useRef();
@@ -128,6 +129,10 @@ const Register = () => {
     }
   };
 
+  const handleGetOtpOnWhatsapp = async () => {
+    await getOtpOnWhatsapp(userData.mobileNo, setOrder, setShowRegister);
+  };
+
   return (
     <div
       role="dialog"
@@ -180,6 +185,17 @@ const Register = () => {
                       {" "}
                       Get OTP
                     </button>
+                    {Settings.otpWhatsapp && (
+                      <button
+                        onClick={handleGetOtpOnWhatsapp}
+                        disabled={userData?.mobileNo?.length < 10}
+                        type="button"
+                        className="btn btn-login"
+                      >
+                        {" "}
+                        Get OTP on Whatsapp
+                      </button>
+                    )}
                     <div className="form-group">
                       <label
                         htmlFor="exampleInputPassword1"
