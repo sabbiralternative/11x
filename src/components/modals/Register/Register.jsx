@@ -251,6 +251,7 @@ const Register = () => {
                         type="text"
                         placeholder="Enter OTP"
                         className="form-control ng-dirty ng-valid ng-touched"
+                        maxLength={6}
                       />
                     </div>
                     <div className="form-group">
