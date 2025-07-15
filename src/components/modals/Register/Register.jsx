@@ -9,6 +9,7 @@ import useCloseModalClickOutside from "../../../hooks/closeModal";
 import useWhatsApp from "../../../hooks/whatsapp";
 import { AxiosSecure } from "../../../lib/AxiosSecure";
 import {
+  setBanner,
   setShowLogin,
   setShowRegister,
 } from "../../../redux/features/global/globalSlice";
@@ -90,13 +91,16 @@ const Register = () => {
         const user = data?.result?.loginName;
         const game = data?.result?.buttonValue?.game;
         const memberId = data?.result?.memberId;
+        const banner = data?.result?.banner;
         dispatch(setUser({ user, token }));
         localStorage.setItem("memberId", memberId);
         localStorage.setItem("buttonValue", JSON.stringify(game));
         localStorage.setItem("token", token);
         localStorage.setItem("bonusToken", bonusToken);
         localStorage.setItem("token", data.result.token);
-
+        if (banner) {
+          dispatch(setBanner(banner));
+        }
         if (data?.result?.changePassword === true) {
           navigate("/change-password-login");
         } else {

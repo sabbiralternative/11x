@@ -8,6 +8,7 @@ import toast from "react-hot-toast";
 import { useRef } from "react";
 import useCloseModalClickOutside from "../../../hooks/closeModal";
 import {
+  setBanner,
   setForceChangePassword,
   setShowForgotPassword,
   setShowLogin,
@@ -42,11 +43,17 @@ const Login = () => {
       const user = data?.result?.loginName;
       const game = data?.result?.buttonValue?.game;
       const memberId = data?.result?.memberId;
+
       dispatch(setUser({ user, token }));
       localStorage.setItem("memberId", memberId);
       localStorage.setItem("buttonValue", JSON.stringify(game));
       localStorage.setItem("token", token);
       localStorage.setItem("bonusToken", bonusToken);
+      const banner = data?.result?.banner;
+
+      if (banner) {
+        dispatch(setBanner(banner));
+      }
       if (data?.result?.changePassword) {
         closeLoginModal();
         dispatch(setForceChangePassword(true));
