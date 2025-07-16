@@ -3,14 +3,16 @@ import MainLayout from "./layout/MainLayout";
 import { useEffect } from "react";
 import { Settings } from "./api";
 import disableDevtool from "disable-devtool";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logout } from "./redux/features/auth/authSlice";
+import { setForceChangePassword } from "./redux/features/global/globalSlice";
 
 function App() {
   const disabledDevtool = Settings.disabledDevtool;
   const navigate = useNavigate();
   const location = useLocation();
   const dispatch = useDispatch();
+  const { showLogin } = useSelector((state) => state.global);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -29,6 +31,13 @@ function App() {
       });
     }
   }, [navigate, disabledDevtool, dispatch]);
+
+  useEffect(() => {
+    const changePassword = localStorage.getItem("changePassword");
+    if (changePassword) {
+      dispatch(setForceChangePassword(true));
+    }
+  }, [showLogin, dispatch]);
 
   return <MainLayout />;
 }

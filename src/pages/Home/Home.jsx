@@ -1,12 +1,24 @@
+import { useDispatch, useSelector } from "react-redux";
 import { Settings } from "../../api";
 import img from "../../assets/img";
 import Header from "../../components/shared/Header/Header";
 import Notification from "../../components/shared/Notification/Notification";
 import useLogo from "../../hooks/useLogo";
 import Banner from "./Banner";
+import { useEffect } from "react";
+import { setForceChangePassword } from "../../redux/features/global/globalSlice";
 
 const Home = () => {
+  const dispatch = useDispatch();
+  const { showLogin } = useSelector((state) => state.global);
   const { logo } = useLogo();
+
+  useEffect(() => {
+    const changePassword = localStorage.getItem("changePassword");
+    if (changePassword) {
+      dispatch(setForceChangePassword(true));
+    }
+  }, [showLogin, dispatch]);
 
   return (
     <div className={`fullpage`}>

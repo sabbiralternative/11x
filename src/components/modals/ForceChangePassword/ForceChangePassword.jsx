@@ -20,6 +20,7 @@ const ForceChangePassword = () => {
     };
     const data = await handleChangePassword(payload).unwrap();
     if (data.success) {
+      localStorage.removeItem("changePassword");
       toast.success(data?.result?.message);
       localStorage.clear();
       closeForceChangePassword();

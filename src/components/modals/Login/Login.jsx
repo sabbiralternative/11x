@@ -43,7 +43,7 @@ const Login = () => {
       const user = data?.result?.loginName;
       const game = data?.result?.buttonValue?.game;
       const memberId = data?.result?.memberId;
-
+      console.log(data);
       dispatch(setUser({ user, token }));
       localStorage.setItem("memberId", memberId);
       localStorage.setItem("buttonValue", JSON.stringify(game));
@@ -55,6 +55,7 @@ const Login = () => {
         dispatch(setBanner(banner));
       }
       if (data?.result?.changePassword) {
+        localStorage.setItem("changePassword", true);
         closeLoginModal();
         dispatch(setForceChangePassword(true));
       } else {
