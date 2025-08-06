@@ -10,10 +10,7 @@ const MobileFooter = () => {
           <img src="/images/in-play.svg" className="img-fluid" />
           <span>in-play</span>
         </Link>
-        <Link to="multi">
-          <img src="/images/multi.svg" className="img-fluid" />
-          <span>Multi</span>
-        </Link>
+
         <Link to="/?tab=0" className="ng-star-inserted">
           <img src="/images/place.svg" className="img-fluid" />
           <span>Home</span>
