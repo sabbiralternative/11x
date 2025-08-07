@@ -136,31 +136,9 @@ const DepositReport = () => {
                                 {/* Deposit Via <span className=" ">WIZPAY</span> */}
                               </span>
                             </div>
-                            <span
-                              style={{
-                                display: "flex",
-                                flexDirection: "column",
-                                gap: "5px",
-                              }}
-                            >
-                              <span className="right-top-amount  right-top-amount-approved">
-                                ₹ {data?.amount}{" "}
-                              </span>
-                              {Settings.complaint && (
-                                <button
-                                  style={{
-                                    backgroundColor: "rgb(255 131 46)",
-                                    borderRadius: "5px",
-                                    fontSize: "12px",
-                                  }}
-                                  onClick={() =>
-                                    setComplaintId(data?.referenceNo)
-                                  }
-                                  className="px-2 py-1  text-white   "
-                                >
-                                  Raise Complaint
-                                </button>
-                              )}
+
+                            <span className="right-top-amount  right-top-amount-approved">
+                              ₹ {data?.amount}{" "}
                             </span>
                           </div>
                           <div className="bottom-content ">
@@ -168,6 +146,21 @@ const DepositReport = () => {
                               {" "}
                               {data?.remark}{" "}
                             </span>
+                            {Settings.complaint && (
+                              <button
+                                style={{
+                                  backgroundColor: "rgb(255 131 46)",
+                                  borderRadius: "5px",
+                                  fontSize: "12px",
+                                }}
+                                onClick={() =>
+                                  setComplaintId(data?.referenceNo)
+                                }
+                                className="px-2 py-1  text-white   "
+                              >
+                                Raise Complaint
+                              </button>
+                            )}
                             {/* <span className="right-bottom-date ">
                               {" "}
                               {data?.date}{" "}
