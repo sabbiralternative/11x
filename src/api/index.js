@@ -82,4 +82,5 @@ export const Settings = {
   referral: "",
   b2c: "",
   otpWhatsapp: "",
+  complaint: "",
 };

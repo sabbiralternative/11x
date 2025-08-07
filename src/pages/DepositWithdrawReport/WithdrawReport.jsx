@@ -3,8 +3,11 @@ import ImageModal from "./ImageModal";
 import { RxCrossCircled } from "react-icons/rx";
 import { MdOutlinePendingActions } from "react-icons/md";
 import { useAccountStatement } from "../../hooks/accountStatement";
+import Complaint from "../../components/modals/Complaint/Complaint";
+import { Settings } from "../../api";
 
 const WithdrawReport = () => {
+  const [complaintId, setComplaintId] = useState(null);
   const fromDate = new Date(new Date().setDate(new Date().getDate() - 7))
     .toISOString()
     .split("T")[0];
@@ -32,6 +35,13 @@ const WithdrawReport = () => {
 
   return (
     <>
+      {complaintId && (
+        <Complaint
+          setComplaintId={setComplaintId}
+          complaintId={complaintId}
+          method="deposit"
+        />
+      )}
       {showModal && image && (
         <ImageModal setShowModal={setShowModal} image={image} />
       )}
@@ -64,6 +74,7 @@ const WithdrawReport = () => {
                         >
                           {data?.image && (
                             <img
+                              style={{ height: "30px", objectFit: "contain" }}
                               src={data?.image}
                               alt="logo"
                               className="bank-logo  "
@@ -120,9 +131,31 @@ const WithdrawReport = () => {
                               </span>
                               <span className="">{data?.date}</span>
                             </div>
-                            <span className="right-top-amount  right-top-amount-approved">
-                              {" "}
-                              ₹ {data?.amount}{" "}
+                            <span
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                gap: "5px",
+                              }}
+                            >
+                              <span className="right-top-amount  right-top-amount-approved">
+                                ₹ {data?.amount}{" "}
+                              </span>
+                              {Settings.complaint && (
+                                <button
+                                  style={{
+                                    backgroundColor: "rgb(255 131 46)",
+                                    borderRadius: "5px",
+                                    fontSize: "12px",
+                                  }}
+                                  onClick={() =>
+                                    setComplaintId(data?.referenceNo)
+                                  }
+                                  className="px-2 py-1  text-white   "
+                                >
+                                  Raise Complaint
+                                </button>
+                              )}
                             </span>
                           </div>
                           <div className="bottom-content ">
