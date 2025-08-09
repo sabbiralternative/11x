@@ -158,7 +158,7 @@ const DepositReport = () => {
                                 }
                                 className="px-2 py-1  text-white   "
                               >
-                                Raise Complaint
+                                Report Issue
                               </button>
                             )}
                             {/* <span className="right-bottom-date ">
