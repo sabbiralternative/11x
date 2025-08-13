@@ -1,5 +1,4 @@
 const Score = ({ iscore }) => {
-  console.log(iscore);
   return (
     <div
       style={{

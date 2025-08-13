@@ -22,7 +22,7 @@ const MainLayout = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-  console.log(banner);
+
   return (
     <div
       className={`ng-star-inserted ${

@@ -20,6 +20,8 @@ const PaymentMethods = ({
   setPaymentMethods,
   setPaymentId,
   amount,
+  tabs,
+  setTabs,
 }) => {
   const {
     data: depositMethods,
@@ -29,7 +31,7 @@ const PaymentMethods = ({
     type: "depositMethods",
     amount,
   });
-  const [tabs, setTabs] = useState("");
+
   const [qrcode, setQrcode] = useState("");
   const [depositData, setDepositData] = useState({});
   const [time, setTime] = useState(null);
@@ -119,7 +121,7 @@ const PaymentMethods = ({
   const navigatePGLink = (link) => {
     window.location.href = link;
   };
-
+  console.log(tabs);
   return (
     <>
       <div _ngcontent-kdb-c159="" className="paymethod ng-tns-c159-13">

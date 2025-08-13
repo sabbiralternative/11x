@@ -10,6 +10,7 @@ const Deposit = () => {
   const [paymentMethods, setPaymentMethods] = useState(false);
   const [uploadTransaction, setUploadTransaction] = useState(false);
   const [paymentId, setPaymentId] = useState("");
+  const [tabs, setTabs] = useState("");
 
   return (
     <main id="main" className="main a23_css">
@@ -21,10 +22,12 @@ const Deposit = () => {
         />
       )}
       {uploadTransaction && (
-        <UploadTransaction paymentId={paymentId} amount={amount} />
+        <UploadTransaction tabs={tabs} paymentId={paymentId} amount={amount} />
       )}
       {paymentMethods && (
         <PaymentMethods
+          setTabs={setTabs}
+          tabs={tabs}
           setUploadTransaction={setUploadTransaction}
           setPaymentMethods={setPaymentMethods}
           setPaymentId={setPaymentId}
