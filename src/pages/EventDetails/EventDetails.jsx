@@ -9,9 +9,10 @@ import Fancy from "../../components/modules/EventDetails/Fancy";
 import img from "../../assets/img";
 import { useAccessTokenMutation } from "../../redux/features/casino/casino.api";
 import CurrentBets from "../../components/modals/CurrentBets/CurrentBets";
-import ScoreCard from "../../components/modules/EventDetails/ScoreCard";
+// import ScoreCard from "../../components/modules/EventDetails/ScoreCard";
 import HorseGreyhoundEventDetails from "../../components/modules/EventDetails/HorseGreyhoundEventDetails";
 import SportsBook from "./SportsBook/SportsBook";
+import Score from "../../components/modules/EventDetails/Score";
 
 const EventDetails = () => {
   const [showCurrentBets, setShowCurrentBets] = useState(false);
@@ -164,10 +165,13 @@ const EventDetails = () => {
                   )}
 
                   <div>
-                    {data?.result?.[0]?.score2?.length !== 0 &&
+                    {/* {data?.result?.[0]?.score2?.length !== 0 &&
                       !Array.isArray(data?.result?.[0]?.score2) && (
                         <ScoreCard score2={data?.result?.[0]?.score2} />
-                      )}
+                      )} */}
+                    {eventTypeId == 4 && data?.iscore && (
+                      <Score iscore={data?.iscore} />
+                    )}
                     <MatchOddsBookmaker data={data?.result} />
 
                     <Fancy data={data?.result} />
