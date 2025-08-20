@@ -211,18 +211,18 @@ const Score = ({ iscore }) => {
                           fontWeight: 500,
                           minWidth: "1.25rem",
                           minHeight: "1.25rem",
-                          aspectRatio: "1 / 1",
+                          aspectRatio: cv?.length === 1 ? "1 / 1" : "auto",
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
                           boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
                           borderRadius: "50%",
-                          padding: "0.25rem",
+                          // padding: "1px",
                           color: "white",
                           backgroundColor:
                             cv == "0"
                               ? "#999"
-                              : cv == "1"
+                              : cv == "1" || cv == "2"
                               ? "#48a23c"
                               : cv.split().includes("W")
                               ? "#c9362b"
@@ -292,21 +292,22 @@ const Score = ({ iscore }) => {
                         key={i}
                         style={{
                           fontSize: "0.75rem",
+
                           fontWeight: 500,
                           minWidth: "1.25rem",
                           minHeight: "1.25rem",
-                          aspectRatio: "1 / 1",
+                          aspectRatio: pv?.length === 1 ? "1 / 1" : "auto",
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
                           boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
                           borderRadius: "50%",
-                          padding: "0.25rem",
+                          // padding: "1px",
                           color: "white",
                           backgroundColor:
                             pv == "0"
                               ? "#999"
-                              : pv == "1"
+                              : pv == "1" || pv == "2"
                               ? "#48a23c"
                               : pv.split().includes("W")
                               ? "#c9362b"
