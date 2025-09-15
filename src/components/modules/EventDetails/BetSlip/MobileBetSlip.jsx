@@ -111,6 +111,7 @@ const MobileBetSlip = () => {
         dispatch(setRunnerId(null));
         refetchCurrentBets();
         setBetDelay("");
+        dispatch(setStake(null));
         toast.success(res?.result?.result?.placed?.[0]?.message);
       } else {
         setLoading(false);
@@ -275,6 +276,7 @@ const MobileBetSlip = () => {
                   onClick={() => {
                     dispatch(setPlaceBetValues(null));
                     dispatch(setRunnerId(null));
+                    dispatch(setStake(null));
                   }}
                   type="button"
                   className="btn btn-sm btn-danger"

@@ -112,6 +112,7 @@ const DesktopBetSlip = () => {
         dispatch(setPlaceBetValues(null));
         refetchCurrentBets();
         setBetDelay("");
+        dispatch(setStake(null));
         toast.success(res?.result?.result?.placed?.[0]?.message);
       } else {
         setLoading(false);
@@ -282,7 +283,10 @@ const DesktopBetSlip = () => {
               </table>
               <div className="col-md-12 px-0 d-flex justify-content-between">
                 <button
-                  onClick={() => dispatch(setPlaceBetValues(null))}
+                  onClick={() => {
+                    dispatch(setPlaceBetValues(null));
+                    dispatch(setStake(null));
+                  }}
                   type="button"
                   className="btn btn-sm btn-danger"
                   id="close-popup"
