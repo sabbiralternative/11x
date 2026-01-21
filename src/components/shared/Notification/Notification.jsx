@@ -4,9 +4,12 @@ import { API } from "../../../api";
 import Marquee from "react-fast-marquee";
 import { RxCross2 } from "react-icons/rx";
 
-const Notification = () => {
-  const [showNotification, setShowNotification] = useState(false);
-  const [filteredNotification, setFilteredNotification] = useState([]);
+const Notification = ({
+  showNotification,
+  setShowNotification,
+  filteredNotification,
+  setFilteredNotification,
+}) => {
   // const forceLoginSuccess = localStorage.getItem("forceLoginSuccess");
   const token = localStorage.getItem("token");
   const [notification, setNotification] = useState("");
@@ -34,7 +37,7 @@ const Notification = () => {
       !showNotification
     ) {
       const filteredNotifications = notification.filter(
-        (notif) => !storedNotificationId.some((nId) => nId.id == notif.id)
+        (notif) => !storedNotificationId.some((nId) => nId.id == notif.id),
       );
 
       if (filteredNotifications?.length > 0) {
@@ -65,9 +68,9 @@ const Notification = () => {
   };
   return (
     <div>
-      <div className="commentary">
-        <img src="/images/commentary.png" />
-        {showNotification && filteredNotification?.length > 0 && (
+      {showNotification && filteredNotification?.length > 0 && (
+        <div className="commentary">
+          <img src="/images/commentary.png" />
           <div>
             <Marquee>
               {filteredNotification?.map((item) => (
@@ -90,8 +93,8 @@ const Notification = () => {
               cursor="pointer"
             />
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 };

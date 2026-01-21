@@ -2,10 +2,12 @@ import { API } from "../../api";
 import toast from "react-hot-toast";
 import moment from "moment/moment";
 import { AxiosSecure } from "../../lib/AxiosSecure";
-import useBonus from "../../hooks/bonus";
+import { useBonusQuery } from "../../hooks/bonus";
 
 const BonusStatement = () => {
-  const { data, refetch } = useBonus();
+  const { data, refetch } = useBonusQuery({
+    type: "viewStatement",
+  });
 
   const handleShowMessage = (item) => {
     if (item?.is_claimed == 1) {
@@ -65,8 +67,8 @@ const BonusStatement = () => {
         <div
           style={{ display: "flex", flexDirection: "column", height: "100%" }}
         >
-          {data?.length > 0 ? (
-            data.map((item, i) => (
+          {data?.result?.length > 0 ? (
+            data.result?.map((item, i) => (
               <div
                 key={i}
                 title="Profit & Loss Statement"
@@ -171,8 +173,8 @@ const BonusStatement = () => {
                             item.is_wagering_complete == 0
                               ? "orange"
                               : item.is_wagering_complete == 1
-                              ? "green"
-                              : "inherit",
+                                ? "green"
+                                : "inherit",
                         }}
                       >
                         ₹ {item.wagering_complete_amount}

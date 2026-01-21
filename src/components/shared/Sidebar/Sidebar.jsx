@@ -5,14 +5,13 @@ import { useRef, useState } from "react";
 import Rules from "../../modals/Rules/Rules";
 import useCloseModalClickOutside from "../../../hooks/closeModal";
 import useLogo from "../../../hooks/useLogo";
-import { Settings } from "../../../api";
-import Referral from "../../modals/Referral/Referral";
+// import Referral from "../../modals/Referral/Referral";
 import useWhatsApp from "../../../hooks/whatsapp";
 import img from "../../../assets/img";
 
 const Sidebar = ({ setIsOpenSidebar }) => {
   const { data: socialLink } = useWhatsApp();
-  const [showReferral, setShowReferral] = useState(false);
+  // const [showReferral, setShowReferral] = useState(false);
   const { logo } = useLogo();
   const sidebarRef = useRef();
   const { user } = useSelector((state) => state.auth);
@@ -38,7 +37,7 @@ const Sidebar = ({ setIsOpenSidebar }) => {
     <>
       {showRules && <Rules setShowRules={setShowRules} />}
       <div className="a23_css">
-        {showReferral && <Referral setShowReferral={setShowReferral} />}
+        {/* {showReferral && <Referral setShowReferral={setShowReferral} />} */}
       </div>
       <div className="ng-star-inserted">
         <aside ref={sidebarRef} id="sidebar" className="sidebar">
@@ -101,21 +100,43 @@ const Sidebar = ({ setIsOpenSidebar }) => {
                 <span>Bonus Statement</span>
               </Link>
             </li>
-            {Settings.referral && (
+            {socialLink?.referral && (
               <li
                 onClick={() => {
                   setIsOpenSidebar(false);
-                  setShowReferral(true);
                 }}
                 className="nav-item ng-star-inserted"
               >
-                <Link to="/bonus-statement" className="nav-link final-link">
+                <Link to="/affiliate" className="nav-link final-link">
                   <img src={img.bettingProfitLoss} className="img-fluid" />
-                  <span>Referral</span>
+                  <span>Affiliate</span>
                 </Link>
               </li>
             )}
+
             <li
+              onClick={() => {
+                setIsOpenSidebar(false);
+              }}
+              className="nav-item ng-star-inserted"
+            >
+              <Link to="/promotions" className="nav-link final-link">
+                <img src={img.bettingProfitLoss} className="img-fluid" />
+                <span>Promos & Bonus</span>
+              </Link>
+            </li>
+            <li
+              onClick={() => {
+                setIsOpenSidebar(false);
+              }}
+              className="nav-item ng-star-inserted"
+            >
+              <Link to="/loss-back-claims" className="nav-link final-link">
+                <img src={img.bettingProfitLoss} className="img-fluid" />
+                <span>Loss Back Claims</span>
+              </Link>
+            </li>
+            {/* <li
               onClick={() => setIsOpenSidebar(false)}
               className="nav-item ng-star-inserted"
             >
@@ -123,7 +144,7 @@ const Sidebar = ({ setIsOpenSidebar }) => {
                 <img src={img.bettingProfitLoss} className="img-fluid" />
                 <span>Referral Statement</span>
               </Link>
-            </li>
+            </li> */}
 
             <li
               onClick={() => setIsOpenSidebar(false)}

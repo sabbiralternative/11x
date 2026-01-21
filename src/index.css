@@ -340,3 +340,128 @@ html * {
     transform: rotate(360deg);
   }
 }
+
+li::marker {
+  content: "";
+}
+
+/*! Download apk css start  */
+
+.promo-card {
+  color: #000;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  padding: 5px 20px;
+  background: rgba(255, 255, 255, 0.05);
+}
+.header-content img {
+  width: 70px;
+}
+
+.main-title {
+  font-size: 1.4rem;
+  color: var(--theme-primary-color);
+  line-height: 1.2;
+}
+
+.promo-body {
+  padding: 10px 20px;
+}
+
+.intro-text,
+.closing-text {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+.benefits-title {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.benefits-list {
+  list-style: none;
+  padding: 0;
+}
+
+.benefits-list li {
+  margin-bottom: 6px;
+  padding-left: 30px;
+  position: relative;
+  font-size: 0.9rem;
+}
+
+/* Custom Checkmark */
+.benefits-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  background: var(--theme-primary-color);
+  color: #fff;
+  width: 18px;
+  height: 18px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.benefits-list strong {
+  color: #000;
+  font-weight: 700;
+}
+
+.download-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--theme-primary-color);
+  color: #fff !important;
+  text-decoration: none;
+  padding: 10px;
+  font-size: 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: transform 0.2s;
+}
+
+.download-button:hover {
+  transform: scale(1.02);
+}
+
+.android-icon {
+  width: 16px;
+  margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+  .benefits-list li {
+    font-size: 12px;
+  }
+  .benefits-title {
+    font-size: 12px;
+  }
+  .main-title {
+    font-size: 16px;
+  }
+  .intro-text,
+  .closing-text {
+    font-size: 12px;
+  }
+  .download-button {
+    margin-bottom: 5px;
+  }
+}
+/*! Download apk css end  */

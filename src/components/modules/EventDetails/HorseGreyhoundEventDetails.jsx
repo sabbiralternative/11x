@@ -47,7 +47,7 @@ const HorseGreyhoundEventDetails = ({ data }) => {
 
         const day = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
         const hour = Math.floor(
-          (diffInMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+          (diffInMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
         );
         const minute = Math.floor((diffInMs % (1000 * 60 * 60)) / (1000 * 60));
         const second = Math.floor((diffInMs % (1000 * 60)) / 1000);
@@ -294,7 +294,7 @@ const HorseGreyhoundEventDetails = ({ data }) => {
                                   "back",
                                   games,
                                   runner,
-                                  runner?.back[2]?.price
+                                  runner?.back[2]?.price,
                                 )
                               }
                               className="back back-1 d-md-block d-none"
@@ -308,7 +308,7 @@ const HorseGreyhoundEventDetails = ({ data }) => {
                                   "back",
                                   games,
                                   runner,
-                                  runner?.back[1]?.price
+                                  runner?.back[1]?.price,
                                 )
                               }
                               className="back back-2 d-md-block d-none"
@@ -322,7 +322,7 @@ const HorseGreyhoundEventDetails = ({ data }) => {
                                   "back",
                                   games,
                                   runner,
-                                  runner?.back[0]?.price
+                                  runner?.back[0]?.price,
                                 )
                               }
                               className="back"
@@ -336,7 +336,7 @@ const HorseGreyhoundEventDetails = ({ data }) => {
                                   "lay",
                                   games,
                                   runner,
-                                  runner?.lay[0]?.price
+                                  runner?.lay[0]?.price,
                                 )
                               }
                               className="lay"
@@ -350,7 +350,7 @@ const HorseGreyhoundEventDetails = ({ data }) => {
                                   "lay",
                                   games,
                                   runner,
-                                  runner?.lay?.[1]?.price
+                                  runner?.lay?.[1]?.price,
                                 )
                               }
                               className="d-md-block d-none lay lay-2"
@@ -364,7 +364,7 @@ const HorseGreyhoundEventDetails = ({ data }) => {
                                   "lay",
                                   games,
                                   runner,
-                                  runner?.lay?.[2]?.price
+                                  runner?.lay?.[2]?.price,
                                 )
                               }
                               className="d-md-block d-none lay lay-1"
@@ -377,7 +377,9 @@ const HorseGreyhoundEventDetails = ({ data }) => {
                             )}
                           </div>
                         </div>
-                        {runner?.id === runnerId && <MobileBetSlip />}
+                        {runner?.id === runnerId && (
+                          <MobileBetSlip currentPlaceBetEvent={games} />
+                        )}
                       </div>
                     );
                   })}

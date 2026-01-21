@@ -18,13 +18,15 @@ const SportsBook = ({ sportsBook }) => {
       (group) =>
         group?.Name !== "Bet Builder" &&
         group?.Name !== "Fast Markets" &&
-        group?.Name !== "Player Specials"
+        group?.Name !== "Player Specials",
     );
 
   const itemsLengthArray =
     (sports && sports?.map((group) => group?.Items?.length)) || [];
   const [openItems, setOpenItems] = useState(
-    new Array(itemsLengthArray[0] || 0).fill(false).map((_, index) => index < 5)
+    new Array(itemsLengthArray[0] || 0)
+      .fill(false)
+      .map((_, index) => index < 5),
   );
 
   const toggleItem = (index) => {
@@ -37,7 +39,7 @@ const SportsBook = ({ sportsBook }) => {
     setOpenItems(
       new Array(itemsLengthArray[0] || 0)
         .fill(false)
-        .map((_, index) => index < 15)
+        .map((_, index) => index < 15),
     );
   }, [eventTypeId]);
 
@@ -108,10 +110,12 @@ const SportsBook = ({ sportsBook }) => {
                     />
                   )}
                 </div>
-                {item?.Id === runnerId && <MobileBetSlip />}
+                {item?.Id === runnerId && (
+                  <MobileBetSlip currentPlaceBetEvent={item} />
+                )}
               </div>
             );
-          })
+          }),
         )}
     </>
   );

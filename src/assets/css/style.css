@@ -1700,7 +1700,7 @@ section.section.listing_page {
   text-transform: uppercase;
   font-size: 14px;
   position: fixed;
-  top: 60px;
+  top: 0px;
   z-index: 9;
 }
 .commentary img {
@@ -3231,7 +3231,9 @@ ul.live_virtual li label::before {
   transition: -webkit-transform 0.3s ease-in-out;
   -o-transition: transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out;
-  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+  transition:
+    transform 0.3s ease-in-out,
+    -webkit-transform 0.3s ease-in-out;
 }
 ul.live_virtual li input[type="checkbox"]:checked + label::before {
   content: "\f633";
@@ -3242,7 +3244,9 @@ ul.live_virtual li input[type="checkbox"]:checked + label::before {
   transition: -webkit-transform 0.3s ease-in-out;
   -o-transition: transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out;
-  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+  transition:
+    transform 0.3s ease-in-out,
+    -webkit-transform 0.3s ease-in-out;
 }
 ul.live_virtual li input[type="checkbox"]:checked + label {
   border: 1px solid #00ad6f;

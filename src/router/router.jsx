@@ -21,6 +21,9 @@ import BonusStatement from "../pages/BonusStatement/BonusStatement";
 import ReferralStatement from "../pages/ReferralStatement/ReferralStatement";
 import Deposit from "../pages/Deposit/Deposit";
 import Withdraw from "../pages/Withdraw/Withdraw";
+import Affiliate from "../pages/Affiliate/Affiliate";
+import Promotions from "../pages/Promotions/Promotions";
+import LossBackClaims from "../pages/LossBackClaims/LossBackClaims";
 
 export const router = createBrowserRouter(
   [
@@ -101,6 +104,18 @@ export const router = createBrowserRouter(
           path: "/withdraw",
           element: <Withdraw />,
         },
+        {
+          path: "/affiliate",
+          element: <Affiliate />,
+        },
+        {
+          path: "/promotions",
+          element: <Promotions />,
+        },
+        {
+          path: "/loss-back-claims",
+          element: <LossBackClaims />,
+        },
       ],
     },
 
@@ -119,5 +134,5 @@ export const router = createBrowserRouter(
   ],
   {
     basename: import.meta.env.BASE_URL ?? "/",
-  }
+  },
 );

@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Settings } from "../../api";
 import img from "../../assets/img";
 import Header from "../../components/shared/Header/Header";
-import Notification from "../../components/shared/Notification/Notification";
 import useLogo from "../../hooks/useLogo";
 import Banner from "./Banner";
 import { useEffect } from "react";
@@ -24,7 +23,6 @@ const Home = () => {
     <div className={`fullpage`}>
       <div>
         <Header />
-        <Notification />
         <main id="main" className="main">
           <div>
             <Banner />

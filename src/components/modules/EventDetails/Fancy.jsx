@@ -17,7 +17,7 @@ const Fancy = ({ data }) => {
     (fancy) =>
       fancy.btype === "FANCY" &&
       fancy.tabGroupName === "Normal" &&
-      fancy?.visible == true
+      fancy?.visible == true,
   );
 
   const [ladderData, setLadderData] = useState([]);
@@ -65,7 +65,7 @@ const Fancy = ({ data }) => {
         eventTypeId = games?.marketId;
         games?.runners?.forEach((runner) => {
           const pnl = pnlBySelection?.find(
-            (p) => p?.RunnerId === runner?.selectionId
+            (p) => p?.RunnerId === runner?.selectionId,
           );
           if (pnl) {
             updatedPnl.push(pnl?.pnl);
@@ -160,7 +160,7 @@ const Fancy = ({ data }) => {
                     {fancyData?.map((game) => {
                       const pnl =
                         pnlBySelection?.find(
-                          (pnl) => pnl?.MarketId === game?.id
+                          (pnl) => pnl?.MarketId === game?.id,
                         ) || {};
                       return (
                         <div key={game?.id} className="fancy-detail-list">
@@ -207,7 +207,7 @@ const Fancy = ({ data }) => {
                                           "lay",
                                           game,
                                           game?.runners?.[0],
-                                          game?.runners?.[0]?.lay?.[0]?.line
+                                          game?.runners?.[0]?.lay?.[0]?.line,
                                         )
                                       }
                                       className="lay w-100"
@@ -228,7 +228,7 @@ const Fancy = ({ data }) => {
                                           "back",
                                           game,
                                           game?.runners?.[0],
-                                          game?.runners?.[0]?.back?.[0]?.line
+                                          game?.runners?.[0]?.back?.[0]?.line,
                                         )
                                       }
                                       className="back w-100"
@@ -257,7 +257,9 @@ const Fancy = ({ data }) => {
                               </div>
                             </div>
                           </div>
-                          {game?.id === runnerId && <MobileBetSlip />}
+                          {game?.id === runnerId && (
+                            <MobileBetSlip currentPlaceBetEvent={game} />
+                          )}
                         </div>
                       );
                     })}

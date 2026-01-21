@@ -1,20 +1,23 @@
-import { useQuery } from "@tanstack/react-query";
-import { API } from "../api";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { AxiosSecure } from "../lib/AxiosSecure";
+import { API } from "../api";
 
-const useGetIndex = (payload, enabled) => {
-  return useQuery({
-    queryKey: ["index", payload],
-    enabled: enabled ? true : false,
-    queryFn: async () => {
-      const res = await AxiosSecure.post(API.index, payload);
-      const result = res?.data;
-      if (result?.success) {
-        return result?.result;
-      }
+export const useIndex = () => {
+  return useMutation({
+    mutationKey: ["index"],
+    mutationFn: async (payload) => {
+      const { data } = await AxiosSecure.post(`${API.index}`, payload);
+      return data;
     },
-    refetchOnWindowFocus: false,
   });
 };
 
-export default useGetIndex;
+export const useGetIndex = (payload) => {
+  return useQuery({
+    queryKey: ["index", payload],
+    queryFn: async () => {
+      const { data } = await AxiosSecure.post(`${API.index}`, payload);
+      return data;
+    },
+  });
+};

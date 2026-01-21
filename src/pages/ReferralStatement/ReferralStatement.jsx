@@ -2,13 +2,12 @@
 import { useState } from "react";
 import { DatePicker } from "rsuite";
 import "rsuite/DateRangePicker/styles/index.css";
-import useGetIndex from "../../hooks";
 import moment from "moment";
+import { useGetIndex } from "../../hooks";
 
 const ReferralStatement = () => {
-  const [fetchData, setFetchData] = useState(false);
   const [startDate, setStartDate] = useState(
-    new Date(new Date().setDate(new Date().getDate() - 7))
+    new Date(new Date().setDate(new Date().getDate() - 7)),
   );
   const [endDate, setEndDate] = useState(new Date());
 
@@ -17,7 +16,7 @@ const ReferralStatement = () => {
     from_date: moment(startDate).format("YYYY-MM-DD"),
     to_date: moment(endDate).format("YYYY-MM-DD"),
   };
-  const { data } = useGetIndex(payload, fetchData);
+  const { data } = useGetIndex(payload);
   return (
     <main id="main" className="main a23_css">
       <div className="main-content">
@@ -64,7 +63,6 @@ const ReferralStatement = () => {
           </div>
 
           <button
-            onClick={() => setFetchData(true)}
             style={{
               backgroundColor: "var(--theme-secondary-color)",
               border: "none",
