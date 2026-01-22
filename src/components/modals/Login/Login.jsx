@@ -15,10 +15,8 @@ import {
   setShowRegister,
 } from "../../../redux/features/global/globalSlice";
 
-// 8888884000
-// shivani123
-
 const Login = () => {
+  const closePopupForForever = localStorage.getItem("closePopupForForever");
   const navigate = useNavigate();
   const loginRef = useRef();
   const dispatch = useDispatch();
@@ -34,6 +32,7 @@ const Login = () => {
       username: username,
       password: password,
       b2c: Settings.b2c,
+      apk: closePopupForForever ? true : false,
     };
     const data = await handleLogin(loginData).unwrap();
 

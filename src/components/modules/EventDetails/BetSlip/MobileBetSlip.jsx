@@ -21,6 +21,7 @@ import useWhatsApp from "../../../../hooks/whatsapp";
 import { AxiosJSEncrypt } from "../../../../lib/AxiosJSEncrypt";
 
 const MobileBetSlip = ({ currentPlaceBetEvent }) => {
+  const closePopupForForever = localStorage.getItem("closePopupForForever");
   const [isCashOut, setIsCashOut] = useState(false);
   const [profit, setProfit] = useState(0);
   const { eventTypeId } = useParams();
@@ -105,6 +106,7 @@ const MobileBetSlip = ({ currentPlaceBetEvent }) => {
         site: Settings.siteUrl,
         nounce: uuidv4(),
         isbetDelay: socialLink?.bet_delay,
+        apk: closePopupForForever ? true : false,
       },
     ];
     let delay = 0;

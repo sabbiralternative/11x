@@ -22,6 +22,7 @@ import useWhatsApp from "../../../../hooks/whatsapp";
 import { AxiosJSEncrypt } from "../../../../lib/AxiosJSEncrypt";
 
 const DesktopBetSlip = () => {
+  const closePopupForForever = localStorage.getItem("closePopupForForever");
   const { pathname } = useLocation();
   const [isCashOut, setIsCashOut] = useState(false);
   const [profit, setProfit] = useState(0);
@@ -122,6 +123,7 @@ const DesktopBetSlip = () => {
         site: Settings.siteUrl,
         nounce: uuidv4(),
         isbetDelay: socialLink?.bet_delay,
+        apk: closePopupForForever ? true : false,
       },
     ];
     setLoading(true);
