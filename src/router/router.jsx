@@ -24,6 +24,7 @@ import Withdraw from "../pages/Withdraw/Withdraw";
 import Affiliate from "../pages/Affiliate/Affiliate";
 import Promotions from "../pages/Promotions/Promotions";
 import LossBackClaims from "../pages/LossBackClaims/LossBackClaims";
+import AppOnlyBonus from "../pages/AppOnlyBonus/AppOnlyBonus";
 
 export const router = createBrowserRouter(
   [
@@ -113,8 +114,12 @@ export const router = createBrowserRouter(
           element: <Promotions />,
         },
         {
-          path: "/loss-back-claims",
+          path: "/lossback-bonus",
           element: <LossBackClaims />,
+        },
+        {
+          path: "/app-only-bonus",
+          element: <AppOnlyBonus />,
         },
       ],
     },

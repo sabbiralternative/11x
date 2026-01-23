@@ -10,6 +10,7 @@ import useWhatsApp from "../../../hooks/whatsapp";
 import img from "../../../assets/img";
 
 const Sidebar = ({ setIsOpenSidebar }) => {
+  const closePopupForForever = localStorage.getItem("closePopupForForever");
   const { data: socialLink } = useWhatsApp();
   // const [showReferral, setShowReferral] = useState(false);
   const { logo } = useLogo();
@@ -131,11 +132,25 @@ const Sidebar = ({ setIsOpenSidebar }) => {
               }}
               className="nav-item ng-star-inserted"
             >
-              <Link to="/loss-back-claims" className="nav-link final-link">
+              <Link to="/lossback-bonus" className="nav-link final-link">
                 <img src={img.bettingProfitLoss} className="img-fluid" />
-                <span>Loss Back Claims</span>
+                <span>Lossback Bonus</span>
               </Link>
             </li>
+            {closePopupForForever && (
+              <li
+                onClick={() => {
+                  setIsOpenSidebar(false);
+                }}
+                className="nav-item ng-star-inserted"
+              >
+                <Link to="/app-only-bonus" className="nav-link final-link">
+                  <img src={img.bettingProfitLoss} className="img-fluid" />
+                  <span>App Only Bonus</span>
+                </Link>
+              </li>
+            )}
+
             {/* <li
               onClick={() => setIsOpenSidebar(false)}
               className="nav-item ng-star-inserted"
