@@ -1,14 +1,15 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import MainLayout from "./layout/MainLayout";
 import { useEffect } from "react";
-import { Settings } from "./api";
 import disableDevtool from "disable-devtool";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "./redux/features/auth/authSlice";
 import { setForceChangePassword } from "./redux/features/global/globalSlice";
+import useWhatsApp from "./hooks/whatsapp";
 
 function App() {
-  const disabledDevtool = Settings.disabledDevtool;
+  const { data: socialLink } = useWhatsApp();
+  const disabledDevtool = socialLink?.disabledDevtool;
   const navigate = useNavigate();
   const location = useLocation();
   const dispatch = useDispatch();
