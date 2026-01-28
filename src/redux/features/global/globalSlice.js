@@ -9,6 +9,7 @@ const initialState = {
   showForgotPassword: false,
   forceChangePassword: false,
   banner: null,
+  closePopupForForever: false,
 };
 
 const stateSlice = createSlice({
@@ -39,6 +40,9 @@ const stateSlice = createSlice({
     setBanner: (state, action) => {
       state.banner = action.payload;
     },
+    setClosePopUpForForever: (state, action) => {
+      state.closePopupForForever = action.payload;
+    },
   },
 });
 
@@ -51,6 +55,7 @@ export const {
   setShowForgotPassword,
   setForceChangePassword,
   setBanner,
+  setClosePopUpForForever,
 } = stateSlice.actions;
 
 export default stateSlice.reducer;

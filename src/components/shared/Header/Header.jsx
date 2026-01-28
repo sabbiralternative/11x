@@ -6,7 +6,10 @@ import { Settings } from "../../../api";
 import { setUser } from "../../../redux/features/auth/authSlice";
 import toast from "react-hot-toast";
 import Login from "../../modals/Login/Login";
-import { setShowLogin } from "../../../redux/features/global/globalSlice";
+import {
+  setClosePopUpForForever,
+  setShowLogin,
+} from "../../../redux/features/global/globalSlice";
 import Register from "../../modals/Register/Register";
 import ForgotPassword from "../../modals/ForgotPassword/ForgotPassword";
 import useBalance from "../../../hooks/balance";
@@ -17,6 +20,7 @@ import Notification from "../Notification/Notification";
 import DownloadAPK from "../../modals/DownloadAPK/DownloadAPK";
 import useWhatsApp from "../../../hooks/whatsapp";
 import BuildVersion from "../../modals/BuildVersion/BuildVersion";
+import Error from "../../UI/Error/Error";
 
 const Header = ({ setIsOpenSidebar }) => {
   const [showNotification, setShowNotification] = useState(false);
@@ -31,8 +35,13 @@ const Header = ({ setIsOpenSidebar }) => {
   const location = useLocation();
   const { data } = useBalance();
   const { token } = useSelector((state) => state.auth);
-  const { showLogin, showRegister, showForgotPassword, forceChangePassword } =
-    useSelector((state) => state.global);
+  const {
+    showLogin,
+    showRegister,
+    showForgotPassword,
+    forceChangePassword,
+    closePopupForForever,
+  } = useSelector((state) => state.global);
   const navigate = useNavigate();
   const { logo } = useLogo();
   const dispatch = useDispatch();
@@ -90,9 +99,11 @@ const Header = ({ setIsOpenSidebar }) => {
   useEffect(() => {
     const apk_modal_shown = sessionStorage.getItem("apk_modal_shown");
     const closePopupForForever = localStorage.getItem("closePopupForForever");
+    dispatch(setClosePopUpForForever(closePopupForForever ? true : false));
     if (location?.state?.pathname === "/apk" || location.pathname === "/apk") {
       sessionStorage.setItem("apk_modal_shown", true);
       localStorage.setItem("closePopupForForever", true);
+      dispatch(setClosePopUpForForever(true));
       localStorage.removeItem("installPromptExpiryTime");
     } else {
       if (!apk_modal_shown) {
@@ -142,7 +153,9 @@ const Header = ({ setIsOpenSidebar }) => {
       return "0px";
     }
   };
-
+  if (Settings.appOnly && !closePopupForForever) {
+    return <Error />;
+  }
   return (
     <div>
       <Notification

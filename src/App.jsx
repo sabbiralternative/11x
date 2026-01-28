@@ -20,16 +20,18 @@ function App() {
   }, [location]);
 
   useEffect(() => {
-    if (disabledDevtool) {
-      disableDevtool({
-        ondevtoolopen: (type) => {
-          const info = "devtool opened!; type =" + type;
-          if (info) {
-            dispatch(logout());
-            window.location.href = "https://www.google.com/";
-          }
-        },
-      });
+    if (window.location.hostname !== "localhost") {
+      if (disabledDevtool) {
+        disableDevtool({
+          ondevtoolopen: (type) => {
+            const info = "devtool opened!; type =" + type;
+            if (info) {
+              dispatch(logout());
+              window.location.href = "https://www.google.com/";
+            }
+          },
+        });
+      }
     }
   }, [navigate, disabledDevtool, dispatch]);
 

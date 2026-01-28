@@ -6,6 +6,7 @@ import img from "../assets/img";
 export const ApiContext = createContext(null);
 
 const ApiProvider = ({ children }) => {
+  const closePopupForForever = localStorage.getItem("closePopupForForever");
   const [noticeLoaded, setNoticeLoaded] = useState(false);
   const [logo, setLogo] = useState("");
   const baseUrl = notice?.result?.settings?.baseUrl;
@@ -45,7 +46,11 @@ const ApiProvider = ({ children }) => {
       FavIconLink.type = "image/png";
       FavIconLink.href = `${API.assets}/${Settings.siteUrl}/favicon.png`;
       document.head.appendChild(FavIconLink);
-      document.title = Settings.siteTitle;
+      if (Settings.appOnly && !closePopupForForever) {
+        document.title = window.location.hostname;
+      } else {
+        document.title = Settings.siteTitle;
+      }
 
       return () => {
         document.head.removeChild(link);

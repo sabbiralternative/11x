@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useLoginMutation } from "../../../redux/features/auth/authApi";
 import { useForm } from "react-hook-form";
@@ -16,7 +16,7 @@ import {
 } from "../../../redux/features/global/globalSlice";
 
 const Login = () => {
-  const closePopupForForever = localStorage.getItem("closePopupForForever");
+  const { closePopupForForever } = useSelector((state) => state.global);
   const navigate = useNavigate();
   const loginRef = useRef();
   const dispatch = useDispatch();

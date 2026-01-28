@@ -40,7 +40,8 @@
       "betDelay": false,
       "otp": true,
       "otpWhatsapp": true,
-      "complaint": true
+      "complaint": true,
+      "appOnly": false
     },
 
     "endpoint": {

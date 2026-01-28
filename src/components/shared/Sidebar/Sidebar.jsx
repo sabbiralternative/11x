@@ -10,7 +10,7 @@ import useWhatsApp from "../../../hooks/whatsapp";
 import img from "../../../assets/img";
 
 const Sidebar = ({ setIsOpenSidebar }) => {
-  const closePopupForForever = localStorage.getItem("closePopupForForever");
+  const { closePopupForForever } = useSelector((state) => state.global);
   const { data: socialLink } = useWhatsApp();
   // const [showReferral, setShowReferral] = useState(false);
   const { logo } = useLogo();

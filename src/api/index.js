@@ -83,4 +83,5 @@ export const Settings = {
   b2c: "",
   otpWhatsapp: "",
   complaint: "",
+  appOnly: "",
 };
