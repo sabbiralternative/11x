@@ -23,7 +23,6 @@ export const useBalance = () => {
         return data;
       }
     },
-    refetchInterval: 6000,
   });
 };
 
