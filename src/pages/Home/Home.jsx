@@ -6,6 +6,7 @@ import useLogo from "../../hooks/useLogo";
 import Banner from "./Banner";
 import { useEffect } from "react";
 import { setForceChangePassword } from "../../redux/features/global/globalSlice";
+import MaintenanceMessage from "../../components/UI/MaintenanceMessage/MaintenanceMessage";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -19,6 +20,9 @@ const Home = () => {
     }
   }, [showLogin, dispatch]);
 
+  if (Settings.maintenance_message) {
+    return <MaintenanceMessage />;
+  }
   return (
     <div className={`fullpage`}>
       <div>

@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "./redux/features/auth/authSlice";
 import { setForceChangePassword } from "./redux/features/global/globalSlice";
 import useWhatsApp from "./hooks/whatsapp";
+import { Settings } from "./api";
+import MaintenanceMessage from "./components/UI/MaintenanceMessage/MaintenanceMessage";
 
 function App() {
   const { data: socialLink } = useWhatsApp();
@@ -41,6 +43,10 @@ function App() {
       dispatch(setForceChangePassword(true));
     }
   }, [showLogin, dispatch]);
+
+  if (Settings.maintenance_message) {
+    return <MaintenanceMessage />;
+  }
 
   return <MainLayout />;
 }
