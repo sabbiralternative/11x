@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { getSetApis } from "../api/config";
-import { API, Settings } from "../api";
+import { Settings } from "../api";
 import notice from "../../notice.json";
 export const ApiContext = createContext(null);
 
@@ -27,12 +27,8 @@ const ApiProvider = ({ children }) => {
       } else {
         document.title = Settings.siteTitle;
       }
-
-      return () => {
-        document.head.removeChild(link);
-      };
     }
-  }, [noticeLoaded]);
+  }, [noticeLoaded, closePopupForForever]);
 
   if (!noticeLoaded) {
     return;
