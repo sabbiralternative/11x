@@ -1,8 +1,7 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { getSetApis } from "../api/config";
 import { API, Settings } from "../api";
 import notice from "../../notice.json";
-import img from "../assets/img";
 export const ApiContext = createContext(null);
 
 const ApiProvider = ({ children }) => {
@@ -22,30 +21,7 @@ const ApiProvider = ({ children }) => {
   useEffect(() => {
     if (noticeLoaded) {
       /* Dynamically append  theme css  */
-      if (Settings.build === "production") {
-        const logo = `${API.assets}/${Settings.siteUrl}/logo.${Settings.logoFormat}`;
-        setLogo(logo);
-      } else {
-        setLogo(img.logo);
-      }
 
-      const link = document.createElement("link");
-      link.rel = "stylesheet";
-      link.type = "text/css";
-
-      if (Settings.build === "production") {
-        link.href = `${API.assets}/${Settings.siteUrl}/theme.css`;
-        document.head.appendChild(link);
-      } else {
-        link.href = `/src/static/front/css/theme.css`;
-        document.head.appendChild(link);
-      }
-      /* Dynamically append site logo  */
-      const FavIconLink = document.createElement("link");
-      FavIconLink.rel = "icon";
-      FavIconLink.type = "image/png";
-      FavIconLink.href = `${API.assets}/${Settings.siteUrl}/favicon.png`;
-      document.head.appendChild(FavIconLink);
       if (Settings.appOnly && !closePopupForForever) {
         document.title = window.location.hostname;
       } else {
@@ -62,10 +38,15 @@ const ApiProvider = ({ children }) => {
     return;
   }
 
-  const stateInfo = { logo };
+  const stateInfo = { logo, setLogo };
   return (
     <ApiContext.Provider value={stateInfo}>{children}</ApiContext.Provider>
   );
+};
+
+export const useLogo = () => {
+  const context = useContext(ApiContext);
+  return context;
 };
 
 export default ApiProvider;
