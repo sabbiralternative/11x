@@ -139,7 +139,7 @@ const Header = ({ setIsOpenSidebar }) => {
 
   const handleDefineTop = () => {
     if (
-      Settings?.apkLink &&
+      Settings.apk_link &&
       isModalOpen &&
       windowWidth < 550 &&
       windowScrollY < 70
@@ -164,14 +164,14 @@ const Header = ({ setIsOpenSidebar }) => {
         setShowNotification={setShowNotification}
         showNotification={showNotification}
       />
-      {Settings?.apkLink && isModalOpen && windowWidth < 550 && (
+      {Settings.apk_link && isModalOpen && windowWidth < 550 && (
         <AppPopup
           showNotification={showNotification}
           filteredNotification={filteredNotification}
           setIsModalOpen={setIsModalOpen}
         />
       )}
-      {Settings?.apkLink && showAPKModal && (
+      {Settings.apk_link && showAPKModal && (
         <DownloadAPK setShowAPKModal={setShowAPKModal} />
       )}
       {showBuildVersion && !showAPKModal && (
