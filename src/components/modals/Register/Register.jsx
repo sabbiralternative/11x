@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { API, Settings } from "../../../api";
+import { API } from "../../../api";
 import { setUser } from "../../../redux/features/auth/authSlice";
 import toast from "react-hot-toast";
 import { useRef, useState } from "react";
@@ -13,7 +13,7 @@ import {
   setShowLogin,
   setShowRegister,
 } from "../../../redux/features/global/globalSlice";
-import getOtpOnWhatsapp from "../../../utils/getOtpOnWhatsapp";
+// import getOtpOnWhatsapp from "../../../utils/getOtpOnWhatsapp";
 
 const Register = () => {
   const registerRef = useRef();
@@ -133,9 +133,9 @@ const Register = () => {
     }
   };
 
-  const handleGetOtpOnWhatsapp = async () => {
-    await getOtpOnWhatsapp(userData.mobileNo, setOrder, setShowRegister);
-  };
+  // const handleGetOtpOnWhatsapp = async () => {
+  //   await getOtpOnWhatsapp(userData.mobileNo, setOrder, setShowRegister);
+  // };
 
   return (
     <div
@@ -189,7 +189,7 @@ const Register = () => {
                       {" "}
                       Get OTP
                     </button>
-                    {Settings.otpWhatsapp && (
+                    {/* {Settings.otpWhatsapp && (
                       <button
                         onClick={handleGetOtpOnWhatsapp}
                         disabled={userData?.mobileNo?.length < 10}
@@ -199,7 +199,7 @@ const Register = () => {
                         {" "}
                         Get OTP on Whatsapp
                       </button>
-                    )}
+                    )} */}
                     <div className="form-group">
                       <label
                         htmlFor="exampleInputPassword1"

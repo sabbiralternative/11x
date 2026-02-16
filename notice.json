@@ -5,42 +5,9 @@
   },
   "result": {
     "settings": {
-      "siteTitle": "magicwin",
       "siteUrl": "a23money.com",
-      "interval": "900",
-      "casino": "mac88",
-      "liveCasinoType": "ultrawin",
-      "registration": true,
-      "forceLogin": true,
-      "demoLogin": true,
-
-      "deposit": true,
-      "withdraw": true,
-      "disabledDevtool": false,
-      "casinoCurrency": "INR",
-      "baseUrl": "",
-      "betFairCashOut": true,
-      "bookmakerCashOut": true,
-      "mac88": true,
-      "referral": true,
-      "logoHeight": 65,
-      "logoWidth": 250,
-      "logoFormat": "png",
-      "paymentIntent": false,
-      "registrationWhatsapp": true,
-      "ourCasino": true,
-      "liveCasino": true,
-      "slots": true,
-      "fantasy": true,
-      "ourVirtual": true,
-      "b2c": true,
-      "language": false,
       "build": "development",
-      "betDelay": false,
-      "otp": true,
-      "otpWhatsapp": true,
-      "complaint": true,
-      "appOnly": false
+      "paymentIntent": false
     },
 
     "endpoint": {

@@ -153,7 +153,7 @@ const Header = ({ setIsOpenSidebar }) => {
       return "0px";
     }
   };
-  if (Settings.appOnly && !closePopupForForever) {
+  if (Settings.app_only && !closePopupForForever) {
     return <Error />;
   }
   return (

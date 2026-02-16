@@ -511,7 +511,7 @@ const Home = () => {
                         © 2024 All rights reserved.
                         <a href="https://11xplay.com/">
                           {" "}
-                          {Settings.siteTitle} most trusted and secure exchange
+                          {Settings.site_name} most trusted and secure exchange
                           site in the world.
                         </a>
                       </p>

@@ -244,7 +244,7 @@ const MatchOdds = ({ data }) => {
                     <i className="bi bi-star" />
                   </a>
                   {games?.name?.toUpperCase()}
-                  {Settings.betFairCashOut &&
+                  {Settings.cashout &&
                     games?.runners?.length !== 3 &&
                     games?.status === "OPEN" &&
                     games?.name !== "toss" &&
@@ -268,7 +268,7 @@ const MatchOdds = ({ data }) => {
                           `(${teamProfitForGame.profit.toFixed(2)})`}
                       </button>
                     )}
-                  {Settings.betFairCashOut &&
+                  {Settings.cashout &&
                     games?.runners?.length !== 3 &&
                     games?.status === "OPEN" &&
                     games?.name !== "toss" &&
