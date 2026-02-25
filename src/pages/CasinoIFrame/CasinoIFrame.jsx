@@ -17,7 +17,7 @@ const CasinoIFrame = () => {
       gameId: gameId,
       isHome: false,
       mobileOnly: true,
-      casino_currency: Settings.casino_currency,
+      casinoCurrency: Settings.casino_currency,
     };
 
     handleGetIFrame(payload);
