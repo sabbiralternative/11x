@@ -5,8 +5,11 @@ import { MdOutlinePendingActions } from "react-icons/md";
 import { useAccountStatement } from "../../hooks/accountStatement";
 import Complaint from "../../components/modals/Complaint/Complaint";
 import { Settings } from "../../api";
+import toast from "react-hot-toast";
+import { useBankMutation } from "../../redux/features/deposit/deposit.api";
 
 const WithdrawReport = () => {
+  const [deleteWithdraw] = useBankMutation();
   const [complaintId, setComplaintId] = useState(null);
   const fromDate = new Date(new Date().setDate(new Date().getDate() - 7))
     .toISOString()
@@ -21,17 +24,32 @@ const WithdrawReport = () => {
   };
   const [showModal, setShowModal] = useState(false);
   const [image, setImage] = useState("");
-  const { data: withdrawStatement } = useAccountStatement(payload);
+  const { data: withdrawStatement, refetch } = useAccountStatement(payload);
   const [category, setCategory] = useState();
 
   useEffect(() => {
     if (withdrawStatement?.length > 0) {
       const categories = Array.from(
-        new Set(withdrawStatement?.map((item) => item?.date?.split(" ")?.[0]))
+        new Set(withdrawStatement?.map((item) => item?.date?.split(" ")?.[0])),
       );
       setCategory(categories);
     }
   }, [withdrawStatement]);
+
+  const handleDeleteWithdraw = async (withdraw_id) => {
+    const payload = {
+      type: "withdrawDelete",
+      withdraw_id,
+    };
+    const res = await deleteWithdraw(payload).unwrap();
+
+    if (res?.success) {
+      refetch();
+      toast.success(res?.result?.message);
+    } else {
+      toast.error(res?.error?.errorMessage);
+    }
+  };
 
   return (
     <>
@@ -141,21 +159,47 @@ const WithdrawReport = () => {
                               {" "}
                               {data?.remark}{" "}
                             </span>
-                            {Settings.complaint && (
-                              <button
-                                style={{
-                                  backgroundColor: "rgb(255 131 46)",
-                                  borderRadius: "5px",
-                                  fontSize: "12px",
-                                }}
-                                onClick={() =>
-                                  setComplaintId(data?.referenceNo)
-                                }
-                                className="px-2 py-1  text-white   "
-                              >
-                                Report Issue
-                              </button>
-                            )}
+                            <div style={{ display: "flex", gap: "5px" }}>
+                              {data.status === "PENDING" &&
+                                data?.reject_request === 0 && (
+                                  <button
+                                    style={{
+                                      backgroundColor: "rgb(255 131 46)",
+                                      borderRadius: "5px",
+                                      fontSize: "12px",
+                                    }}
+                                    onClick={() =>
+                                      handleDeleteWithdraw(data?.withdraw_id)
+                                    }
+                                    className="px-2 py-1  text-white   "
+                                  >
+                                    Delete Withdraw
+                                  </button>
+                                )}
+
+                              {data.status === "PENDING" &&
+                                data?.reject_request === 1 && (
+                                  <p className="px-2 py-1  text-black   ">
+                                    Withdraw delete request sent.
+                                  </p>
+                                )}
+                              {Settings.complaint && (
+                                <button
+                                  style={{
+                                    backgroundColor: "rgb(255 131 46)",
+                                    borderRadius: "5px",
+                                    fontSize: "12px",
+                                  }}
+                                  onClick={() =>
+                                    setComplaintId(data?.referenceNo)
+                                  }
+                                  className="px-2 py-1  text-white   "
+                                >
+                                  Report Issue
+                                </button>
+                              )}
+                            </div>
+
                             {/* <span className="right-bottom-date ">
                               {" "}
                               {data?.date}{" "}
