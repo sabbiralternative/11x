@@ -120,7 +120,7 @@ const DesktopBetSlip = () => {
     const payloadData = [
       {
         ...payload,
-        site: Settings.siteUrl,
+
         nounce: uuidv4(),
         isbetDelay: socialLink?.bet_delay,
         apk: closePopupForForever ? true : false,
