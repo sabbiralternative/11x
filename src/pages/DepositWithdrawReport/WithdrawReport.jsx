@@ -173,7 +173,7 @@ const WithdrawReport = () => {
                                     }
                                     className="px-2 py-1  text-white   "
                                   >
-                                    Delete Withdraw
+                                    Cancel Withdraw
                                   </button>
                                 )}
 
