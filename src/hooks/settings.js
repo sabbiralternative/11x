@@ -6,6 +6,8 @@ import useLogo from "./useLogo";
 import img from "../assets/img";
 
 export const useSettingsMutation = () => {
+  const isLocalhost = window.location.hostname === "localhost";
+  const closePopupForForever = localStorage.getItem("closePopupForForever");
   const { setLogo } = useLogo();
   return useMutation({
     mutationKey: ["settings"],
@@ -24,7 +26,13 @@ export const useSettingsMutation = () => {
           });
         }
 
-        if (Settings.build === "production") {
+        if (Settings.app_only && !closePopupForForever) {
+          document.title = window.location.hostname;
+        } else {
+          document.title = Settings.site_name;
+        }
+
+        if (!isLocalhost) {
           const logo = `${API.assets}/${Settings.siteUrl}/logo.${Settings.logoFormat}`;
           setLogo(logo);
         } else {
@@ -35,7 +43,7 @@ export const useSettingsMutation = () => {
         link.rel = "stylesheet";
         link.type = "text/css";
 
-        if (Settings.build === "production") {
+        if (!isLocalhost) {
           link.href = `${API.assets}/${Settings.siteUrl}/theme.css`;
           document.head.appendChild(link);
         } else {
