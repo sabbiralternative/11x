@@ -62,6 +62,7 @@ export const Settings = {
   otp: "",
   casino: "",
   site_name: "",
+  site: "",
   force_login: "",
   registration: "",
   demoLogin: "",
