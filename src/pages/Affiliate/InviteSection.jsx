@@ -4,12 +4,17 @@ import useWhatsApp from "../../hooks/whatsapp";
 import AddNewUser from "../../components/modals/Affiliate/AddNewUser";
 import img from "../../assets/img";
 import { handleCopyToClipBoard } from "../../utils/handleCopyToClipBoard";
+import { getSiteURL } from "../../utils/getSiteURL";
 
 const InviteSection = () => {
   const [showAddNewUserModal, setShowAddNewUserModal] = useState(false);
-  const { data } = useGetIndex({
-    type: "get_referral_code",
-  });
+
+  let payload = { type: "get_referral_code" };
+  const { siteURL } = getSiteURL();
+  if (siteURL) {
+    payload.site = siteURL;
+  }
+  const { data } = useGetIndex(payload);
   const { data: socialLink } = useWhatsApp();
 
   return (
