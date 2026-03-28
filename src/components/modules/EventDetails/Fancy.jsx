@@ -95,9 +95,7 @@ const Fancy = ({ data }) => {
         eventId: games?.eventId,
         totalSize: 0,
       };
-      if (games?.eventTypeId == "4") {
-        betData["isBetDelay"] = false;
-      }
+
       if (games?.btype == "FANCY") {
         dispatch(setRunnerId(games?.id));
       } else if (games?.btype && games?.btype !== "FANCY") {
