@@ -122,7 +122,7 @@ const DesktopBetSlip = () => {
         ...payload,
 
         nounce: uuidv4(),
-        isbetDelay: socialLink?.bet_delay,
+        isbetDelay: placeBetValues?.isBetDelay || Settings?.bet_delay,
         apk: closePopupForForever ? true : false,
       },
     ];
