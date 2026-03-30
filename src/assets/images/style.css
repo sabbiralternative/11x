@@ -2496,11 +2496,11 @@ small {
   width: 100%;
   color: #fff;
   text-transform: capitalize;
-  display: inline-block;
+  /* display: inline-block; */
   margin-bottom: 0;
   height: 28px;
   border-radius: 5px;
-  /* display: flex; */
+  display: flex;
 }
 .btn-cashout {
   border: none;
@@ -3230,7 +3230,9 @@ ul.live_virtual li label::before {
   transition: -webkit-transform 0.3s ease-in-out;
   -o-transition: transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out;
-  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+  transition:
+    transform 0.3s ease-in-out,
+    -webkit-transform 0.3s ease-in-out;
 }
 ul.live_virtual li input[type="checkbox"]:checked + label::before {
   content: "\f633";
@@ -3241,7 +3243,9 @@ ul.live_virtual li input[type="checkbox"]:checked + label::before {
   transition: -webkit-transform 0.3s ease-in-out;
   -o-transition: transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out;
-  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+  transition:
+    transform 0.3s ease-in-out,
+    -webkit-transform 0.3s ease-in-out;
 }
 ul.live_virtual li input[type="checkbox"]:checked + label {
   border: 1px solid #00ad6f;

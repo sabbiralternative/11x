@@ -2495,11 +2495,11 @@ small {
   width: 100%;
   color: #fff;
   text-transform: capitalize;
-  display: inline-block;
+  /* display: inline-block; */
   margin-bottom: 0;
   height: 28px;
   border-radius: 5px;
-  /* display: flex; */
+  display: flex;
 }
 .btn-cashout {
   border: none;
