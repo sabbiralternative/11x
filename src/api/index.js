@@ -57,6 +57,7 @@ export const API = {
 };
 
 export const Settings = {
+  bet_delay: "",
   apk_link: "",
   maintenance_message: "",
   otp: "",
