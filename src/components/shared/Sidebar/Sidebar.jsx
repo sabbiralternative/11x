@@ -226,7 +226,7 @@ const Sidebar = ({ setIsOpenSidebar }) => {
               >
                 <a className="nav-link final-link">
                   <img src={img.whatsapp} className="img-fluid" />
-                  <span>Deposit Support </span>
+                  <span>Customer Support </span>
                 </a>
               </li>
             )}
