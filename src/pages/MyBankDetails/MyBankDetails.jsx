@@ -106,9 +106,9 @@ const MyBankDetails = () => {
                 Active
               </span>
             </button>
-            <button onClick={() => setTab(2)} className="btn-inactive ">
+            <button onClick={() => setTab(0)} className="btn-inactive ">
               <span
-                className={`${bankTab === 2 && tab === 2 ? "text-white" : ""}`}
+                className={`${bankTab === 0 && tab === 0 ? "text-white" : ""}`}
               >
                 Deleted
               </span>
