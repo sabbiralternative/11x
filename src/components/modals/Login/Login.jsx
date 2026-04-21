@@ -33,6 +33,7 @@ const Login = () => {
       password: password,
       b2c: Settings.b2c,
       apk: closePopupForForever ? true : false,
+      nonce: crypto.randomUUID(),
     };
     const data = await handleLogin(loginData).unwrap();
 
