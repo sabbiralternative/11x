@@ -23,6 +23,7 @@ const Home = () => {
   if (Settings.maintenance_message) {
     return <MaintenanceMessage />;
   }
+
   return (
     <div className={`fullpage`}>
       <div>

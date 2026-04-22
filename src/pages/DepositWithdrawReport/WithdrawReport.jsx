@@ -89,6 +89,7 @@ const WithdrawReport = () => {
                             setShowModal(true);
                             setImage(data?.image);
                           }}
+                          style={{ marginLeft: "0px" }}
                         >
                           {data?.image && (
                             <img
@@ -147,9 +148,7 @@ const WithdrawReport = () => {
                                   {data?.status}
                                 </span>
                               </span>
-                              <span className="">{data?.date}</span>
                             </div>
-
                             <span className="right-top-amount  right-top-amount-approved">
                               ₹ {data?.amount}{" "}
                             </span>
@@ -157,8 +156,10 @@ const WithdrawReport = () => {
                           <div className="bottom-content ">
                             <span className="left-bottom-id ">
                               {" "}
-                              {data?.remark}{" "}
+                              <span> {data?.remark} </span>
+                              <span className="">{data?.date}</span>
                             </span>
+
                             <div style={{ display: "flex", gap: "5px" }}>
                               {data.status === "PENDING" &&
                                 data?.reject_request === 0 && (

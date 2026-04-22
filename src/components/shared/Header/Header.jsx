@@ -8,13 +8,14 @@ import toast from "react-hot-toast";
 import Login from "../../modals/Login/Login";
 import {
   setClosePopUpForForever,
+  setHeaderHeight,
   setShowLogin,
 } from "../../../redux/features/global/globalSlice";
 import Register from "../../modals/Register/Register";
 import ForgotPassword from "../../modals/ForgotPassword/ForgotPassword";
 import useBalance from "../../../hooks/balance";
 import ForceChangePassword from "../../modals/ForceChangePassword/ForceChangePassword";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import AppPopup from "./AppPopup";
 import Notification from "../Notification/Notification";
 import DownloadAPK from "../../modals/DownloadAPK/DownloadAPK";
@@ -23,13 +24,13 @@ import BuildVersion from "../../modals/BuildVersion/BuildVersion";
 import Error from "../../UI/Error/Error";
 
 const Header = ({ setIsOpenSidebar }) => {
+  const ref = useRef();
   const [showNotification, setShowNotification] = useState(false);
   const [filteredNotification, setFilteredNotification] = useState([]);
   const { data: socialLink } = useWhatsApp();
   const [showBuildVersion, setShowBuildVersion] = useState(false);
   const stored_build_version = localStorage.getItem("build_version");
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [windowScrollY, setWindowScrollY] = useState(0);
   const [showAPKModal, setShowAPKModal] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const location = useLocation();
@@ -84,15 +85,10 @@ const Header = ({ setIsOpenSidebar }) => {
       setWindowWidth(window.innerWidth);
     };
 
-    const handleScrollY = () => {
-      setWindowScrollY(window.scrollY);
-    };
-
     window.addEventListener("resize", handleResize);
-    window.addEventListener("scroll", handleScrollY);
+
     return () => {
       window.removeEventListener("resize", handleResize);
-      window.removeEventListener("scroll", handleScrollY);
     };
   }, []);
 
@@ -120,7 +116,13 @@ const Header = ({ setIsOpenSidebar }) => {
         }
       }
     }
-  }, [location?.state?.pathname, location.pathname, isModalOpen, windowWidth]);
+  }, [
+    location?.state?.pathname,
+    location.pathname,
+    isModalOpen,
+    windowWidth,
+    dispatch,
+  ]);
 
   useEffect(() => {
     const newVersion = socialLink?.build_version;
@@ -137,40 +139,17 @@ const Header = ({ setIsOpenSidebar }) => {
     }
   }, [socialLink?.build_version, stored_build_version]);
 
-  const handleDefineTop = () => {
-    if (
-      Settings.apk_link &&
-      isModalOpen &&
-      windowWidth < 550 &&
-      windowScrollY < 70
-    ) {
-      if (showNotification && filteredNotification?.length > 0) {
-        return "100px";
-      } else {
-        return "67px";
-      }
-    } else {
-      return "0px";
-    }
-  };
   if (Settings.app_only && !closePopupForForever) {
     return <Error />;
   }
+
+  if (ref.current) {
+    const headerHeight = ref.current.offsetHeight;
+    console.log(headerHeight);
+    dispatch(setHeaderHeight(headerHeight));
+  }
   return (
-    <div>
-      <Notification
-        filteredNotification={filteredNotification}
-        setFilteredNotification={setFilteredNotification}
-        setShowNotification={setShowNotification}
-        showNotification={showNotification}
-      />
-      {Settings.apk_link && isModalOpen && windowWidth < 550 && (
-        <AppPopup
-          showNotification={showNotification}
-          filteredNotification={filteredNotification}
-          setIsModalOpen={setIsModalOpen}
-        />
-      )}
+    <Fragment>
       {Settings.apk_link && showAPKModal && (
         <DownloadAPK setShowAPKModal={setShowAPKModal} />
       )}
@@ -186,13 +165,29 @@ const Header = ({ setIsOpenSidebar }) => {
       {showForgotPassword && <ForgotPassword />}
       {forceChangePassword && <ForceChangePassword />}
       <header
-        style={{
-          top: handleDefineTop(),
-        }}
+        ref={ref}
         id="header"
         className="header fixed-top d-flex align-items-center"
       >
-        <div className="container-fluid d-flex align-items-center">
+        <Notification
+          filteredNotification={filteredNotification}
+          setFilteredNotification={setFilteredNotification}
+          setShowNotification={setShowNotification}
+          showNotification={showNotification}
+        />
+        {Settings.apk_link && isModalOpen && windowWidth < 550 && (
+          <AppPopup
+            showNotification={showNotification}
+            filteredNotification={filteredNotification}
+            setIsModalOpen={setIsModalOpen}
+          />
+        )}
+        <div
+          className="container-fluid d-flex align-items-center"
+          style={{
+            padding: "10px 0px",
+          }}
+        >
           <div className="d-flex align-items-center justify-content-between">
             <Link
               to={token ? "/" : "/home"}
@@ -253,7 +248,7 @@ const Header = ({ setIsOpenSidebar }) => {
           </nav>
         </div>
       </header>
-    </div>
+    </Fragment>
   );
 };
 

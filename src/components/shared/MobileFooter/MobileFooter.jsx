@@ -17,11 +17,11 @@ const MobileFooter = () => {
         </Link>
 
         <Link
-          className={`${location.pathname === "/casino" ? "active" : ""}`}
-          to="/casino"
+          className={`${location.pathname === "/mac88" ? "active" : ""}`}
+          to="/mac88"
         >
           <img src="/images/icon-casino.svg" className="img-fluid" />
-          <span>Casino</span>
+          <span>Mac88</span>
         </Link>
         <Link
           className={`${location.pathname === "/int-casino" ? "active" : ""}`}

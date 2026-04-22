@@ -219,6 +219,8 @@ const MatchOdds = ({ data }) => {
     const obj = exposure?.pnlBySelection;
     pnlBySelection = Object?.values(obj);
   }
+
+  console.log(Settings.cashout);
   return (
     <>
       {speedCashOut && (

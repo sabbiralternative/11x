@@ -25,6 +25,7 @@ import Affiliate from "../pages/Affiliate/Affiliate";
 import Promotions from "../pages/Promotions/Promotions";
 import LossBackClaims from "../pages/LossBackClaims/LossBackClaims";
 import AppOnlyBonus from "../pages/AppOnlyBonus/AppOnlyBonus";
+import Mac88 from "../pages/Mac88/Mac88";
 
 export const router = createBrowserRouter(
   [
@@ -120,6 +121,10 @@ export const router = createBrowserRouter(
         {
           path: "/app-only-bonus",
           element: <AppOnlyBonus />,
+        },
+        {
+          path: "/mac88",
+          element: <Mac88 />,
         },
       ],
     },

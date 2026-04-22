@@ -3,8 +3,8 @@ import img from "../../../assets/img";
 
 const AppPopup = ({
   setIsModalOpen,
-  showNotification,
-  filteredNotification,
+  // showNotification,
+  // filteredNotification,
 }) => {
   const closeAppModal = () => {
     const expiryTime = new Date().getTime() + 24 * 60 * 60 * 1000;
@@ -24,15 +24,12 @@ const AppPopup = ({
     closeAppModal();
   };
   return (
-    <div className="a23_css">
+    <div className="a23_css" style={{ width: "100%" }}>
       {" "}
       <div
         className=" android-popup"
         style={{
-          top:
-            showNotification && filteredNotification?.length > 0
-              ? "30px"
-              : "0px",
+          width: "100%",
         }}
       >
         <div className="rect-1"></div>

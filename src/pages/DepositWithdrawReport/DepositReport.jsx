@@ -27,7 +27,7 @@ const DepositReport = () => {
   useEffect(() => {
     if (accountStatement?.length > 0) {
       const categories = Array.from(
-        new Set(accountStatement?.map((item) => item?.date?.split(" ")?.[0]))
+        new Set(accountStatement?.map((item) => item?.date?.split(" ")?.[0])),
       );
       setCategory(categories);
     }
@@ -71,6 +71,7 @@ const DepositReport = () => {
                             setImage(data?.image);
                           }}
                           className="logo "
+                          style={{ marginLeft: "0px" }}
                         >
                           {data?.image && (
                             <img
@@ -131,10 +132,6 @@ const DepositReport = () => {
                                   {data?.status}
                                 </span>
                               </span>
-                              <span className="">
-                                {data?.date}
-                                {/* Deposit Via <span className=" ">WIZPAY</span> */}
-                              </span>
                             </div>
 
                             <span className="right-top-amount  right-top-amount-approved">
@@ -144,7 +141,11 @@ const DepositReport = () => {
                           <div className="bottom-content ">
                             <span className="left-bottom-id ">
                               {" "}
-                              {data?.remark}{" "}
+                              <span> {data?.remark} </span>
+                              <span className="">
+                                {data?.date}
+                                {/* Deposit Via <span className=" ">WIZPAY</span> */}
+                              </span>
                             </span>
                             {Settings.complaint && (
                               <button

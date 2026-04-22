@@ -4,9 +4,13 @@ import ExtraTab from "../../components/modules/LoggedInHome/ExtraTab";
 import GroupEvents from "../../components/modules/LoggedInHome/GroupEvents/GroupEvents";
 import Tab from "../../components/modules/LoggedInHome/Tab";
 import WhatsApp from "./WhatsApp";
+import { useState } from "react";
+import MiniGames from "../../components/modules/LoggedInHome/MiniGames";
 
 const LoggedInHome = () => {
+  const [showMiniGamesModal, setShowMiniGamesModal] = useState(false);
   const { group } = useSelector((state) => state.global);
+
   return (
     <>
       <WhatsApp />
@@ -31,6 +35,27 @@ const LoggedInHome = () => {
             </div>
           </div>
         </div>
+        <div
+          onClick={() => setShowMiniGamesModal(true)}
+          style={{
+            position: "fixed",
+            top: "calc(100dvh - 130px)",
+            left: "0",
+            height: "fit-content",
+            cursor: "pointer",
+            // zIndex: 999999,
+          }}
+        >
+          <img
+            style={{
+              height: "70px",
+            }}
+            src="/images/uv_games-CkYT1PYz.gif"
+          />
+        </div>
+        {showMiniGamesModal && (
+          <MiniGames setShowMiniGamesModal={setShowMiniGamesModal} />
+        )}
       </main>
     </>
   );
