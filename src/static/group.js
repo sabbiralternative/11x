@@ -54,8 +54,9 @@ export const homeTab = [
     name: "Kabaddi",
     imageSrc: "/images/menu-99994.png",
   },
+
   {
-    group: 8,
+    group: 6,
     name: "Politics",
     imageSrc: "/images/menu-2378961.png",
   },
