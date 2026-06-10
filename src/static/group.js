@@ -20,20 +20,22 @@ export const homeTab = [
     name: "Tennis",
     imageSrc: "/images/menu-2.png",
   },
+  // {
+  //   name: "Int Casino",
+  //   imageSrc: "/images/menu-99999.png",
+  //   to: "/int-casino",
+  // },
   {
     name: "Casino",
-    imageSrc: "/images/menu-99999.png",
-    to: "/casino",
-  },
-  {
-    name: "Int Casino",
     imageSrc: "/images/menu-99998.png",
-    to: "/int-casino",
+    to: "/casino",
   },
   {
     name: "Sports book",
     imageSrc: "/images/menu-99991.png",
-    to: "/sports-book",
+    iframe: true,
+    label: "sportsbook",
+    id: "550000",
   },
   {
     name: "Horse Racing",

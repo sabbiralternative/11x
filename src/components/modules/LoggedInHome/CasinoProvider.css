@@ -1,0 +1,230 @@
+/* CasinoProvider Component Styles */
+
+.casino-provider-wrapper {
+  padding: 4px 6px;
+  width: 100%;
+}
+
+/* Card Container */
+.casino-provider-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: var(--color-bg_Quaternary);
+  border-radius: 4px;
+  box-shadow: var(--shadow-homeCasinoCardGamesShadow);
+  divide-color: transparent;
+}
+
+.casino-provider-card > * + * {
+  border-top: 1px solid var(--color-divider, rgba(255, 255, 255, 0.1));
+}
+
+/* Header */
+.casino-provider-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 8px 10px;
+  gap: 10px;
+  border-radius: 4px 4px 0 0;
+  background-color: var(--color-bg_Quaternary);
+}
+
+.casino-provider-header-icon {
+  flex-shrink: 0;
+}
+
+.casino-provider-header-content {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.casino-provider-title {
+  color: var(--color-text_Ternary);
+  font-weight: 600;
+  text-transform: capitalize;
+  font-size: 14px;
+}
+
+/* Header Controls */
+.casino-provider-controls {
+  display: flex;
+  width: 108.75px;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 5px;
+}
+
+.casino-provider-see-all-btn {
+  display: inline-block;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: "Lato", sans-serif;
+  color: var(--color-text_DepositTextColor);
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  white-space: nowrap;
+}
+
+.casino-provider-see-all-btn:hover {
+  opacity: 0.8;
+}
+
+.casino-provider-scroll-btn {
+  display: inline-flex;
+  width: 22px;
+  height: 22px;
+  padding: 4px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: var(--theme-primary-color);
+  border: 1px solid var(--color-border, rgba(255, 255, 255, 0.15));
+  background-color: var(--theme-primary-color);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  flex-shrink: 0;
+}
+
+.casino-provider-scroll-btn:hover {
+  opacity: 0.8;
+}
+
+/* Scrollable body */
+.casino-provider-body {
+  padding: 10px;
+  transition: all 0.2s ease-in-out;
+  width: 100%;
+  height: max-content;
+  overflow-x: auto;
+}
+
+/* Hide scrollbar but keep functionality */
+.casino-provider-body::-webkit-scrollbar {
+  height: 4px;
+}
+
+.casino-provider-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.casino-provider-body::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
+}
+
+/* Grid — default (compact, 3-row horizontal scroll) */
+.casino-provider-grid {
+  min-width: 100%;
+  display: grid;
+  gap: 8px;
+}
+
+.casino-provider-grid.compact {
+  grid-template-rows: repeat(3, auto);
+  grid-auto-flow: column;
+}
+
+/* Grid — see-all (wrap, responsive columns) */
+.casino-provider-grid.expanded {
+  grid-auto-flow: row;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (min-width: 640px) {
+  .casino-provider-grid.expanded {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .casino-provider-grid.expanded {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .casino-provider-grid.expanded {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+/* Provider Item Button */
+.casino-provider-item {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 20px;
+  gap: 4px;
+  background-color: #f6f6f6;
+  border-radius: 12px;
+  border: 2px solid var(--color-quaternary, rgba(255, 255, 255, 0.1));
+  color: var(--color-primary);
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: var(--shadow-homeCasinoCardGamesShadow);
+  transition: transform 0.1s ease-in-out;
+  overflow: hidden;
+  position: relative;
+}
+
+.casino-provider-item:hover {
+  transform: scale(1.05);
+}
+
+/* Compact size constraints */
+.casino-provider-grid.compact .casino-provider-item {
+  min-width: 80px;
+  min-height: 45px;
+}
+
+@media (min-width: 400px) {
+  .casino-provider-grid.compact .casino-provider-item {
+    min-width: 100px;
+  }
+}
+
+@media (min-width: 640px) {
+  .casino-provider-grid.compact .casino-provider-item {
+    min-width: 150px;
+  }
+}
+
+@media (min-width: 768px) {
+  .casino-provider-grid.compact .casino-provider-item {
+    min-height: 60px;
+  }
+}
+
+/* Image wrapper inside each provider item */
+.casino-provider-img-wrapper {
+  padding: 8px 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 80px;
+  height: 50px;
+}
+
+.casino-provider-img-wrapper img {
+  border-radius: 8px;
+  display: block;
+  object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
+}

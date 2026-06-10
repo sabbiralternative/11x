@@ -54,6 +54,7 @@ export const API = {
   banner: "",
   utr: "",
   otpless: "",
+  lotusHomeLobby: "",
 };
 
 export const Settings = {

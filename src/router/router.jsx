@@ -26,6 +26,7 @@ import Promotions from "../pages/Promotions/Promotions";
 import LossBackClaims from "../pages/LossBackClaims/LossBackClaims";
 import AppOnlyBonus from "../pages/AppOnlyBonus/AppOnlyBonus";
 import Mac88 from "../pages/Mac88/Mac88";
+import GameProviderDetails from "../pages/Gameproviderdetails/Gameproviderdetails";
 
 export const router = createBrowserRouter(
   [
@@ -125,6 +126,10 @@ export const router = createBrowserRouter(
         {
           path: "/mac88",
           element: <Mac88 />,
+        },
+        {
+          path: "/game-provider/:game_name/:game_id",
+          element: <GameProviderDetails />,
         },
       ],
     },

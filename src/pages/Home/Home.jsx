@@ -10,7 +10,7 @@ import MaintenanceMessage from "../../components/UI/MaintenanceMessage/Maintenan
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { showLogin } = useSelector((state) => state.global);
+  const { showLogin, headerHeight } = useSelector((state) => state.global);
   const { logo } = useLogo();
 
   useEffect(() => {
@@ -28,7 +28,11 @@ const Home = () => {
     <div className={`fullpage`}>
       <div>
         <Header />
-        <main id="main" className="main">
+        <main
+          id="main"
+          className="main"
+          style={{ marginTop: `${headerHeight}px` }}
+        >
           <div>
             <Banner />
             <section
