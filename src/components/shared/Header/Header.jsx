@@ -130,7 +130,7 @@ const Header = ({ setIsOpenSidebar }) => {
 
       dispatch(setHeaderHeight(headerHeight));
     }
-  }, [ref, dispatch, isModalOpen]);
+  }, [ref, dispatch, isModalOpen, location.pathname, windowWidth]);
 
   useEffect(() => {
     const newVersion = socialLink?.build_version;

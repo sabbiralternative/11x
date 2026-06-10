@@ -24,11 +24,11 @@ const MobileFooter = () => {
           <span>Mac88</span>
         </Link>
         <Link
-          className={`${location.pathname === "/int-casino" ? "active" : ""}`}
-          to="/int-casino"
+          className={`${location.pathname === "/casino" ? "active" : ""}`}
+          to="/casino"
         >
           <img src="/images/icon-casino.svg" className="img-fluid" />
-          <span>ICasino</span>
+          <span>Casino</span>
         </Link>
       </nav>
     </div>

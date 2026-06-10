@@ -16,10 +16,10 @@ const CasinoThumbnail = ({ casinoData }) => {
         return toast.error("Bonus wallet is available only on sports.");
       }
       if (Settings.casino_currency !== "AED") {
-        navigate(`/casino/${game?.name.replace(/ /g, "")}/${game?.id}`);
+        navigate(`/casino/${game?.gameName.replace(/ /g, "")}/${game?.gameId}`);
       } else {
         setGameInfo({ gameName: "", gameId: "" });
-        setGameInfo({ gameName: game?.name, gameId: game?.id });
+        setGameInfo({ gameName: game?.gameName, gameId: game?.gameId });
         setShowWarning(true);
       }
     } else {
@@ -43,7 +43,7 @@ const CasinoThumbnail = ({ casinoData }) => {
               <img
                 className="img-fluid"
                 alt="Dragon Tiger"
-                src={casino?.url_thumb}
+                src={casino?.urlThumb}
               />
               <div className="casino-name"> {casino?.name}</div>
             </div>

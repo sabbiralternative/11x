@@ -152,7 +152,7 @@ const Register = () => {
         <div className="modal-content" ref={registerRef}>
           <div className="modal-body">
             <button
-              onClick={() => setShowLogin(false)}
+              onClick={closeRegister}
               type="button"
               aria-label="Close"
               className="close pull-right"

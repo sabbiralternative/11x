@@ -115,11 +115,11 @@ const Casino = () => {
                                   <div className="col-md-12 main_navigation_menu">
                                     <div className="casino_tabs_ul tab-container">
                                       <Tab1
-                                        categories={categories}
-                                        selectedCategory={selectedCategory}
-                                        setSelectedCategory={
+                                        subProvider={categories}
+                                        setSelectedSubProvider={
                                           setSelectedCategory
                                         }
+                                        selectedSubProvider={selectedCategory}
                                       />
                                       <div className="tab-content">
                                         <div
@@ -130,10 +130,10 @@ const Casino = () => {
                                           <div className="icasino_ul_tabs">
                                             <div className="tab-container">
                                               <Tab2
-                                                setSelectedSubCategory={
+                                                setSelectedCategory={
                                                   setSelectedSubCategory
                                                 }
-                                                selectedSubCategory={
+                                                selectedCategory={
                                                   selectedSubCategory
                                                 }
                                                 categories={subCategories}

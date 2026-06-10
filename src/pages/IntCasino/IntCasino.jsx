@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import Tab from "../../components/modules/LoggedInHome/Tab";
-import Tab1 from "../../components/modules/Casino/Tab1";
-import Tab2 from "../../components/modules/Casino/Tab2";
-import CasinoThumbnail from "../../components/modules/Casino/CasinoThumbnail";
+import Tab1 from "../../components/modules/IntCasino/Tab1";
+import Tab2 from "../../components/modules/IntCasino/Tab2";
+import CasinoThumbnail from "../../components/modules/IntCasino/CasinoThumbnail";
 import useGetUltraLobby from "../../hooks/ultraLobby";
 import { Loader } from "rsuite";
 
