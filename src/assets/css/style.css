@@ -5,12 +5,12 @@
   float: right;
   padding: 2px 5px;
   border-radius: 1px;
-  color: var(--theme-primary-color);
+  color: var(--primary-color);
   margin-bottom: 5px;
   text-decoration: underline;
 }
 .btn_allgames:hover {
-  color: var(--theme-primary-color);
+  color: var(--primary-color);
 }
 .btn-deposit a,
 .btn-withdrawal a {
@@ -52,7 +52,7 @@
 .ipl {
   display: block;
   text-align: center;
-  /* background: var(--theme-primary-color); */
+  /* background: var(--primary-color); */
   color: #fff;
   font-size: 13px;
   padding: 4px;
@@ -84,7 +84,7 @@
   background: #ffffffbd;
 }
 .login-popup .modal-content {
-  background: var(--theme-secondary-color);
+  background: var(--secondary-color);
 }
 .close {
   position: absolute;
@@ -127,14 +127,14 @@
   text-transform: uppercase;
   font-size: 18px;
   width: 100%;
-  background: green;
+  background: var(--primary-color);
   height: 45px;
   font-weight: 700;
   margin-bottom: 10px;
   color: #fff;
 }
 .login-form .btn-login:hover {
-  background: #068d06;
+  background: var(--primary-color);
   color: #fff;
   border: transparent;
 }
@@ -146,10 +146,10 @@
   color: #fff;
   height: 45px;
   font-weight: 700;
-  background: var(--theme-primary-color);
+  background: var(--primary-color);
 }
 .login-form .btn-loginid:hover {
-  background: var(--theme-secondary-color);
+  background: var(--secondary-color);
   color: #fff;
 }
 .copy-text {
@@ -172,7 +172,7 @@ body::-webkit-scrollbar,
 }
 body::-webkit-scrollbar-thumb,
 .sidebar::-webkit-scrollbar-thumb {
-  background-color: var(--theme-primary-color) !important;
+  background-color: var(--primary-color) !important;
 }
 :root {
   scroll-behavior: smooth;
@@ -185,7 +185,7 @@ body {
 .form-control:focus {
   box-shadow: none;
   outline: none;
-  border-color: var(--theme-primary-color);
+  border-color: var(--primary-color);
 }
 .colorsBlink {
   animation: change 1s linear infinite;
@@ -263,7 +263,7 @@ body {
   margin-bottom: 0;
   font-size: 13px;
   text-transform: uppercase;
-  background: var(--theme-primary-color);
+  background: var(--primary-color);
   padding: 10px;
   color: #fff;
 }
@@ -273,12 +273,12 @@ body {
 }
 .hightlight-menu,
 .hightlight-menu:hover {
-  background: var(--theme-secondary-color) !important;
+  background: var(--secondary-color) !important;
 }
 
 .userpro-icons {
   font-size: 30px;
-  color: var(--theme-secondary-color);
+  color: var(--secondary-color);
 }
 
 .desktop-logo {
@@ -351,11 +351,11 @@ body {
   color: #000;
 }
 .loginbtn a {
-  background: red;
+  background: var(--primary-color);
   color: #fff;
 }
 .signupbtn a {
-  background: green;
+  background: var(--primary-color);
   color: #fff;
 }
 .signupbtn a:hover,
@@ -564,7 +564,7 @@ h6 {
   padding: 20px 0 15px 0;
   font-size: 18px;
   font-weight: 500;
-  color: var(--theme-secondary-color);
+  color: var(--secondary-color);
   font-family: "Lato", sans-serif;
 }
 
@@ -622,7 +622,7 @@ h6 {
 
 .accordion-flush .accordion-button:not(.collapsed) {
   box-shadow: none;
-  color: var(--theme-secondary-color);
+  color: var(--secondary-color);
 }
 
 .accordion-flush .accordion-body {
@@ -671,13 +671,13 @@ h6 {
 
 .nav-tabs-bordered .nav-link:hover,
 .nav-tabs-bordered .nav-link:focus {
-  color: var(--theme-secondary-color);
+  color: var(--secondary-color);
 }
 
 .nav-tabs-bordered .nav-link.active {
   background-color: #fbfbfb;
-  color: var(--theme-secondary-color);
-  border-bottom: 2px solid var(--theme-secondary-color);
+  color: var(--secondary-color);
+  border-bottom: 2px solid var(--secondary-color);
 }
 
 /*--------------------------------------------------------------
@@ -858,11 +858,11 @@ h6 {
 .header-nav .profile .dropdown-item i {
   margin-right: 10px;
   line-height: 0;
-  color: var(--theme-primary-color);
+  color: var(--primary-color);
 }
 
 .header-nav .profile .dropdown-item:hover {
-  background-color: var(--theme-primary-color) !important;
+  background-color: var(--primary-color) !important;
   color: #fff;
 }
 .header-nav .profile .dropdown-item:hover i {
@@ -888,7 +888,7 @@ h6 {
 }
 @keyframes new_launch {
   0% {
-    background: green;
+    background: var(--primary-color);
     transform: scale(1);
   }
   50% {
@@ -998,7 +998,7 @@ h6 {
   align-items: center;
   font-size: 12px;
   font-weight: 700;
-  color: var(--theme-secondary-color);
+  color: #000;
   transition: 0.3s;
   padding: 8px 15px 8px 10px;
   text-transform: capitalize;
@@ -1007,7 +1007,7 @@ h6 {
 .sidebar-nav .nav-link i {
   font-size: 11px;
   margin-right: 10px;
-  color: var(--theme-secondary-color);
+  color: var(--secondary-color);
 }
 
 .sidebar-nav .nav-link.collapsed {
@@ -1035,7 +1035,7 @@ background: #303030;*/
 
 .sidebar-nav .nav-link:hover {
   color: #fff;
-  background: var(--theme-primary-color);
+  background: var(--primary-color);
 }
 
 .sidebar-nav .nav-link:hover i {
@@ -1083,11 +1083,11 @@ background: #303030;*/
 }
 .sidebar-nav .nav-content a:hover,
 .sidebar-nav .nav-content a.active {
-  color: var(--theme-primary-color);
+  color: var(--primary-color);
 }
 
 .sidebar-nav .nav-content a.active i {
-  background-color: var(--theme-secondary-color);
+  background-color: var(--secondary-color);
 }
 
 /*--------------------------------------------------------------
@@ -1110,7 +1110,7 @@ background: #303030;*/
 
 .dashboard .filter .icon:hover,
 .dashboard .filter .icon:focus {
-  color: var(--theme-secondary-color);
+  color: var(--secondary-color);
 }
 
 .dashboard .filter .dropdown-header {
@@ -1154,7 +1154,7 @@ background: #303030;*/
 }
 
 .dashboard .sales-card .card-icon {
-  color: var(--theme-secondary-color);
+  color: var(--secondary-color);
   background: #f6f6fe;
 }
 
@@ -1239,7 +1239,7 @@ background: #303030;*/
 }
 
 .dashboard .news h4 a:hover {
-  color: var(--theme-secondary-color);
+  color: var(--secondary-color);
 }
 
 .dashboard .news p {
@@ -1365,7 +1365,7 @@ background: #303030;*/
 }
 
 .profile .profile-overview .card-title {
-  color: var(--theme-secondary-color);
+  color: var(--secondary-color);
 }
 
 .profile .profile-overview .label {
@@ -1387,7 +1387,7 @@ background: #303030;*/
 .faq .basic h6 {
   font-size: 18px;
   font-weight: 600;
-  color: var(--theme-secondary-color);
+  color: var(--secondary-color);
 }
 
 .faq .basic p {
@@ -1404,7 +1404,7 @@ background: #303030;*/
 .contact .info-box i {
   font-size: 38px;
   line-height: 0;
-  color: var(--theme-secondary-color);
+  color: var(--secondary-color);
 }
 
 .contact .info-box h3 {
@@ -1472,7 +1472,7 @@ background: #303030;*/
 
 .contact .php-email-form input:focus,
 .contact .php-email-form textarea:focus {
-  border-color: var(--theme-secondary-color);
+  border-color: var(--secondary-color);
 }
 
 .contact .php-email-form input {
@@ -1484,7 +1484,7 @@ background: #303030;*/
 }
 
 .contact .php-email-form button[type="submit"] {
-  background: var(--theme-secondary-color);
+  background: var(--secondary-color);
   border: 0;
   padding: 10px 30px;
   color: #fff;
@@ -1526,7 +1526,7 @@ background: #303030;*/
 .error-404 h1 {
   font-size: 180px;
   font-weight: 700;
-  color: var(--theme-secondary-color);
+  color: var(--secondary-color);
   margin-bottom: 0;
   line-height: 150px;
 }
@@ -1607,7 +1607,7 @@ background: #303030;*/
 .accounts .dataTable-pagination .active a:focus,
 .accounts .dataTable-pagination .active a:hover {
   color: #fff;
-  background-color: var(--theme-secondary-color);
+  background-color: var(--secondary-color);
 }
 
 .accounts .dataTable-pagination a {
@@ -1639,8 +1639,8 @@ background: #303030;*/
 }
 
 .accounts .page-item.active .page-link {
-  background-color: var(--theme-secondary-color);
-  border-color: var(--theme-secondary-color);
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
   z-index: inherit;
 }
 
@@ -1649,7 +1649,7 @@ background: #303030;*/
 }
 
 .btn-fs {
-  background: var(--theme-secondary-color);
+  background: var(--secondary-color);
   height: 38px;
   font-size: 11px;
   text-transform: uppercase;
@@ -1663,7 +1663,7 @@ background: #303030;*/
 }
 
 .btn-fs:hover {
-  background: var(--theme-secondary-color);
+  background: var(--secondary-color);
   color: #fff;
 }
 
@@ -1673,12 +1673,12 @@ background: #303030;*/
 
 .btn-thmemes {
   color: #fff;
-  background: var(--theme-secondary-color);
+  background: var(--secondary-color);
   border: 1px solid transparent;
 }
 
 .btn-thmemes:hover {
-  border: 1px solid var(--theme-secondary-color);
+  border: 1px solid var(--secondary-color);
   color: #000;
 }
 /*user screen*/
@@ -1695,7 +1695,7 @@ section.section.listing_page {
   display: inline-flex;
   width: 100%;
   align-items: center;
-  background: var(--theme-secondary-color);
+  background: var(--secondary-color);
   color: #fff;
   text-transform: uppercase;
   font-size: 14px;
@@ -1717,7 +1717,7 @@ section.section.listing_page {
   width: 100%;
   background: none;
   border-radius: 1px;
-  box-shadow: inset 0 0 0 1px var(--theme-primary-color);
+  box-shadow: inset 0 0 0 1px var(--primary-color);
 }
 .main_navigation_menu ul li {
   list-style: none;
@@ -1729,7 +1729,7 @@ section.section.listing_page {
   content: "";
   height: 120%;
   width: 1px;
-  background: var(--theme-primary-color);
+  background: var(--primary-color);
   position: absolute;
   top: -2px;
   bottom: 0;
@@ -1759,7 +1759,7 @@ section.section.listing_page {
 .main_navigation_menu ul li a.active,
 .main_navigation_menu ul li a:hover {
   color: #fff !important;
-  background: var(--theme-secondary-color) !important;
+  background: var(--secondary-color) !important;
 }
 .main_navigation_menu ul li a span {
   font-size: 13px;
@@ -1799,7 +1799,7 @@ section.section.listing_page {
   width: 100%;
 }
 .casino-name {
-  background: var(--theme-primary-color);
+  background: var(--primary-color);
   color: #fff;
   display: block;
   border-radius: 0;
@@ -1823,8 +1823,8 @@ section.section.listing_page {
   height: calc(100% + 0px);
   background: linear-gradient(
     180deg,
-    var(--theme-primary-color) 0,
-    var(--theme-primary-color)
+    var(--primary-color) 0,
+    var(--primary-color)
   );
   position: absolute;
   right: -16px;
@@ -1879,7 +1879,7 @@ section.section.listing_page {
 .button_dakred:hover,
 .button_darkyellow:hover,
 .button_orange:hover {
-  background: var(--theme-secondary-color);
+  background: var(--secondary-color);
   color: #ddd;
 }
 
@@ -1907,13 +1907,13 @@ section.section.listing_page {
   padding: 3px 7px 3px 20px;
   margin: 2px 0;
   margin-right: 5px;
-  border: 1px solid var(--theme-secondary-color);
+  border: 1px solid var(--secondary-color);
   border-radius: 4px;
   background: #e8e8e8;
   transition: 0.9s;
 }
 .race-section .chip:hover {
-  color: var(--theme-primary-color);
+  color: var(--primary-color);
   background: #fff;
 }
 .race-section .chip img {
@@ -1956,7 +1956,7 @@ section.section.listing_page {
 }
 .race-table .hs-btn {
   font-size: 11px;
-  background: var(--theme-secondary-color);
+  background: var(--secondary-color);
   color: #fff;
   padding: 3px 5px;
   margin-right: 2px;
@@ -1967,9 +1967,9 @@ section.section.listing_page {
   transition: 0.9s;
 }
 .race-table .hs-btn:hover {
-  background: green;
+  background: var(--primary-color);
   color: #fff;
-  box-shadow: inset 0 0 0 1px var(--theme-secondary-color);
+  box-shadow: inset 0 0 0 1px var(--secondary-color);
 }
 /*deafult tbas*/
 .nav-pills {
@@ -1987,12 +1987,12 @@ section.section.listing_page {
 }
 .nav-pills li button.active,
 .nav-pills li button:hover {
-  background: var(--theme-primary-color) !important;
+  background: var(--primary-color) !important;
   color: #fff !important;
 }
 /*default tabs*/
 .bet-table-header {
-  background: var(--theme-primary-color);
+  background: var(--primary-color);
   color: #fff;
   font-weight: 700;
   font-size: 14px;
@@ -2064,7 +2064,7 @@ em.abo-em {
   text-transform: uppercase;
   font-style: normal;
   font-size: 10px;
-  background: var(--theme-secondary-color);
+  background: var(--secondary-color);
   color: #fff;
   border-radius: 2px;
   padding: 1px 3px;
@@ -2367,7 +2367,7 @@ background-color: #000000ad;
 }
 
 .game-images-box .text {
-  background-color: var(--theme-primary-color);
+  background-color: var(--primary-color);
   color: white;
   font-size: 12px;
   padding: 6px 15px;
@@ -2384,7 +2384,7 @@ background-color: #000000ad;
   height: 100px;
   margin-top: 0;
   color: #fff;
-  background-color: var(--theme-secondary-color);
+  background-color: var(--secondary-color);
 }
 
 .swiper-button-next:after,
@@ -2407,7 +2407,7 @@ small {
 }
 
 .theme-bg {
-  background-color: var(--theme-primary-color);
+  background-color: var(--primary-color);
 }
 
 .stakesettingui {
@@ -2428,7 +2428,7 @@ small {
   width: 100%;
   margin-top: 10px;
   border: none;
-  background: var(--theme-primary-color);
+  background: var(--primary-color);
   text-transform: uppercase;
   color: #fff;
   height: 45px;
@@ -2491,7 +2491,7 @@ small {
 .market_section p {
   line-height: normal;
   align-items: center;
-  background: var(--theme-primary-color);
+  background: var(--primary-color);
   width: 100%;
   color: #fff;
   text-transform: capitalize;
@@ -2530,7 +2530,7 @@ content: "";
 clip-path: polygon(0 -1px,100% -1px,1px 100%,0 100%);
 width: 18px;
 height: calc(100% + 0px);
-background: linear-gradient(180deg, var(--theme-primary-color) 0, var(--theme-primary-color));
+background: linear-gradient(180deg, var(--primary-color) 0, var(--primary-color));
 position: absolute;
 right: -17px;
 top: 0;
@@ -2564,7 +2564,7 @@ top: 0;
 clip-path: polygon(0 -1px,100% -1px,1px 100%,0 100%);
 width: 18px;
 height: calc(100% + 0px);
-background: linear-gradient(180deg, var(--theme-primary-color) 0, var(--theme-primary-color));
+background: linear-gradient(180deg, var(--primary-color) 0, var(--primary-color));
 position: absolute;
 right: -17px;
 top: 0;*/
@@ -2578,7 +2578,7 @@ top: 0;*/
 }
 
 .market_section .add-pin i:hover {
-  /*  background: var(--theme-primary-color);
+  /*  background: var(--primary-color);
 color: #fff !important;*/
 }
 
@@ -2799,7 +2799,7 @@ color: #fff;
   width: 20px;
 }
 .bookModal .modal-header {
-  background: var(--theme-primary-color);
+  background: var(--primary-color);
   padding: 5px 15px;
   color: #fff;
 }
@@ -2824,7 +2824,7 @@ color: #fff;
 .fancy-tab .nav-tabs .nav-link:focus,
 .fancy-tab .nav-tabs .nav-link:hover {
   color: #fff;
-  background: var(--theme-primary-color);
+  background: var(--primary-color);
 }
 
 .fancy-tab .nav-tabs .nav-link {
@@ -2949,7 +2949,7 @@ color: #fff;
   line-height: normal;
 }
 .place-bet .coupon-table tr td .bet-stakes {
-  color: var(--theme-primary-color);
+  color: var(--primary-color);
   padding: 0;
   margin: 0;
   font-size: 12px;
@@ -3045,7 +3045,7 @@ padding: 0 10px;*/
   border: 1px solid #fff;
 }
 .place-bet .bet-odds .input-group .input-group-text {
-  background: var(--theme-secondary-color) !important;
+  background: var(--secondary-color) !important;
   color: #fff;
   border-radius: 0;
   height: 100%;
@@ -3087,7 +3087,7 @@ padding: 0 10px;*/
 .close-link i {
   font-size: 16px;
   font-weight: 700;
-  color: var(--theme-primary-color);
+  color: var(--primary-color);
 }
 .newtab_collect ul {
   border: none;
@@ -3124,7 +3124,7 @@ padding: 0 10px;*/
   color: #fff;
 }
 .newtab_collect a.active {
-  background: var(--theme-secondary-color) !important;
+  background: var(--secondary-color) !important;
   color: #fff !important;
 }
 .blink-soft {
@@ -3473,7 +3473,7 @@ ul.live_virtual li input[type="checkbox"] {
     display: block;
     position: fixed;
     z-index: 999;
-    color: var(--theme-secondary-color);
+    color: var(--secondary-color);
     padding: 2px 6px;
     font-size: 28px;
   }
@@ -3514,7 +3514,7 @@ ul.live_virtual li input[type="checkbox"] {
     align-items: center;
     padding: 0;
     /*    box-shadow: 0px 0px 5px 0px #000;*/
-    background: var(--theme-secondary-color);
+    background: var(--secondary-color);
     overflow: hidden;
     position: fixed;
     bottom: -1px;

@@ -64,7 +64,7 @@ const Referral = ({ setShowReferral }) => {
                       _ngcontent-ng-c526813732=""
                       className="modal-header"
                       style={{
-                        backgroundColor: "var(--theme-secondary-color)",
+                        backgroundColor: "var(--secondary-color)",
                       }}
                     >
                       <div _ngcontent-ng-c526813732="" className="img-wrap">
@@ -129,7 +129,7 @@ const Referral = ({ setShowReferral }) => {
                           _ngcontent-ng-c526813732=""
                           className="btn secondary-btn"
                           style={{
-                            backgroundColor: "var(--theme-secondary-color)",
+                            backgroundColor: "var(--secondary-color)",
                             color: "white",
                           }}
                         >

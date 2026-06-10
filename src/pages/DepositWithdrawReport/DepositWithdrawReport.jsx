@@ -44,7 +44,7 @@ const DepositWithdrawReport = () => {
   }, [tab]);
 
   return (
-    <main id="main" className="main a23_css">
+    <div className="main a23_css">
       <div className="deposit-withdraw-btns  ">
         <div className="btns-animation ">
           <div className="btnBox ">
@@ -125,7 +125,7 @@ const DepositWithdrawReport = () => {
       )}
 
       {depositWithdraw === "deposit" ? <DepositReport /> : <WithdrawReport />}
-    </main>
+    </div>
   );
 };
 

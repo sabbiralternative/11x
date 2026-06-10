@@ -93,7 +93,7 @@ const styles = `
     gap: 10px;
     color: var(--color-text_Primary);
     border: 1px solid var(--color-border, rgba(255,255,255,0.15));
-    background-color: var(--theme-primary-color);
+    background-color: var(--primary-color);
     border-radius: 4px;
     cursor: pointer;
   }

@@ -21,7 +21,7 @@ const BonusStatement = () => {
         return (
           <button
             style={{
-              background: "var(--theme-secondary-color)",
+              background: "var(--secondary-color)",
               paddingTop: "6px",
               paddingBottom: "6px",
               paddingLeft: "10px",
@@ -62,7 +62,7 @@ const BonusStatement = () => {
   };
 
   return (
-    <main id="main" className="main a23_css">
+    <div className="main a23_css">
       <div className="main-content" style={{ marginTop: "0px" }}>
         <div
           style={{ display: "flex", flexDirection: "column", height: "100%" }}
@@ -349,7 +349,7 @@ const BonusStatement = () => {
           )}
         </div>
       </div>
-    </main>
+    </div>
   );
 };
 

@@ -18,7 +18,7 @@ const ReferralStatement = () => {
   };
   const { data } = useGetIndex(payload);
   return (
-    <main id="main" className="main a23_css">
+    <div className="main a23_css">
       <div className="main-content">
         <p>Referral Date</p>
         <div
@@ -64,7 +64,7 @@ const ReferralStatement = () => {
 
           <button
             style={{
-              backgroundColor: "var(--theme-secondary-color)",
+              backgroundColor: "var(--secondary-color)",
               border: "none",
               padding: "10px 20px",
               color: "white",
@@ -142,7 +142,7 @@ const ReferralStatement = () => {
           </div>
         )}
       </div>
-    </main>
+    </div>
   );
 };
 

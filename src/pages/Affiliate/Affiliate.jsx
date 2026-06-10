@@ -16,7 +16,7 @@ const Affiliate = () => {
   const tab = params.get("tab");
 
   return (
-    <div id="main" className="main  main-content">
+    <div className="main  main-content">
       <Footer />
       <div data-v-4c49d924 className="container">
         {(tab === "dashboard" || !tab) && (

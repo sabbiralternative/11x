@@ -367,7 +367,7 @@ li::marker {
 
 .main-title {
   font-size: 1.4rem;
-  color: var(--theme-primary-color);
+  color: var(--primary-color);
   line-height: 1.2;
 }
 
@@ -405,7 +405,7 @@ li::marker {
   content: "✓";
   position: absolute;
   left: 0;
-  background: var(--theme-primary-color);
+  background: var(--primary-color);
   color: #fff;
   width: 18px;
   height: 18px;
@@ -426,7 +426,7 @@ li::marker {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--theme-primary-color);
+  background: var(--primary-color);
   color: #fff !important;
   text-decoration: none;
   padding: 10px;

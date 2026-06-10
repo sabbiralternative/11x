@@ -40,7 +40,7 @@ const Promotions = () => {
     }
   };
   return (
-    <div className="page main" id="main">
+    <div className="page main">
       {/* <div className="bonus-card">
         <div style={{ display: "flex", width: "100%", gap: "10px" }}>
           <div className="bonus-box">

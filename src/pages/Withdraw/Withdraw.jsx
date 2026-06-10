@@ -34,7 +34,7 @@ const Withdraw = () => {
   }, [bankData, showBankAccount, dispatch]);
 
   return (
-    <main id="main" className="main a23_css">
+    <div className="main a23_css">
       {!showBankAccount && !confirmWithdraw && (
         <SelectAmount
           setShowBankAccount={setShowBankAccount}
@@ -66,7 +66,7 @@ const Withdraw = () => {
           setBank={setBank}
         />
       )}
-    </main>
+    </div>
   );
 };
 

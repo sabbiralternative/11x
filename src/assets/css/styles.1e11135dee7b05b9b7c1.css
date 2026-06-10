@@ -76,7 +76,7 @@
   display: none;
 }
 .rules-container .panel-heading {
-  background-color: var(--theme-primary-color);
+  background-color: var(--primary-color);
 }
 .rules-container .panel {
   margin-bottom: 5px;

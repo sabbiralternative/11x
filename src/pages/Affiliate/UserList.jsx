@@ -107,7 +107,7 @@ const UserList = () => {
                                 padding: "5px 10px",
                                 borderRadius: "3px",
                                 margin: "auto",
-                                background: "var(--theme-primary-color)",
+                                background: "var(--primary-color)",
                                 color: "white",
                               }}
                               data-v-fd406c30=""
@@ -130,7 +130,7 @@ const UserList = () => {
                                 padding: "5px 10px",
                                 borderRadius: "3px",
                                 margin: "auto",
-                                background: "var(--theme-primary-color)",
+                                background: "var(--primary-color)",
                                 color: "white",
                               }}
                               data-v-fd406c30=""

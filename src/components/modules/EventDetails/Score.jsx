@@ -37,7 +37,7 @@ const Score = ({ iscore }) => {
           >
             <div
               style={{
-                background: "var(--theme-primary-color)",
+                background: "var(--primary-color)",
                 WebkitBackgroundClip: "text",
                 color: "transparent",
                 textAlign: "start",
@@ -75,7 +75,7 @@ const Score = ({ iscore }) => {
                   justifyContent: "center",
                   borderRadius: "4px",
                   padding: "0.125rem 0.375rem",
-                  backgroundColor: "var(--theme-primary-color)",
+                  backgroundColor: "var(--primary-color)",
                   color: "white",
                 }}
               >
@@ -125,7 +125,7 @@ const Score = ({ iscore }) => {
                 fontSize: "1.125rem",
 
                 WebkitBackgroundClip: "text",
-                color: "var(--theme-primary-color)",
+                color: "var(--primary-color)",
                 fontWeight: "bold",
                 lineHeight: "1.5rem",
               }}
@@ -223,19 +223,19 @@ const Score = ({ iscore }) => {
                             cv == "0"
                               ? "#999"
                               : cv == "1" || cv == "2"
-                              ? "#48a23c"
-                              : cv.split().includes("W")
-                              ? "#c9362b"
-                              : cv == "4"
-                              ? "#2d90d4"
-                              : cv == "6"
-                              ? "#601c78"
-                              : cv.split().includes("b") ||
-                                cv.split().includes("lb") ||
-                                cv.split().includes("wd") ||
-                                cv.split().includes("nb")
-                              ? "#c2ad7b"
-                              : "#999",
+                                ? "#48a23c"
+                                : cv.split().includes("W")
+                                  ? "#c9362b"
+                                  : cv == "4"
+                                    ? "#2d90d4"
+                                    : cv == "6"
+                                      ? "#601c78"
+                                      : cv.split().includes("b") ||
+                                          cv.split().includes("lb") ||
+                                          cv.split().includes("wd") ||
+                                          cv.split().includes("nb")
+                                        ? "#c2ad7b"
+                                        : "#999",
                         }}
                       >
                         <span>{cv}</span>
@@ -308,19 +308,19 @@ const Score = ({ iscore }) => {
                             pv == "0"
                               ? "#999"
                               : pv == "1" || pv == "2"
-                              ? "#48a23c"
-                              : pv.split().includes("W")
-                              ? "#c9362b"
-                              : pv == "4"
-                              ? "#2d90d4"
-                              : pv == "6"
-                              ? "#601c78"
-                              : pv.split().includes("b") ||
-                                pv.split().includes("lb") ||
-                                pv.split().includes("wd") ||
-                                pv.split().includes("nb")
-                              ? "#c2ad7b"
-                              : "#999",
+                                ? "#48a23c"
+                                : pv.split().includes("W")
+                                  ? "#c9362b"
+                                  : pv == "4"
+                                    ? "#2d90d4"
+                                    : pv == "6"
+                                      ? "#601c78"
+                                      : pv.split().includes("b") ||
+                                          pv.split().includes("lb") ||
+                                          pv.split().includes("wd") ||
+                                          pv.split().includes("nb")
+                                        ? "#c2ad7b"
+                                        : "#999",
                         }}
                       >
                         <span>{pv}</span>

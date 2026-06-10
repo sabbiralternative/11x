@@ -1,8 +1,27 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { Settings } from "../../../api";
+import WarningCondition from "../../UI/WarningCondition/WarningCondition";
 
 const ExtraTab = () => {
+  const [showWarning, setShowWarning] = useState(false);
+  const [gameInfo, setGameInfo] = useState({ gameName: "", gameId: "" });
+  const navigate = useNavigate();
+
+  const handleNavigateToIFrame = () => {
+    if (Settings.casino_currency !== "AED") {
+      navigate(`/casino/sportsbook/550000`);
+    } else {
+      setGameInfo({ gameName: "", gameId: "" });
+      setGameInfo({ gameName: "sportsbook", gameId: "550000" });
+      setShowWarning(true);
+    }
+  };
   return (
     <div className="extra ng-star-inserted">
+      {showWarning && (
+        <WarningCondition gameInfo={gameInfo} setShowWarning={setShowWarning} />
+      )}
       <div className="row mx-0 mb-1 d-none d-md-flex">
         <div className="col-md-4 px-0">
           <Link to="/casino" className="button_dakred">
@@ -15,9 +34,9 @@ const ExtraTab = () => {
           </Link>
         </div>
         <div className="col-md-4 px-0">
-          <Link to="/sports-book" className="button_orange">
+          <a onClick={handleNavigateToIFrame} className="button_orange">
             Sports Book
-          </Link>
+          </a>
         </div>
       </div>
       {/* {group === 0 && (

@@ -177,27 +177,27 @@ const Fancy = ({ data }) => {
                                           <path
                                             id="Vector"
                                             d="M5.21875 3.13672V13.1367"
-                                            stroke="var(--theme-primary-color)"
+                                            stroke="var(--primary-color)"
                                           ></path>
                                           <path
                                             id="Vector_2"
                                             d="M5.21875 5.48047H10.5312"
-                                            stroke="var(--theme-primary-color)"
+                                            stroke="var(--primary-color)"
                                           ></path>
                                           <path
                                             id="Vector_3"
                                             d="M5.21875 8.13672H10.5312"
-                                            stroke="var(--theme-primary-color)"
+                                            stroke="var(--primary-color)"
                                           ></path>
                                           <path
                                             id="Vector_4"
                                             d="M5.21875 11.1055H10.5312"
-                                            stroke="var(--theme-primary-color)"
+                                            stroke="var(--primary-color)"
                                           ></path>
                                           <path
                                             id="Vector_5"
                                             d="M10.5312 3.13672V13.1367"
-                                            stroke="var(--theme-primary-color)"
+                                            stroke="var(--primary-color)"
                                           ></path>
                                         </g>
                                       </svg>

@@ -13,7 +13,7 @@ const Deposit = () => {
   const [tabs, setTabs] = useState("");
 
   return (
-    <main id="main" className="main a23_css">
+    <div className="main a23_css">
       {!paymentMethods && !uploadTransaction && (
         <AmountBox
           amount={amount}
@@ -41,7 +41,7 @@ const Deposit = () => {
           setPaymentMethods={setPaymentMethods}
         />
       )}
-    </main>
+    </div>
   );
 };
 

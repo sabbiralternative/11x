@@ -55,7 +55,7 @@ const LossBackClaims = () => {
   }, []);
 
   return (
-    <div className="lossback-wrapper main" id="main" style={{ width: "auto" }}>
+    <div className="lossback-wrapper main" style={{ width: "auto" }}>
       <div
         className="bg-secondary"
         style={{

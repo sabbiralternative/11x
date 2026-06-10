@@ -94,7 +94,7 @@ const MyBankDetails = () => {
     }, 500);
   }, [tab]);
   return (
-    <main id="main" className="main a23_css">
+    <div className="main a23_css">
       {addBank && <AddBank refetchBankData={refetchBankData} />}
       <div className="deposit-withdraw-btns">
         <div className="btns-animation ">
@@ -124,7 +124,7 @@ const MyBankDetails = () => {
           onClick={() => dispatch(setAddBank(true))}
           className="btn"
           style={{
-            background: "var(--theme-secondary-color)",
+            background: "var(--secondary-color)",
             color: "white",
           }}
         >
@@ -273,7 +273,7 @@ const MyBankDetails = () => {
                       onClick={() => handleMakeDefault(bank?.bankId)}
                       className="btn"
                       style={{
-                        background: "var(--theme-secondary-color)",
+                        background: "var(--secondary-color)",
                         color: "white",
                         marginTop: "15px",
                       }}
@@ -302,7 +302,7 @@ const MyBankDetails = () => {
           </div>
         )}
       </div>
-    </main>
+    </div>
   );
 };
 

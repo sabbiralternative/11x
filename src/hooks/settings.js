@@ -54,7 +54,7 @@ export const useSettingsMutation = () => {
           link.href = `${API.assets}/${Settings.site}/theme.css`;
           document.head.appendChild(link);
         } else {
-          link.href = `/src/static/front/css/theme.css`;
+          link.href = `/src/assets/css/theme.css`;
           document.head.appendChild(link);
         }
         /* Dynamically append site logo  */

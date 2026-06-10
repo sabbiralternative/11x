@@ -170,7 +170,7 @@ const AddNewUser = ({ setShowAddNewUserModal }) => {
                   {timer ? (
                     <div
                       style={{
-                        backgroundColor: "var(--theme-primary-color)",
+                        backgroundColor: "var(--primary-color)",
                         borderRadius: "4px",
                         padding: "6px 0px",
                         width: "80px",
@@ -195,7 +195,7 @@ const AddNewUser = ({ setShowAddNewUserModal }) => {
                         <button
                           onClick={getOtpOnWhatsapp}
                           style={{
-                            backgroundColor: "var(--theme-primary-color)",
+                            backgroundColor: "var(--primary-color)",
                             borderRadius: "4px",
                             padding: "6px 0px",
                             width: "110px",
@@ -210,7 +210,7 @@ const AddNewUser = ({ setShowAddNewUserModal }) => {
                       <button
                         onClick={getOtp}
                         style={{
-                          backgroundColor: "var(--theme-primary-color)",
+                          backgroundColor: "var(--primary-color)",
                           borderRadius: "4px",
                           padding: "6px 0px",
                           width: "110px",
