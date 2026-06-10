@@ -5,6 +5,7 @@ import Sidebar from "../components/shared/Sidebar/Sidebar";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import Banner from "../components/modals/Banner/Banner";
+import Tab from "../components/modules/LoggedInHome/Tab";
 
 const MainLayout = () => {
   const { banner, headerHeight } = useSelector((state) => state.global);
@@ -32,8 +33,20 @@ const MainLayout = () => {
       <Header setIsOpenSidebar={setIsOpenSidebar} />
       <Sidebar setIsOpenSidebar={setIsOpenSidebar} />
       <div style={{ marginTop: `${headerHeight}px` }}>
-        {" "}
-        <Outlet />
+        <main id="main" className="main">
+          <div className="ng-star-inserted">
+            <div className="">
+              <div className="main_navigation_menu">
+                <div className="tab-container">
+                  <Tab />
+                  <div className="tab-content">
+                    <Outlet />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
       </div>
       <MobileFooter />
     </div>

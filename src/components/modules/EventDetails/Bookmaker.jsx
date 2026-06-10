@@ -294,17 +294,6 @@ const Bookmaker = ({ data }) => {
                 </span>
                 <span className="min-max">
                   Min: 100 | Max: {games?.maxLiabilityPerBet}
-                  <a className="ms-2 game-rules-icon">
-                    <span>
-                      <i className="bi bi-info-circle-fill" />
-                    </span>
-                  </a>
-                  <b
-                    data-bs-target="#Match_Odds"
-                    data-bs-toggle="collapse"
-                    aria-expanded="true"
-                    className="collapsed"
-                  />
                 </span>
               </p>
               <div id="Match_Odds" className="collapse show">

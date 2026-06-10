@@ -47,91 +47,88 @@ const GameProviderDetails = () => {
     <>
       {showWarning && (
         <WarningCondition gameInfo={gameInfo} setShowWarning={setShowWarning} />
-      )}
-      <main id="main" className="main">
-        {" "}
-        <div id="main-content-container" className="gpd-root">
-          <main className="gpd-main app-bg">
-            <div className="gpd-outer">
-              <div className="gpd-content">
-                <div className="gpd-section">
-                  <div className="gpd-inner">
-                    {/* Back nav + breadcrumb */}
-                    <div className="gpd-nav-bar app-bg">
-                      <button
-                        onClick={() => navigate(-1)}
-                        className="gpd-back-btn"
+      )}{" "}
+      <div id="main-content-container" className="gpd-root">
+        <main className="gpd-main app-bg">
+          <div className="gpd-outer">
+            <div className="gpd-content">
+              <div className="gpd-section">
+                <div className="gpd-inner">
+                  {/* Back nav + breadcrumb */}
+                  <div className="gpd-nav-bar app-bg">
+                    <button
+                      onClick={() => navigate(-1)}
+                      className="gpd-back-btn"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width={12}
+                        height={12}
+                        viewBox="0 0 7 12"
+                        fill="none"
                       >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width={12}
-                          height={12}
-                          viewBox="0 0 7 12"
-                          fill="none"
-                        >
-                          <path
-                            d="M5.3673 11.2346L0 5.8673L5.3673 0.5L6.32 1.4527L1.90539 5.8673L6.32 10.2819L5.3673 11.2346Z"
-                            fill="#000"
-                          />
-                        </svg>
-                      </button>
+                        <path
+                          d="M5.3673 11.2346L0 5.8673L5.3673 0.5L6.32 1.4527L1.90539 5.8673L6.32 10.2819L5.3673 11.2346Z"
+                          fill="#000"
+                        />
+                      </svg>
+                    </button>
 
-                      <div className="gpd-breadcrumb">
-                        <div className="gpd-breadcrumb-inner">
-                          <div className="gpd-breadcrumb-text">
-                            <span>Casino</span>
-                            <span>/{game_name}</span>
-                          </div>
+                    <div className="gpd-breadcrumb">
+                      <div className="gpd-breadcrumb-inner">
+                        <div className="gpd-breadcrumb-text">
+                          <span>Casino</span>
+                          <span>/{game_name}</span>
                         </div>
                       </div>
                     </div>
-
-                    {/* Games grid */}
-                    <div className="gpd-grid">
-                      {lotusLobby?.length > 0 &&
-                        lotusLobby?.map((item) => (
-                          <div
-                            key={item?.game_id}
-                            className="gpd-game-card"
-                            onClick={() => handleNavigate(item)}
-                          >
-                            <div className="gpd-game-card-img-wrapper">
-                              <img
-                                src={item?.url_thumb}
-                                alt="Lightning Storm"
-                                sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 625px"
-                                loading="lazy"
-                                title="Lightning Storm - 10sports"
-                              />
-                            </div>
-                          </div>
-                        ))}
-                    </div>
-
-                    {/* Empty state */}
-                    {lotusLobby?.length === 0 && isSuccess && (
-                      <div className="gpd-empty">No game found!</div>
-                    )}
                   </div>
-                </div>
 
-                {/* Hidden SEO block */}
-                <div className="gpd-seo">
-                  <h1>Play Live Casino Games | Best Online Casino</h1>
-                  <h2>
-                    Play live casino games on 10sports. Enjoy classic games like
-                    roulette, blackjack, and baccarat with top-notch online
-                    casino games in India.
-                  </h2>
-                </div>
+                  {/* Games grid */}
+                  <div className="gpd-grid">
+                    {lotusLobby?.length > 0 &&
+                      lotusLobby?.map((item) => (
+                        <div
+                          key={item?.game_id}
+                          className="gpd-game-card"
+                          onClick={() => handleNavigate(item)}
+                        >
+                          <div className="gpd-game-card-img-wrapper">
+                            <img
+                              src={item?.url_thumb}
+                              alt="Lightning Storm"
+                              sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 625px"
+                              loading="lazy"
+                              title="Lightning Storm - 10sports"
+                            />
+                          </div>
+                        </div>
+                      ))}
+                  </div>
 
-                {/* Bottom spacer */}
-                <div className="gpd-spacer" />
+                  {/* Empty state */}
+                  {lotusLobby?.length === 0 && isSuccess && (
+                    <div className="gpd-empty">No game found!</div>
+                  )}
+                </div>
               </div>
+
+              {/* Hidden SEO block */}
+              <div className="gpd-seo">
+                <h1>Play Live Casino Games | Best Online Casino</h1>
+                <h2>
+                  Play live casino games on 10sports. Enjoy classic games like
+                  roulette, blackjack, and baccarat with top-notch online casino
+                  games in India.
+                </h2>
+              </div>
+
+              {/* Bottom spacer */}
+              <div className="gpd-spacer" />
             </div>
-          </main>
-        </div>
-      </main>
+          </div>
+        </main>
+      </div>
     </>
   );
 };

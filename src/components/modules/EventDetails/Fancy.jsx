@@ -135,16 +135,6 @@ const Fancy = ({ data }) => {
               <div className="market_section">
                 <p>
                   <span className="mrkname">FANCY</span>
-                  <span className="min-max">
-                    <a
-                      className="ms-2 game-rules-icon"
-                      style={{ background: "none !important" }}
-                    >
-                      <span>
-                        <i className="bi bi-info-circle-fill" />
-                      </span>
-                    </a>
-                  </span>
                 </p>
                 <div>
                   <div className="fancy-tab-content">

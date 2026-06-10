@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Tab from "../../components/modules/LoggedInHome/Tab";
 import Tab1 from "../../components/modules/IntCasino/Tab1";
 import Tab2 from "../../components/modules/IntCasino/Tab2";
 import CasinoThumbnail from "../../components/modules/IntCasino/CasinoThumbnail";
@@ -79,86 +78,65 @@ const IntCasino = () => {
   }
 
   return (
-    <main id="main" className="main">
+    <div
+      role="tabpanel"
+      aria-labelledby
+      className="tab-pane active ng-star-inserted"
+    >
       <div className="ng-star-inserted">
-        <div className="section listing_page">
-          <div className="main_navigation_menu">
-            <div className="tab-container">
-              <Tab />
-              <div className="tab-content">
-                <div
-                  role="tabpanel"
-                  aria-labelledby
-                  className="tab-pane active ng-star-inserted"
-                >
-                  <div className="ng-star-inserted">
-                    <div className="row ng-star-inserted">
-                      <div className="col-lg-12">
-                        <div className="card">
-                          <div className="card-body card-content p-0">
-                            <div className="bet-table-header">
-                              <div className="row align-items-center">
-                                <div className="col-md-6">
-                                  <span className="list-sport-title">
-                                    <img
-                                      className="img-fluid game-icon-img"
-                                      src="/images/menu-99998.png"
-                                    />
-                                    &nbsp; Int Casino
-                                  </span>
-                                </div>
-                                <div className="col-md-2 text-center d-none d-md-block" />
-                                <div className="col-md-2 text-center d-none d-md-block" />
-                                <div className="col-md-2 text-center d-none d-md-block" />
-                              </div>
-                            </div>
-                            <div className="bet-table-body">
-                              <div className="home-products-container mt-1 ng-star-inserted">
-                                <div className="row row5">
-                                  <div className="col-md-12 main_navigation_menu">
-                                    <div className="casino_tabs_ul tab-container">
-                                      <Tab1
-                                        selectedSubProvider={
-                                          selectedSubProvider
-                                        }
-                                        subProvider={subProvider}
-                                        setSelectedSubProvider={
-                                          setSelectedSubProvider
-                                        }
-                                      />
-                                      <div className="tab-content">
-                                        <div
-                                          role="tabpanel"
-                                          aria-labelledby
-                                          className="tab-pane active ng-star-inserted"
-                                        >
-                                          <div className="icasino_ul_tabs">
-                                            <div className="tab-container">
-                                              <Tab2
-                                                selectedCategory={
-                                                  selectedCategory
-                                                }
-                                                categories={categories}
-                                                setSelectedCategory={
-                                                  setSelectedCategory
-                                                }
-                                              />
-                                              <div className="tab-content">
-                                                <div
-                                                  role="tabpanel"
-                                                  aria-labelledby
-                                                  className="tab-pane active ng-star-inserted"
-                                                >
-                                                  <div className="row row-casino ng-star-inserted">
-                                                    <CasinoThumbnail
-                                                      casinoData={filteredData}
-                                                    />
-                                                  </div>
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
+        <div className="row ng-star-inserted">
+          <div className="col-lg-12">
+            <div className="card">
+              <div className="card-body card-content p-0">
+                <div className="bet-table-header">
+                  <div className="row align-items-center">
+                    <div className="col-md-6">
+                      <span className="list-sport-title">
+                        <img
+                          className="img-fluid game-icon-img"
+                          src="/images/menu-99998.png"
+                        />
+                        &nbsp; Int Casino
+                      </span>
+                    </div>
+                    <div className="col-md-2 text-center d-none d-md-block" />
+                    <div className="col-md-2 text-center d-none d-md-block" />
+                    <div className="col-md-2 text-center d-none d-md-block" />
+                  </div>
+                </div>
+                <div className="bet-table-body">
+                  <div className="home-products-container mt-1 ng-star-inserted">
+                    <div className="row row5">
+                      <div className="col-md-12 main_navigation_menu">
+                        <div className="casino_tabs_ul tab-container">
+                          <Tab1
+                            selectedSubProvider={selectedSubProvider}
+                            subProvider={subProvider}
+                            setSelectedSubProvider={setSelectedSubProvider}
+                          />
+                          <div className="tab-content">
+                            <div
+                              role="tabpanel"
+                              aria-labelledby
+                              className="tab-pane active ng-star-inserted"
+                            >
+                              <div className="icasino_ul_tabs">
+                                <div className="tab-container">
+                                  <Tab2
+                                    selectedCategory={selectedCategory}
+                                    categories={categories}
+                                    setSelectedCategory={setSelectedCategory}
+                                  />
+                                  <div className="tab-content">
+                                    <div
+                                      role="tabpanel"
+                                      aria-labelledby
+                                      className="tab-pane active ng-star-inserted"
+                                    >
+                                      <div className="row row-casino ng-star-inserted">
+                                        <CasinoThumbnail
+                                          casinoData={filteredData}
+                                        />
                                       </div>
                                     </div>
                                   </div>
@@ -176,7 +154,7 @@ const IntCasino = () => {
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 };
 

@@ -126,92 +126,91 @@ const EventDetails = () => {
       {showCurrentBets && (
         <CurrentBets setShowCurrentBets={setShowCurrentBets} />
       )}
-      <main id="main" className="main">
+
+      <div>
         <div>
-          <div>
-            <div className="row">
-              <div className="col-md-12 col-lg-8 detail-center-column">
-                <div className="middle-page-content details-page">
-                  <div className="card-header game-heading">
-                    <span className="card-header-title">
-                      {data?.result?.[0]?.eventName}
-                    </span>
+          <div className="row">
+            <div className="col-md-12 col-lg-8 detail-center-column">
+              <div className="middle-page-content details-page">
+                <div className="card-header game-heading">
+                  <span className="card-header-title">
+                    {data?.result?.[0]?.eventName}
+                  </span>
 
-                    <span className="date-time ng-star-inserted">
-                      ({data?.result?.[0]?.openDate})
-                    </span>
+                  <span className="date-time ng-star-inserted">
+                    ({data?.result?.[0]?.openDate})
+                  </span>
+                  <a
+                    onClick={() => setShowCurrentBets(true)}
+                    className="best_link d-lg-none ng-star-inserted"
+                  >
+                    Bets
+                  </a>
+                  {data?.score?.hasVideo && (
                     <a
-                      onClick={() => setShowCurrentBets(true)}
-                      className="best_link d-lg-none ng-star-inserted"
+                      onClick={() => setShowIFrame((prev) => !prev)}
+                      aria-controls="collapseBasic"
+                      role="button"
+                      className="Television_mobile ng-star-inserted"
+                      aria-expanded="true"
                     >
-                      Bets
+                      <img src={img.tv} alt="" />
                     </a>
-                    {data?.score?.hasVideo && (
-                      <a
-                        onClick={() => setShowIFrame((prev) => !prev)}
-                        aria-controls="collapseBasic"
-                        role="button"
-                        className="Television_mobile ng-star-inserted"
-                        aria-expanded="true"
-                      >
-                        <img src={img.tv} alt="" />
-                      </a>
-                    )}
+                  )}
+                </div>
+
+                <div className="sr-widget-1" />
+                {data?.score?.tracker && (
+                  <div
+                    style={{
+                      width: "100%",
+                      height: "125px",
+                      overflow: "hidden",
+                    }}
+                  >
+                    {" "}
+                    <iframe
+                      className="premium-iframe"
+                      src={data?.score?.tracker}
+                    ></iframe>
                   </div>
+                )}
+                {showIFrame && IFrame?.result?.url && (
+                  <div className="embed-responsive embed-responsive-16by9 ng-star-inserted">
+                    <iframe
+                      id="tvStr"
+                      className="embed-responsive-item w-100"
+                      src={IFrame?.result?.url}
+                    ></iframe>
+                  </div>
+                )}
 
-                  <div className="sr-widget-1" />
-                  {data?.score?.tracker && (
-                    <div
-                      style={{
-                        width: "100%",
-                        height: "125px",
-                        overflow: "hidden",
-                      }}
-                    >
-                      {" "}
-                      <iframe
-                        className="premium-iframe"
-                        src={data?.score?.tracker}
-                      ></iframe>
-                    </div>
-                  )}
-                  {showIFrame && IFrame?.result?.url && (
-                    <div className="embed-responsive embed-responsive-16by9 ng-star-inserted">
-                      <iframe
-                        id="tvStr"
-                        className="embed-responsive-item w-100"
-                        src={IFrame?.result?.url}
-                      ></iframe>
-                    </div>
-                  )}
-
-                  <div>
-                    {/* {data?.result?.[0]?.score2?.length !== 0 &&
+                <div>
+                  {/* {data?.result?.[0]?.score2?.length !== 0 &&
                       !Array.isArray(data?.result?.[0]?.score2) && (
                         <ScoreCard score2={data?.result?.[0]?.score2} />
                       )} */}
-                    {eventTypeId == 4 && data?.iscore && (
-                      <Score iscore={data?.iscore} />
-                    )}
-                    {matchOdds?.length > 0 && <MatchOdds data={matchOdds} />}
-                    {bookmaker?.length > 0 && <Bookmaker data={bookmaker} />}
+                  {eventTypeId == 4 && data?.iscore && (
+                    <Score iscore={data?.iscore} />
+                  )}
+                  {matchOdds?.length > 0 && <MatchOdds data={matchOdds} />}
+                  {bookmaker?.length > 0 && <Bookmaker data={bookmaker} />}
 
-                    <Fancy data={data?.result} />
-                    {eventTypeId == 7 || eventTypeId == 4339 ? (
-                      <HorseGreyhoundEventDetails data={data} />
-                    ) : null}
-                    {data && data?.sportsbook?.Result && (
-                      <SportsBook sportsBook={data?.sportsbook?.Result} />
-                    )}
-                    {tiedMatch?.length > 0 && <MatchOdds data={tiedMatch} />}
-                  </div>
+                  <Fancy data={data?.result} />
+                  {eventTypeId == 7 || eventTypeId == 4339 ? (
+                    <HorseGreyhoundEventDetails data={data} />
+                  ) : null}
+                  {data && data?.sportsbook?.Result && (
+                    <SportsBook sportsBook={data?.sportsbook?.Result} />
+                  )}
+                  {tiedMatch?.length > 0 && <MatchOdds data={tiedMatch} />}
                 </div>
               </div>
-              <RightSidebar hasVideo={data?.score?.hasVideo} />
             </div>
+            <RightSidebar hasVideo={data?.score?.hasVideo} />
           </div>
         </div>
-      </main>
+      </div>
     </>
   );
 };

@@ -33,50 +33,48 @@ const EditStake = () => {
     }
   };
   return (
-    <main id="main" className="main">
-      <div className="ng-star-inserted">
-        <div className="section accounts">
-          <div className="row">
-            <div className="col-xl-12">
-              <h2 className="userscreen-title">Stake Setting</h2>
-              <form
-                onSubmit={handleSubmit(onSubmit)}
-                className="card stakesettingui"
-              >
-                <div className="card-body">
-                  <div className="row">
-                    {stakes?.map((_, idx) => {
-                      return (
-                        <div
-                          key={idx}
-                          className="col-md-3 col-6 ng-star-inserted"
-                        >
-                          <div className="form-row">
-                            <label />
-                            <input
-                              {...register(`buttonGameValues.${idx}.value`)}
-                              type="number"
-                              className="form-control ng-untouched ng-pristine ng-valid"
-                              id="stackVal0"
-                            />
-                          </div>
+    <div className="ng-star-inserted">
+      <div className="section accounts">
+        <div className="row">
+          <div className="col-xl-12">
+            <h2 className="userscreen-title">Stake Setting</h2>
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="card stakesettingui"
+            >
+              <div className="card-body">
+                <div className="row">
+                  {stakes?.map((_, idx) => {
+                    return (
+                      <div
+                        key={idx}
+                        className="col-md-3 col-6 ng-star-inserted"
+                      >
+                        <div className="form-row">
+                          <label />
+                          <input
+                            {...register(`buttonGameValues.${idx}.value`)}
+                            type="number"
+                            className="form-control ng-untouched ng-pristine ng-valid"
+                            id="stackVal0"
+                          />
                         </div>
-                      );
-                    })}
+                      </div>
+                    );
+                  })}
 
-                    <div className="col-md-12">
-                      <button type="submit" className="btnsave">
-                        submit
-                      </button>
-                    </div>
+                  <div className="col-md-12">
+                    <button type="submit" className="btnsave">
+                      submit
+                    </button>
                   </div>
                 </div>
-              </form>
-            </div>
+              </div>
+            </form>
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 };
 
