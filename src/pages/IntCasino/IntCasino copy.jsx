@@ -4,77 +4,106 @@ import { useMac88AllQuery } from "../../redux/features/casino/casino.api";
 import Tab1 from "../../components/modules/Casino/Tab1";
 import Tab2 from "../../components/modules/Casino/Tab2";
 import CasinoThumbnail from "../../components/modules/Casino/CasinoThumbnail";
+import { useLocation } from "react-router-dom";
 
-const Casino = () => {
-  const [categories, setCategories] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState("MAC88");
-  const [subCategories, setSubCategories] = useState([]);
+const IntCasino = () => {
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
+  const category = params.get("category");
+  const [filteredData, setFilteredData] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedSubCategory, setSelectedSubCategory] = useState("All");
-  const [filterCategoryData, setFilterCategoryData] = useState([]);
   const { data } = useMac88AllQuery();
-
-  /* tables key data */
+  /* all tables key data */
+  const allTables = data?.data?.allTables;
   const tables = data?.data?.tables?.[100000];
+  // const allTablesData = allTables && Object.values(allTables).flat();
+  // const tableKeyData =
+  //   tables &&
+  //   Object.values(tables)
+  //     .flatMap((obj) => Object.values(obj))
+  //     .flat();
+
+  /* Table category */
+  const tablesCategory = tables && Object.keys(tables);
+
+  const filterSubCategory = () => {
+    if (selectedCategory !== "All") {
+      const tableKeyData =
+        tables &&
+        Object.values(tables)
+          .flatMap((obj) => Object.values(obj))
+          .flat();
+      /* Filter the category data which in clicked on first tab */
+      const subCategoryData = tableKeyData?.filter(
+        (item) => item?.product === selectedCategory,
+      );
+      /* Make unique array of category from filtered result  */
+      const subCategory =
+        subCategoryData &&
+        Array.from(new Set(subCategoryData.map((item) => item.category)));
+
+      return subCategory;
+    } else {
+      const allTablesCategory = allTables && Object.keys(allTables);
+      return allTablesCategory;
+    }
+  };
 
   useEffect(() => {
-    const getCategory = () => {
-      if (tables) {
-        /* Get only four key */
-        const {
-          MAC88,
-          ["Mac88 Virtuals"]: mac88Virtuals,
-          ["Color Prediction"]: colorPrediction,
-          ["Fun Games"]: funGames,
-        } = tables;
-        /* Make a object of four key */
-        const filteredData = {
-          MAC88,
-          mac88Virtuals,
-          colorPrediction,
-          funGames,
-        };
-        /* Get data in a single array from four object */
-        const tableKeyData =
-          filteredData &&
-          Object.values(filteredData)
-            .flatMap((obj) => Object.values(obj))
-            .flat();
-
-        /*get category for first tab */
-        const categories = Array.from(
-          new Set(tableKeyData.map((item) => item.product)),
-        );
-        setCategories(categories);
-        /* get category for first tab */
-
-        /* get sub category for first tabt */
-        const filterCasinoByProduct = tableKeyData?.filter(
-          (item) => item?.product === selectedCategory,
-        );
-        const subCategory = Array.from(
-          new Set(filterCasinoByProduct.map((item) => item.category)),
-        );
-
-        setSubCategories(subCategory);
-        /*get sub category for first tab*/
-
-        /* Get actual data by  category */
+    const filterData = () => {
+      if (selectedCategory !== "All") {
         if (selectedSubCategory !== "All") {
-          const filterCasinoByCategory = filterCasinoByProduct?.filter(
+          const tableKeyData =
+            tables &&
+            Object.values(tables)
+              .flatMap((obj) => Object.values(obj))
+              .flat();
+          const casinoData = tableKeyData?.filter(
             (item) => item?.category === selectedSubCategory,
           );
-          setFilterCategoryData(filterCasinoByCategory);
+          return casinoData;
         } else {
-          setFilterCategoryData(filterCasinoByProduct);
+          const tableKeyData =
+            tables &&
+            Object.values(tables)
+              .flatMap((obj) => Object.values(obj))
+              .flat();
+          const casinoData = tableKeyData?.filter(
+            (item) => item?.product === selectedCategory,
+          );
+
+          return casinoData;
         }
+      } else {
+        const casinoData =
+          allTables && typeof allTables === "object"
+            ? selectedSubCategory === "All"
+              ? Object.values(allTables).flat()
+              : Object.values(allTables)
+                  .flat()
+                  .filter((item) => item?.category === selectedSubCategory)
+            : [];
+
+        return casinoData;
       }
     };
-    getCategory();
-  }, [tables, selectedCategory, selectedSubCategory]);
+    setFilteredData(filterData());
+  }, [selectedCategory, selectedSubCategory, allTables, tables]);
 
   useEffect(() => {
     setSelectedSubCategory("All");
   }, [selectedCategory]);
+
+  useEffect(() => {
+    if (category) {
+      if (category === "Fun Games") {
+        setSelectedCategory(category);
+      } else {
+        setSelectedSubCategory(category);
+      }
+    }
+  }, [category]);
   return (
     <main id="main" className="main">
       <div className="ng-star-inserted">
@@ -99,9 +128,9 @@ const Casino = () => {
                                   <span className="list-sport-title">
                                     <img
                                       className="img-fluid game-icon-img"
-                                      src="/images/menu-99999.png"
+                                      src="/images/menu-99998.png"
                                     />
-                                    &nbsp; Casino
+                                    &nbsp; Int Casino
                                   </span>
                                 </div>
                                 <div className="col-md-2 text-center d-none d-md-block" />
@@ -115,7 +144,7 @@ const Casino = () => {
                                   <div className="col-md-12 main_navigation_menu">
                                     <div className="casino_tabs_ul tab-container">
                                       <Tab1
-                                        categories={categories}
+                                        categories={tablesCategory}
                                         selectedCategory={selectedCategory}
                                         setSelectedCategory={
                                           setSelectedCategory
@@ -136,7 +165,7 @@ const Casino = () => {
                                                 selectedSubCategory={
                                                   selectedSubCategory
                                                 }
-                                                categories={subCategories}
+                                                categories={filterSubCategory()}
                                               />
                                               <div className="tab-content">
                                                 <div
@@ -146,9 +175,7 @@ const Casino = () => {
                                                 >
                                                   <div className="row row-casino ng-star-inserted">
                                                     <CasinoThumbnail
-                                                      casinoData={
-                                                        filterCategoryData
-                                                      }
+                                                      casinoData={filteredData}
                                                     />
                                                   </div>
                                                 </div>
@@ -177,4 +204,4 @@ const Casino = () => {
   );
 };
 
-export default Casino;
+export default IntCasino;

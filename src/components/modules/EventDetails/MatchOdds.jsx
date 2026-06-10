@@ -220,7 +220,6 @@ const MatchOdds = ({ data }) => {
     pnlBySelection = Object?.values(obj);
   }
 
-  console.log(Settings.cashout);
   return (
     <>
       {speedCashOut && (

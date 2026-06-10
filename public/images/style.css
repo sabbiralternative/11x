@@ -3426,7 +3426,7 @@ ul.live_virtual li input[type="checkbox"] {
   #main {
     padding: 5px 1px;
     margin-bottom: 70px;
-    margin-top: 90px;
+    /* margin-top: 90px; */
   }
 
   .listing_page {

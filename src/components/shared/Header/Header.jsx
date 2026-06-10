@@ -125,6 +125,14 @@ const Header = ({ setIsOpenSidebar }) => {
   ]);
 
   useEffect(() => {
+    if (ref.current) {
+      const headerHeight = ref.current.offsetHeight;
+
+      dispatch(setHeaderHeight(headerHeight));
+    }
+  }, [ref, dispatch, isModalOpen]);
+
+  useEffect(() => {
     const newVersion = socialLink?.build_version;
     if (!stored_build_version) {
       if (newVersion) {
@@ -143,11 +151,6 @@ const Header = ({ setIsOpenSidebar }) => {
     return <Error />;
   }
 
-  if (ref.current) {
-    const headerHeight = ref.current.offsetHeight;
-    console.log(headerHeight);
-    dispatch(setHeaderHeight(headerHeight));
-  }
   return (
     <Fragment>
       {Settings.apk_link && showAPKModal && (

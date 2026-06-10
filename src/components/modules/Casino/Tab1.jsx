@@ -1,19 +1,40 @@
-const Tab1 = ({ categories, setSelectedCategory, selectedCategory }) => {
+const Tab1 = ({ selectedSubProvider, subProvider, setSelectedSubProvider }) => {
   return (
     <ul role="tablist" className="nav nav-tabs" aria-label="Tabs">
-      {categories?.map((category) => {
+      <li
+        onClick={() => setSelectedSubProvider("all")}
+        className={`${
+          selectedSubProvider === "all" ? "active" : ""
+        } nav-item ng-star-inserted`}
+      >
+        <a
+          role="tab"
+          className={`nav-link ${
+            selectedSubProvider === "all" ? "active" : ""
+          }`}
+          aria-controls
+          aria-selected="true"
+          id
+        >
+          <span />
+          <span tabIndex={0} id="parentTab-0" className="ng-star-inserted">
+            All
+          </span>
+        </a>
+      </li>
+      {subProvider?.map((provider) => {
         return (
           <li
-            onClick={() => setSelectedCategory(category)}
-            key={category}
+            onClick={() => setSelectedSubProvider(provider)}
+            key={provider}
             className={`${
-              category === selectedCategory ? "active" : ""
+              provider === selectedSubProvider ? "active" : ""
             } nav-item ng-star-inserted`}
           >
             <a
               role="tab"
               className={`nav-link ${
-                category === selectedCategory ? "active" : ""
+                provider === selectedSubProvider ? "active" : ""
               }`}
               aria-controls
               aria-selected="true"
@@ -21,7 +42,7 @@ const Tab1 = ({ categories, setSelectedCategory, selectedCategory }) => {
             >
               <span />
               <span tabIndex={0} id="parentTab-0" className="ng-star-inserted">
-                {category}
+                {provider}
               </span>
             </a>
           </li>

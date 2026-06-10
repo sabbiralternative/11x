@@ -1,19 +1,17 @@
 import img from "../../../assets/img";
 
-const Tab2 = ({ categories, setSelectedSubCategory, selectedSubCategory }) => {
+const Tab2 = ({ selectedCategory, categories, setSelectedCategory }) => {
   return (
     <ul role="tablist" className="nav nav-tabs" aria-label="Tabs">
       <li
-        onClick={() => setSelectedSubCategory("All")}
+        onClick={() => setSelectedCategory("all")}
         className={`${
-          selectedSubCategory === "All" ? "active " : ""
+          selectedCategory === "all" ? "active " : ""
         } nav-item ng-star-inserted`}
       >
         <a
           role="tab"
-          className={`nav-link ${
-            selectedSubCategory === "All" ? "active " : ""
-          }`}
+          className={`nav-link ${selectedCategory === "all" ? "active " : ""}`}
           aria-controls
           aria-selected="true"
           id
@@ -32,16 +30,16 @@ const Tab2 = ({ categories, setSelectedSubCategory, selectedSubCategory }) => {
       {categories?.map((category) => {
         return (
           <li
-            onClick={() => setSelectedSubCategory(category)}
+            onClick={() => setSelectedCategory(category)}
             key={category}
             className={`${
-              selectedSubCategory === category ? "active" : ""
+              selectedCategory === category ? "active" : ""
             } nav-item ng-star-inserted`}
           >
             <a
               role="tab"
               className={`nav-link ${
-                selectedSubCategory === category ? "active" : ""
+                selectedCategory === category ? "active" : ""
               }`}
               aria-controls
               aria-selected="true"
