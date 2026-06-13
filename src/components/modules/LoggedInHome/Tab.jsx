@@ -39,6 +39,7 @@ const Tab = () => {
       {showWarning && (
         <WarningCondition gameInfo={gameInfo} setShowWarning={setShowWarning} />
       )}
+
       {homeTab?.map((t) => {
         return (
           <li
