@@ -10,6 +10,11 @@ export const homeTab = [
     to: "/event-details/4/33439203",
   },
   {
+    name: "FIFA 2026",
+    imageSrc: "/images/menu-99998.png",
+    to: "/event-details/4/1780591416",
+  },
+  {
     group: 4,
     name: "Cricket",
     imageSrc: "/images/menu-4.png",
