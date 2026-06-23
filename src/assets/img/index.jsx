@@ -54,8 +54,10 @@ import giftCard from "../images/giftCard.webp";
 import redeemCardGift from "../images/redeemCardGift.svg";
 import appStar from "../images/app-star.svg";
 import playStore from "../images/playstore.svg";
+import globe from "../images/globe.gif";
 
 export default {
+  globe,
   appStar,
   playStore,
   elipBg,

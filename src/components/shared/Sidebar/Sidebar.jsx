@@ -8,8 +8,12 @@ import useLogo from "../../../hooks/useLogo";
 // import Referral from "../../modals/Referral/Referral";
 import useWhatsApp from "../../../hooks/whatsapp";
 import img from "../../../assets/img";
+import useLanguage from "../../../hooks/useLanguage";
+import { languageValue } from "../../../utils/language";
+import { LanguageKey } from "../../../const";
 
 const Sidebar = ({ setIsOpenSidebar }) => {
+  const { valueByLanguage } = useLanguage();
   const { closePopupForForever } = useSelector((state) => state.global);
   const { data: socialLink } = useWhatsApp();
   // const [showReferral, setShowReferral] = useState(false);
@@ -48,19 +52,23 @@ const Sidebar = ({ setIsOpenSidebar }) => {
             <li onClick={() => setIsOpenSidebar(false)} className="nav-item">
               <Link to="/" className="nav-link final-link">
                 <img src="/images/menu-home.png" />
-                <span>home</span>
+                <span> {languageValue(valueByLanguage, LanguageKey.HOME)}</span>
               </Link>
             </li>
             <li onClick={() => setIsOpenSidebar(false)} className="nav-item">
               <Link to="/deposit" className="nav-link final-link">
                 <img src={img.profileWallet} />
-                <span>deposit</span>
+                <span>
+                  {languageValue(valueByLanguage, LanguageKey.DEPOSIT)}
+                </span>
               </Link>
             </li>
             <li onClick={() => setIsOpenSidebar(false)} className="nav-item">
               <Link to="/withdraw" className="nav-link final-link">
                 <img src={img.profileWallet} />
-                <span>withdraw</span>
+                <span>
+                  {languageValue(valueByLanguage, LanguageKey.WITHDRAW)}
+                </span>
               </Link>
             </li>
             <li onClick={() => setIsOpenSidebar(false)} className="nav-item">
@@ -89,7 +97,9 @@ const Sidebar = ({ setIsOpenSidebar }) => {
             >
               <Link to="/my-bank-details" className="nav-link final-link">
                 <img src={img.bettingProfitLoss} className="img-fluid" />
-                <span>My Bank Details</span>
+                <span>
+                  {languageValue(valueByLanguage, LanguageKey.MY_BANK_DETAILS)}
+                </span>
               </Link>
             </li>
             <li
@@ -98,7 +108,9 @@ const Sidebar = ({ setIsOpenSidebar }) => {
             >
               <Link to="/bonus-statement" className="nav-link final-link">
                 <img src={img.bettingProfitLoss} className="img-fluid" />
-                <span>Bonus Statement</span>
+                <span>
+                  {languageValue(valueByLanguage, LanguageKey.BONUS_STATEMENT)}
+                </span>
               </Link>
             </li>
             {socialLink?.referral && (
@@ -237,7 +249,9 @@ const Sidebar = ({ setIsOpenSidebar }) => {
             >
               <Link className="nav-link final-link">
                 <img src="/images/logout.svg" className="img-fluid" />
-                <span>Logout</span>
+                <span>
+                  {languageValue(valueByLanguage, LanguageKey.LOGOUT)}
+                </span>
               </Link>
             </li>
           </ul>

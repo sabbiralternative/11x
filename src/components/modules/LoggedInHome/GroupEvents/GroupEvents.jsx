@@ -1,8 +1,12 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { useGroupQuery } from "../../../../redux/features/events/events";
 import { useEffect, useState } from "react";
+import useLanguage from "../../../../hooks/useLanguage";
+import { languageValue } from "../../../../utils/language";
+import { LanguageKey } from "../../../../const";
 
 const GroupEvents = () => {
+  const { valueByLanguage } = useLanguage();
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   let tab = 0;
@@ -11,9 +15,9 @@ const GroupEvents = () => {
   }
 
   const eventName = {
-    4: "Cricket",
-    2: "Tennis",
-    1: "Football",
+    4: languageValue(valueByLanguage, LanguageKey.CRICKET),
+    2: languageValue(valueByLanguage, LanguageKey.TENNIS),
+    1: languageValue(valueByLanguage, LanguageKey.FOOTBALL),
   };
   const navigate = useNavigate();
   const [categories, setCategories] = useState([]);
@@ -21,7 +25,7 @@ const GroupEvents = () => {
     { sportsType: tab },
     {
       pollingInterval: 1000,
-    }
+    },
   );
   const navigateGameList = (keys) => {
     navigate(`/event-details/${data[keys]?.eventTypeId}/${keys}`);
@@ -40,8 +44,8 @@ const GroupEvents = () => {
         new Set(
           Object.values(data)
             .filter((item) => item.visible) // Only include items where visible is true
-            .map((item) => item.eventTypeId)
-        )
+            .map((item) => item.eventTypeId),
+        ),
       );
       /* Sort the category for cricket > tennis > football */
       const sortedCategories = categories.sort((a, b) => {
@@ -134,7 +138,7 @@ const GroupEvents = () => {
                               ? Object.keys(filteredData)
                                   .sort(
                                     (keyA, keyB) =>
-                                      data[keyA].sort - data[keyB].sort
+                                      data[keyA].sort - data[keyB].sort,
                                   )
                                   .map((key, index) => {
                                     if (!data?.[key]?.visible) return;

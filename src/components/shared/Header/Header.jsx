@@ -22,8 +22,15 @@ import DownloadAPK from "../../modals/DownloadAPK/DownloadAPK";
 import useWhatsApp from "../../../hooks/whatsapp";
 import BuildVersion from "../../modals/BuildVersion/BuildVersion";
 import Error from "../../UI/Error/Error";
+import useLanguage from "../../../hooks/useLanguage";
+import Language from "../../modals/Language";
+import img from "../../../assets/img";
+import { languageValue } from "../../../utils/language";
+import { LanguageKey } from "../../../const";
 
 const Header = ({ setIsOpenSidebar }) => {
+  const { language, valueByLanguage, setLanguage } = useLanguage();
+  const [showLanguage, setShowLanguage] = useState(false);
   const ref = useRef();
   const [showNotification, setShowNotification] = useState(false);
   const [filteredNotification, setFilteredNotification] = useState([]);
@@ -147,6 +154,10 @@ const Header = ({ setIsOpenSidebar }) => {
     }
   }, [socialLink?.build_version, stored_build_version]);
 
+  useEffect(() => {
+    setLanguage(localStorage.getItem("language") || "english");
+  }, [setLanguage]);
+
   if (Settings.app_only && !closePopupForForever) {
     return <Error />;
   }
@@ -222,6 +233,48 @@ const Header = ({ setIsOpenSidebar }) => {
                       expo. <b>{data?.deductedExposure}</b>
                     </a>
                   </li>
+                  <li className="nav-item expo_li">
+                    <div style={{ position: "relative", padding: "1px 4px" }}>
+                      {Settings.language && (
+                        <button
+                          onClick={() => setShowLanguage((prev) => !prev)}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "center",
+                              justifyContent: "end",
+                              background: "transparent",
+                              border: "none",
+                            }}
+                          >
+                            <img
+                              style={{
+                                height: "20px",
+                                width: "20px",
+                                filter: "invert(1)",
+                              }}
+                              src={img.globe}
+                              alt=""
+                            />
+                            <b
+                              style={{
+                                margin: "0px",
+                                fontSize: "10px",
+                                textTransform: "capitalize",
+                              }}
+                            >
+                              {language || "EN"}
+                            </b>
+                          </div>
+                        </button>
+                      )}
+                      {showLanguage && (
+                        <Language setShowLanguage={setShowLanguage} />
+                      )}
+                    </div>
+                  </li>
                 </ul>
               </nav>
             ) : (
@@ -243,8 +296,51 @@ const Header = ({ setIsOpenSidebar }) => {
                 >
                   <a id="loginbutton" className="nav-link">
                     <i className="bi bi-box-arrow-in-right" />
-                    <span>Login</span>
+                    <span>
+                      {" "}
+                      {languageValue(valueByLanguage, LanguageKey.LOGIN)}
+                    </span>
                   </a>
+                </li>
+                <li className="nav-item expo_li">
+                  <div style={{ position: "relative", padding: "1px 4px" }}>
+                    {Settings.language && (
+                      <button onClick={() => setShowLanguage((prev) => !prev)}>
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            justifyContent: "end",
+                            background: "transparent",
+                            border: "none",
+                          }}
+                        >
+                          <img
+                            style={{
+                              height: "20px",
+                              width: "20px",
+                              filter: "invert(1)",
+                            }}
+                            src={img.globe}
+                            alt=""
+                          />
+                          <b
+                            style={{
+                              margin: "0px",
+                              fontSize: "10px",
+                              textTransform: "capitalize",
+                            }}
+                          >
+                            {language || "EN"}
+                          </b>
+                        </div>
+                      </button>
+                    )}
+                    {showLanguage && (
+                      <Language setShowLanguage={setShowLanguage} />
+                    )}
+                  </div>
                 </li>
               </ul>
             )}
