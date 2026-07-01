@@ -15,8 +15,6 @@ const Language = ({ setShowLanguage }) => {
     setShowLanguage(false);
   });
 
-  console.log(data);
-
   const languages = data?.CRICKET;
 
   const handleSetLanguage = (language) => {
