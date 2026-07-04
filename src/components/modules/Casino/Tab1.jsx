@@ -1,17 +1,38 @@
-const Tab1 = ({ selectedSubProvider, subProvider, setSelectedSubProvider }) => {
+import { useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+
+const Tab1 = ({ categories, selectedCategory }) => {
+  const activeRef = useRef(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (activeRef.current) {
+      activeRef.current.scrollIntoView({
+        behavior: "smooth",
+        inline: "center", // key part
+        block: "nearest",
+      });
+    }
+  }, [selectedCategory, categories]);
   return (
-    <ul role="tablist" className="nav nav-tabs" aria-label="Tabs">
+    <ul
+      style={{ scrollBehavior: "smooth" }}
+      role="tablist"
+      className="nav nav-tabs"
+      aria-label="Tabs"
+    >
       <li
-        onClick={() => setSelectedSubProvider("all")}
+        ref={selectedCategory === "All" ? activeRef : null}
         className={`${
-          selectedSubProvider === "all" ? "active" : ""
+          selectedCategory === "All" ? "active" : ""
         } nav-item ng-star-inserted`}
       >
         <a
+          onClick={() => {
+            navigate(`/casino?product=All&category=All`);
+          }}
           role="tab"
-          className={`nav-link ${
-            selectedSubProvider === "all" ? "active" : ""
-          }`}
+          className={`nav-link ${selectedCategory === "All" ? "active" : ""}`}
           aria-controls
           aria-selected="true"
           id
@@ -22,19 +43,22 @@ const Tab1 = ({ selectedSubProvider, subProvider, setSelectedSubProvider }) => {
           </span>
         </a>
       </li>
-      {subProvider?.map((provider) => {
+      {categories?.map((category) => {
         return (
           <li
-            onClick={() => setSelectedSubProvider(provider)}
-            key={provider}
+            ref={category === selectedCategory ? activeRef : null}
+            key={category}
             className={`${
-              provider === selectedSubProvider ? "active" : ""
+              category === selectedCategory ? "active" : ""
             } nav-item ng-star-inserted`}
           >
             <a
+              onClick={() => {
+                navigate(`/casino?product=${category}&category=All`);
+              }}
               role="tab"
               className={`nav-link ${
-                provider === selectedSubProvider ? "active" : ""
+                category === selectedCategory ? "active" : ""
               }`}
               aria-controls
               aria-selected="true"
@@ -42,7 +66,7 @@ const Tab1 = ({ selectedSubProvider, subProvider, setSelectedSubProvider }) => {
             >
               <span />
               <span tabIndex={0} id="parentTab-0" className="ng-star-inserted">
-                {provider}
+                {category}
               </span>
             </a>
           </li>

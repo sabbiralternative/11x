@@ -2437,3 +2437,14 @@ section {
   }
 }
 /* Horse banner */
+h2.newlaunchtitle {
+  background: linear-gradient(180deg, #4929fa, #2f42f6 80%, #2f37f6);
+  box-shadow: inset 0 -10px 20px 0 #1e6b34;
+  display: block;
+  text-align: center;
+  margin-bottom: 1px;
+  padding: 6px;
+  color: #fff;
+  text-transform: capitalize;
+  font-size: 18px;
+}

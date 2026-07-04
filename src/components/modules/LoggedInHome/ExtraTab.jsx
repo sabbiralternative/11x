@@ -24,7 +24,7 @@ const ExtraTab = () => {
       )}
       <div className="row mx-0 mb-1 d-none d-md-flex">
         <div className="col-md-4 px-0">
-          <Link to="/casino" className="button_dakred">
+          <Link to="/casino?product=All&category=All" className="button_dakred">
             Our casino
           </Link>
         </div>

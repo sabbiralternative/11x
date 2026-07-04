@@ -48,7 +48,7 @@ const Tab = () => {
     {
       name: "Casino",
       imageSrc: "/images/menu-99998.png",
-      to: "/casino",
+      to: "/casino?product=All&category=All",
     },
     {
       name: "Sports book",

@@ -1,17 +1,39 @@
+import { useEffect, useRef } from "react";
 import img from "../../../assets/img";
+import { useNavigate } from "react-router-dom";
 
-const Tab2 = ({ selectedCategory, categories, setSelectedCategory }) => {
+const Tab2 = ({ subCategories, product, selectedSubCategory }) => {
+  const activeRef = useRef(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (activeRef.current) {
+      activeRef.current.scrollIntoView({
+        behavior: "smooth",
+        inline: "center", // key part
+        block: "nearest",
+      });
+    }
+  }, [selectedSubCategory, subCategories, product]);
   return (
-    <ul role="tablist" className="nav nav-tabs" aria-label="Tabs">
+    <ul
+      style={{ scrollBehavior: "smooth" }}
+      role="tablist"
+      className="nav nav-tabs"
+      aria-label="Tabs"
+    >
       <li
-        onClick={() => setSelectedCategory("all")}
+        ref={selectedSubCategory === "All" ? activeRef : null}
         className={`${
-          selectedCategory === "all" ? "active " : ""
+          selectedSubCategory === "All" ? "active " : ""
         } nav-item ng-star-inserted`}
       >
         <a
+          onClick={() => {
+            navigate(`/casino?product=${product}&category=All`);
+          }}
           role="tab"
-          className={`nav-link ${selectedCategory === "all" ? "active " : ""}`}
+          className={`nav-link ${selectedSubCategory === "All" ? "active " : ""}`}
           aria-controls
           aria-selected="true"
           id
@@ -27,19 +49,22 @@ const Tab2 = ({ selectedCategory, categories, setSelectedCategory }) => {
           </span>
         </a>
       </li>
-      {categories?.map((category) => {
+      {subCategories?.map((subCategory) => {
         return (
           <li
-            onClick={() => setSelectedCategory(category)}
-            key={category}
+            ref={subCategory === selectedSubCategory ? activeRef : null}
+            key={subCategory}
             className={`${
-              selectedCategory === category ? "active" : ""
+              selectedSubCategory === subCategory ? "active" : ""
             } nav-item ng-star-inserted`}
           >
             <a
+              onClick={() => {
+                navigate(`/casino?product=${product}&category=${subCategory}`);
+              }}
               role="tab"
               className={`nav-link ${
-                selectedCategory === category ? "active" : ""
+                selectedSubCategory === subCategory ? "active" : ""
               }`}
               aria-controls
               aria-selected="true"
@@ -53,12 +78,12 @@ const Tab2 = ({ selectedCategory, categories, setSelectedCategory }) => {
               >
                 <img
                   className="img-fluid"
-                  src={`/icon/${category
+                  src={`/icon/${subCategory
                     ?.split(" ")
                     .join("")
                     .toLowerCase()}.svg`}
                 />
-                {category}
+                {subCategory}
               </span>
             </a>
           </li>

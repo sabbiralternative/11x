@@ -7,8 +7,18 @@ import { useState } from "react";
 import MiniGames from "../../components/modules/LoggedInHome/MiniGames";
 import { useLocation } from "react-router-dom";
 import IndianCardGames from "../../components/modules/LoggedInHome/IndianCardGames";
+import TopGames from "../../components/modules/LoggedInHome/TopGames";
+import NewLaunch from "../../components/modules/LoggedInHome/NewLaunch";
+import { useGetIndex } from "../../hooks";
+import HighlightThumbnails from "../../components/modules/LoggedInHome/HighlightThumbnails";
 
 const LoggedInHome = () => {
+  const { data } = useGetIndex({
+    type: "11x_homepage",
+  });
+  const { data: casinoData } = useGetIndex({
+    type: "99_casino_dashboard",
+  });
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const tab = params.get("tab");
@@ -24,8 +34,19 @@ const LoggedInHome = () => {
         className="tab-pane active ng-star-inserted"
       >
         <ExtraTab />
+        {data?.top_games?.length > 0 && (
+          <TopGames top_games={data?.top_games} />
+        )}
+
+        {data?.new_launch?.length > 0 && (
+          <NewLaunch new_launch={data?.new_launch} />
+        )}
+        <HighlightThumbnails highlight_casino={casinoData?.highlight_casino} />
+
         <GroupEvents />
-        {tab === null && <CasinoProvider />}
+        {tab === null && (
+          <CasinoProvider our_provider={casinoData?.our_provider} />
+        )}
         {tab === null && <IndianCardGames />}
       </div>
       <div
