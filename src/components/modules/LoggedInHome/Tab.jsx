@@ -15,11 +15,7 @@ const Tab = () => {
       name: "Inplay",
       imageSrc: "/images/menu-in_play.png",
     },
-    {
-      name: "Women's T20 WC",
-      imageSrc: "/images/menu-99998.png",
-      to: "/event-details/4/33439203",
-    },
+
     {
       name: "FIFA 2026",
       imageSrc: "/images/menu-99998.png",
