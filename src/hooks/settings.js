@@ -40,7 +40,7 @@ export const useSettingsMutation = () => {
         }
 
         if (!isLocalhost) {
-          const logo = `${API.assets}/${Settings.site}/logo.${Settings.logoFormat}`;
+          const logo = `${API.assets}/${Settings.site}/logo.${Settings.logo_format}`;
           setLogo(logo);
         } else {
           setLogo(img.logo);
