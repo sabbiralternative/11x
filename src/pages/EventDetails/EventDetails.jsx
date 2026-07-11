@@ -14,6 +14,7 @@ import SportsBook from "./SportsBook/SportsBook";
 import Score from "../../components/modules/EventDetails/Score";
 import MatchOdds from "../../components/modules/EventDetails/MatchOdds";
 import Bookmaker from "../../components/modules/EventDetails/Bookmaker";
+import Premium from "../../components/modules/EventDetails/Premium";
 
 const EventDetails = () => {
   const [showCurrentBets, setShowCurrentBets] = useState(false);
@@ -194,6 +195,9 @@ const EventDetails = () => {
                     <Score iscore={data?.iscore} />
                   )}
                   {matchOdds?.length > 0 && <MatchOdds data={matchOdds} />}
+                  {data?.premium && data?.premium?.eventId && (
+                    <Premium premium={data?.premium} />
+                  )}
                   {bookmaker?.length > 0 && <Bookmaker data={bookmaker} />}
 
                   <Fancy data={data?.result} />

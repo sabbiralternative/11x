@@ -55,6 +55,7 @@ export const API = {
   utr: "",
   otpless: "",
   lotusHomeLobby: "",
+  liveCasinoIFrame: "",
 };
 
 export const Settings = {
