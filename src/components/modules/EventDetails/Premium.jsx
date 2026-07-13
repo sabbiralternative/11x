@@ -23,6 +23,8 @@ const Premium = ({ premium }) => {
           fontSize: "14px",
           fontWeight: "600",
           width: "100%",
+          color: "white",
+          margin: "3px 0px",
         }}
       >
         Premium

@@ -63,10 +63,10 @@ const Tab = () => {
       imageSrc: "/images/menu-4339.png",
       to: "/greyhound-racing",
     },
-    {
-      name: "Binary",
-      imageSrc: "/images/menu-99990.png",
-    },
+    // {
+    //   name: "Binary",
+    //   imageSrc: "/images/menu-99990.png",
+    // },
     {
       group: 5,
       name: languageValue(valueByLanguage, LanguageKey.KABADDI),
@@ -79,34 +79,49 @@ const Tab = () => {
       imageSrc: "/images/menu-2378961.png",
     },
     {
-      group: 9,
       name: "Basketball",
-      imageSrc: "/images/menu-7522.png",
+      group: 7522,
+      imageSrc: "/event/basketball.png",
     },
     {
-      group: 10,
       name: "Baseball",
-      imageSrc: "/images/menu-7511.png",
+      group: 7511,
+      imageSrc: "/event/baseball.png",
     },
     {
-      group: 11,
       name: "Table Tennis",
-      imageSrc: "/images/menu-20.png",
+      group: 20,
+      imageSrc: "/event/tabletennis.png",
     },
     {
-      group: 12,
       name: "Volleyball",
-      imageSrc: "/images/menu-998917.png",
+      group: 998917,
+      imageSrc: "/event/volleyball.png",
     },
     {
-      group: 13,
       name: "Ice Hockey",
-      imageSrc: "/images/menu-7524.png",
+      group: 7524,
+      imageSrc: "/event/icehockey.png",
     },
     {
-      group: 14,
       name: "Rugby",
-      imageSrc: "/images/menu-5.png",
+      group: 5,
+      imageSrc: "/event/rugby.png",
+    },
+    {
+      name: "Mixed Martial Arts",
+      group: 26420387,
+      imageSrc: "/event/mma.png",
+    },
+    {
+      name: "Darts",
+      group: 3503,
+      imageSrc: "/event/darts.png",
+    },
+    {
+      name: "Futsal",
+      group: 29,
+      imageSrc: "/event/futsal.png",
     },
   ];
 
