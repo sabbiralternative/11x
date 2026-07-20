@@ -16,11 +16,11 @@ const Tab = () => {
       imageSrc: "/images/menu-in_play.png",
     },
 
-    {
-      name: "FIFA 2026",
-      imageSrc: "/images/menu-99998.png",
-      to: "/event-details/4/1780591416",
-    },
+    // {
+    //   name: "FIFA 2026",
+    //   imageSrc: "/images/menu-99998.png",
+    //   to: "/event-details/4/1780591416",
+    // },
     {
       group: 4,
       name: languageValue(valueByLanguage, LanguageKey.CRICKET),
