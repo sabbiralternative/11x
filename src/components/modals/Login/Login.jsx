@@ -27,6 +27,38 @@ const Login = () => {
     closeLoginModal();
   });
 
+  const loginWithDemo = async () => {
+    const loginData = {
+      username: "demo",
+      password: "",
+      b2c: Settings.b2c,
+    };
+    const result = await handleLogin(loginData).unwrap();
+
+    if (result.success) {
+      const token = result?.result?.token;
+      const bonusToken = result?.result?.bonusToken;
+      const user = result?.result?.loginName;
+      const game = result?.result?.buttonValue?.game;
+      const modal = {
+        banner: result?.result?.banner,
+        bannerTitle: result?.result?.bannerTitle,
+      };
+
+      dispatch(setUser({ user, token }));
+      localStorage.setItem("buttonValue", JSON.stringify(game));
+      localStorage.setItem("token", token);
+      localStorage.setItem("modal", JSON.stringify(modal));
+      localStorage.setItem("bonusToken", bonusToken);
+      if (token && user) {
+        navigate("/");
+        toast.success("Login successful");
+      }
+    } else {
+      toast.error(result?.error);
+    }
+  };
+
   const onSubmit = async ({ username, password }) => {
     const loginData = {
       username: username,
@@ -99,7 +131,7 @@ const Login = () => {
               aria-label="Close"
               className="close pull-right"
             >
-              <span aria-hidden="true">×</span>
+              <span aria-hidden="true">X</span>
             </button>
             <div>
               <div>
@@ -154,6 +186,17 @@ const Login = () => {
                     >
                       Log In
                     </button>
+                    {Settings.demoLogin && (
+                      <button
+                        onClick={loginWithDemo}
+                        style={{ marginBottom: "1px" }}
+                        type="submit"
+                        className="btn btn-login"
+                      >
+                        Demo
+                      </button>
+                    )}
+
                     <div
                       onClick={showForgotPassword}
                       style={{

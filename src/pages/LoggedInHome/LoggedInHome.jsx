@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import CasinoProvider from "../../components/modules/LoggedInHome/CasinoProvider";
 import ExtraTab from "../../components/modules/LoggedInHome/ExtraTab";
 import GroupEvents from "../../components/modules/LoggedInHome/GroupEvents/GroupEvents";
@@ -23,7 +23,7 @@ const LoggedInHome = () => {
   const params = new URLSearchParams(location.search);
   const tab = params.get("tab");
   const [showMiniGamesModal, setShowMiniGamesModal] = useState(false);
-  const { group } = useSelector((state) => state.global);
+  // const { group } = useSelector((state) => state.global);
 
   return (
     <>

@@ -1,15 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import useLogo from "../../../hooks/useLogo";
-import { useLoginMutation } from "../../../redux/features/auth/authApi";
 import { Settings } from "../../../api";
-import { setUser } from "../../../redux/features/auth/authSlice";
-import toast from "react-hot-toast";
 import Login from "../../modals/Login/Login";
 import {
   setClosePopUpForForever,
   setHeaderHeight,
   setShowLogin,
+  setShowRegister,
 } from "../../../redux/features/global/globalSlice";
 import Register from "../../modals/Register/Register";
 import ForgotPassword from "../../modals/ForgotPassword/ForgotPassword";
@@ -29,7 +27,7 @@ import { languageValue } from "../../../utils/language";
 import { LanguageKey } from "../../../const";
 
 const Header = ({ setIsOpenSidebar }) => {
-  const { language, valueByLanguage, setLanguage } = useLanguage();
+  const { valueByLanguage, setLanguage } = useLanguage();
   const [showLanguage, setShowLanguage] = useState(false);
   const ref = useRef();
   const [showNotification, setShowNotification] = useState(false);
@@ -50,42 +48,9 @@ const Header = ({ setIsOpenSidebar }) => {
     forceChangePassword,
     closePopupForForever,
   } = useSelector((state) => state.global);
-  const navigate = useNavigate();
+
   const { logo } = useLogo();
   const dispatch = useDispatch();
-  const [handleLogin] = useLoginMutation();
-
-  const loginWithDemo = async () => {
-    const loginData = {
-      username: "demo",
-      password: "",
-      b2c: Settings.b2c,
-    };
-    const result = await handleLogin(loginData).unwrap();
-
-    if (result.success) {
-      const token = result?.result?.token;
-      const bonusToken = result?.result?.bonusToken;
-      const user = result?.result?.loginName;
-      const game = result?.result?.buttonValue?.game;
-      const modal = {
-        banner: result?.result?.banner,
-        bannerTitle: result?.result?.bannerTitle,
-      };
-
-      dispatch(setUser({ user, token }));
-      localStorage.setItem("buttonValue", JSON.stringify(game));
-      localStorage.setItem("token", token);
-      localStorage.setItem("modal", JSON.stringify(modal));
-      localStorage.setItem("bonusToken", bonusToken);
-      if (token && user) {
-        navigate("/");
-        toast.success("Login successful");
-      }
-    } else {
-      toast.error(result?.error);
-    }
-  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -220,7 +185,10 @@ const Header = ({ setIsOpenSidebar }) => {
           <nav className="header-nav ms-auto">
             {token ? (
               <nav className="header-nav ms-auto ng-star-inserted">
-                <ul className="d-flex align-items-center">
+                <ul
+                  className="d-flex align-items-center"
+                  style={{ gap: "3px" }}
+                >
                   <li className="nav-item balance_li">
                     <a className="nav-link">
                       <i className="bi bi-bank" /> Balance
@@ -234,7 +202,7 @@ const Header = ({ setIsOpenSidebar }) => {
                     </a>
                   </li>
                   <li className="nav-item expo_li">
-                    <div style={{ position: "relative", padding: "1px 4px" }}>
+                    <div style={{ position: "relative", padding: "6px 4px" }}>
                       {Settings.language && (
                         <button
                           onClick={() => setShowLanguage((prev) => !prev)}
@@ -258,15 +226,6 @@ const Header = ({ setIsOpenSidebar }) => {
                               src={img.globe}
                               alt=""
                             />
-                            <b
-                              style={{
-                                margin: "0px",
-                                fontSize: "10px",
-                                textTransform: "capitalize",
-                              }}
-                            >
-                              {language || "EN"}
-                            </b>
                           </div>
                         </button>
                       )}
@@ -280,15 +239,7 @@ const Header = ({ setIsOpenSidebar }) => {
             ) : (
               <ul className="d-flex align-items-center">
                 {/* Demo Link */}
-                <li
-                  onClick={loginWithDemo}
-                  className="nav-item expo_bal loginbtn"
-                >
-                  <a className="nav-link">
-                    <i className="bi bi-box-arrow-in-right" />
-                    <span>Demo</span>
-                  </a>
-                </li>
+
                 {/* Login Link */}
                 <li
                   onClick={() => dispatch(setShowLogin(true))}
@@ -302,8 +253,17 @@ const Header = ({ setIsOpenSidebar }) => {
                     </span>
                   </a>
                 </li>
+                <li
+                  onClick={() => dispatch(setShowRegister(true))}
+                  className="nav-item expo_bal loginbtn"
+                >
+                  <a className="nav-link">
+                    <i className="bi bi-box-arrow-in-right" />
+                    <span>Register</span>
+                  </a>
+                </li>
                 <li className="nav-item expo_li">
-                  <div style={{ position: "relative", padding: "1px 4px" }}>
+                  <div style={{ position: "relative", padding: "1px" }}>
                     {Settings.language && (
                       <button onClick={() => setShowLanguage((prev) => !prev)}>
                         <div
@@ -314,6 +274,7 @@ const Header = ({ setIsOpenSidebar }) => {
                             justifyContent: "end",
                             background: "transparent",
                             border: "none",
+                            marginTop: "1px",
                           }}
                         >
                           <img
@@ -325,15 +286,6 @@ const Header = ({ setIsOpenSidebar }) => {
                             src={img.globe}
                             alt=""
                           />
-                          <b
-                            style={{
-                              margin: "0px",
-                              fontSize: "10px",
-                              textTransform: "capitalize",
-                            }}
-                          >
-                            {language || "EN"}
-                          </b>
                         </div>
                       </button>
                     )}

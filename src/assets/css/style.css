@@ -332,7 +332,7 @@ body {
 }
 .expo_bal span {
   font-size: 13px;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   line-height: normal;
   font-weight: 700;
   text-align: center;
@@ -3459,7 +3459,7 @@ ul.live_virtual li input[type="checkbox"] {
     margin-left: 32px;
   }
   .expo_bal {
-    width: 88px;
+    width: 75px;
     margin: 0 1px;
   }
   .logo img {

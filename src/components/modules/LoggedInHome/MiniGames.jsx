@@ -38,7 +38,7 @@ const MiniGames = ({ setShowMiniGamesModal }) => {
         backgroundColor: "#132225",
         width: "100%",
         position: "fixed",
-        bottom: "50px",
+        bottom: "0px",
         height: "fit-content",
         zIndex: 9999999,
         left: 0,
