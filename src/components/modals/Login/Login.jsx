@@ -52,6 +52,7 @@ const Login = () => {
       localStorage.setItem("bonusToken", bonusToken);
       if (token && user) {
         navigate("/");
+        closeLoginModal();
         toast.success("Login successful");
       }
     } else {
@@ -190,7 +191,7 @@ const Login = () => {
                       <button
                         onClick={loginWithDemo}
                         style={{ marginBottom: "1px" }}
-                        type="submit"
+                        type="button"
                         className="btn btn-login"
                       >
                         Demo
