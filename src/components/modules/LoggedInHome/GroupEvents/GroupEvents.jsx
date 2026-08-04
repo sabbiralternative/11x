@@ -4,8 +4,10 @@ import { useEffect, useState } from "react";
 import useLanguage from "../../../../hooks/useLanguage";
 import { languageValue } from "../../../../utils/language";
 import { LanguageKey } from "../../../../const";
+import { FilterLiveVirtual } from "../../../../utils/filter-live-virtual";
 
 const GroupEvents = () => {
+  const [liveVirtual, setLiveVirtual] = useState([]);
   const { valueByLanguage } = useLanguage();
   const location = useLocation();
   const params = new URLSearchParams(location.search);
@@ -56,15 +58,36 @@ const GroupEvents = () => {
     }
   }, [data]);
 
+  const onChangeLiveVirtual = (type, eventTypeId, isChecked) => {
+    const obj = { type, eventTypeId, isChecked };
+
+    setLiveVirtual((prev) => {
+      const index = prev.findIndex(
+        (item) => item.eventTypeId === eventTypeId && item.type === type,
+      );
+
+      if (index !== -1) {
+        const updated = [...prev];
+        updated[index] = {
+          ...updated[index],
+          isChecked,
+        };
+        return updated;
+      }
+
+      return [...prev, obj];
+    });
+  };
+
   return (
     <div className="ng-star-inserted">
       {categories?.map((category) => {
-        const filteredData = Object.entries(data)
-          .filter(([, value]) => value.eventTypeId === category)
-          .reduce((obj, [key, value]) => {
-            obj[key] = value;
-            return obj;
-          }, {});
+        const groupedData = FilterLiveVirtual(
+          liveVirtual,
+          category,
+          data,
+          // 1,
+        );
         return (
           <div key={category} className="ng-star-inserted">
             <div className="ng-star-inserted">
@@ -94,23 +117,41 @@ const GroupEvents = () => {
                               <ul className="live_virtual">
                                 <li>
                                   <input
+                                    onChange={(e) =>
+                                      onChangeLiveVirtual(
+                                        "live",
+                                        category,
+                                        e.target?.checked,
+                                      )
+                                    }
                                     type="checkbox"
                                     defaultValue="Order one"
-                                    id="checkboxOne4-inplay"
+                                    id={`checkboxOne${category}-inplay`}
                                     className="ng-untouched ng-pristine ng-valid"
                                   />
-                                  <label htmlFor="checkboxOne4-inplay">
+                                  <label
+                                    htmlFor={`checkboxOne${category}-inplay`}
+                                  >
                                     LIVE
                                   </label>
                                 </li>
                                 <li>
                                   <input
+                                    onChange={(e) =>
+                                      onChangeLiveVirtual(
+                                        "virtual",
+                                        category,
+                                        e.target?.checked,
+                                      )
+                                    }
                                     type="checkbox"
                                     defaultValue="Order Two"
-                                    id="checkboxTwo4--inplay"
+                                    id={`checkboxTwo${category}-inplay`}
                                     className="ng-untouched ng-pristine ng-valid"
                                   />
-                                  <label htmlFor="checkboxTwo4--inplay">
+                                  <label
+                                    htmlFor={`checkboxTwo${category}-inplay`}
+                                  >
                                     VIRTUAL
                                   </label>
                                 </li>
@@ -132,95 +173,72 @@ const GroupEvents = () => {
                           id="sportOne-4"
                         >
                           <div className="ng-star-inserted">
-                            {data &&
-                            Object.values(data).length > 0 &&
-                            (tab || tab === 0)
-                              ? Object.keys(filteredData)
-                                  .sort(
-                                    (keyA, keyB) =>
-                                      data[keyA].sort - data[keyB].sort,
-                                  )
-                                  .map((key, index) => {
-                                    if (!data?.[key]?.visible) return;
-                                    return (
-                                      <div
-                                        onClick={() => navigateGameList(key)}
-                                        key={index}
-                                        className="bet-table-row ng-star-inserted"
-                                      >
-                                        <div className="row">
-                                          <div className="col-md-6">
-                                            <div className="game-box">
-                                              <div className="game-left-col">
-                                                <div className="game-name">
-                                                  <a>
-                                                    <p className="team-name text-left team-event">
-                                                      {data[key]?.date}
-                                                    </p>
-                                                    <p className="team-name text-left">
-                                                      {data[key]?.eventName}
-                                                    </p>
-                                                  </a>
-                                                </div>
+                            {data && (tab || tab === 0)
+                              ? groupedData.map(([key], index) => {
+                                  return (
+                                    <div
+                                      onClick={() => navigateGameList(key)}
+                                      key={index}
+                                      className="bet-table-row ng-star-inserted"
+                                    >
+                                      <div className="row">
+                                        <div className="col-md-6">
+                                          <div className="game-box">
+                                            <div className="game-left-col">
+                                              <div className="game-name">
+                                                <a>
+                                                  <p className="team-name text-left team-event">
+                                                    {data[key]?.date}
+                                                  </p>
+                                                  <p className="team-name text-left">
+                                                    {data[key]?.eventName}
+                                                  </p>
+                                                </a>
                                               </div>
-                                              <div className="game-icons">
-                                                <div className="icons_market">
-                                                  {data[key]?.isFancy === 1 ? (
-                                                    <span className="icon_fancy ng-star-inserted">
-                                                      F
-                                                    </span>
-                                                  ) : (
-                                                    <span
-                                                      style={{
-                                                        height: "20px",
-                                                        width: "20px",
-                                                        marginLeft: "4px",
-                                                      }}
-                                                      className="ng-star-inserted"
-                                                    />
-                                                  )}
-                                                  {data[key]?.isBookmaker ===
-                                                  1 ? (
-                                                    <span className="icon_bookmaker ng-star-inserted">
-                                                      BM
-                                                    </span>
-                                                  ) : (
-                                                    <span
-                                                      style={{
-                                                        height: "20px",
-                                                        width: "20px",
-                                                        marginLeft: "4px",
-                                                      }}
-                                                      className="ng-star-inserted"
-                                                    />
-                                                  )}
-                                                  {/* {data?.[key]?.isTv === 1 && (
+                                            </div>
+                                            <div className="game-icons">
+                                              <div className="icons_market">
+                                                {data[key]?.isFancy === 1 ? (
+                                                  <span className="icon_fancy ng-star-inserted">
+                                                    F
+                                                  </span>
+                                                ) : (
+                                                  <span
+                                                    style={{
+                                                      height: "20px",
+                                                      width: "20px",
+                                                      marginLeft: "4px",
+                                                    }}
+                                                    className="ng-star-inserted"
+                                                  />
+                                                )}
+                                                {data[key]?.isBookmaker ===
+                                                1 ? (
+                                                  <span className="icon_bookmaker ng-star-inserted">
+                                                    BM
+                                                  </span>
+                                                ) : (
+                                                  <span
+                                                    style={{
+                                                      height: "20px",
+                                                      width: "20px",
+                                                      marginLeft: "4px",
+                                                    }}
+                                                    className="ng-star-inserted"
+                                                  />
+                                                )}
+                                                {/* {data?.[key]?.isTv === 1 && (
                                                     <span className="icon_fancy ng-star-inserted">
                                                       T
                                                     </span>
                                                   )} */}
-                                                  {data?.[key]?.isTv === 1 ? (
-                                                    <span className="icon_game ng-star-inserted">
-                                                      <img
-                                                        src="/images/tv.svg"
-                                                        className="img-fluid"
-                                                      />
-                                                    </span>
-                                                  ) : (
-                                                    <span
-                                                      style={{
-                                                        height: "20px",
-                                                        width: "20px",
-                                                        marginLeft: "4px",
-                                                      }}
-                                                      className="ng-star-inserted"
+                                                {data?.[key]?.isTv === 1 ? (
+                                                  <span className="icon_game ng-star-inserted">
+                                                    <img
+                                                      src="/images/tv.svg"
+                                                      className="img-fluid"
                                                     />
-                                                  )}
-                                                </div>
-                                                {data?.[key]?.inPlay === 1 ? (
-                                                  <div className="game-date inplay ng-star-inserted">
-                                                    <span>Live</span>
-                                                  </div>
+                                                  </span>
                                                 ) : (
                                                   <span
                                                     style={{
@@ -232,70 +250,85 @@ const GroupEvents = () => {
                                                   />
                                                 )}
                                               </div>
+                                              {data?.[key]?.inPlay === 1 ? (
+                                                <div className="game-date inplay ng-star-inserted">
+                                                  <span>Live</span>
+                                                </div>
+                                              ) : (
+                                                <span
+                                                  style={{
+                                                    height: "20px",
+                                                    width: "20px",
+                                                    marginLeft: "4px",
+                                                  }}
+                                                  className="ng-star-inserted"
+                                                />
+                                              )}
                                             </div>
                                           </div>
-                                          <div className="col-md-6 text-center">
-                                            <div className="row g-0 ng-star-inserted">
-                                              <div className="col-md-4 col-4">
-                                                <div className="h-backLay">
-                                                  <div className="back bl-box">
-                                                    <span className="d-block bet-button-price">
-                                                      {data?.[key]?.[0]?.ex
-                                                        ?.availableToBack[0]
-                                                        ?.price || "-"}
-                                                    </span>
-                                                  </div>
-                                                  <div className="bl-box lay">
-                                                    <span className="d-block bet-button-price">
-                                                      {data?.[key]?.[0]?.ex
-                                                        ?.availableToLay[0]
-                                                        ?.size || "-"}
-                                                    </span>
-                                                  </div>
+                                        </div>
+                                        <div className="col-md-6 text-center">
+                                          <div className="row g-0 ng-star-inserted">
+                                            <div className="col-md-4 col-4">
+                                              <div className="h-backLay">
+                                                <div className="back bl-box">
+                                                  <span className="d-block bet-button-price">
+                                                    {data?.[key]?.[0]?.ex
+                                                      ?.availableToBack[0]
+                                                      ?.price || "-"}
+                                                  </span>
+                                                </div>
+                                                <div className="bl-box lay">
+                                                  <span className="d-block bet-button-price">
+                                                    {data?.[key]?.[0]?.ex
+                                                      ?.availableToLay[0]
+                                                      ?.size || "-"}
+                                                  </span>
                                                 </div>
                                               </div>
-                                              <div className="col-md-4 col-4">
-                                                <div className="h-backLay">
-                                                  <div className="back bl-box">
-                                                    <span className="d-block bet-button-price">
-                                                      {data?.[key]?.[2]?.ex
-                                                        ?.availableToBack[0]
-                                                        ?.price || "-"}
-                                                    </span>
-                                                  </div>
-                                                  <div className="bl-box lay">
-                                                    <span className="d-block bet-button-price">
-                                                      {data?.[key]?.[2]?.ex
-                                                        ?.availableToLay[0]
-                                                        ?.price || "-"}
-                                                    </span>
-                                                  </div>
+                                            </div>
+                                            <div className="col-md-4 col-4">
+                                              <div className="h-backLay">
+                                                <div className="back bl-box">
+                                                  <span className="d-block bet-button-price">
+                                                    {data?.[key]?.[2]?.ex
+                                                      ?.availableToBack[0]
+                                                      ?.price || "-"}
+                                                  </span>
+                                                </div>
+                                                <div className="bl-box lay">
+                                                  <span className="d-block bet-button-price">
+                                                    {data?.[key]?.[2]?.ex
+                                                      ?.availableToLay[0]
+                                                      ?.price || "-"}
+                                                  </span>
                                                 </div>
                                               </div>
-                                              <div className="col-md-4 col-4">
-                                                <div className="h-backLay">
-                                                  <div className="back bl-box">
-                                                    <span className="d-block bet-button-price">
-                                                      {data?.[key]?.[1]?.ex
-                                                        ?.availableToBack[0]
-                                                        ?.price || "-"}
-                                                    </span>
-                                                  </div>
-                                                  <div className="bl-box lay">
-                                                    <span className="d-block bet-button-price">
-                                                      {data?.[key]?.[1]?.ex
-                                                        ?.availableToLay[0]
-                                                        ?.price || "-"}
-                                                    </span>
-                                                  </div>
+                                            </div>
+                                            <div className="col-md-4 col-4">
+                                              <div className="h-backLay">
+                                                <div className="back bl-box">
+                                                  <span className="d-block bet-button-price">
+                                                    {data?.[key]?.[1]?.ex
+                                                      ?.availableToBack[0]
+                                                      ?.price || "-"}
+                                                  </span>
+                                                </div>
+                                                <div className="bl-box lay">
+                                                  <span className="d-block bet-button-price">
+                                                    {data?.[key]?.[1]?.ex
+                                                      ?.availableToLay[0]
+                                                      ?.price || "-"}
+                                                  </span>
                                                 </div>
                                               </div>
                                             </div>
                                           </div>
                                         </div>
                                       </div>
-                                    );
-                                  })
+                                    </div>
+                                  );
+                                })
                               : null}
                           </div>
                         </div>
