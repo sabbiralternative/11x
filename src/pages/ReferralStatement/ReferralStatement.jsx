@@ -4,8 +4,11 @@ import { DatePicker } from "rsuite";
 import "rsuite/DateRangePicker/styles/index.css";
 import moment from "moment";
 import { useGetIndex } from "../../hooks";
+import useLanguage from "../../hooks/use-language";
+import { LanguageKey } from "../../const";
 
 const ReferralStatement = () => {
+  const { getLanguage } = useLanguage();
   const [startDate, setStartDate] = useState(
     new Date(new Date().setDate(new Date().getDate() - 7)),
   );
@@ -20,7 +23,7 @@ const ReferralStatement = () => {
   return (
     <div className="main a23_css">
       <div className="main-content">
-        <p>Referral Date</p>
+        <p>{getLanguage(LanguageKey.REFERRAL_DATE)}</p>
         <div
           className="bg-secondary"
           style={{
@@ -39,7 +42,7 @@ const ReferralStatement = () => {
                 fontSize: "12px",
               }}
             >
-              From Date
+              {getLanguage(LanguageKey.FROM_DATE)}
             </p>
             <DatePicker
               onChange={(date) => setStartDate(date)}
@@ -54,7 +57,7 @@ const ReferralStatement = () => {
                 fontSize: "12px",
               }}
             >
-              To Date
+              {getLanguage(LanguageKey.TO_DATE)}
             </p>
             <DatePicker
               onChange={(date) => setEndDate(date)}
@@ -77,7 +80,7 @@ const ReferralStatement = () => {
               justifyContent: "center",
             }}
           >
-            Submit
+            {getLanguage(LanguageKey.SUBMIT)}
           </button>
         </div>
         {data && (
@@ -109,7 +112,8 @@ const ReferralStatement = () => {
                         flex: 1,
                       }}
                     >
-                      Total Clients <span>{data?.total_clients}</span>
+                      {getLanguage(LanguageKey.TOTAL_CLIENTS)}{" "}
+                      <span>{data?.total_clients}</span>
                     </p>
                     <p
                       style={{
@@ -119,7 +123,8 @@ const ReferralStatement = () => {
                         flex: 1,
                       }}
                     >
-                      Total Deposit <span>{data?.total_deposit}</span>
+                      {getLanguage(LanguageKey.TOTAL_DEPOSIT)}
+                      <span>{data?.total_deposit}</span>
                     </p>
                     <p
                       style={{
@@ -130,7 +135,7 @@ const ReferralStatement = () => {
                         flex: 1,
                       }}
                     >
-                      <span>Total Withdraw</span>
+                      <span>{getLanguage(LanguageKey.TOTAL_WITHDRAW)}</span>
                       <span style={{ marginRight: "70px" }}>
                         {data?.total_withdraw}
                       </span>

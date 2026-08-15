@@ -6,8 +6,11 @@ import {
   setForceChangePassword,
   setShowLogin,
 } from "../../../redux/features/global/globalSlice";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const ForceChangePassword = () => {
+  const { getLanguage } = useLanguage();
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
   const [handleChangePassword] = useChangePasswordMutation();
@@ -68,7 +71,7 @@ const ForceChangePassword = () => {
                         htmlFor="exampleInputEmail1"
                         className="text-uppercase"
                       >
-                        Old Password
+                        {getLanguage(LanguageKey.OLD_PASSWORD)}
                       </label>
                       <input
                         {...register("oldPassword", { required: true })}
@@ -82,7 +85,7 @@ const ForceChangePassword = () => {
                         htmlFor="exampleInputPassword1"
                         className="text-uppercase"
                       >
-                        New Password
+                        {getLanguage(LanguageKey.NEW_PASSWORD)}
                       </label>
                       <input
                         {...register("password", {
@@ -99,7 +102,7 @@ const ForceChangePassword = () => {
                         htmlFor="exampleInputPassword1"
                         className="text-uppercase"
                       >
-                        RE-TYPE PASSWORD
+                        {getLanguage(LanguageKey.CONFIRM_PASSWORD)}
                       </label>
                       <input
                         {...register("passVerify", {
@@ -117,7 +120,7 @@ const ForceChangePassword = () => {
                       type="submit"
                       className="btn btn-login"
                     >
-                      Change Password
+                      {getLanguage(LanguageKey.CHANGE_PASSWORD)}
                     </button>
                   </form>
                 </div>

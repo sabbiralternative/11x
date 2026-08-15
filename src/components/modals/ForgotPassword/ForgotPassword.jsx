@@ -14,8 +14,11 @@ import {
   useForgotPasswordMutation,
   useGetOtpMutation,
 } from "../../../redux/features/auth/authApi";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const ForgotPassword = () => {
+  const { getLanguage } = useLanguage();
   const dispatch = useDispatch();
   const forgotPasswordRef = useRef();
   const navigate = useNavigate();
@@ -107,7 +110,7 @@ const ForgotPassword = () => {
                         htmlFor="exampleInputEmail1"
                         className="text-uppercase"
                       >
-                        Mobile No
+                        {getLanguage(LanguageKey.MOBILE_NUMBER)}
                       </label>
                       <input
                         onChange={(e) => handleMobileInputChange(e)}
@@ -122,14 +125,14 @@ const ForgotPassword = () => {
                       className="btn btn-login"
                     >
                       {" "}
-                      Get OTP
+                      {getLanguage(LanguageKey.GET_OTP)}
                     </button>
                     <div className="form-group">
                       <label
                         htmlFor="exampleInputPassword1"
                         className="text-uppercase"
                       >
-                        OTP
+                        {getLanguage(LanguageKey.OTP)}
                       </label>
                       <input
                         {...register("otp", { required: true })}
@@ -144,7 +147,7 @@ const ForgotPassword = () => {
                         htmlFor="exampleInputPassword1"
                         className="text-uppercase"
                       >
-                        Password
+                        {getLanguage(LanguageKey.PASSWORD)}
                       </label>
                       <input
                         {...register("password", { required: true })}
@@ -158,7 +161,7 @@ const ForgotPassword = () => {
                         htmlFor="exampleInputPassword1"
                         className="text-uppercase"
                       >
-                        Confirm Password
+                        {getLanguage(LanguageKey.CONFIRM_PASSWORD)}
                       </label>
                       <input
                         {...register("confirmPassword", { required: true })}
@@ -170,7 +173,7 @@ const ForgotPassword = () => {
 
                     <button type="submit" className="btn btn-login">
                       {" "}
-                      Change Password
+                      {getLanguage(LanguageKey.CHANGE_PASSWORD)}
                     </button>
                   </form>
                 </div>

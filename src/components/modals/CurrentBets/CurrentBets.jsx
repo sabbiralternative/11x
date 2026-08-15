@@ -2,8 +2,11 @@ import { useParams } from "react-router-dom";
 import { useCurrentBets } from "../../../hooks/currentBets";
 import { useRef } from "react";
 import useCloseModalClickOutside from "../../../hooks/closeModal";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const CurrentBets = ({ setShowCurrentBets }) => {
+  const { getLanguage } = useLanguage();
   const currentBetRef = useRef();
   const { eventId } = useParams();
   const { data } = useCurrentBets(eventId);
@@ -31,7 +34,9 @@ const CurrentBets = ({ setShowCurrentBets }) => {
           <div className="modal-content" ref={currentBetRef}>
             <div className="modal-content modal-content-centered">
               <div className="modal-header">
-                <h5 className="modal-title">Open Bets</h5>
+                <h5 className="modal-title">
+                  {getLanguage(LanguageKey.OPEN_BETS)}
+                </h5>
                 <button
                   onClick={() => setShowCurrentBets(false)}
                   type="button"
@@ -46,7 +51,9 @@ const CurrentBets = ({ setShowCurrentBets }) => {
                 <div>
                   <div className="card mb-1 place-bet">
                     <div className="card-header">
-                      <h6 className="card-header game-heading">Open Bets</h6>
+                      <h6 className="card-header game-heading">
+                        {getLanguage(LanguageKey.OPEN_BETS)}
+                      </h6>
                     </div>
                     <div className="card-body p-0">
                       <div id="OpenBets">

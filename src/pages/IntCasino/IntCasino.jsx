@@ -4,8 +4,11 @@ import Tab2 from "../../components/modules/IntCasino/Tab2";
 import CasinoThumbnail from "../../components/modules/IntCasino/CasinoThumbnail";
 import useGetUltraLobby from "../../hooks/ultraLobby";
 import { Loader } from "rsuite";
+import useLanguage from "../../hooks/use-language";
+import { LanguageKey } from "../../const";
 
 const IntCasino = () => {
+  const { getLanguage } = useLanguage();
   const { data, isLoading } = useGetUltraLobby();
   const [subProvider, setSubProvider] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -96,7 +99,7 @@ const IntCasino = () => {
                           className="img-fluid game-icon-img"
                           src="/images/menu-99998.png"
                         />
-                        &nbsp; Int Casino
+                        &nbsp; {getLanguage(LanguageKey.INT_CASINO)}
                       </span>
                     </div>
                     <div className="col-md-2 text-center d-none d-md-block" />

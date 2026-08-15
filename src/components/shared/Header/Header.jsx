@@ -20,14 +20,13 @@ import DownloadAPK from "../../modals/DownloadAPK/DownloadAPK";
 import useWhatsApp from "../../../hooks/whatsapp";
 import BuildVersion from "../../modals/BuildVersion/BuildVersion";
 import Error from "../../UI/Error/Error";
-import useLanguage from "../../../hooks/useLanguage";
 import Language from "../../modals/Language";
 import img from "../../../assets/img";
-import { languageValue } from "../../../utils/language";
 import { LanguageKey } from "../../../const";
+import useLanguage from "../../../hooks/use-language";
 
 const Header = ({ setIsOpenSidebar }) => {
-  const { valueByLanguage, setLanguage } = useLanguage();
+  const { getLanguage, setLanguage } = useLanguage();
   const [showLanguage, setShowLanguage] = useState(false);
   const ref = useRef();
   const [showNotification, setShowNotification] = useState(false);
@@ -191,14 +190,16 @@ const Header = ({ setIsOpenSidebar }) => {
                 >
                   <li className="nav-item balance_li">
                     <a className="nav-link">
-                      <i className="bi bi-bank" /> Balance
+                      <i className="bi bi-bank" />{" "}
+                      {getLanguage(LanguageKey.BALANCE)}
                       <b>{data?.availBalance}</b>
                     </a>
                   </li>
                   <li className="nav-item expo_li">
                     <a className="nav-link">
                       <i className="bi bi-bar-chart" />
-                      expo. <b>{data?.deductedExposure}</b>
+                      {getLanguage(LanguageKey.EXPOSURE)}{" "}
+                      <b>{data?.deductedExposure}</b>
                     </a>
                   </li>
                   <li className="nav-item expo_li">
@@ -247,10 +248,7 @@ const Header = ({ setIsOpenSidebar }) => {
                 >
                   <a id="loginbutton" className="nav-link">
                     <i className="bi bi-box-arrow-in-right" />
-                    <span>
-                      {" "}
-                      {languageValue(valueByLanguage, LanguageKey.LOGIN)}
-                    </span>
+                    <span> {getLanguage(LanguageKey.LOGIN)}</span>
                   </a>
                 </li>
                 <li
@@ -259,7 +257,7 @@ const Header = ({ setIsOpenSidebar }) => {
                 >
                   <a className="nav-link">
                     <i className="bi bi-box-arrow-in-right" />
-                    <span>Register</span>
+                    <span>{getLanguage(LanguageKey.REGISTER)}</span>
                   </a>
                 </li>
                 <li className="nav-item expo_li">

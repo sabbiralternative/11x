@@ -1,11 +1,14 @@
 import { Settings } from "../../../api";
 import img from "../../../assets/img";
+import { LanguageKey } from "../../../const";
+import useLanguage from "../../../hooks/use-language";
 
 const AppPopup = ({
   setIsModalOpen,
   // showNotification,
   // filteredNotification,
 }) => {
+  const { getLanguage } = useLanguage();
   const closeAppModal = () => {
     const expiryTime = new Date().getTime() + 24 * 60 * 60 * 1000;
     localStorage.setItem("installPromptExpiryTime", expiryTime);
@@ -59,7 +62,7 @@ const AppPopup = ({
             <img src={img.playStore} alt="" />
           </div>
           <div className="app-text">
-            <h2>Download Android Application</h2>
+            <h2>{getLanguage(LanguageKey.DOWNLOAD_ANDROID_APPLICATION)}</h2>
 
             <div className="star">
               <img src={img.appStar} alt="star" />
@@ -75,7 +78,7 @@ const AppPopup = ({
           onClick={handleDownload}
           className="install-btn"
         >
-          <button>Install</button>
+          <button>{getLanguage(LanguageKey.INSTALL)}</button>
         </a>
       </div>
     </div>

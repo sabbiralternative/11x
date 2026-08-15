@@ -2,8 +2,11 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Settings } from "../../../api";
 import WarningCondition from "../../UI/WarningCondition/WarningCondition";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const ExtraTab = () => {
+  const { getLanguage } = useLanguage();
   const [showWarning, setShowWarning] = useState(false);
   const [gameInfo, setGameInfo] = useState({ gameName: "", gameId: "" });
   const navigate = useNavigate();
@@ -25,17 +28,17 @@ const ExtraTab = () => {
       <div className="row mx-0 mb-1 d-none d-md-flex">
         <div className="col-md-4 px-0">
           <Link to="/casino?product=All&category=All" className="button_dakred">
-            Our casino
+            {getLanguage(LanguageKey.OUR_CASINO)}
           </Link>
         </div>
         <div className="col-md-4 px-1">
           <Link to="/int-casino" className="button_darkyellow">
-            Int casino
+            {getLanguage(LanguageKey.INT_CASINO)}
           </Link>
         </div>
         <div className="col-md-4 px-0">
           <a onClick={handleNavigateToIFrame} className="button_orange">
-            Sports Book
+            {getLanguage(LanguageKey.SPORTSBOOK)}
           </a>
         </div>
       </div>

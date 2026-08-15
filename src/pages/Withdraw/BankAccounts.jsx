@@ -4,6 +4,8 @@ import DeleteBank from "../../components/modals/Bank/DeleteBank";
 import { useDispatch, useSelector } from "react-redux";
 import { setAddBank } from "../../redux/features/global/globalSlice";
 import img from "../../assets/img";
+import useLanguage from "../../hooks/use-language";
+import { LanguageKey } from "../../const";
 
 const BankAccounts = ({
   bankData,
@@ -14,6 +16,7 @@ const BankAccounts = ({
   setBank,
   bank,
 }) => {
+  const { getLanguage } = useLanguage();
   const dispatch = useDispatch();
   const { addBank } = useSelector((state) => state.global);
   const [removeBank, setRemoveBank] = useState("");
@@ -42,7 +45,9 @@ const BankAccounts = ({
             className="back-nav-bc "
           >
             <img loading="lazy" src={img?.backArrow} alt="" className="" />
-            <span className="back-nav-title-bc ellipsis ">Back to Amount</span>
+            <span className="back-nav-title-bc ellipsis ">
+              {getLanguage(LanguageKey.BACK_TO_AMOUNT)}
+            </span>
           </div>
 
           {/*   <!-- no bank account start -->
@@ -99,7 +104,9 @@ const BankAccounts = ({
                         }}
                         className=""
                       >
-                        <span className="">Bank :-</span>
+                        <span className="">
+                          {getLanguage(LanguageKey.BANK_NAME)} :-
+                        </span>
                         <span className="bank-detail-txt ">
                           {data?.bankName}
                         </span>
@@ -138,7 +145,9 @@ const BankAccounts = ({
                         }}
                         className=""
                       >
-                        <span className="">Account No :-</span>
+                        <span className="">
+                          {getLanguage(LanguageKey.ACCOUNT_NUMBER)} :-
+                        </span>
                         <span className="bank-detail-txt ">
                           {data?.accountNumber}
                         </span>
@@ -153,7 +162,9 @@ const BankAccounts = ({
                         }}
                         className=""
                       >
-                        <span className="">Upi ID :-</span>
+                        <span className="">
+                          {getLanguage(LanguageKey.UPI_ID)} :-
+                        </span>
                         <span className="bank-detail-txt ">{data?.upiId}</span>
                       </div>
                     </div>
@@ -361,7 +372,9 @@ const BankAccounts = ({
                 alt=""
                 className=""
               />
-              <span className="">Add Bank Account</span>
+              <span className="">
+                {getLanguage(LanguageKey.ADD_BANK_ACCOUNT)}
+              </span>
             </button>
             <button
               onClick={() => {
@@ -372,7 +385,7 @@ const BankAccounts = ({
               className="process-btn "
               disabled={!bank}
             >
-              <span className="">Proceed</span>
+              <span className="">{getLanguage(LanguageKey.PROCEED)}</span>
             </button>
           </div>
 

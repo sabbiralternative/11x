@@ -8,12 +8,11 @@ import useLogo from "../../../hooks/useLogo";
 // import Referral from "../../modals/Referral/Referral";
 import useWhatsApp from "../../../hooks/whatsapp";
 import img from "../../../assets/img";
-import useLanguage from "../../../hooks/useLanguage";
-import { languageValue } from "../../../utils/language";
 import { LanguageKey } from "../../../const";
+import useLanguage from "../../../hooks/use-language";
 
 const Sidebar = ({ setIsOpenSidebar }) => {
-  const { valueByLanguage } = useLanguage();
+  const { getLanguage } = useLanguage();
   const { closePopupForForever } = useSelector((state) => state.global);
   const { data: socialLink } = useWhatsApp();
   // const [showReferral, setShowReferral] = useState(false);
@@ -52,23 +51,19 @@ const Sidebar = ({ setIsOpenSidebar }) => {
             <li onClick={() => setIsOpenSidebar(false)} className="nav-item">
               <Link to="/" className="nav-link final-link">
                 <img src="/images/menu-home.png" />
-                <span> {languageValue(valueByLanguage, LanguageKey.HOME)}</span>
+                <span> {getLanguage(LanguageKey.HOME)}</span>
               </Link>
             </li>
             <li onClick={() => setIsOpenSidebar(false)} className="nav-item">
               <Link to="/deposit" className="nav-link final-link">
                 <img src={img.profileWallet} />
-                <span>
-                  {languageValue(valueByLanguage, LanguageKey.DEPOSIT)}
-                </span>
+                <span>{getLanguage(LanguageKey.DEPOSIT)}</span>
               </Link>
             </li>
             <li onClick={() => setIsOpenSidebar(false)} className="nav-item">
               <Link to="/withdraw" className="nav-link final-link">
                 <img src={img.profileWallet} />
-                <span>
-                  {languageValue(valueByLanguage, LanguageKey.WITHDRAW)}
-                </span>
+                <span>{getLanguage(LanguageKey.WITHDRAW)}</span>
               </Link>
             </li>
             <li onClick={() => setIsOpenSidebar(false)} className="nav-item">
@@ -77,7 +72,7 @@ const Sidebar = ({ setIsOpenSidebar }) => {
                 className="nav-link final-link"
               >
                 <img src={img.profileWallet} />
-                <span>Deposit Withdraw Report</span>
+                <span>{getLanguage(LanguageKey.DEPOSIT_WITHDRAW_REPORT)}</span>
               </Link>
             </li>
 
@@ -87,7 +82,7 @@ const Sidebar = ({ setIsOpenSidebar }) => {
             >
               <Link to="/betting-profit-loss" className="nav-link final-link">
                 <img src={img.bettingProfitLoss} className="img-fluid" />
-                <span>profit &amp; loss</span>
+                <span>{getLanguage(LanguageKey.PROFIT_LOSS)}</span>
               </Link>
             </li>
 
@@ -97,9 +92,7 @@ const Sidebar = ({ setIsOpenSidebar }) => {
             >
               <Link to="/my-bank-details" className="nav-link final-link">
                 <img src={img.bettingProfitLoss} className="img-fluid" />
-                <span>
-                  {languageValue(valueByLanguage, LanguageKey.MY_BANK_DETAILS)}
-                </span>
+                <span>{getLanguage(LanguageKey.MY_BANK_DETAILS)}</span>
               </Link>
             </li>
             <li
@@ -108,9 +101,7 @@ const Sidebar = ({ setIsOpenSidebar }) => {
             >
               <Link to="/bonus-statement" className="nav-link final-link">
                 <img src={img.bettingProfitLoss} className="img-fluid" />
-                <span>
-                  {languageValue(valueByLanguage, LanguageKey.BONUS_STATEMENT)}
-                </span>
+                <span>{getLanguage(LanguageKey.BONUS_STATEMENT)}</span>
               </Link>
             </li>
             {socialLink?.referral && (
@@ -122,7 +113,7 @@ const Sidebar = ({ setIsOpenSidebar }) => {
               >
                 <Link to="/affiliate" className="nav-link final-link">
                   <img src={img.bettingProfitLoss} className="img-fluid" />
-                  <span>Affiliate</span>
+                  <span>{getLanguage(LanguageKey.AFFILIATE)}</span>
                 </Link>
               </li>
             )}
@@ -135,7 +126,7 @@ const Sidebar = ({ setIsOpenSidebar }) => {
             >
               <Link to="/promotions" className="nav-link final-link">
                 <img src={img.bettingProfitLoss} className="img-fluid" />
-                <span>Promos & Bonus</span>
+                <span>{getLanguage(LanguageKey.PROMOTION_AND_BONUSES)}</span>
               </Link>
             </li>
             <li
@@ -146,7 +137,7 @@ const Sidebar = ({ setIsOpenSidebar }) => {
             >
               <Link to="/lossback-bonus" className="nav-link final-link">
                 <img src={img.bettingProfitLoss} className="img-fluid" />
-                <span>Lossback Bonus</span>
+                <span>{getLanguage(LanguageKey.LOSSBACK_BONUS)}</span>
               </Link>
             </li>
             {closePopupForForever && (
@@ -158,7 +149,7 @@ const Sidebar = ({ setIsOpenSidebar }) => {
               >
                 <Link to="/app-only-bonus" className="nav-link final-link">
                   <img src={img.bettingProfitLoss} className="img-fluid" />
-                  <span>App Only Bonus</span>
+                  <span>{getLanguage(LanguageKey.APP_ONLY_BONUS)}</span>
                 </Link>
               </li>
             )}
@@ -179,7 +170,7 @@ const Sidebar = ({ setIsOpenSidebar }) => {
             >
               <Link to="/unsettled-bets" className="nav-link final-link">
                 <img src="/images/bets.svg" className="img-fluid" />
-                <span>unsettled bets</span>
+                <span>{getLanguage(LanguageKey.OPEN_BETS)}</span>
               </Link>
             </li>
 
@@ -192,7 +183,7 @@ const Sidebar = ({ setIsOpenSidebar }) => {
             >
               <Link className="nav-link final-link">
                 <img src="/images/terms.svg" className="img-fluid" />
-                <span>rules</span>
+                <span>{getLanguage(LanguageKey.RULES)}</span>
               </Link>
             </li>
             <li
@@ -201,7 +192,7 @@ const Sidebar = ({ setIsOpenSidebar }) => {
             >
               <Link to="/edit-stake" className="nav-link final-link">
                 <img src="/images/edit.svg" className="img-fluid" />
-                <span>edit stake</span>
+                <span>{getLanguage(LanguageKey.STAKE_SETTING)}</span>
               </Link>
             </li>
 
@@ -211,7 +202,9 @@ const Sidebar = ({ setIsOpenSidebar }) => {
             >
               <Link to="/profile" className="nav-link final-link">
                 <img src="/images/profile_image.png" className="img-fluid" />
-                <span>Profile ({user})</span>
+                <span>
+                  {getLanguage(LanguageKey.PROFILE)} ({user})
+                </span>
               </Link>
             </li>
             {socialLink?.whatsapplink && (
@@ -224,7 +217,7 @@ const Sidebar = ({ setIsOpenSidebar }) => {
               >
                 <a className="nav-link final-link">
                   <img src={img.whatsapp} className="img-fluid" />
-                  <span>All Support </span>
+                  <span>{getLanguage(LanguageKey.ALL_SUPPORT)} </span>
                 </a>
               </li>
             )}
@@ -238,7 +231,7 @@ const Sidebar = ({ setIsOpenSidebar }) => {
               >
                 <a className="nav-link final-link">
                   <img src={img.whatsapp} className="img-fluid" />
-                  <span>Customer Support </span>
+                  <span>{getLanguage(LanguageKey.CUSTOMER_SUPPORT)} </span>
                 </a>
               </li>
             )}
@@ -249,9 +242,7 @@ const Sidebar = ({ setIsOpenSidebar }) => {
             >
               <Link className="nav-link final-link">
                 <img src="/images/logout.svg" className="img-fluid" />
-                <span>
-                  {languageValue(valueByLanguage, LanguageKey.LOGOUT)}
-                </span>
+                <span>{getLanguage(LanguageKey.LOGOUT)}</span>
               </Link>
             </li>
           </ul>

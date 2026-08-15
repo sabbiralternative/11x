@@ -16,8 +16,11 @@ import MatchOdds from "../../components/modules/EventDetails/MatchOdds";
 import Bookmaker from "../../components/modules/EventDetails/Bookmaker";
 import Premium from "../../components/modules/EventDetails/Premium";
 import ToggleButtons from "../../components/modules/EventDetails/ToggleButtons";
+import useLanguage from "../../hooks/use-language";
+import { LanguageKey } from "../../const";
 
 const EventDetails = () => {
+  const { getLanguage } = useLanguage();
   const [fancyPremiumTab, setFancyPremiumTab] = useState("");
   const [showCurrentBets, setShowCurrentBets] = useState(false);
   const [showIFrame, setShowIFrame] = useState(false);
@@ -153,7 +156,7 @@ const EventDetails = () => {
                     onClick={() => setShowCurrentBets(true)}
                     className="best_link d-lg-none ng-star-inserted"
                   >
-                    Bets
+                    {getLanguage(LanguageKey.CURRENT_BETS)}
                   </a>
                   {data?.score?.hasVideo && (
                     <a

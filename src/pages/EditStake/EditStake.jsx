@@ -2,8 +2,11 @@ import { useForm } from "react-hook-form";
 import { useEditButtonValuesMutation } from "../../redux/features/events/events";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import useLanguage from "../../hooks/use-language";
+import { LanguageKey } from "../../const";
 
 const EditStake = () => {
+  const { getLanguage } = useLanguage();
   const [editButtonValue] = useEditButtonValuesMutation();
   const navigate = useNavigate();
   const stakes = JSON.parse(localStorage.getItem("buttonValue"));
@@ -37,7 +40,9 @@ const EditStake = () => {
       <div className="section accounts">
         <div className="row">
           <div className="col-xl-12">
-            <h2 className="userscreen-title">Stake Setting</h2>
+            <h2 className="userscreen-title">
+              {getLanguage(LanguageKey.STAKE_SETTING)}
+            </h2>
             <form
               onSubmit={handleSubmit(onSubmit)}
               className="card stakesettingui"
@@ -65,7 +70,7 @@ const EditStake = () => {
 
                   <div className="col-md-12">
                     <button type="submit" className="btnsave">
-                      submit
+                      {getLanguage(LanguageKey.SUBMIT)}
                     </button>
                   </div>
                 </div>

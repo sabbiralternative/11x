@@ -4,8 +4,11 @@ import { useSelector } from "react-redux";
 import { userToken } from "../../redux/features/auth/authSlice";
 import moment from "moment";
 import useBettingProfitLoss from "../../hooks/useBettingProfitLoss";
+import useLanguage from "../../hooks/use-language";
+import { LanguageKey } from "../../const";
 
 const BettingProfitLoss = () => {
+  const { getLanguage } = useLanguage();
   const { passbook } = useBettingProfitLoss();
   const navigate = useNavigate();
   const token = useSelector(userToken);
@@ -90,7 +93,7 @@ const BettingProfitLoss = () => {
                           justifyContent: "center",
                         }}
                       >
-                        <span>Total PL</span>
+                        <span>{getLanguage(LanguageKey.TOTAL_PL)}</span>
                         <span style={{ marginTop: "-2px", marginLeft: "4px" }}>
                           :
                         </span>
@@ -193,7 +196,7 @@ const BettingProfitLoss = () => {
                                 alignItems: "center",
                               }}
                             >
-                              <span>Balance:</span>
+                              <span>{getLanguage(LanguageKey.BALANCE)}:</span>
                               <span style={{ fontWeight: "600" }}>
                                 ₹ {item?.balance}
                               </span>
@@ -216,7 +219,7 @@ const BettingProfitLoss = () => {
                 }}
               >
                 <h2 style={{ fontSize: "16px" }}>
-                  No betting profit and loss yet!
+                  {getLanguage(LanguageKey.NO_BETTING_PROFIT_LOSS_YET)}!
                 </h2>
               </div>
             )}

@@ -4,8 +4,11 @@ import Tab2 from "../../components/modules/Casino/Tab2";
 import CasinoThumbnail from "../../components/modules/Casino/CasinoThumbnail";
 import { useGetIndex } from "../../hooks";
 import { useLocation } from "react-router-dom";
+import useLanguage from "../../hooks/use-language";
+import { LanguageKey } from "../../const";
 
 const Casino = () => {
+  const { getLanguage } = useLanguage();
   const { data } = useGetIndex({
     type: "99_all_casino",
   });
@@ -103,7 +106,7 @@ const Casino = () => {
                           className="img-fluid game-icon-img"
                           src="/images/menu-99999.png"
                         />
-                        &nbsp; Casino
+                        &nbsp; {getLanguage(LanguageKey.CASINO)}
                       </span>
                     </div>
                     <div className="col-md-2 text-center d-none d-md-block" />

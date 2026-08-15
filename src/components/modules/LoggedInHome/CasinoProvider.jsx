@@ -2,8 +2,11 @@ import { useNavigate } from "react-router-dom";
 import "./CasinoProvider.css";
 import { useSelector } from "react-redux";
 import toast from "react-hot-toast";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const CasinoProvider = ({ our_provider }) => {
+  const { getLanguage } = useLanguage();
   const navigate = useNavigate();
   const { token } = useSelector((state) => state.auth);
 
@@ -25,7 +28,7 @@ const CasinoProvider = ({ our_provider }) => {
               src="/images/download (1).png"
               className="img-fluid game-icon-img"
             />{" "}
-            &nbsp; casino provider{" "}
+            &nbsp; {getLanguage(LanguageKey.CASINO_PROVIDERS)}{" "}
           </span>
         </div>
         <div className="csn_div">

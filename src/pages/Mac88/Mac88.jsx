@@ -4,8 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import useGetMac88 from "../../hooks/useGetMac88";
 import { setShowLogin } from "../../redux/features/global/globalSlice";
 import toast from "react-hot-toast";
+import useLanguage from "../../hooks/use-language";
+import { LanguageKey } from "../../const";
 
 const Mac88 = () => {
+  const { getLanguage } = useLanguage();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [warnMessage, setWarnMessage] = useState("");
@@ -48,7 +51,7 @@ const Mac88 = () => {
                           className="img-fluid game-icon-img"
                           src="/images/menu-99999.png"
                         />
-                        Mac88
+                        {getLanguage(LanguageKey.MAC88)}
                       </span>
                     </div>
                     <div className="col-md-2 text-center d-none d-md-block" />

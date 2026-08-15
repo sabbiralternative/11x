@@ -2,8 +2,11 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const TopGames = ({ top_games }) => {
+  const { getLanguage } = useLanguage();
   const navigate = useNavigate();
   const { token } = useSelector((state) => state.auth);
   const [slice, setSlice] = useState(4);
@@ -32,7 +35,7 @@ const TopGames = ({ top_games }) => {
           onClick={() => setSlice((prev) => prev + 8)}
           className="btn_allgames more-btn d-block"
         >
-          More Games &gt;&gt;
+          {getLanguage(LanguageKey.MORE_GAMES)} &gt;&gt;
         </a>
 
         {slice > 4 && (
@@ -40,7 +43,7 @@ const TopGames = ({ top_games }) => {
             onClick={() => setSlice((prev) => (prev > 4 ? prev - 8 : prev))}
             className="btn_allgames less-btn d-block"
           >
-            &lt;&lt; Less Games
+            &lt;&lt; {getLanguage(LanguageKey.LESS_GAMES)}
           </a>
         )}
       </div>

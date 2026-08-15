@@ -1,14 +1,13 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { useGroupQuery } from "../../../../redux/features/events/events";
 import { useEffect, useState } from "react";
-import useLanguage from "../../../../hooks/useLanguage";
-import { languageValue } from "../../../../utils/language";
 import { LanguageKey } from "../../../../const";
 import { FilterLiveVirtual } from "../../../../utils/filter-live-virtual";
+import useLanguage from "../../../../hooks/use-language";
 
 const GroupEvents = () => {
   const [liveVirtual, setLiveVirtual] = useState([]);
-  const { valueByLanguage } = useLanguage();
+  const { getLanguage } = useLanguage();
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   let tab = 0;
@@ -17,9 +16,9 @@ const GroupEvents = () => {
   }
 
   const eventName = {
-    4: languageValue(valueByLanguage, LanguageKey.CRICKET),
-    2: languageValue(valueByLanguage, LanguageKey.TENNIS),
-    1: languageValue(valueByLanguage, LanguageKey.FOOTBALL),
+    4: getLanguage(LanguageKey.CRICKET),
+    2: getLanguage(LanguageKey.TENNIS),
+    1: getLanguage(LanguageKey.FOOTBALL),
   };
   const navigate = useNavigate();
   const [categories, setCategories] = useState([]);
@@ -132,7 +131,7 @@ const GroupEvents = () => {
                                   <label
                                     htmlFor={`checkboxOne${category}-inplay`}
                                   >
-                                    LIVE
+                                    {getLanguage(LanguageKey.LIVE)}
                                   </label>
                                 </li>
                                 <li>
@@ -152,7 +151,7 @@ const GroupEvents = () => {
                                   <label
                                     htmlFor={`checkboxTwo${category}-inplay`}
                                   >
-                                    VIRTUAL
+                                    {getLanguage(LanguageKey.VIRTUAL)}
                                   </label>
                                 </li>
                               </ul>
@@ -252,7 +251,11 @@ const GroupEvents = () => {
                                               </div>
                                               {data?.[key]?.inPlay === 1 ? (
                                                 <div className="game-date inplay ng-star-inserted">
-                                                  <span>Live</span>
+                                                  <span>
+                                                    {getLanguage(
+                                                      LanguageKey.LIVE,
+                                                    )}
+                                                  </span>
                                                 </div>
                                               ) : (
                                                 <span

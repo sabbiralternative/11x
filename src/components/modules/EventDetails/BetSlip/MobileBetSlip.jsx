@@ -20,8 +20,11 @@ import {
 import useWhatsApp from "../../../../hooks/whatsapp";
 import { AxiosJSEncrypt } from "../../../../lib/AxiosJSEncrypt";
 import { isBetDelay, isDelay } from "../../../../utils/isBetDelay";
+import useLanguage from "../../../../hooks/use-language";
+import { LanguageKey } from "../../../../const";
 
 const MobileBetSlip = ({ currentPlaceBetEvent }) => {
+  const { getLanguage } = useLanguage();
   const { closePopupForForever } = useSelector((state) => state.global);
   const [isCashOut, setIsCashOut] = useState(false);
   const [profit, setProfit] = useState(0);
@@ -246,7 +249,7 @@ const MobileBetSlip = ({ currentPlaceBetEvent }) => {
                   <tr className="middlesex-col">
                     <td className="bet-odds">
                       <div>
-                        <small>odds</small>
+                        <small>{getLanguage(LanguageKey.ODDS)}</small>
                         <div className="input-group">
                           {!placeBetValues?.isWeak && (
                             <div
@@ -299,7 +302,7 @@ const MobileBetSlip = ({ currentPlaceBetEvent }) => {
                     </td>
                     <td className="bet-stakes">
                       <div className="form-group">
-                        <small>stakes</small>
+                        <small>{getLanguage(LanguageKey.STAKE)}</small>
                         <input
                           onChange={(e) => {
                             dispatch(setStake(e.target.value));
@@ -338,7 +341,7 @@ const MobileBetSlip = ({ currentPlaceBetEvent }) => {
                         onClick={() => dispatch(setStake(100))}
                         className="clear-both btn btn-secondary m-l-5 m-b-5 min-stake"
                       >
-                        min
+                        {getLanguage(LanguageKey.MIN)}
                       </button>
                       <button
                         type="button"
@@ -352,7 +355,7 @@ const MobileBetSlip = ({ currentPlaceBetEvent }) => {
                         }
                         className="btn btn-secondary m-l-5 m-b-5 max-stake"
                       >
-                        max
+                        {getLanguage(LanguageKey.MAX)}
                       </button>
                       {/* <button className="btn btn-secondary m-l-5 m-b-5 all-in-stake">
                         Edit Stake
@@ -364,7 +367,7 @@ const MobileBetSlip = ({ currentPlaceBetEvent }) => {
                         }}
                         className="btn btn-secondary m-l-5 m-b-5 clear-stake"
                       >
-                        clear
+                        {getLanguage(LanguageKey.CLEAR)}
                       </button>
                     </td>
                   </tr>
@@ -376,7 +379,7 @@ const MobileBetSlip = ({ currentPlaceBetEvent }) => {
                   type="button"
                   className="btn btn-sm btn-danger"
                 >
-                  cancel
+                  {getLanguage(LanguageKey.CANCEL)}
                 </button>
                 <button
                   type="button"
@@ -384,7 +387,7 @@ const MobileBetSlip = ({ currentPlaceBetEvent }) => {
                   disabled={!stake}
                   onClick={handleOrderBets}
                 >
-                  place bet
+                  {getLanguage(LanguageKey.PLACE_BET)}
                 </button>
               </div>
             </form>

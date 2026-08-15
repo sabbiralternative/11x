@@ -1,7 +1,10 @@
 import { useRef, useState } from "react";
 import useCloseModalClickOutside from "../../../hooks/closeModal";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const Rules = ({ setShowRules }) => {
+  const { getLanguage } = useLanguage();
   const rulesRef = useRef();
   const [tab, setTab] = useState(1);
 
@@ -38,7 +41,7 @@ const Rules = ({ setShowRules }) => {
               <div className="card rules-container ng-star-inserted">
                 <div className="card-header">
                   <h4 className="mb-0">
-                    Rules
+                    {getLanguage(LanguageKey.RULES)}
                     <button
                       onClick={() => setShowRules(false)}
                       type="button"

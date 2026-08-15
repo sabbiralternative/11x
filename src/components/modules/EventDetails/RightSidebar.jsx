@@ -4,8 +4,11 @@ import DesktopBetSlip from "./BetSlip/DesktopBetSlip";
 import { useAccessTokenMutation } from "../../../redux/features/casino/casino.api";
 import { useParams } from "react-router-dom";
 import { useCurrentBets } from "../../../hooks/currentBets";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const RightSidebar = ({ hasVideo }) => {
+  const { getLanguage } = useLanguage();
   const { eventTypeId, eventId } = useParams();
   const [showIFrame, setShowIFrame] = useState(false);
   const [getIFrame, { data: IFrame }] = useAccessTokenMutation();
@@ -33,7 +36,9 @@ const RightSidebar = ({ hasVideo }) => {
             onClick={() => setShowIFrame((prev) => !prev)}
             className="card-header game-heading"
           >
-            <span className="card-header-title"> Live Stream </span>
+            <span className="card-header-title">
+              {getLanguage(LanguageKey.LIVE_STREAM)}
+            </span>
             <span className="float-right">
               <a
                 aria-controls="collapseBasic"
@@ -81,7 +86,9 @@ const RightSidebar = ({ hasVideo }) => {
       <div>
         <div className="card mb-1 place-bet">
           <div className="card-header">
-            <h6 className="card-header game-heading">Open Bets</h6>
+            <h6 className="card-header game-heading">
+              {getLanguage(LanguageKey.OPEN_BETS)}
+            </h6>
           </div>
           <div className="card-body p-0">
             <div id="OpenBets">
@@ -132,7 +139,7 @@ const RightSidebar = ({ hasVideo }) => {
                               width: "100%",
                             }}
                           >
-                            No bet available
+                            {getLanguage(LanguageKey.NO_BET_AVAILABLE)}
                           </div>
                         )}
                       </div>

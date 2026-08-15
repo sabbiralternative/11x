@@ -4,8 +4,11 @@ import { useLiveCasinoIframeMutation } from "../../redux/features/casino/casino.
 import { useSelector } from "react-redux";
 import { Settings } from "../../api";
 import Loader from "../../components/shared/Loader/Loader";
+import useLanguage from "../../hooks/use-language";
+import { LanguageKey } from "../../const";
 
 const CasinoIFrame = () => {
+  const { getLanguage } = useLanguage();
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.auth);
   const [handleGetIFrame, { data, isLoading, isSuccess }] =
@@ -29,7 +32,7 @@ const CasinoIFrame = () => {
         <div className="casino_division">
           <h2 className="userscreen-title">
             <button onClick={() => navigate(-1)} className="btn-xs casino-back">
-              Back
+              {getLanguage(LanguageKey.BACK)}
             </button>
             <span>{user}</span>
           </h2>

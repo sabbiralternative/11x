@@ -21,8 +21,11 @@ import {
 import useWhatsApp from "../../../../hooks/whatsapp";
 import { AxiosJSEncrypt } from "../../../../lib/AxiosJSEncrypt";
 import { isBetDelay, isDelay } from "../../../../utils/isBetDelay";
+import useLanguage from "../../../../hooks/use-language";
+import { LanguageKey } from "../../../../const";
 
 const DesktopBetSlip = () => {
+  const { getLanguage } = useLanguage();
   const { closePopupForForever } = useSelector((state) => state.global);
   const { pathname } = useLocation();
   const [isCashOut, setIsCashOut] = useState(false);
@@ -223,9 +226,9 @@ const DesktopBetSlip = () => {
     }
   };
 
-  const selectedEvent = predictOdd?.find(
-    (odd) => odd?.id === placeBetValues?.selectionId,
-  );
+  // const selectedEvent = predictOdd?.find(
+  //   (odd) => odd?.id === placeBetValues?.selectionId,
+  // );
 
   return (
     <div className="card mb-1 place-bet">
@@ -353,7 +356,7 @@ const DesktopBetSlip = () => {
                         onClick={() => dispatch(setStake(100))}
                         className="clear-both btn btn-secondary m-l-5 m-b-5 min-stake"
                       >
-                        min
+                        {getLanguage(LanguageKey.MIN)}
                       </button>
                       <button
                         onClick={() =>
@@ -366,7 +369,7 @@ const DesktopBetSlip = () => {
                         }
                         className="btn btn-secondary m-l-5 m-b-5 max-stake"
                       >
-                        max
+                        {getLanguage(LanguageKey.MAX)}
                       </button>
                       {/* <button className="btn btn-secondary m-l-5 m-b-5 all-in-stake">
                           Edit Stake
@@ -377,7 +380,7 @@ const DesktopBetSlip = () => {
                         }}
                         className="btn btn-secondary m-l-5 m-b-5 clear-stake"
                       >
-                        clear
+                        {getLanguage(LanguageKey.CLEAR)}
                       </button>
                     </td>
                   </tr>
@@ -393,7 +396,7 @@ const DesktopBetSlip = () => {
                   className="btn btn-sm btn-danger"
                   id="close-popup"
                 >
-                  cancel
+                  {getLanguage(LanguageKey.CANCEL)}
                 </button>
                 <button
                   disabled={!stake}
@@ -401,7 +404,7 @@ const DesktopBetSlip = () => {
                   type="button"
                   className="btn btn-sm btn-success"
                 >
-                  place bet
+                  {getLanguage(LanguageKey.PLACE_BET)}
                 </button>
               </div>
             </form>

@@ -6,8 +6,11 @@ import useBalance from "../../hooks/balance";
 import { useState } from "react";
 import { useBonusMutation } from "../../hooks/bonus";
 import toast from "react-hot-toast";
+import useLanguage from "../../hooks/use-language";
+import { LanguageKey } from "../../const";
 
 const Promotions = () => {
+  const { getLanguage } = useLanguage();
   const { refetch } = useBalance();
   const [coupon, setCoupon] = useState(null);
   const { mutateAsync } = useBonusMutation();
@@ -85,12 +88,16 @@ const Promotions = () => {
         </div>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           {" "}
-          {!token && <div className="lossback-info">Login to view claims</div>}
+          {!token && (
+            <div className="lossback-info">
+              {getLanguage(LanguageKey.LOGIN_TO_VIEW_CLAIM)}
+            </div>
+          )}
           <button
             onClick={() => handleNavigate("/lossback-bonus")}
             className="view-all"
           >
-            VIEW ALL
+            {getLanguage(LanguageKey.VIEW_ALL)}
           </button>
         </div>
       </div>
@@ -101,10 +108,8 @@ const Promotions = () => {
             <img src={img.redeemCardGift} alt="" />
           </div>
           <div className="gift-text">
-            <h3>Coupon Code</h3>
-            <p>
-              Type or Paste your coupon code and get rewards in your wallet.
-            </p>
+            <h3>{getLanguage(LanguageKey.COUPON_CODE)}</h3>
+            <p>{getLanguage(LanguageKey.TYPE_OR_PASTE_COUPON_CODE)}.</p>
           </div>
         </div>
 
@@ -133,7 +138,7 @@ const Promotions = () => {
               <path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7" />
               <path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5" />
             </svg>{" "}
-            Redeem
+            {getLanguage(LanguageKey.REDEEM)}
           </button>
         </div>
       </div>

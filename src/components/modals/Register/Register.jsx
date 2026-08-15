@@ -13,9 +13,12 @@ import {
   setShowLogin,
   setShowRegister,
 } from "../../../redux/features/global/globalSlice";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 // import getOtpOnWhatsapp from "../../../utils/getOtpOnWhatsapp";
 
 const Register = () => {
+  const { getLanguage } = useLanguage();
   const affnook_token = localStorage.getItem("affnook_token");
   const registerRef = useRef();
   const dispatch = useDispatch();
@@ -172,7 +175,7 @@ const Register = () => {
                         htmlFor="exampleInputEmail1"
                         className="text-uppercase"
                       >
-                        Mobile No
+                        {getLanguage(LanguageKey.MOBILE_NUMBER)}
                       </label>
                       <input
                         onChange={(e) =>
@@ -189,7 +192,7 @@ const Register = () => {
                       className="btn btn-login"
                     >
                       {" "}
-                      Get OTP
+                      {getLanguage(LanguageKey.GET_OTP)}
                     </button>
                     {/* {Settings.otpWhatsapp && (
                       <button
@@ -207,7 +210,7 @@ const Register = () => {
                         htmlFor="exampleInputPassword1"
                         className="text-uppercase"
                       >
-                        Password
+                        {getLanguage(LanguageKey.PASSWORD)}
                       </label>
                       <input
                         onChange={(e) => {
@@ -226,7 +229,7 @@ const Register = () => {
                         htmlFor="exampleInputPassword1"
                         className="text-uppercase"
                       >
-                        Confirm Password
+                        {getLanguage(LanguageKey.CONFIRM_PASSWORD)}
                       </label>
                       <input
                         onChange={(e) => {
@@ -245,7 +248,7 @@ const Register = () => {
                         htmlFor="exampleInputPassword1"
                         className="text-uppercase"
                       >
-                        OTP
+                        {getLanguage(LanguageKey.OTP)}
                       </label>
                       <input
                         onChange={(e) => {
@@ -265,7 +268,7 @@ const Register = () => {
                         htmlFor="exampleInputPassword1"
                         className="text-uppercase"
                       >
-                        Referral Code
+                        {getLanguage(LanguageKey.REFERRAL_CODE)}
                       </label>
                       <input
                         onChange={(e) => {
@@ -288,11 +291,14 @@ const Register = () => {
                         cursor: "pointer",
                       }}
                     >
-                      <span>Already have an account ? Login </span>
+                      <span>
+                        {getLanguage(LanguageKey.ALREADY_HAVE_AN_ACCOUNT)}?{" "}
+                        {getLanguage(LanguageKey.LOGIN)}{" "}
+                      </span>
                     </div>
                     <button type="submit" className="btn btn-login">
                       {" "}
-                      Register
+                      {getLanguage(LanguageKey.REGISTER)}
                     </button>
                   </form>
                 </div>

@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { Status } from "../../../const";
+import { LanguageKey, Status } from "../../../const";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useExposure } from "../../../hooks/exposure";
@@ -13,8 +13,10 @@ import MobileBetSlip from "./BetSlip/MobileBetSlip";
 import { setShowLogin } from "../../../redux/features/global/globalSlice";
 import { isGameSuspended } from "../../../utils/isOddSuspended";
 import SpeedCashOut from "../../modals/SpeedCashOut/SpeedCashOut";
+import useLanguage from "../../../hooks/use-language";
 
 const MatchOdds = ({ data }) => {
+  const { getLanguage } = useLanguage();
   const navigate = useNavigate();
   const [speedCashOut, setSpeedCashOut] = useState(null);
   const { eventId } = useParams();
@@ -264,7 +266,7 @@ const MatchOdds = ({ data }) => {
                         }
                         className="btn_cashout"
                       >
-                        cashout{" "}
+                        {getLanguage(LanguageKey.CASHOUT)}{" "}
                         {teamProfitForGame?.profit &&
                           `(${teamProfitForGame.profit.toFixed(0)})`}
                       </button>
@@ -286,12 +288,13 @@ const MatchOdds = ({ data }) => {
                         disabled={isGameSuspended(games)}
                         className="btn_cashout"
                       >
-                        Speed Cashout
+                        {getLanguage(LanguageKey.SPEED_CASHOUT)}
                       </button>
                     )}
                 </span>
                 <span className="min-max">
-                  Min: 100 | Max: {games?.maxLiabilityPerBet}
+                  {getLanguage(LanguageKey.MIN)}: 100 |{" "}
+                  {getLanguage(LanguageKey.MAX)}: {games?.maxLiabilityPerBet}
                 </span>
               </p>
               <div id="Match_Odds" className="collapse show">

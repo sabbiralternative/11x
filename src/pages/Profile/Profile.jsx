@@ -5,8 +5,11 @@ import { useChangePasswordMutation } from "../../redux/features/auth/authApi";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { setShowLogin } from "../../redux/features/global/globalSlice";
+import useLanguage from "../../hooks/use-language";
+import { LanguageKey } from "../../const";
 
 const Profile = () => {
+  const { getLanguage } = useLanguage();
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
   const { data } = useBalance();
@@ -40,7 +43,7 @@ const Profile = () => {
             <div className="row">
               <div className="col-md-6">
                 <h2 className="userscreen-title text-center">
-                  <b>profile</b>
+                  <b>{getLanguage(LanguageKey.PROFILE)}</b>
                 </h2>
                 <ul>
                   <li>
@@ -57,7 +60,7 @@ const Profile = () => {
                           fill="#fff"
                         />
                       </svg>
-                      Username: <b>{user}</b>
+                      {getLanguage(LanguageKey.USERNAME)}: <b>{user}</b>
                     </p>
                   </li>
                   <li>
@@ -135,7 +138,8 @@ const Profile = () => {
                           }}
                         />
                       </svg>
-                      Exposure: <b>{data?.deductedExposure}/-</b>
+                      {getLanguage(LanguageKey.EXPOSURE)}:{" "}
+                      <b>{data?.deductedExposure}/-</b>
                     </p>
                   </li>
                   <li>
@@ -149,7 +153,7 @@ const Profile = () => {
                       >
                         <path d="M22,9V19a1,1,0,0,1-1,1H7a1,1,0,0,1-1-1V18H19.5a.5.5,0,0,0,.5-.5V8h1A1,1,0,0,1,22,9ZM2,15V5A1,1,0,0,1,3,4H17a1,1,0,0,1,1,1V15a1,1,0,0,1-1,1H3A1,1,0,0,1,2,15Zm11-5a1,1,0,0,0,1,1h1a1,1,0,0,0,0-2H14A1,1,0,0,0,13,10ZM8,10a2,2,0,1,0,2-2A2,2,0,0,0,8,10ZM4,10a1,1,0,0,0,1,1H6A1,1,0,0,0,6,9H5A1,1,0,0,0,4,10Z" />
                       </svg>
-                      Balance:
+                      {getLanguage(LanguageKey.BALANCE)}:
                       <b className="green">{data?.availBalance}/-</b>
                     </p>
                   </li>
@@ -157,14 +161,16 @@ const Profile = () => {
               </div>
               <div className="col-md-6">
                 <h2 className="userscreen-title text-center">
-                  <b>change password</b>
+                  <b>{getLanguage(LanguageKey.CHANGE_PASSWORD)}</b>
                 </h2>
                 <form
                   onSubmit={handleSubmit(onSubmit)}
                   className="changePass ng-untouched ng-pristine ng-invalid"
                 >
                   <div className="form-group">
-                    <label htmlFor="currentPassword">OLD PASSWORD</label>
+                    <label htmlFor="currentPassword">
+                      {getLanguage(LanguageKey.OLD_PASSWORD)}
+                    </label>
                     <input
                       {...register("oldPassword", { required: true })}
                       type="password"
@@ -174,7 +180,9 @@ const Profile = () => {
                     />
                   </div>
                   <div className="form-group">
-                    <label htmlFor="newPassword">NEW PASSWORD</label>
+                    <label htmlFor="newPassword">
+                      {getLanguage(LanguageKey.NEW_PASSWORD)}
+                    </label>
                     <input
                       {...register("password", {
                         required: true,
@@ -186,7 +194,9 @@ const Profile = () => {
                     />
                   </div>
                   <div className="form-group">
-                    <label htmlFor="renewPassword">RE-TYPE PASSWORD</label>
+                    <label htmlFor="renewPassword">
+                      {getLanguage(LanguageKey.CONFIRM_PASSWORD)}
+                    </label>
                     <input
                       {...register("passVerify", {
                         required: true,
@@ -212,7 +222,7 @@ const Profile = () => {
                     </p>
                   </div>
                   <button type="submit" className="btn cp-pass-btn">
-                    Update
+                    {getLanguage(LanguageKey.UPDATE)}
                   </button>
                 </form>
               </div>

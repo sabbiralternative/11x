@@ -14,8 +14,11 @@ import {
   setShowLogin,
   setShowRegister,
 } from "../../../redux/features/global/globalSlice";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const Login = () => {
+  const { getLanguage } = useLanguage();
   const { closePopupForForever } = useSelector((state) => state.global);
   const navigate = useNavigate();
   const loginRef = useRef();
@@ -147,7 +150,7 @@ const Login = () => {
                         htmlFor="exampleInputEmail1"
                         className="text-uppercase"
                       >
-                        Username
+                        {getLanguage(LanguageKey.USERNAME)}
                       </label>
                       <input
                         {...register("username", { required: true })}
@@ -161,7 +164,7 @@ const Login = () => {
                         htmlFor="exampleInputPassword1"
                         className="text-uppercase"
                       >
-                        Password
+                        {getLanguage(LanguageKey.PASSWORD)}
                       </label>
                       <input
                         {...register("password", { required: true })}
@@ -177,7 +180,7 @@ const Login = () => {
                           type="checkbox"
                           className="form-check-input"
                         />
-                        <span>Remember Me?</span>
+                        <span>{getLanguage(LanguageKey.REMEMBER_ME)}?</span>
                       </label>
                     </div>
                     <button
@@ -185,7 +188,7 @@ const Login = () => {
                       type="submit"
                       className="btn btn-login"
                     >
-                      Log In
+                      {getLanguage(LanguageKey.LOGIN)}
                     </button>
                     {Settings.demoLogin && (
                       <button
@@ -194,7 +197,7 @@ const Login = () => {
                         type="button"
                         className="btn btn-login"
                       >
-                        Demo
+                        {getLanguage(LanguageKey.DEMO_LOGIN)}
                       </button>
                     )}
 
@@ -207,14 +210,14 @@ const Login = () => {
                         cursor: "pointer",
                       }}
                     >
-                      <span>Forgot Password?</span>
+                      <span>{getLanguage(LanguageKey.FORGOT_PASSWORD)}?</span>
                     </div>
                     <button
                       style={{ marginTop: "10px" }}
                       onClick={showRegister}
                       className="btn btn-login"
                     >
-                      Register
+                      {getLanguage(LanguageKey.REGISTER)}
                     </button>
                   </form>
                 </div>

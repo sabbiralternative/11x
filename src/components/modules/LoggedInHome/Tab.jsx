@@ -2,17 +2,16 @@ import { useState } from "react";
 import { Settings } from "../../../api";
 import { useLocation, useNavigate } from "react-router-dom";
 import WarningCondition from "../../UI/WarningCondition/WarningCondition";
-import useLanguage from "../../../hooks/useLanguage";
-import { languageValue } from "../../../utils/language";
 import { LanguageKey } from "../../../const";
+import useLanguage from "../../../hooks/use-language";
 
 const Tab = () => {
-  const { valueByLanguage } = useLanguage();
+  const { getLanguage } = useLanguage();
 
   const homeTab = [
     {
       group: 0,
-      name: "Inplay",
+      name: getLanguage(LanguageKey.IN_PLAY),
       imageSrc: "/images/menu-in_play.png",
     },
 
@@ -23,17 +22,17 @@ const Tab = () => {
     // },
     {
       group: 4,
-      name: languageValue(valueByLanguage, LanguageKey.CRICKET),
+      name: getLanguage(LanguageKey.CRICKET),
       imageSrc: "/images/menu-4.png",
     },
     {
       group: 1,
-      name: languageValue(valueByLanguage, LanguageKey.FOOTBALL),
+      name: getLanguage(LanguageKey.FOOTBALL),
       imageSrc: "/images/menu-1.png",
     },
     {
       group: 2,
-      name: languageValue(valueByLanguage, LanguageKey.TENNIS),
+      name: getLanguage(LanguageKey.TENNIS),
       imageSrc: "/images/menu-2.png",
     },
     // {
@@ -42,24 +41,24 @@ const Tab = () => {
     //   to: "/int-casino",
     // },
     {
-      name: "Casino",
+      name: getLanguage(LanguageKey.CASINO),
       imageSrc: "/images/menu-99998.png",
       to: "/casino?product=All&category=All",
     },
     {
-      name: "Sports book",
+      name: getLanguage(LanguageKey.SPORTSBOOK),
       imageSrc: "/images/menu-99991.png",
       iframe: true,
       label: "sportsbook",
       id: "550000",
     },
     {
-      name: languageValue(valueByLanguage, LanguageKey.HORSE),
+      name: getLanguage(LanguageKey.HORSE),
       imageSrc: "/images/menu-7.png",
       to: "/horse-racing",
     },
     {
-      name: languageValue(valueByLanguage, LanguageKey.GREYHOUND),
+      name: getLanguage(LanguageKey.GREYHOUND),
       imageSrc: "/images/menu-4339.png",
       to: "/greyhound-racing",
     },
@@ -69,57 +68,57 @@ const Tab = () => {
     // },
     {
       group: 5,
-      name: languageValue(valueByLanguage, LanguageKey.KABADDI),
+      name: getLanguage(LanguageKey.KABADDI),
       imageSrc: "/images/menu-99994.png",
     },
 
     {
       group: 6,
-      name: "Politics",
+      name: getLanguage(LanguageKey.POLITICS),
       imageSrc: "/images/menu-2378961.png",
     },
     {
-      name: "Basketball",
+      name: getLanguage(LanguageKey.BASKETBALL),
       group: 7522,
       imageSrc: "/event/basketball.png",
     },
     {
-      name: "Baseball",
+      name: getLanguage(LanguageKey.BASEBALL),
       group: 7511,
       imageSrc: "/event/baseball.png",
     },
     {
-      name: "Table Tennis",
+      name: getLanguage(LanguageKey.TABLE_TENNIS),
       group: 20,
       imageSrc: "/event/tabletennis.png",
     },
     {
-      name: "Volleyball",
+      name: getLanguage(LanguageKey.VOLLYBALL),
       group: 998917,
       imageSrc: "/event/volleyball.png",
     },
     {
-      name: "Ice Hockey",
+      name: getLanguage(LanguageKey.ICE_HOCKY),
       group: 7524,
       imageSrc: "/event/icehockey.png",
     },
     {
-      name: "Rugby",
+      name: getLanguage(LanguageKey.RUGBY),
       group: 5,
       imageSrc: "/event/rugby.png",
     },
     {
-      name: "Mixed Martial Arts",
+      name: getLanguage(LanguageKey.MIXED_MARTIAL_ARTS),
       group: 26420387,
       imageSrc: "/event/mma.png",
     },
     {
-      name: "Darts",
+      name: getLanguage(LanguageKey.DARTS),
       group: 3503,
       imageSrc: "/event/darts.png",
     },
     {
-      name: "Futsal",
+      name: getLanguage(LanguageKey.FUTSAL),
       group: 29,
       imageSrc: "/event/futsal.png",
     },

@@ -7,8 +7,11 @@ import useLotusHomeLobby from "../../hooks/lotusHomeLobby";
 import { Settings } from "../../api";
 import { setShowLogin } from "../../redux/features/global/globalSlice";
 import WarningCondition from "../../components/UI/WarningCondition/WarningCondition";
+import useLanguage from "../../hooks/use-language";
+import { LanguageKey } from "../../const";
 
 const GameProviderDetails = () => {
+  const { getLanguage } = useLanguage();
   const { game_name } = useParams();
   const { lotusLobby, isSuccess } = useLotusHomeLobby({ provider: game_name });
   const [error, setError] = useState("");
@@ -77,7 +80,7 @@ const GameProviderDetails = () => {
                     <div className="gpd-breadcrumb">
                       <div className="gpd-breadcrumb-inner">
                         <div className="gpd-breadcrumb-text">
-                          <span>Casino</span>
+                          <span>{getLanguage(LanguageKey.CASINO)}</span>
                           <span>/{game_name}</span>
                         </div>
                       </div>
@@ -108,7 +111,9 @@ const GameProviderDetails = () => {
 
                   {/* Empty state */}
                   {lotusLobby?.length === 0 && isSuccess && (
-                    <div className="gpd-empty">No game found!</div>
+                    <div className="gpd-empty">
+                      {getLanguage(LanguageKey.NO_GAME_FOUND)}!
+                    </div>
                   )}
                 </div>
               </div>

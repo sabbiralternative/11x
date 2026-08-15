@@ -1,8 +1,11 @@
 import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const NewLaunch = ({ new_launch }) => {
+  const { getLanguage } = useLanguage();
   const navigate = useNavigate();
   const { token } = useSelector((state) => state.auth);
 
@@ -16,7 +19,9 @@ const NewLaunch = ({ new_launch }) => {
   return (
     <div className="row d-flex d-md-none new_launch_games">
       <div className="col-12 px-0">
-        <h2 className="newlaunchtitle">new launch</h2>
+        <h2 className="newlaunchtitle">
+          {getLanguage(LanguageKey.NEW_LAUNCH)}
+        </h2>
       </div>
       {new_launch?.map((item) => {
         return (

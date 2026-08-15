@@ -1,7 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { useCurrentBets } from "../../hooks/currentBets";
+import useLanguage from "../../hooks/use-language";
+import { LanguageKey } from "../../const";
 
 const UnSettledBets = () => {
+  const { getLanguage } = useLanguage();
   const navigate = useNavigate();
   const { data } = useCurrentBets();
   const navigateGameList = (item) => {
@@ -13,7 +16,9 @@ const UnSettledBets = () => {
       <div className="section accounts">
         <div className="row">
           <div className="col-xl-12">
-            <h2 className="userscreen-title">Unsettled Bets</h2>
+            <h2 className="userscreen-title">
+              {getLanguage(LanguageKey.UNSETTLED_BETS)}
+            </h2>
             <div className="table-responsive">
               <table
                 id="btDataTable"
@@ -22,15 +27,15 @@ const UnSettledBets = () => {
               >
                 <thead>
                   <tr>
-                    <th>No</th>
-                    <th>Event Name</th>
-                    <th>Nation</th>
-                    <th>Market Name</th>
-                    <th>Side</th>
-                    <th>Rate</th>
-                    <th>Amount</th>
-                    <th>Place Date</th>
-                    <th>Match Date</th>
+                    <th>{getLanguage(LanguageKey.NO)}</th>
+                    <th>{getLanguage(LanguageKey.EVENT_NAME)}</th>
+                    <th>{getLanguage(LanguageKey.NATION)}</th>
+                    <th>{getLanguage(LanguageKey.MARKET_NAME)}</th>
+                    <th>{getLanguage(LanguageKey.SIDE)}</th>
+                    <th>{getLanguage(LanguageKey.RATE)}</th>
+                    <th>{getLanguage(LanguageKey.AMOUNT)}</th>
+                    <th>{getLanguage(LanguageKey.PLACE_DATE)}</th>
+                    <th>{getLanguage(LanguageKey.MATCH_DATE)}</th>
                   </tr>
                 </thead>
                 <tbody>

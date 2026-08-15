@@ -2,8 +2,11 @@ import { useEffect, useState } from "react";
 import DepositReport from "./DepositReport";
 import WithdrawReport from "./WithdrawReport";
 import { Settings } from "../../api";
+import useLanguage from "../../hooks/use-language";
+import { LanguageKey } from "../../const";
 
 const DepositWithdrawReport = () => {
+  const { getLanguage } = useLanguage();
   const [tab, setTab] = useState("deposit");
   const [depositWithdraw, setDepositWithdraw] = useState("deposit");
 
@@ -59,7 +62,7 @@ const DepositWithdrawReport = () => {
                     : ""
                 }`}
               >
-                Deposit
+                {getLanguage(LanguageKey.DEPOSIT)}
               </span>
             </button>
             <button
@@ -73,7 +76,7 @@ const DepositWithdrawReport = () => {
                     : ""
                 }`}
               >
-                Withdraw
+                {getLanguage(LanguageKey.WITHDRAW)}
               </span>
             </button>
           </div>
