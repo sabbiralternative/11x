@@ -82,7 +82,7 @@ const Register = () => {
       return toast.error("Enter four digit OTP no");
     } else {
       const registerData = {
-        username: data?.username,
+        username: userData?.username,
         password: userData?.password,
         confirmPassword: userData?.confirmPassword,
         mobile: userData?.mobileNo,
