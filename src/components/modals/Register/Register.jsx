@@ -1,10 +1,10 @@
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { API } from "../../../api";
+import { API, Settings } from "../../../api";
 import { setUser } from "../../../redux/features/auth/authSlice";
 import toast from "react-hot-toast";
-import { useRef, useState } from "react";
+import { Fragment, useRef, useState } from "react";
 import useCloseModalClickOutside from "../../../hooks/closeModal";
 import useWhatsApp from "../../../hooks/whatsapp";
 import { AxiosSecure } from "../../../lib/AxiosSecure";
@@ -15,9 +15,13 @@ import {
 } from "../../../redux/features/global/globalSlice";
 import useLanguage from "../../../hooks/use-language";
 import { LanguageKey } from "../../../const";
+import { FaMobileAlt, FaRegUser } from "react-icons/fa";
 // import getOtpOnWhatsapp from "../../../utils/getOtpOnWhatsapp";
 
 const Register = () => {
+  const [tab, setTab] = useState(
+    Settings.registration_mobile ? "mobile" : "username",
+  );
   const { getLanguage } = useLanguage();
   const affnook_token = localStorage.getItem("affnook_token");
   const registerRef = useRef();
@@ -78,6 +82,7 @@ const Register = () => {
       return toast.error("Enter four digit OTP no");
     } else {
       const registerData = {
+        username: data?.username,
         password: userData?.password,
         confirmPassword: userData?.confirmPassword,
         mobile: userData?.mobileNo,
@@ -86,6 +91,8 @@ const Register = () => {
         orderId: order.orderId,
         otpMethod: order.otpMethod,
         affnook_token: affnook_token || null,
+        registration_mobile: Settings.registration_mobile,
+        registration_username: Settings.registration_username,
       };
 
       const { data } = await AxiosSecure.post(API.register, registerData);
@@ -168,32 +175,134 @@ const Register = () => {
                   <form
                     onSubmit={handleSubmit(onSubmit)}
                     noValidate
-                    className="login-form ng-dirty ng-touched ng-valid"
+                    className="login-form ng-dirty ng-touched ng-valid "
                   >
-                    <div className="form-group">
-                      <label
-                        htmlFor="exampleInputEmail1"
-                        className="text-uppercase"
-                      >
-                        {getLanguage(LanguageKey.MOBILE_NUMBER)}
-                      </label>
-                      <input
-                        onChange={(e) =>
-                          setUserData({ ...userData, mobileNo: e.target.value })
-                        }
-                        type="text"
-                        placeholder="Enter Mobile No."
-                        className="form-control ng-dirty ng-valid ng-touched"
-                      />
-                    </div>
-                    <button
-                      onClick={getOtp}
-                      type="button"
-                      className="btn btn-login"
-                    >
-                      {" "}
-                      {getLanguage(LanguageKey.GET_OTP)}
-                    </button>
+                    {Settings.registration_mobile &&
+                      Settings.registration_username && (
+                        <div
+                          style={{
+                            width: "100%",
+                            background:
+                              "color-mix(in srgb, var(--primary-color) 30%, transparent)",
+                            marginBottom: "12px",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "row",
+                              alignItems: "center",
+                              justifyContent: "flex-start",
+                              position: "relative",
+                              width: "100%",
+                            }}
+                          >
+                            <div
+                              onClick={() => setTab("mobile")}
+                              style={{
+                                cursor: "pointer",
+                                display: "flex",
+                                flexDirection: "row",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                padding: "5px",
+                                width: "100%",
+                                gap: "6px",
+                                color: "white",
+                                background:
+                                  tab === "mobile"
+                                    ? "var(--primary-color)"
+                                    : undefined,
+                              }}
+                            >
+                              <FaMobileAlt />
+
+                              <span>{getLanguage(LanguageKey.BY_PHONE)}</span>
+                            </div>
+
+                            <div
+                              onClick={() => setTab("username")}
+                              style={{
+                                cursor: "pointer",
+                                display: "flex",
+                                flexDirection: "row",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                padding: "5px",
+                                width: "100%",
+                                gap: "6px",
+                                color: "white",
+                                background:
+                                  tab === "username"
+                                    ? "var(--primary-color)"
+                                    : undefined,
+                              }}
+                            >
+                              <FaRegUser />
+
+                              <span>
+                                {getLanguage(LanguageKey.BY_USERNAME)}
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+
+                    {tab === "mobile" && Settings.registration_mobile && (
+                      <Fragment>
+                        <div className="form-group">
+                          <label
+                            htmlFor="exampleInputEmail1"
+                            className="text-uppercase"
+                          >
+                            {getLanguage(LanguageKey.MOBILE_NUMBER)}
+                          </label>
+                          <input
+                            onChange={(e) =>
+                              setUserData({
+                                ...userData,
+                                mobileNo: e.target.value,
+                              })
+                            }
+                            type="text"
+                            placeholder="Enter Mobile No."
+                            className="form-control ng-dirty ng-valid ng-touched"
+                          />
+                        </div>
+                        <button
+                          onClick={getOtp}
+                          type="button"
+                          className="btn btn-login"
+                        >
+                          {" "}
+                          {getLanguage(LanguageKey.GET_OTP)}
+                        </button>
+                      </Fragment>
+                    )}
+
+                    {tab === "username" && Settings.registration_username && (
+                      <div className="form-group">
+                        <label
+                          htmlFor="exampleInputPassword1"
+                          className="text-uppercase"
+                        >
+                          {getLanguage(LanguageKey.USERNAME)}
+                        </label>
+                        <input
+                          onChange={(e) => {
+                            setUserData({
+                              ...userData,
+                              username: e.target.value,
+                            });
+                          }}
+                          type="text"
+                          placeholder="Enter Username"
+                          className="form-control ng-dirty ng-valid ng-touched"
+                          maxLength={6}
+                        />
+                      </div>
+                    )}
+
                     {/* {Settings.otpWhatsapp && (
                       <button
                         onClick={handleGetOtpOnWhatsapp}
@@ -243,26 +352,29 @@ const Register = () => {
                         className="form-control ng-dirty ng-valid ng-touched"
                       />
                     </div>
-                    <div className="form-group">
-                      <label
-                        htmlFor="exampleInputPassword1"
-                        className="text-uppercase"
-                      >
-                        {getLanguage(LanguageKey.OTP)}
-                      </label>
-                      <input
-                        onChange={(e) => {
-                          setUserData({
-                            ...userData,
-                            otp: e.target.value,
-                          });
-                        }}
-                        type="text"
-                        placeholder="Enter OTP"
-                        className="form-control ng-dirty ng-valid ng-touched"
-                        maxLength={6}
-                      />
-                    </div>
+                    {tab === "mobile" && Settings.registration_mobile && (
+                      <div className="form-group">
+                        <label
+                          htmlFor="exampleInputPassword1"
+                          className="text-uppercase"
+                        >
+                          {getLanguage(LanguageKey.OTP)}
+                        </label>
+                        <input
+                          onChange={(e) => {
+                            setUserData({
+                              ...userData,
+                              otp: e.target.value,
+                            });
+                          }}
+                          type="text"
+                          placeholder="Enter OTP"
+                          className="form-control ng-dirty ng-valid ng-touched"
+                          maxLength={6}
+                        />
+                      </div>
+                    )}
+
                     <div className="form-group">
                       <label
                         htmlFor="exampleInputPassword1"

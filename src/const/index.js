@@ -370,5 +370,7 @@ export const LanguageKey = {
   PLEASE_ENTER_THE_AMOUNT_TO_WITHDRAW: "PLEASE_ENTER_THE_AMOUNT_TO_WITHDRAW",
   BACK_TO_SELECT_ACCOUNT: "BACK_TO_SELECT_ACCOUNT",
   WITHDRAWL_AMOUNT: "WITHDRAWL_AMOUNT",
+  BY_USERNAME: "BY_USERNAME",
+  BY_PHONE: "BY_PHONE",
 };
 export const settingsAPI = "https://api7.live/api/exchange/diamond/settings";

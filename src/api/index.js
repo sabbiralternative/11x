@@ -59,6 +59,8 @@ export const API = {
 };
 
 export const Settings = {
+  registration_mobile: "",
+  registration_username: "",
   apk_banner: "",
   bet_delay: "",
   apk_link: "",
