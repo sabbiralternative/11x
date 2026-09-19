@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import Banner from "../components/modals/Banner/Banner";
 import Tab from "../components/modules/LoggedInHome/Tab";
+import { Settings } from "../api";
 
 const MainLayout = () => {
   const { banner, headerHeight } = useSelector((state) => state.global);
@@ -29,6 +30,17 @@ const MainLayout = () => {
         isMobile && isOpenSidebar ? "toggle-sidebar" : ""
       }`}
     >
+      {Settings.metaDescription && (
+        <meta name="description" content={Settings.metaDescription} />
+      )}
+      {Settings.metaKeywords && (
+        <meta name="keywords" content={Settings.metaKeywords} />
+      )}
+      {Settings.gscTag && (
+        <meta name="google-site-verification" content={Settings.gscTag} />
+      )}
+      {Settings.metaTitle && <title>{Settings.metaTitle}</title>}
+      <meta name="robots" content="index, follow" />
       {banner && <Banner />}
       <Header setIsOpenSidebar={setIsOpenSidebar} />
       <Sidebar setIsOpenSidebar={setIsOpenSidebar} />

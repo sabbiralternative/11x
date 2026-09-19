@@ -59,6 +59,10 @@ export const API = {
 };
 
 export const Settings = {
+  gscTag: "",
+  metaTitle: "",
+  metaKeywords: "",
+  metaDescription: "",
   registration_mobile: "",
   registration_username: "",
   apk_banner: "",
