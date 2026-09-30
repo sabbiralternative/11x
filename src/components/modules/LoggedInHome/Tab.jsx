@@ -53,6 +53,13 @@ const Tab = () => {
       id: "550000",
     },
     {
+      name: getLanguage(LanguageKey.FANTASY_11),
+      imageSrc: "/images/menu-99991.png",
+      iframe: true,
+      label: "fantasy-11",
+      id: "595001",
+    },
+    {
       name: getLanguage(LanguageKey.HORSE),
       imageSrc: "/images/menu-7.png",
       to: "/horse-racing",

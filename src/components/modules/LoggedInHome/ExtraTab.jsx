@@ -11,12 +11,12 @@ const ExtraTab = () => {
   const [gameInfo, setGameInfo] = useState({ gameName: "", gameId: "" });
   const navigate = useNavigate();
 
-  const handleNavigateToIFrame = () => {
+  const handleNavigateToIFrame = (name, id) => {
     if (Settings.casino_currency !== "AED") {
-      navigate(`/casino/sportsbook/550000`);
+      navigate(`/casino/${name}/${id}`);
     } else {
       setGameInfo({ gameName: "", gameId: "" });
-      setGameInfo({ gameName: "sportsbook", gameId: "550000" });
+      setGameInfo({ gameName: name, gameId: id });
       setShowWarning(true);
     }
   };
@@ -37,8 +37,19 @@ const ExtraTab = () => {
           </Link>
         </div>
         <div className="col-md-4 px-0">
-          <a onClick={handleNavigateToIFrame} className="button_orange">
+          <a
+            onClick={() => handleNavigateToIFrame("sportsbook", 550000)}
+            className="button_orange"
+          >
             {getLanguage(LanguageKey.SPORTSBOOK)}
+          </a>
+        </div>
+        <div className="col-md-4 px-0">
+          <a
+            onClick={() => handleNavigateToIFrame("fantasy-11", 595001)}
+            className="button_orange"
+          >
+            {getLanguage(LanguageKey.FANTASY_11)}
           </a>
         </div>
       </div>
