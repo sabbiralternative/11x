@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { API, Settings } from "../../../api";
 import toast from "react-hot-toast";
 import { AxiosSecure } from "../../../lib/AxiosSecure";
@@ -238,14 +238,15 @@ const AddBank = ({ refetchBankData }) => {
                 <input type="text" placeholder="Enter IFSC" name="" />
               </div>
               {mobile && Settings.otp && (
-                <div style={{ position: "relative" }} className="input-box ">
-                  <input
-                    readOnly
-                    type="text"
-                    placeholder="Phone Number"
-                    value={mobile}
-                  />
-                  {timer ? (
+                <Fragment>
+                  <div style={{ position: "relative" }} className="input-box ">
+                    <input
+                      readOnly
+                      type="text"
+                      placeholder="Phone Number"
+                      value={mobile}
+                    />
+                    {/* {timer ? (
                     <div
                       style={{
                         backgroundColor: "var(--primary-color)",
@@ -298,8 +299,64 @@ const AddBank = ({ refetchBankData }) => {
                         {getLanguage(LanguageKey.GET_OTP_ON_MESSAGE)}
                       </button>
                     </div>
-                  )}
-                </div>
+                  )} */}
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "10px",
+                      marginBottom: "10px",
+                      width: "100%",
+                    }}
+                  >
+                    {Settings.otp_method?.includes("sms") && !timer && (
+                      <button
+                        style={{
+                          fontSize: "12px",
+                          color: "white",
+                          width: "100%",
+                        }}
+                        onClick={getOtp}
+                        type="button"
+                        className="add-btn "
+                      >
+                        {" "}
+                        {getLanguage(LanguageKey.GET_OTP_ON_MESSAGE)}
+                      </button>
+                    )}
+                    {Settings.otp_method?.includes("whatsapp") && !timer && (
+                      <button
+                        onClick={getOtpOnWhatsapp}
+                        type="button"
+                        className="add-btn "
+                        style={{
+                          fontSize: "12px",
+                          color: "white",
+                          width: "100%",
+                        }}
+                      >
+                        {" "}
+                        {getLanguage(LanguageKey.GET_OTP_ON_WHATSAPP)}
+                      </button>
+                    )}
+                    {timer && (
+                      <button
+                        onClick={getOtpOnWhatsapp}
+                        type="button"
+                        className="add-btn "
+                        style={{
+                          fontSize: "12px",
+                          color: "white",
+                          width: "100%",
+                        }}
+                      >
+                        {" "}
+                        {getLanguage(LanguageKey.RETRY_IN)} {timer}s
+                      </button>
+                    )}
+                  </div>
+                </Fragment>
               )}
               {mobile && Settings.otp && (
                 <div

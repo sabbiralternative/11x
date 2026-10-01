@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { Settings } from "../../../api";
+import { API, Settings } from "../../../api";
 import toast from "react-hot-toast";
 import { useRef, useState } from "react";
 import useCloseModalClickOutside from "../../../hooks/closeModal";
@@ -16,6 +16,7 @@ import {
 } from "../../../redux/features/auth/authApi";
 import useLanguage from "../../../hooks/use-language";
 import { LanguageKey } from "../../../const";
+import { AxiosSecure } from "../../../lib/AxiosSecure";
 
 const ForgotPassword = () => {
   const { getLanguage } = useLanguage();
@@ -57,6 +58,21 @@ const ForgotPassword = () => {
     }
   };
 
+  const getOtpOnWhatsapp = async () => {
+    const otpData = {
+      mobile: mobile,
+      type: "otpsend",
+    };
+
+    const res = await AxiosSecure.post(API.otpless, otpData);
+    const data = res.data;
+
+    if (data?.success) {
+      toast.success(data?.result?.message);
+    } else {
+      toast.error(data?.error?.errorMessage);
+    }
+  };
   const onSubmit = async (data) => {
     const forgotPasswordData = {
       username: mobile,
@@ -112,21 +128,67 @@ const ForgotPassword = () => {
                       >
                         {getLanguage(LanguageKey.MOBILE_NUMBER)}
                       </label>
-                      <input
-                        onChange={(e) => handleMobileInputChange(e)}
-                        type="text"
-                        placeholder="Enter Mobile No."
-                        className="form-control ng-dirty ng-valid ng-touched"
-                      />
+                      <div style={{ display: "flex", alignItems: "center" }}>
+                        <select
+                          style={{
+                            borderTopLeftRadius: "5px",
+                            borderBottomLeftRadius: "5px",
+                            padding: "10px 2px",
+                            color: "white",
+                          }}
+                          id="dropdown-phone-button"
+                          className="rounded-l-lg border py-1.5 bg-auth px-3"
+                        >
+                          {Settings.country_code?.map((item) => {
+                            return (
+                              <option key={item} value={item}>
+                                {item}
+                              </option>
+                            );
+                          })}
+                        </select>
+                        <input
+                          style={{
+                            borderTopLeftRadius: "0px",
+                            borderBottomLeftRadius: "0px",
+                          }}
+                          onChange={(e) => handleMobileInputChange(e)}
+                          type="text"
+                          placeholder="Enter Mobile No."
+                          className="form-control ng-dirty ng-valid ng-touched"
+                        />
+                      </div>
                     </div>
-                    <button
-                      onClick={handleOTP}
-                      type="button"
-                      className="btn btn-login"
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "10px",
+                      }}
                     >
-                      {" "}
-                      {getLanguage(LanguageKey.GET_OTP)}
-                    </button>
+                      {Settings.otp_method?.includes("sms") && (
+                        <button
+                          style={{ fontSize: "12px" }}
+                          onClick={handleOTP}
+                          type="button"
+                          className="btn btn-login"
+                        >
+                          {" "}
+                          {getLanguage(LanguageKey.GET_OTP_ON_MESSAGE)}
+                        </button>
+                      )}
+                      {Settings.otp_method?.includes("whatsapp") && (
+                        <button
+                          onClick={getOtpOnWhatsapp}
+                          type="button"
+                          className="btn btn-login"
+                          style={{ fontSize: "12px" }}
+                        >
+                          {" "}
+                          {getLanguage(LanguageKey.GET_OTP_ON_WHATSAPP)}
+                        </button>
+                      )}
+                    </div>
                     <div className="form-group">
                       <label
                         htmlFor="exampleInputPassword1"

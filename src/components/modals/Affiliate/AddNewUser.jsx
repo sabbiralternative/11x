@@ -116,21 +116,21 @@ const AddNewUser = ({ setShowAddNewUserModal }) => {
     }
   }, [timer]);
 
-  // const getOtpOnWhatsapp = async () => {
-  //   const otpData = {
-  //     mobile: mobile,
-  //     type: "otpsend",
-  //   };
+  const getOtpOnWhatsapp = async () => {
+    const otpData = {
+      mobile: mobile,
+      type: "otpsend",
+    };
 
-  //   const res = await AxiosSecure.post(API.otpless, otpData);
-  //   const data = res.data;
+    const res = await AxiosSecure.post(API.otpless, otpData);
+    const data = res.data;
 
-  //   if (data?.success) {
-  //     toast.success(data?.result?.message);
-  //   } else {
-  //     toast.error(data?.error?.errorMessage);
-  //   }
-  // };
+    if (data?.success) {
+      toast.success(data?.result?.message);
+    } else {
+      toast.error(data?.error?.errorMessage);
+    }
+  };
 
   return (
     <div className="a23_css">
@@ -161,75 +161,101 @@ const AddNewUser = ({ setShowAddNewUserModal }) => {
           <div className="card-body">
             <div className="bank-popup">
               <form onSubmit={handleAddBank}>
-                <div style={{ position: "relative" }} className="input-box ">
-                  <input
-                    onChange={(e) => {
-                      if (e.target.value.length <= 10) {
-                        setMobile(e.target.value);
-                      }
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <select
+                    style={{
+                      padding: "10px 2px",
+
+                      borderRadius: "5px 0px 0px 5px",
+                      width: "100px",
+                      color: "black",
                     }}
-                    type="number"
-                    placeholder="Phone Number"
-                    value={mobile}
-                  />
-                  {timer ? (
-                    <div
+                    id="dropdown-phone-button"
+                    className="input-box"
+                  >
+                    {Settings.country_code?.map((item) => {
+                      return (
+                        <option key={item} value={item}>
+                          {item}
+                        </option>
+                      );
+                    })}
+                  </select>
+                  <div
+                    style={{
+                      position: "relative",
+                      borderTopLeftRadius: "0px",
+                      borderBottomLeftRadius: "0px",
+                    }}
+                    className="input-box "
+                  >
+                    <input
+                      onChange={(e) => {
+                        if (e.target.value.length <= 10) {
+                          setMobile(e.target.value);
+                        }
+                      }}
+                      type="number"
+                      placeholder="Phone Number"
+                      value={mobile}
+                    />
+                  </div>
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "10px",
+                    marginBottom: "10px",
+                    width: "100%",
+                  }}
+                >
+                  {Settings.otp_method?.includes("sms") && !timer && (
+                    <button
                       style={{
-                        backgroundColor: "var(--primary-color)",
-                        borderRadius: "4px",
-                        padding: "6px 0px",
-                        width: "80px",
+                        fontSize: "12px",
                         color: "white",
-                        fontSize: "11px",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
+                        width: "100%",
                       }}
+                      onClick={getOtp}
+                      type="button"
+                      className="add-btn "
                     >
-                      {getLanguage(LanguageKey.RETRY_IN)} {timer}
-                    </div>
-                  ) : (
-                    <div
+                      {" "}
+                      {getLanguage(LanguageKey.GET_OTP_ON_MESSAGE)}
+                    </button>
+                  )}
+                  {Settings.otp_method?.includes("whatsapp") && !timer && (
+                    <button
+                      onClick={getOtpOnWhatsapp}
+                      type="button"
+                      className="add-btn "
                       style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "3px",
+                        fontSize: "12px",
+                        color: "white",
+                        width: "100%",
                       }}
                     >
-                      {/* {Settings.otpWhatsapp && (
-                        <button
-                          onClick={getOtpOnWhatsapp}
-                          style={{
-                            backgroundColor: "var(--primary-color)",
-                            borderRadius: "4px",
-                            padding: "6px 0px",
-                            width: "110px",
-                            color: "white",
-                            fontSize: "11px",
-                          }}
-                          type="button"
-                        >
-                          Get OTP Whatsapp
-                        </button>
-                      )} */}
-                      <button
-                        onClick={getOtp}
-                        style={{
-                          backgroundColor: "var(--primary-color)",
-                          borderRadius: "4px",
-                          padding: "6px 0px",
-                          width: "110px",
-                          color: "white",
-                          fontSize: "11px",
-                        }}
-                        type="button"
-                      >
-                        {getLanguage(LanguageKey.GET_OTP_ON_MESSAGE)}
-                      </button>
-                    </div>
+                      {" "}
+                      {getLanguage(LanguageKey.GET_OTP_ON_WHATSAPP)}
+                    </button>
+                  )}
+                  {timer && (
+                    <button
+                      onClick={getOtpOnWhatsapp}
+                      type="button"
+                      className="add-btn "
+                      style={{
+                        fontSize: "12px",
+                        color: "white",
+                        width: "100%",
+                      }}
+                    >
+                      {" "}
+                      {getLanguage(LanguageKey.RETRY_IN)} {timer}s
+                    </button>
                   )}
                 </div>
-
                 <div
                   onChange={(e) => {
                     setUserDetails({
